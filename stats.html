@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats - Salvium</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link rel="shortcut icon" href="./favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#0B272C">
+    <meta name="msapplication-config" content="./favicon/browserconfig.xml">
+    <meta name="theme-color" content="#0B272C">
+    
+    <!-- Fonts and Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/common-fonts.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/cards.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --color-text-light: #e0e0e0;
+            --color-text-lighter: #b0b0b0;
+            --color-border: rgba(0, 191, 165, 0.15);
+            --color-border-light: rgba(0, 191, 165, 0.05);
+            --font-primary: 'Josefin Sans', sans-serif;
+            --font-heading: 'Josefin Sans', sans-serif;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            padding-top: 72px;
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgb(30 30 30 / 19%), rgb(30 30 30 / 61%));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+            height: 72px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Global title styles */
+        h1, h2, h3, .title-font {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        
+        /* Coming Soon section styles */
+        .coming-soon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .coming-soon-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .coming-soon-text {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--color-text-light);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Header will be injected here -->
+    <div id="header"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative">
+            <!-- Hero Image -->
+            <div class="absolute inset-0">
+                <picture>
+                    <source srcset="./images/newimages/Stats.webp" type="image/webp">
+                    <img src="./images/newimages/Stats.png" alt="Statistics Header" class="w-full h-full object-cover opacity-30">
+                </picture>
+                <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-75"></div>
+            </div>
+            <div class="relative z-10 py-24 lg:py-32">
+                <div class="container mx-auto px-4 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-center">
+                            Network <span class="gradient-text">Statistics</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8 text-center">
+                            Track Salvium's network performance, supply metrics, and market activity in real-time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coming Soon Section -->
+        <section class="container mx-auto px-4">
+            <div class="coming-soon-container" data-aos="fade-up">
+                <h2 class="coming-soon-title">
+                    <span class="gradient-text pulse-animation">Coming Soon</span>
+                </h2>
+                <p class="coming-soon-text">
+                    We're working on building comprehensive network statistics and analytics for Salvium. 
+                    This page will soon provide real-time data on network performance, supply metrics, and market activity.
+                </p>
+                <div class="mt-8">
+                    <i class="fas fa-chart-line text-6xl text-[#00bfa5] opacity-50"></i>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
+        <!-- Background Decoration -->
+        <div class="absolute inset-0">
+            <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                Ready to Take the <span class="gradient-text">Pill</span>?
+            </h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Start your journey with Salvium today and be part of the next generation of Private DeFi.
+            </p>
+            <a href="download.html" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block" data-aos="fade-up" data-aos-delay="200">
+                Get Started Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="js/header.js"></script>
+    <script src="js/footer.js?v=2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

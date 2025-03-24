@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Salvium Protocol</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#40E0D0">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1e1e1e">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#1e1e1e">
+    
+    <!-- Fonts and Styles -->
+    <link rel="stylesheet" href="css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/cards.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            /* Primary Colors */
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+
+            /* Background Colors */
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-bg-header: rgba(30, 30, 30, 0.95);
+
+            /* Text Colors */
+            --color-text: #e0e0e0;
+            --color-text-light: rgba(224, 224, 224, 0.7);
+            --color-text-lighter: rgba(224, 224, 224, 0.5);
+
+            /* Accent Colors */
+            --color-accent: #4db6ac;
+            --color-accent-light: #80cbc4;
+
+            /* Border Colors */
+            --color-border: rgba(0, 191, 165, 0.15);
+            --color-border-light: rgba(0, 191, 165, 0.05);
+
+            /* Border Radius */
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+
+            /* Font */
+            --font-primary: 'Josefin Sans', sans-serif;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            padding-top: 30px;
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgb(30 30 30 / 19%), rgb(30 30 30 / 61%));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-scrolled {
+            background: linear-gradient(to bottom, rgb(30 30 30 / 40%), rgb(30 30 30 / 80%));
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to bottom, rgb(30 30 30 / 90%), rgb(30 30 30 / 95%));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        /* About page styles */
+        .about-section {
+            padding: 6rem 0;
+            background-color: var(--color-bg-dark);
+            color: #e0e0e0;
+        }
+
+        .about-nav {
+            padding: 2rem;
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            position: sticky;
+            top: 100px;
+        }
+
+        .about-nav .nav-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .about-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .about-nav li {
+            margin-bottom: 1rem;
+        }
+
+        .about-nav li:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .about-nav a:hover {
+            color: var(--color-primary);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .about-content ul li {
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-content ul li::before {
+            content: "•";
+            color: #40E0D0;
+            font-size: 1.2em;
+            position: absolute;
+            left: -1.5rem;
+            top: -2px;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-section h3 {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin: 2rem 0 1rem;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #e0e0e0;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: var(--color-border);
+            margin: 4rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .about-nav {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#1e1e1e]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Header will be injected here -->
+    <div id="header" class="nav-fixed"></div>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="relative">
+            <!-- Hero Image -->
+            <div class="absolute inset-0">
+                <img src="./images/newimages/Page Headers/FAQ Header-1024.webp" alt="FAQ Header" class="w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-75"></div>
+            </div>
+            <div class="relative z-10 py-24 lg:py-32">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-center">
+                            Frequently Asked <span class="gradient-text">Questions</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8 text-center mx-auto max-w-2xl">
+                            Find answers to common questions about Salvium's technology, features, and ecosystem
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="about-section">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Navigation Sidebar -->
+                    <div class="md:col-span-1">
+                        <nav class="about-nav">
+                            <div class="nav-title">Quick Navigation</div>
+                            <ul>
+                                <li><a href="#general">General Information</a></li>
+                                <li><a href="#tokenomics">Tokenomics & Mining</a></li>
+                                <li><a href="#privacy">Privacy & Security</a></li>
+                                <li><a href="#technology">Technology & Features</a></li>
+                                <li><a href="#usage">Usage & Participation</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Main Content -->
+                    <div class="md:col-span-3">
+                        <div class="about-content">
+                            <!-- General Information -->
+                            <section id="general">
+                                <h2>General Information</h2>
+                                <div class="space-y-6">
+                                    <div>
+                                        <h3>What is Salvium?</h3>
+                                        <p>For a comprehensive overview of Salvium, please visit our About page.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>How does Salvium differ from other privacy coins like Monero?</h3>
+                                        <p>While Salvium builds on Monero's privacy features, it distinguishes itself through its focus on DeFi capabilities and regulatory compliance. Salvium introduces staking, yield generation, and features designed to meet emerging crypto regulations while maintaining strong privacy protections.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>Who is behind the Salvium project?</h3>
+                                        <p>Salvium is developed by a team of experienced, anonymous experts in Monero, decentralized finance (DeFi), and applied cryptography. While the team members remain anonymous to maintain the project's decentralized nature, they bring a wealth of experience from pioneering work in implementing advanced cryptographic techniques for transaction privacy and security. The project began as a research initiative in early 2023 and has since evolved into a full-fledged blockchain platform.</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <div class="section-divider"></div>
+
+                            <!-- Tokenomics and Mining -->
+                            <section id="tokenomics">
+                                <h2>Tokenomics & Mining</h2>
+                                <div class="space-y-6">
+                                    <div>
+                                        <h3>What is the total supply of Salvium (SAL) tokens?</h3>
+                                        <p>The initial supply of Salvium is 184.4 million SAL, with a tail emission of 3 SAL per block after the initial supply is mined.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>What is the block time for Salvium?</h3>
+                                        <p>The block time for Salvium is 120 seconds (2 minutes).</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>How can I mine Salvium?</h3>
+                                        <p>Salvium uses the RandomX mining algorithm. Detailed mining instructions are available in our official documentation.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>Was there a pre-mine for Salvium, and if so, what was its purpose?</h3>
+                                        <p>Yes, Salvium had a 12.01% pre-mine. This pre-mine serves two main purposes:</p>
+                                        <ul>
+                                            <li>Build (3.5%): Allocated as incentives for early developers and contributors to support the project's launch.</li>
+                                            <li>Operations (8.48%): Set aside for ongoing development, enhancements, and new feature implementation. These tokens are time-locked and released over 24 monthly installments.</li>
+                                        </ul>
+                                        <p>The pre-mine is crucial for funding the project's development and ensuring its long-term sustainability.</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <div class="section-divider"></div>
+
+                            <!-- Privacy and Security -->
+                            <section id="privacy">
+                                <h2>Privacy & Security</h2>
+                                <div class="space-y-6">
+                                    <div>
+                                        <h3>How does Salvium ensure privacy in transactions?</h3>
+                                        <p>Salvium uses a combination of Ring Signatures, Ring Confidential Transactions (RingCT), and Stealth Addresses to protect the privacy of senders, receivers, and transaction amounts.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>How does Salvium address regulatory compliance?</h3>
+                                        <p>Salvium is actively working towards regulatory compliance. We're implementing features like Exchange Mode, refundable transactions, and view keys to meet emerging regulatory requirements while maintaining core privacy features.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>What is the purpose of the "Exchange Mode" in Salvium?</h3>
+                                        <p>Exchange Mode is designed to help exchanges comply with MiCA regulations. It includes features like freezing incoming payments and the ability to return exact received funds, enabling exchanges to operate with Salvium while meeting regulatory requirements.</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <div class="section-divider"></div>
+
+                            <!-- Technology and Features -->
+                            <section id="technology">
+                                <h2>Technology & Features</h2>
+                                <div class="space-y-6">
+                                    <div>
+                                        <h3>How does staking work in Salvium?</h3>
+                                        <p>Staking in Salvium allows users to lock their SAL tokens to earn rewards. Stakers receive 20% of the block reward, distributed proportionally among all active stakers based on their staked amount.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>What is the "protocol_tx" feature in Salvium?</h3>
+                                        <p>Protocol_tx is a block-level transaction used for minting new coins (except block rewards) and facilitating advanced features like stake payouts and yield distribution.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>What are Asynchronous Transactions in Salvium?</h3>
+                                        <p>Asynchronous Transactions allow for minting of coins in separate blocks from burn transactions, enabling more complex operations like yield payouts for staking.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>How does Salvium plan to implement smart contracts?</h3>
+                                        <p>Smart contract functionality is planned for Phase 3 of Salvium's development. We aim to leverage our protocol_tx innovation and provide middleware for Solidity to enable complex DeFi applications.</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <div class="section-divider"></div>
+
+                            <!-- Usage and Participation -->
+                            <section id="usage">
+                                <h2>Usage & Participation</h2>
+                                <div class="space-y-6">
+                                    <div>
+                                        <h3>Is Salvium compatible with hardware wallets?</h3>
+                                        <p>Currently, Salvium is not compatible with hardware wallets. However, there's no technical reason preventing compatibility in the future, and we're exploring this option as part of our ongoing development.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>How can I get involved with the Salvium project?</h3>
+                                        <p>There are several ways to get involved with Salvium:</p>
+                                        <ul>
+                                            <li>Join our community on Discord and participate in discussions</li>
+                                            <li>Contribute to our open-source codebase on GitHub</li>
+                                            <li>Help with testing new features and providing feedback</li>
+                                            <li>Create educational content about Salvium</li>
+                                            <li>Spread the word about Salvium in your networks</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 relative overflow-hidden bg-[#0B272C] mt-4">
+            <!-- Background Decoration -->
+            <div class="absolute inset-0">
+                <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                    Ready to Take the <span class="gradient-text">Pill</span>?
+                </h2>
+                <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Start your journey with Salvium today and be part of the next generation of Private DeFi.
+                </p>
+                <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+                    Get Started Now
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/faq.js"></script>
+    <script src="js/footer.js?v=2"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    </script>
+</body>
+</html>

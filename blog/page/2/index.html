@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Salvium Protocol</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/salvium/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/salvium/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/salvium/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/salvium/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/salvium/favicon/safari-pinned-tab.svg" color="#00bfa5">
+    <link rel="shortcut icon" href="/salvium/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1e1e1e">
+    <meta name="msapplication-config" content="/salvium/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#1e1e1e">
+    
+    <!-- Fonts and Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/salvium/css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/salvium/css/design-system.css">
+    <link rel="stylesheet" href="/salvium/css/cards.css">
+    <link rel="stylesheet" href="/salvium/css/blog-post.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(45deg, #00bfa5, #40E0D0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e]">
+    <!-- Header will be injected here -->
+    <div id="header"></div>
+
+    <!-- Content -->
+    <head>
+    <link rel="preconnect" href="https://siko-ctrl.github.io">
+    <link rel="dns-prefetch" href="https://siko-ctrl.github.io">
+    
+    <!-- Preload first 4 post images -->
+    
+        
+            <link rel="preload" as="image" href="/salvium/images/blog/Blog%20Protocol%20TX-1024.webp">
+        
+    
+        
+            <link rel="preload" as="image" href="/salvium/images/blog/protocol-audit.webp">
+        
+    
+        
+            <link rel="preload" as="image" href="/salvium/images/blog/Blog%20Aug%20Tres-1024.webp">
+        
+    
+</head>
+
+<link rel="stylesheet" href="/salvium/blog/assets/css/blog.css">
+
+<main class="relative z-10 pt-16">
+    <!-- Hero Section -->
+    <section class="relative">
+        <!-- Hero Image -->
+        <div class="absolute inset-0">
+            <picture>
+                <source srcset="/salvium/images/newimages/Page%20Headers/Blog%20Header.webp" type="image/webp">
+                <img 
+                    src="/salvium/images/newimages/Page%20Headers/Blog%20Header.jpg" 
+                    alt="Blog Header" 
+                    class="w-full h-full object-cover opacity-30"
+                    width="1920"
+                    height="1080"
+                    loading="eager"
+                    fetchpriority="high">
+            </picture>
+            <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-75"></div>
+        </div>
+        <div class="relative z-10 py-28 lg:py-36">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-center">
+                        Salvium <span class="gradient-text">Blog</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 text-center mx-auto max-w-2xl">
+                        Stay updated with the latest news, developments, and insights from the Salvium team.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid Section -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="blog-grid">
+            
+            <div class="blog-grid-item">
+                <article class="ecosystem-card">
+                    
+                    <div class="blog-post-image-container">
+                        <a href="/salvium/blog/2024/12/18/protocol-tx-innovation/" class="block hover:opacity-90 transition-opacity">
+                            
+                            <img 
+                                src="/salvium/images/blog/Blog%20Protocol%20TX-1024.webp"
+                                alt="Protocol_tx - The Innovation Powering Salvium's Blockchain Future" 
+                                class="blog-post-image"
+                                fetchpriority="high"
+                                loading="eager"
+                                decoding="async">
+                            
+                        </a>
+                    </div>
+                    
+                    <div class="card-content">
+                        
+                        <div class="mb-4">
+                            <span class="card-tag">
+                                Technology
+                            </span>
+                        </div>
+                        
+                        <a href="/salvium/blog/2024/12/18/protocol-tx-innovation/" class="block hover:text-[#00bfa5] transition-colors">
+                            <h2 class="card-title">Protocol_tx - The Innovation Powering Salvium's Blockchain Future</h2>
+                        </a>
+                        <p class="card-description">Introducing Protocol_tx, the groundbreaking technology that powers Salvium's innovative approach to blockchain privacy and security.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <time datetime="2024-12-18T04:00:00+00:00" class="text-sm text-[#b0b0b0]">
+                                December 18, 2024
+                            </time>
+                            <a href="/salvium/blog/2024/12/18/protocol-tx-innovation/" class="card-link">
+                                Read More 
+                                <i class="fas fa-chevron-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="blog-grid-item">
+                <article class="ecosystem-card">
+                    
+                    <div class="blog-post-image-container">
+                        <a href="/salvium/blog/2024/12/18/protocol-audit/" class="block hover:opacity-90 transition-opacity">
+                            
+                            <img 
+                                src="/salvium/images/blog/protocol-audit.webp"
+                                alt="Salvium Protocol Audit - A Milestone in Innovation and Security" 
+                                class="blog-post-image"
+                                fetchpriority="high"
+                                loading="eager"
+                                decoding="async">
+                            
+                        </a>
+                    </div>
+                    
+                    <div class="card-content">
+                        
+                        <div class="mb-4">
+                            <span class="card-tag">
+                                Security
+                            </span>
+                        </div>
+                        
+                        <a href="/salvium/blog/2024/12/18/protocol-audit/" class="block hover:text-[#00bfa5] transition-colors">
+                            <h2 class="card-title">Salvium Protocol Audit - A Milestone in Innovation and Security</h2>
+                        </a>
+                        <p class="card-description">Announcing the successful completion of our protocol audit, marking a significant milestone in Salvium's commitment to security and innovation.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <time datetime="2024-12-18T03:00:00+00:00" class="text-sm text-[#b0b0b0]">
+                                December 18, 2024
+                            </time>
+                            <a href="/salvium/blog/2024/12/18/protocol-audit/" class="card-link">
+                                Read More 
+                                <i class="fas fa-chevron-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="blog-grid-item">
+                <article class="ecosystem-card">
+                    
+                    <div class="blog-post-image-container">
+                        <a href="/salvium/blog/2024/12/18/treasury-update/" class="block hover:opacity-90 transition-opacity">
+                            
+                            <img 
+                                src="/salvium/images/blog/Blog%20Aug%20Tres-1024.webp"
+                                alt="Salvium Treasury Update - August 2024 funds locked for 2-years" 
+                                class="blog-post-image"
+                                fetchpriority="high"
+                                loading="eager"
+                                decoding="async">
+                            
+                        </a>
+                    </div>
+                    
+                    <div class="card-content">
+                        
+                        <div class="mb-4">
+                            <span class="card-tag">
+                                Treasury
+                            </span>
+                        </div>
+                        
+                        <a href="/salvium/blog/2024/12/18/treasury-update/" class="block hover:text-[#00bfa5] transition-colors">
+                            <h2 class="card-title">Salvium Treasury Update - August 2024 funds locked for 2-years</h2>
+                        </a>
+                        <p class="card-description">Important update on the Salvium Treasury: August 2024 funds have been locked for a 2-year period, demonstrating our long-term commitment.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <time datetime="2024-12-18T02:00:00+00:00" class="text-sm text-[#b0b0b0]">
+                                December 18, 2024
+                            </time>
+                            <a href="/salvium/blog/2024/12/18/treasury-update/" class="card-link">
+                                Read More 
+                                <i class="fas fa-chevron-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+        </div>
+
+        <!-- Pagination -->
+        
+        <div class="pagination-container">
+            <div class="pagination">
+                
+                <a href="/salvium/blog/" class="pagination-link">
+                    <i class="fas fa-chevron-left mr-2"></i> Previous
+                </a>
+                
+
+                
+                    
+                        
+                        <a href="/salvium/blog/" class="pagination-number">1</a>
+                        
+                    
+                
+                    
+                    <span class="pagination-number active">2</span>
+                    
+                
+                
+                
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
+        <!-- Background Decoration -->
+        <div class="absolute inset-0">
+            <img src="/salvium/images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                Ready to Take the <span class="gradient-text">Pill</span>?
+            </h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Start your journey with Salvium today and be part of the next generation of Private DeFi.
+            </p>
+            <a href="/salvium/download.html" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block" data-aos="fade-up" data-aos-delay="200">
+                Get Started Now
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer class="border-t border-[#40E0D0]/10 mt-8">
+    <div class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="text-center">
+                <img src="/salvium/images/salvium_coin_square_white_512x512px_transparent.webp" 
+                     alt="Salvium Logo" 
+                     class="h-20 w-auto mx-auto mb-6">
+                <p class="text-white max-w-md mx-auto mb-6">Private blockchain with DeFi</p>
+                <!-- Social Icons -->
+                <div class="flex justify-center space-x-6">
+                    <a href="https://x.com/salvium_io" class="hover:opacity-80 transition-opacity">
+                        <i class="fa-brands fa-x-twitter text-2xl" style="color: #40E0D0 !important;"></i>
+                    </a>
+                    <a href="https://t.me/salviumprotocol" class="hover:opacity-80 transition-opacity">
+                        <i class="fa-brands fa-telegram text-2xl" style="color: #40E0D0 !important;"></i>
+                    </a>
+                    <a href="https://discord.gg/salvium" class="hover:opacity-80 transition-opacity">
+                        <i class="fa-brands fa-discord text-2xl" style="color: #40E0D0 !important;"></i>
+                    </a>
+                    <a href="https://github.com/salvium" class="hover:opacity-80 transition-opacity">
+                        <i class="fa-brands fa-github text-2xl" style="color: #40E0D0 !important;"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-josefin font-semibold mb-4 text-[#40E0D0]">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="/salvium/about.html" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">About Us</a></li>
+                    <li><a href="/salvium/blog" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">Blog</a></li>
+                    <li><a href="/salvium/faq.html" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">FAQ</a></li>
+                    <li><a href="/salvium/exchanges.html" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">Exchanges</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-josefin font-semibold mb-4 text-[#40E0D0]">Resources</h4>
+                <ul class="space-y-2">
+                    <li><a href="/salvium/download.html" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">Wallets</a></li>
+                    <li><a href="https://explorer.salvium.io/" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">Explorer</a></li>
+                    <li><a href="/salvium/stats.html" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">Stats</a></li>
+                    <li><a href="/salvium/tools.html" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">3rd Party Tools</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center text-white text-sm">
+            <p class="font-arial">&copy; 2025 Salvium Protocol. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script defer>
+    // Optimized image loading
+    document.addEventListener('DOMContentLoaded', () => {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        
+        function loadImage(img) {
+            img.classList.add('loaded');
+        }
+        
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        loadImage(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            images.forEach(img => imageObserver.observe(img));
+        } else {
+            images.forEach(loadImage);
+        }
+    });
+</script>
+
+
+    <!-- Scripts -->
+    <script>
+        window.jekyllPaths = {
+            root: '/salvium',
+            images: '/salvium/images',
+            css: '/salvium/css',
+            js: '/salvium/js'
+        };
+    </script>
+    <script src="/salvium/js/header.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

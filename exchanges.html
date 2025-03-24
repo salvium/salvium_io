@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchanges - Salvium</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#0B272C">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#0B272C">
+    
+    <!-- Fonts and Styles -->
+    <link rel="stylesheet" href="css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/cards.css">
+
+    <style>
+        :root {
+            /* Primary Colors */
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+
+            /* Background Colors */
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-bg-header: #1e1e1e;
+
+            /* Text Colors */
+            --color-text: #e0e0e0;
+            --color-text-light: #b0b0b0;
+            --color-text-lighter: #909090;
+
+            /* Border Colors */
+            --color-border: rgba(0, 191, 165, 0.1);
+            --color-border-light: rgba(0, 191, 165, 0.05);
+
+            /* Font */
+            --font-primary: 'Josefin Sans', sans-serif;
+            --font-heading: 'Josefin Sans', sans-serif;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .exchange-card {
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md, 4px);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .exchange-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 191, 165, 0.1);
+            border-color: rgba(0, 191, 165, 0.3);
+        }
+
+        .exchange-card .card-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .exchange-card .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-tag {
+            background: rgba(0, 191, 165, 0.1);
+            color: var(--color-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2px;
+            font-size: 0.875rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            color: var(--color-text);
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .trading-pair-container {
+            background: rgba(0, 191, 165, 0.05);
+            border: 1px solid rgba(0, 191, 165, 0.1);
+            border-radius: var(--radius-md, 4px);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .trading-pair-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .trading-pair-row:not(:last-child) {
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .trading-pair-label {
+            color: var(--color-text-light);
+            font-size: 0.875rem;
+        }
+
+        .trading-pair-value {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .card-link {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-link:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .exchange-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .exchange-grid {
+                gap: 1rem;
+            }
+        }
+
+        /* Global title styles */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primary);
+            letter-spacing: -0.025em;
+        }
+        
+        .exchange-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Additional spacing for exchange page */
+        .exchange-content {
+            margin-top: 4rem;
+            padding-top: 2rem;
+        }
+
+        /* Remove hero-section styles since we're using about.html structure */
+        .exchange-content {
+            padding: 4rem 0;
+        }
+
+        /* CTA Section Styles */
+        .py-16.relative.overflow-hidden.bg-[#0B272C].mt-8.mb-0 {
+            background-color: var(--color-bg-dark);
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        @media (min-width: 1024px) {
+            .py-16.relative.overflow-hidden.bg-[#0B272C].mt-8.mb-0 {
+                min-height: 600px;
+            }
+        }
+
+        .py-16.relative.overflow-hidden.bg-[#0B272C].mt-8.mb-0 .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .py-16.relative.overflow-hidden.bg-[#0B272C].mt-8.mb-0 .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 4rem 0;
+        }
+
+        .py-16.relative.overflow-hidden.bg-[#0B272C].mt-8.mb-0 .hero-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body class="bg-[#1e1e1e]">
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+    <div id="header"></div>
+    
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="relative">
+            <!-- Hero Image -->
+            <div class="absolute inset-0">
+                <picture>
+                    <source srcset="./images/newimages/Page Headers/Exchange Header-1024.webp" type="image/webp">
+                    <img src="./images/newimages/Page Headers/Exchange Header-1024.webp" alt="Exchanges Header" class="w-full h-full object-cover opacity-30">
+                </picture>
+                <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-75"></div>
+            </div>
+            <div class="relative z-10 py-24 lg:py-32">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-center">
+                            Available <span class="gradient-text">Exchanges</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8 text-center mx-auto max-w-2xl">
+                            Trade Salvium tokens on these trusted platforms
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-4 exchange-content mt-4">
+            <div class="exchange-grid">
+                <!-- Seven Seas -->
+                <div class="exchange-card" data-aos="fade-up">
+                    <img src="./images/newimages/Exchange Page/Cards/Seven Seas Card-1024.webp" alt="Seven Seas" class="w-full h-auto opacity-100">
+                    <div class="p-4">
+                        <span class="card-tag">Exchange</span>
+                        <h2 class="card-title">Seven Seas</h2>
+                        <div class="trading-pair-container">
+                            <div class="trading-pair-row">
+                                <span class="trading-pair-label">Trading Pair</span>
+                                <span class="trading-pair-value">SAL/USDT</span>
+                            </div>
+                        </div>
+                        <a href="https://www.sevenseas.exchange" target="_blank" class="card-link">
+                            Trade Now
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TradeOgre -->
+                <div class="exchange-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="./images/newimages/Exchange Page/Cards/TradeOgre Card.png.webp" alt="TradeOgre" class="w-full h-auto opacity-100">
+                    <div class="p-4">
+                        <span class="card-tag">Exchange</span>
+                        <h2 class="card-title">TradeOgre</h2>
+                        <div class="trading-pair-container">
+                            <div class="trading-pair-row">
+                                <span class="trading-pair-label">Trading Pair 1</span>
+                                <span class="trading-pair-value">SAL/USDT</span>
+                            </div>
+                            <div class="trading-pair-row">
+                                <span class="trading-pair-label">Trading Pair 2</span>
+                                <span class="trading-pair-value">SAL/BTC</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://tradeogre.com/exchange/SAL-USDT" target="_blank" class="card-link">
+                                Trade SAL/USDT
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                            <a href="https://tradeogre.com/exchange/SAL-BTC" target="_blank" class="card-link">
+                                Trade SAL/BTC
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- XeggeX -->
+                <div class="exchange-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="./images/newimages/Exchange Page/Cards/xeggex card-1024.webp" alt="XeggeX" class="w-full h-auto opacity-100">
+                    <div class="p-4">
+                        <span class="card-tag">Exchange</span>
+                        <h2 class="card-title">XeggeX</h2>
+                        <div class="trading-pair-container">
+                            <div class="trading-pair-row">
+                                <span class="trading-pair-label">Trading Pair</span>
+                                <span class="trading-pair-value">SAL/USDT</span>
+                            </div>
+                        </div>
+                        <a href="https://xeggex.com/market/SAL_USDT" target="_blank" class="card-link">
+                            Trade Now
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- nonkyc -->
+                <div class="exchange-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="./images/newimages/Exchange Page/Cards/No KYC Card-1024.webp" alt="No KYC" class="w-full h-auto opacity-100">
+                    <div class="p-4">
+                        <span class="card-tag">Exchange</span>
+                        <h2 class="card-title">nonkyc</h2>
+                        <div class="trading-pair-container">
+                            <div class="trading-pair-row">
+                                <span class="trading-pair-label">Trading Pair</span>
+                                <span class="trading-pair-value">SAL/USDT</span>
+                            </div>
+                        </div>
+                        <a href="https://nonkyc.io/market/SAL_USDT" target="_blank" class="card-link">
+                            Trade Now
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CoinEx -->
+                <div class="exchange-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="./images/newimages/Exchange Page/Cards/CoinEx Card-1024.webp" alt="CoinEx" class="w-full h-auto opacity-100">
+                    <div class="p-4">
+                        <span class="card-tag">Exchange</span>
+                        <h2 class="card-title">CoinEx</h2>
+                        <div class="trading-pair-container">
+                            <div class="trading-pair-row">
+                                <span class="trading-pair-label">Trading Pair</span>
+                                <span class="trading-pair-value">SAL/USDT</span>
+                            </div>
+                        </div>
+                        <a href="https://www.coinex.com/exchange/sal-usdt" target="_blank" class="card-link">
+                            Trade Now
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8 mb-0">
+        <!-- Background Decoration -->
+        <div class="absolute inset-0">
+            <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                Ready to Take the <span class="gradient-text">Pill</span>?
+            </h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Start your journey with Salvium today and be part of the next generation of Private DeFi.
+            </p>
+            <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+                Get Started Now
+            </button>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js?v=2"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

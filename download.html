@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download - Salvium</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#00bfa5">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1e1e1e">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#1e1e1e">
+    
+    <!-- Fonts and Styles -->
+    <link rel="stylesheet" href="css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/cards.css">
+    
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            padding-top: 30px;
+        }
+
+        /* Global title styles */
+        h1, h2, h3, .title-font {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        
+        .download-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Grid Layout */
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Card Styles */
+        .download-card {
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+            border: 1px solid rgba(0, 191, 165, 0.1);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 191, 165, 0.1);
+            border-color: rgba(0, 191, 165, 0.3);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .card-content {
+            padding: 1.25rem;
+        }
+
+        .download-title {
+            margin: 0.5rem 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .sha-text {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            color: rgba(224, 224, 224, 0.8);
+            margin: 0.75rem 0;
+            word-break: break-all;
+            line-height: 1.4;
+        }
+
+        .card-link {
+            margin-top: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .downloads-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .downloads-grid {
+                gap: 1rem;
+            }
+        }
+
+        .compatibility {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-link:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .card-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .card-link:hover i {
+            transform: translateY(2px);
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .sha-container {
+            margin-top: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            padding: 0.75rem;
+        }
+
+        .sha-label {
+            color: #888;
+            font-size: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .sha-hash {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #b0b0b0;
+            word-break: break-all;
+            line-height: 1.4;
+        }
+
+        .download-tag {
+            background: rgba(0, 191, 165, 0.1);
+            color: var(--color-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Header container -->
+    <div id="header"></div>
+
+    <div class="main-wrapper">
+        <main class="relative z-10">
+            <!-- Hero Section -->
+            <section class="relative bg-[#1e1e1e] overflow-hidden">
+                <div class="absolute inset-0">
+                    <img src="./images/newimages/Page Headers/Download Header-1024.webp" alt="Download Header" class="w-full h-full object-cover opacity-30">
+                    <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+                </div>
+                <div class="relative z-10 py-24 lg:py-32">
+                    <div class="container mx-auto px-4">
+                        <div class="max-w-4xl mx-auto text-center">
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                                Salvium <span class="gradient-text">Downloads</span>
+                            </h1>
+                            <p class="text-xl text-gray-300 mb-8">
+                                Get started with Salvium wallets and tools
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container mx-auto px-4 -mt-8">
+ <!-- Desktop Wallet Section Title -->
+                <h2 class="text-3xl font-bold text-center mb-4 mt-16" data-aos="fade-up">
+                    Desktop Wallets
+                </h2>
+                <p class="text-gray-400 text-center mb-8" data-aos="fade-up" data-aos-delay="100">
+                    Download the Salvium Desktop Wallet for your operating system
+                </p>
+
+                
+                <!-- Desktop Wallet Cards -->
+                <div class="downloads-grid">
+                    <!-- Windows Desktop -->
+                    <div class="download-card" data-aos="fade-up">
+                        <img src="images/downloads/Micorsoft_Windows_logo.jpg" alt="Windows" class="card-image">
+                        <div class="card-content">
+                            <span class="download-tag">Desktop</span>
+                            <h3 class="download-title">Windows</h3>
+                            <div class="sha-text">
+                                SHA256: 54c7b3f1be21a310cdbc161b7a7dbe4b5f6a28dd3d9f208cd428da47ce7f952f
+                            </div>
+                            <a href="https://github.com/salvium/salvium-gui/releases/download/v0.7.2/salvium-gui-v0.7.2a-win64.zip" class="card-link">
+                                Download
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Linux Desktop -->
+                    <div class="download-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images/downloads/Linux_logo.jpg" alt="Linux" class="card-image">
+                        <div class="card-content">
+                            <span class="download-tag">Desktop</span>
+                            <h3 class="download-title">Linux</h3>
+                            <div class="sha-text">
+                                SHA256: d05d1d15bbbc69c6a73f32ebf4b742f9dc4cad4283cc4d1d6c5295438855d43f
+                            </div>
+                            <a href="https://github.com/salvium/salvium-gui/releases/download/v0.7.2/salvium-gui-v0.7.2-linux-x86_64.zip" class="card-link">
+                                Download
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CLI Section -->
+                <h2 class="text-4xl font-bold text-center mb-4 mt-24" data-aos="fade-up">
+                    Command Line Interface
+                </h2>
+                <p class="text-center text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="100">
+                    Download the Salvium CLI for your operating system
+                </p>
+                
+                <div class="downloads-grid">
+                    <!-- Windows x64 CLI -->
+                    <div class="download-card" data-aos="fade-up">
+                        <img src="images/downloads/Micorsoft_Windows_logo.jpg" alt="Windows CLI" class="card-image">
+                        <div class="card-content">
+                            <span class="download-tag">CLI</span>
+                            <h3 class="download-title">Windows (x64)</h3>
+                            <div class="sha-text">
+                                SHA256: f24b728ae17fbe5021edd72c8c984a90a42e2cc17e49fc3ad780be3438706669
+                            </div>
+                            <a href="https://github.com/salvium/salvium/releases/download/v0.7.2/salvium-v0.7.2-win64.zip" class="card-link">
+                                Download
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Windows ARM64 CLI -->
+                    <div class="download-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images/downloads/Micorsoft_Windows_logo.jpg" alt="Windows ARM CLI" class="card-image">
+                        <div class="card-content">
+                            <span class="download-tag">CLI</span>
+                            <h3 class="download-title">Windows (ARM64)</h3>
+                            <div class="sha-text">
+                                SHA256: 2d417fe4d1ad2f45668d448a9f2f8d8d8a9f2f8d8a9f2f8d8a9f2f8d8a9f2f8d
+                            </div>
+                            <a href="https://github.com/salvium/salvium/releases/download/v0.7.2/salvium-v0.7.2-win-arm64.zip" class="card-link">
+                                Download
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- macOS CLI -->
+                    <div class="download-card" data-aos="fade-up">
+                        <img src="images/downloads/Apple_computers_logo.jpg" alt="macOS CLI" class="card-image">
+                        <div class="card-content">
+                            <span class="download-tag">CLI</span>
+                            <h3 class="download-title">macOS (ARM64)</h3>
+                            <div class="sha-text">
+                                SHA256: 3879083156ca41408a00afabafcc30bfa15670c287c0cea7925c963f3043d32c
+                            </div>
+                            <a href="https://github.com/salvium/salvium/releases/download/v0.7.2/salvium-v0.7.2-macos-arm64.zip" class="card-link">
+                                Download
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- macOS x86 CLI -->
+                    <div class="download-card" data-aos="fade-up">
+                        <img src="images/downloads/Apple_computers_logo.jpg" alt="macOS x86 CLI" class="card-image">
+                        <div class="card-content">
+                            <span class="download-tag">CLI</span>
+                            <h3 class="download-title">macOS (x86)</h3>
+                            <div class="sha-text">
+                                SHA256: 509fcc0d11496911b46f7985704834ec8abd270ed251af3950beb69709f1a7ff
+                            </div>
+                            <a href="https://github.com/salvium/salvium/releases/download/v0.7.2/salvium-v0.7.2-macos-x86_64.zip" class="card-link">
+                                Download
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Linux CLI -->
+                    <div class="download-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images/downloads/Linux_logo.jpg" alt="Linux CLI" class="card-image">
+                        <div class="card-content">
+                            <span class="download-tag">CLI</span>
+                            <h3 class="download-title">Linux</h3>
+                            <div class="sha-text">
+                                SHA256: a0a8df74cc7ba9db2c00d5e62e87a4653dc74094daae0947390256ac43b4db8b
+                            </div>
+                            <a href="https://github.com/salvium/salvium/releases/download/v0.7.2/salvium-v0.7.2-linux-x86_64.zip" class="card-link">
+                                Download
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- CTA Section -->
+        <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-4">
+            <!-- Background Decoration -->
+            <div class="absolute inset-0">
+                <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                    Ready to Take the <span class="gradient-text">Pill</span>?
+                </h2>
+                <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Start your journey with Salvium today and be part of the next generation of Private DeFi.
+                </p>
+                <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+                    Get Started Now
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer container -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js?v=2"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "Salvium Protocol",
+  "short_name": "Salvium",
+  "description": "Official website of the Salvium blockchain project",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#1e1e1e",
+  "theme_color": "#00bfa5",
+  "icons": [
+    {
+      "src": "./images/salvium_coin_square_white_512x512px_transparent.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

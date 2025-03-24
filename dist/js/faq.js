@@ -1,0 +1,1 @@
+(()=>{document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".faq-question, .faq-question-text").forEach(o=>{o.addEventListener("click",function(c){c.stopPropagation();let t=this.closest(".faq-card");document.querySelectorAll(".faq-card").forEach(e=>{e!==t&&e.classList.remove("active")}),t.classList.toggle("active")})})});})();

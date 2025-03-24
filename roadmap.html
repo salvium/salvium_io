@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Roadmap - Salvium Protocol</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+        <link rel="manifest" href="favicon/site.webmanifest">
+        <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#00bfa5">
+        <link rel="shortcut icon" href="favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#1e1e1e">
+        <meta name="msapplication-config" content="favicon/browserconfig.xml">
+        <meta name="theme-color" content="#1e1e1e">
+        
+        <!-- Fonts and Styles -->
+        <link rel="stylesheet" href="css/typography.css">
+        <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/design-system.css">
+        <link rel="stylesheet" href="css/cards.css">
+        
+        <style>
+            :root {
+                --color-primary: #00bfa5;
+                --color-primary-dark: #009688;
+                --color-bg-dark: #1e1e1e;
+                --color-bg-darker: rgba(30, 30, 30, 0.95);
+                --color-text: #e0e0e0;
+                --font-primary: 'Josefin Sans', sans-serif;
+                --radius-sm: 2px;
+                --radius-md: 4px;
+                --radius-lg: 4px;
+            }
+
+            body {
+                font-family: var(--font-primary);
+                background-color: var(--color-bg-dark);
+                color: var(--color-text);
+                padding-top: 72px;
+                min-height: 100vh;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            .nav-fixed {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 50;
+                background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+                transition: all 0.3s ease;
+                height: 72px;
+                display: flex;
+                align-items: center;
+            }
+
+            .nav-fixed.scrolled {
+                background: rgba(30, 30, 30, 0.98);
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            .roadmap-container {
+                position: relative;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 1rem;
+            }
+
+            .roadmap-section {
+                margin-bottom: 2rem;
+                padding: 1.5rem;
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(0, 191, 165, 0.1);
+                border-radius: var(--radius-lg);
+                transition: all 0.3s ease;
+            }
+
+            .roadmap-section h2 {
+                color: var(--color-primary);
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                font-weight: 600;
+            }
+
+            .roadmap-section p {
+                color: var(--color-text);
+                line-height: 1.6;
+                margin-bottom: 1rem;
+                font-size: 1rem;
+                max-width: 100%;
+            }
+
+            /* Medium screens (tablets and small laptops) */
+            @media (min-width: 768px) {
+                .roadmap-container {
+                    padding: 2rem;
+                }
+
+                .roadmap-section {
+                    padding: 2rem;
+                    margin-bottom: 3rem;
+                }
+
+                .roadmap-section h2 {
+                    font-size: 1.75rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                .roadmap-section p {
+                    font-size: 1.1rem;
+                    line-height: 1.7;
+                    margin-bottom: 1.25rem;
+                }
+            }
+
+            /* Large screens */
+            @media (min-width: 1024px) {
+                .roadmap-container {
+                    padding: 3rem;
+                }
+
+                .roadmap-section {
+                    padding: 2.5rem;
+                    margin-bottom: 4rem;
+                    max-width: 90%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .roadmap-section p {
+                    max-width: 80%;
+                }
+            }
+
+            /* Extra large screens */
+            @media (min-width: 1440px) {
+                .roadmap-container {
+                    max-width: 1400px;
+                }
+
+                .roadmap-section {
+                    padding: 3rem;
+                    max-width: 80%;
+                }
+
+                .roadmap-section p {
+                    max-width: 70%;
+                }
+            }
+
+            /* Small screens (mobile) */
+            @media (max-width: 767px) {
+                .roadmap-container {
+                    padding: 0.5rem;
+                }
+
+                .roadmap-section {
+                    padding: 1rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                .roadmap-section h2 {
+                    font-size: 1.25rem;
+                    margin-bottom: 0.75rem;
+                }
+
+                .roadmap-section p {
+                    font-size: 0.95rem;
+                    line-height: 1.5;
+                    margin-bottom: 0.75rem;
+                }
+            }
+
+            .roadmap-section:hover {
+                background: rgba(255, 255, 255, 0.03);
+            }
+
+            /* Global title styles */
+            h1, h2, h3, .title-font {
+                font-family: 'Josefin Sans', sans-serif;
+            }
+            
+            .section-title {
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: 700;
+            }
+        </style>
+	</head>
+
+	<body class="bg-[#1e1e1e]">
+        <!-- Particles Container -->
+        <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+        <!-- Header will be injected here -->
+        <div id="header"></div>
+
+        <main class="relative z-10">
+            <!-- Hero Section -->
+            <section class="relative bg-[#1e1e1e] overflow-hidden">
+                <div class="absolute inset-0">
+                    <picture>
+                        <source srcset="images/newimages/Roadmap.webp" type="image/webp">
+                        <img src="images/newimages/Roadmap.png" alt="Roadmap Header" class="w-full h-full object-cover opacity-30">
+                    </picture>
+                    <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+                </div>
+                <div class="relative z-10 py-24 lg:py-32">
+                    <div class="container mx-auto px-4">
+                        <div class="max-w-4xl mx-auto text-center">
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                                Salvium <span class="gradient-text">Roadmap</span>
+                            </h1>
+                            <p class="text-xl text-gray-300 mb-8">
+                                Our journey to revolutionize decentralized finance
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Roadmap Content -->
+            <div class="container mx-auto px-4 py-12">
+                <div class="roadmap-container">
+                    <div class="roadmap-section aos-init aos-animate" data-aos="fade-up">
+                        <h2>Phase 1: Launch Salvium</h2>
+                        <p><strong>Staking and Yield Generation</strong><br>
+                        Since launch, users have been able to stake their SAL tokens to earn a share of the block rewards, fostering a secure and engaged network.</p>
+                        <p><strong>Compliance</strong><br>
+                        Salvium introduced refundable transactions, allowing recipients to return unauthorized or incorrect funds to the sender (minus a standard transaction fee) without requiring a separate address request. This feature marks a significant step toward regulatory compliance for a Monero-based chain.</p>
+                    </div>
+
+                    <div class="roadmap-section aos-init aos-animate" data-aos="fade-up">
+                        <h2>Phase 2: Enhancing Compliance Features</h2>
+                        <p><strong>Private Blockchain with Compliance Capabilities</strong><br>
+                        Salvium will evolve to meet stringent regulatory requirements, particularly the EU's MiCA regulations. Users will retain transaction privacy while authorized entities, such as exchanges, can access a view key to verify transaction history—striking a balance between privacy and regulatory compliance.</p>
+                        <p>The development team is committed to advancing Monero and Cryptonote technologies, incorporating compliance-friendly innovations such as Full Chain Membership Proofs and CARROT where applicable, as well as the Salvium-specific SPARC.</p>
+                    </div>
+
+                    <div class="roadmap-section aos-init aos-animate" data-aos="fade-up">
+                        <h2>Phase 3: DeFi Integration</h2>
+                        <p><strong>Smart Contract Functionality and Private Token Issuance</strong><br>
+                        Salvium will leverage <strong>protocol_tx</strong> innovations to enable smart contract functionality, allowing secure and private DeFi applications to operate within its network.</p>
+                        <p><strong>Middleware for Solidity Compatibility</strong><br>
+                        To facilitate adoption and development, Salvium will introduce middleware that enables DApps written in Solidity—Ethereum's primary programming language—to be easily adapted and deployed on its network. This initiative aims to lower the entry barrier for developers, streamlining the transition of existing Ethereum-based projects to Salvium.</p>
+                    </div>
+
+                    <div class="roadmap-section aos-init aos-animate" data-aos="fade-up">
+                        <h2>Phase 4: Ecosystem Growth</h2>
+                        <p><strong>Developer Ecosystem</strong><br>
+                        Building a comprehensive suite of tools, documentation, and support resources to enable developers to create privacy-preserving applications on Salvium.</p>
+                        <p><strong>Interoperability</strong><br>
+                        Expanding Salvium's reach through strategic partnerships and cross-chain functionality while maintaining the core privacy and compliance features that define the project.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+<!-- CTA Section -->
+<section class="py-16 relative overflow-hidden bg-[#0B272C] mt-4">
+    <!-- Background Decoration -->
+    <div class="absolute inset-0">
+        <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+            Ready to Take the <span class="gradient-text">Pill</span>?
+        </h2>
+        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            Start your journey with Salvium today and be part of the next generation of Private DeFi.
+        </p>
+        <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+            Get Started Now
+        </button>
+    </div>
+</section>
+        <!-- Footer will be injected here -->
+        <div id="footer"></div>
+
+        <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+        <script src="js/header.js"></script>
+        <script src="js/footer.js?v=2"></script>
+        
+        <script>
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+
+            // Initialize particles.js with subtle configuration
+            particlesJS('particles', {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#00bfa5"
+                    },
+                    shape: {
+                        type: "circle"
+                    },
+                    opacity: {
+                        value: 0.2,
+                        random: true,
+                        anim: {
+                            enable: false
+                        }
+                    },
+                    size: {
+                        value: 2,
+                        random: true,
+                        anim: {
+                            enable: false
+                        }
+                    },
+                    line_linked: {
+                        enable: false
+                    },
+                    move: {
+                        enable: true,
+                        speed: 0.5,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: false
+                        },
+                        onclick: {
+                            enable: false
+                        },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            });
+        </script>
+    </body>
+</html>

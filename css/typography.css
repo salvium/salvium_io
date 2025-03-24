@@ -1,0 +1,151 @@
+/* Typography System for Salvium */
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables */
+:root {
+    --font-heading: 'Josefin Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --text-base: 1rem;
+    --text-sm: 0.875rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --space-4: 1rem;
+}
+
+/* Base Typography */
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.5;
+    color: var(--text);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6,
+.card-title,
+.section-title,
+.gradient-text,
+.hero-title,
+.title,
+.heading {
+    font-family: var(--font-heading) !important;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-4);
+}
+
+/* Heading Sizes */
+h1, .h1 { font-size: var(--text-5xl); }
+h2, .h2 { font-size: var(--text-4xl); }
+h3, .h3 { font-size: var(--text-3xl); }
+h4, .h4 { font-size: var(--text-2xl); }
+h5, .h5 { font-size: var(--text-xl); }
+h6, .h6 { font-size: var(--text-lg); }
+
+/* Paragraphs and General Text */
+p, 
+.text-content,
+.card-content p,
+.description,
+.feature-description,
+li:not(.nav-item),
+.text-base,
+.body-text {
+    font-family: var(--font-body) !important;
+    line-height: 1.6;
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+}
+
+/* Navigation */
+.nav-item,
+.nav-link,
+.dropdown-item {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: var(--text-sm);
+}
+
+/* Buttons */
+.btn,
+button:not(.nav-link) {
+    font-family: var(--font-heading);
+    font-weight: 500;
+}
+
+/* Links */
+a:not(.nav-link) {
+    font-family: inherit;
+}
+
+/* Special Text Classes */
+.font-heading {
+    font-family: var(--font-heading) !important;
+}
+
+.font-body {
+    font-family: var(--font-body) !important;
+}
+
+/* List Items */
+ul, ol {
+    font-family: var(--font-body);
+}
+
+/* Form Elements */
+input,
+textarea,
+select {
+    font-family: var(--font-body);
+}
+
+/* Table Elements */
+table {
+    font-family: var(--font-body);
+}
+
+th {
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+td {
+    font-family: var(--font-body);
+}
+
+/* Code and Pre */
+code, pre {
+    font-family: monospace;
+}
+
+/* Blockquotes */
+blockquote {
+    font-family: var(--font-body);
+    font-style: italic;
+}
+
+/* Footer Text */
+footer {
+    font-family: var(--font-body);
+}
+
+/* Custom Components */
+.stat-number {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+.stat-label {
+    font-family: var(--font-body);
+}
+
+.card-subtitle {
+    font-family: var(--font-body);
+}

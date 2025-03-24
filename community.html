@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Salvium</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#40E0D0">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1e1e1e">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#1e1e1e">
+    
+    <!-- Fonts and Styles -->
+    <link rel="stylesheet" href="css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/cards.css">
+    
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            padding-top: 30px;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-scrolled {
+            background: linear-gradient(to bottom, rgb(30 30 30 / 40%), rgb(30 30 30 / 80%));
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to bottom, rgb(30 30 30 / 90%), rgb(30 30 30 / 95%));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(0, 191, 165, 0.1);
+            padding: 1rem 0;
+            z-index: 40;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* Card Styles */
+        .ecosystem-card {
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+            border: 1px solid rgba(0, 191, 165, 0.1);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            padding: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .ecosystem-card {
+                padding: 2rem;
+            }
+        }
+
+        .ecosystem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 191, 165, 0.1);
+            border-color: rgba(0, 191, 165, 0.3);
+        }
+
+        /* Button Styles */
+        .gradient-button {
+            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+            color: black;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--color-primary-dark), var(--color-primary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gradient-button:hover::before {
+            opacity: 1;
+        }
+
+        .gradient-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Force social media icons to use theme color */
+        .ecosystem-card .fab {
+            color: var(--color-primary) !important;
+        }
+        .ecosystem-card .fab:hover {
+            opacity: 0.8;
+        }
+
+        .btn {
+            border-radius: var(--radius-md);
+        }
+
+        .social-icon-bg {
+            background-color: rgba(30, 30, 30, 0.5);
+            border-radius: var(--radius-sm);
+        }
+
+        /* Add new style for rotated chevron */
+        .chevron-down {
+            transform: rotate(90deg);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Header will be injected here -->
+    <div id="header"></div>
+
+    <div class="main-wrapper">
+        <main class="relative z-10">
+<!-- Hero Section -->
+        <section class="relative bg-[#1e1e1e] overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="./images/newimages/Page Headers/Commnunity Header-1024.webp" alt="Community Header" class="w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+            </div>
+            <div class="relative z-10 py-24 lg:py-32">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                            Join Our <span class="gradient-text">Community</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8">
+                            Connect with fellow Salvium enthusiasts and stay updated on the latest developments
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- X (Twitter) -->
+                    <div class="ecosystem-card" data-aos="fade-up">
+                        <div class="flex justify-center items-center h-40 bg-[#1e1e1e]/50">
+                            <i class="fab fa-x-twitter text-6xl"></i>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">Social</span>
+                            <h3 class="card-title">X (Twitter)</h3>
+                            <a href="https://x.com/salvium_io" target="_blank" class="card-link">
+                                Follow Us
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Telegram -->
+                    <div class="ecosystem-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex justify-center items-center h-40 bg-[#1e1e1e]/50">
+                            <i class="fab fa-telegram text-6xl"></i>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">Chat</span>
+                            <h3 class="card-title">Telegram</h3>
+                            <a href="https://t.me/salviumcommunity" target="_blank" class="card-link">
+                                Join Chat
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Discord -->
+                    <div class="ecosystem-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex justify-center items-center h-40 bg-[#1e1e1e]/50">
+                            <i class="fab fa-discord text-6xl"></i>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">Community</span>
+                            <h3 class="card-title">Discord</h3>
+                            <a href="https://discord.com/invite/P3rrAjkyYs" target="_blank" class="card-link">
+                                Join Server
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- GitHub -->
+                    <div class="ecosystem-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex justify-center items-center h-40 bg-[#1e1e1e]/50">
+                            <i class="fab fa-github text-6xl"></i>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">Development</span>
+                            <h3 class="card-title">GitHub</h3>
+                            <a href="https://github.com/salvium" target="_blank" class="card-link">
+                                View Code
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Reddit -->
+                    <div class="ecosystem-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex justify-center items-center h-40 bg-[#1e1e1e]/50">
+                            <i class="fab fa-reddit text-6xl"></i>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">Community</span>
+                            <h3 class="card-title">Reddit</h3>
+                            <a href="https://www.reddit.com/user/Salvium_Project/" target="_blank" class="card-link">
+                                Join Discussion
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-4">
+        <!-- Background Decoration -->
+        <div class="absolute inset-0">
+            <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                Ready to Take the <span class="gradient-text">Pill</span>?
+            </h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Start your journey with Salvium today and be part of the next generation of Private DeFi.
+            </p>
+            <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+                Get Started Now
+            </button>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js?v=2"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

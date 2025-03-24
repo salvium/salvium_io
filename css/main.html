@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+<style>
+    /* Remove ALL text shadows */
+    .md-header,
+    .md-header *,
+    .md-nav,
+    .md-nav *,
+    .md-content,
+    .md-content *,
+    .md-typeset h1,
+    .md-typeset h2,
+    .md-typeset h3,
+    .md-typeset h4,
+    .md-typeset h5,
+    .md-typeset h6,
+    .md-header__title,
+    .md-header__topic,
+    .md-nav__title,
+    .md-nav__link,
+    .md-tabs__link {
+        text-shadow: none !important;
+    }
+
+    /* Override Material theme variables */
+    :root {
+        --md-text-shadow: none !important;
+    }
+
+    [data-md-color-scheme="slate"] {
+        --md-text-shadow: none !important;
+    }
+</style>
+{% endblock %}
