@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentPath = window.location.pathname;
     const isGitHubPages = window.location.hostname.includes('github.io');
     const isLocalhost = window.location.hostname.includes('127.0.0.1') || window.location.hostname.includes('localhost');
-    const baseUrl = isGitHubPages || isLocalhost ? '/final-salvium' : '';
+    const baseUrl = isGitHubPages || isLocalhost ? '/salvium_io' : '';
     const imagePath = (isGitHubPages || isLocalhost) ? `${baseUrl}/images/` : 'images/';
 
     // Add font imports if they don't exist
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="py-2">
                                 <a href="${baseUrl}/blog" class="block px-4 py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Blog</a>
                                 <a href="${baseUrl}/faq.html" class="block px-4 py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">FAQ</a>
-                                <a href="https://siko-ctrl.github.io/docs-salvium/" class="block px-4 py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Knowledge Base</a>
+                                <a href="https://salvium.github.io/salvium_docs/" class="block px-4 py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Knowledge Base</a>
                                 <a href="${baseUrl}/roadmap.html" class="block px-4 py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Roadmap</a>
                             </div>
                         </div>
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden" style="background: rgba(30, 30, 30, 0.98);">
                             <div class="py-2">
                                 <a href="${baseUrl}/community.html" class="block px-4 py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Community</a>
-                                <a href="https://github.com/siko-ctrl/final-salvium" class="block px-4 py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">GitHub</a>
+                                <a href="https://github.com/salvium/salvium_io" class="block px-4 py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="mobile-dropdown-menu hidden pl-4 pb-2 space-y-2">
                         <a href="${baseUrl}/blog" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Blog</a>
                         <a href="${baseUrl}/faq.html" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">FAQ</a>
-                        <a href="https://siko-ctrl.github.io/docs-salvium/" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Knowledge Base</a>
+                        <a href="https://salvium.github.io/salvium_docs/" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Knowledge Base</a>
                         <a href="${baseUrl}/roadmap.html" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Roadmap</a>
                     </div>
                 </div>
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </button>
                     <div class="mobile-dropdown-menu hidden pl-4 pb-2 space-y-2">
                         <a href="${baseUrl}/community.html" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Community</a>
-                        <a href="https://github.com/siko-ctrl/final-salvium" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">GitHub</a>
+                        <a href="https://github.com/salvium/salvium_io" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">GitHub</a>
                     </div>
                 </div>
             </div>

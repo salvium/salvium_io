@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="py-1">
                                 <a href="${window.jekyllPaths.root}/blog" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Blog</a>
                                 <a href="${window.jekyllPaths.root}/faq.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">FAQ</a>
-                                <a href="https://siko-ctrl.github.io/docs-salvium/" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Knowledge Base</a>
+                                <a href="https://salvium.github.io/salvium_docs/" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Knowledge Base</a>
                                 <a href="${window.jekyllPaths.root}/roadmap.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Roadmap</a>
                             </div>
                         </div>
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="mobile-dropdown-menu hidden pl-4 pb-2">
                         <a href="${window.jekyllPaths.root}/blog" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Blog</a>
                         <a href="${window.jekyllPaths.root}/faq.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">FAQ</a>
-                        <a href="https://siko-ctrl.github.io/docs-salvium/" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Knowledge Base</a>
+                        <a href="https://salvium.github.io/salvium_docs/" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Knowledge Base</a>
                         <a href="${window.jekyllPaths.root}/roadmap.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Roadmap</a>
                     </div>
                 </div>

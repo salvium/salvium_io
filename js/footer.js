@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentPath = window.location.pathname;
     const isGitHubPages = window.location.hostname.includes('github.io');
     const isLocalhost = window.location.hostname.includes('127.0.0.1') || window.location.hostname.includes('localhost');
-    const baseUrl = isGitHubPages || isLocalhost ? '/final-salvium' : '';
+    const baseUrl = isGitHubPages || isLocalhost ? '/salvium_io' : '';
     const imagePath = (isGitHubPages || isLocalhost) ? `${baseUrl}/images/` : 'images/';
     
     const footerHtml = `
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <a href="https://discord.gg/salvium" class="hover:opacity-80 transition-opacity">
                             <i class="fa-brands fa-discord text-2xl" style="color: #40E0D0 !important;"></i>
                         </a>
-                        <a href="https://github.com/siko-ctrl/final-salvium" class="hover:opacity-80 transition-opacity">
+                        <a href="https://github.com/salvium/salvium_io" class="hover:opacity-80 transition-opacity">
                             <i class="fa-brands fa-github text-2xl" style="color: #40E0D0 !important;"></i>
                         </a>
                     </div>
