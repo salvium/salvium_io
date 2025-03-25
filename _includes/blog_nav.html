@@ -1,0 +1,30 @@
+<div class="blog-nav bg-[#1e1e1e] border-y border-[#40E0D0]/10 py-8 mt-12">
+    <div class="container mx-auto">
+        <div class="flex items-center justify-center space-x-8">
+            {% if page.previous.url %}
+            <a href="{{ page.previous.url | relative_url }}" class="text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+                <svg class="w-6 h-6 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Previous
+            </a>
+            {% endif %}
+
+            <a href="{{ '/blog' | relative_url }}" class="text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+                <svg class="w-6 h-6 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
+                All Posts
+            </a>
+
+            {% if page.next.url %}
+            <a href="{{ page.next.url | relative_url }}" class="text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+                Next
+                <svg class="w-6 h-6 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

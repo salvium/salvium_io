@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE_TITLE - Salvium</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#40E0D0">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#0B272C">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#0B272C">
+    
+    <!-- Fonts and Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            /* Primary Colors */
+            --color-primary: #40E0D0;
+            --color-primary-dark: #0AEB85;
+
+            /* Background Colors */
+            --color-bg-dark: #0B272C;
+            --color-bg-darker: #0b272c9f;
+            --color-bg-header: rgba(53, 56, 73, 0.95);
+
+            /* Text Colors */
+            --color-text: #ffffff;
+            --color-text-light: rgba(255, 255, 255, 0.55);
+            --color-text-lighter: rgba(255, 255, 255, 0.35);
+
+            /* Accent Colors */
+            --color-accent: #40E0D0;
+            --color-accent-light: #40E0D0;
+
+            /* Border Colors */
+            --color-border: rgba(255, 255, 255, 0.15);
+            --color-border-light: rgba(255, 255, 255, 0.05);
+
+            /* Font */
+            --font-primary: 'Josefin Sans', sans-serif;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            padding-top: 30px;
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgb(11 39 44 / 19%), rgb(11 39 44 / 61%));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(64, 224, 208, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-scrolled {
+            background: linear-gradient(to bottom, rgb(11 39 44 / 40%), rgb(11 39 44 / 80%));
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to bottom, rgb(11 39 44 / 90%), rgb(11 39 44 / 95%));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        /* Card styles */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(64, 224, 208, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(64, 224, 208, 0.3);
+            box-shadow: 0 4px 20px rgba(64, 224, 208, 0.1);
+        }
+
+        /* Button styles */
+        .btn {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(64, 224, 208, 0.2);
+        }
+    </style>
+
+    <!-- Page-specific styles -->
+    CUSTOM_STYLES
+</head>
+<body class="bg-[#0B272C]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Main Content -->
+    <main class="relative z-10">
+        PAGE_CONTENT
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+
+    <!-- Page-specific scripts -->
+    CUSTOM_SCRIPTS
+</body>
+</html>

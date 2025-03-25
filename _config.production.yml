@@ -1,0 +1,23 @@
+baseurl: "/salvium_io"
+url: "https://salvium.github.io/"
+
+# Production specific settings
+future: false
+show_drafts: false
+unpublished: false
+
+# Enable compression and minification
+sass:
+  style: compressed
+
+# Exclude development-only files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - README.md
+  - .gitignore
+  - .env*
+  - docker-compose.yml

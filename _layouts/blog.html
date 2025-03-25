@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}Salvium Protocol</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{{ site.baseurl }}/favicon/site.webmanifest">
+    <link rel="mask-icon" href="{{ site.baseurl }}/favicon/safari-pinned-tab.svg" color="#00bfa5">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1e1e1e">
+    <meta name="msapplication-config" content="{{ site.baseurl }}/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#1e1e1e">
+    
+    <!-- Fonts and Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/design-system.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/cards.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/blog-post.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(45deg, #00bfa5, #40E0D0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e]">
+    <!-- Header will be injected here -->
+    <div id="header"></div>
+
+    <!-- Content -->
+    {{ content }}
+
+    <!-- Scripts -->
+    <script>
+        window.jekyllPaths = {
+            root: '{{ site.baseurl }}',
+            images: '{{ site.baseurl }}/images',
+            css: '{{ site.baseurl }}/css',
+            js: '{{ site.baseurl }}/js'
+        };
+    </script>
+    <script src="{{ site.baseurl }}/js/header.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

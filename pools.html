@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mining Pools - Salvium</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#00bfa5">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1e1e1e">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#1e1e1e">
+    
+    <!-- Fonts and Styles -->
+    <link rel="stylesheet" href="css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/cards.css">
+    
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            padding-top: 72px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+            height: 72px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-fixed.scrolled {
+            background: rgba(30, 30, 30, 0.98);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .pool-card {
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+            border: 1px solid rgba(0, 191, 165, 0.1);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            padding: 2rem;
+        }
+
+        .pool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 191, 165, 0.1);
+            border-color: rgba(0, 191, 165, 0.3);
+        }
+
+        .stats-container {
+            background: rgba(0, 191, 165, 0.05);
+            border: 1px solid rgba(0, 191, 165, 0.1);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+        }
+
+        .gradient-button {
+            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+            color: #000;
+            padding: 0.75rem 2rem;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .gradient-button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Global title styles */
+        h1, h2, h3, .title-font {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        
+        .pool-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .pool-card .card-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Header will be injected here -->
+    <div id="header"></div>
+
+    <!-- Main Content -->
+    <main class="relative z-10">
+<!-- Hero Section -->
+        <section class="relative bg-[#1e1e1e] overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="./images/newimages/Page Headers/Pools Header-1024.webp" alt="Pools Header" class="w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+            </div>
+            <div class="relative z-10 py-24 lg:py-32">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                            Mining <span class="gradient-text">Pools</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8">
+                            Join our trusted mining pools and start earning Salvium rewards
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container mx-auto px-4 -mt-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                <!-- GNTL Pool -->
+                <div class="ecosystem-card" data-aos="fade-up">
+                    <div class="card-content">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-[#40E0D0]/10 flex items-center justify-center">
+                            <i class="fas fa-server text-3xl text-[#40E0D0]"></i>
+                        </div>
+                        <span class="card-tag">Mining Pool</span>
+                        <h2 class="card-title text-center">GNTL Pool</h2>
+                        <p class="card-description text-center">
+                            A reliable mining pool for Salvium with excellent uptime and support.
+                        </p>
+                        
+                        <div class="stats-container rounded-lg p-4 mb-6">
+                            <div class="flex justify-between items-center mb-3 pb-2 border-b border-[#40E0D0]/10">
+                                <span class="text-gray-400">Hashrate</span>
+                                <span class="text-[#40E0D0] font-semibold">125 MH/s</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-3 pb-2 border-b border-[#40E0D0]/10">
+                                <span class="text-gray-400">Miners</span>
+                                <span class="text-[#40E0D0] font-semibold">1,250</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-400">Fee</span>
+                                <span class="text-[#40E0D0] font-semibold">0.9%</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card-link text-center block">
+                            Start Mining
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mining4People Pool -->
+                <div class="ecosystem-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-content">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-[#40E0D0]/10 flex items-center justify-center">
+                            <i class="fas fa-users text-3xl text-[#40E0D0]"></i>
+                        </div>
+                        <span class="card-tag">Mining Pool</span>
+                        <h2 class="card-title text-center">Mining4People</h2>
+                        <p class="card-description text-center">
+                            Community-focused mining pool with a strong support team.
+                        </p>
+                        
+                        <div class="stats-container rounded-lg p-4 mb-6">
+                            <div class="flex justify-between items-center mb-3 pb-2 border-b border-[#40E0D0]/10">
+                                <span class="text-gray-400">Hashrate</span>
+                                <span class="text-[#40E0D0] font-semibold">98 MH/s</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-3 pb-2 border-b border-[#40E0D0]/10">
+                                <span class="text-gray-400">Miners</span>
+                                <span class="text-[#40E0D0] font-semibold">980</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-400">Fee</span>
+                                <span class="text-[#40E0D0] font-semibold">1.0%</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card-link text-center block">
+                            Start Mining
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MiningOcean Pool -->
+                <div class="ecosystem-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-content">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-[#40E0D0]/10 flex items-center justify-center">
+                            <i class="fas fa-water text-3xl text-[#40E0D0]"></i>
+                        </div>
+                        <span class="card-tag">Mining Pool</span>
+                        <h2 class="card-title text-center">MiningOcean</h2>
+                        <p class="card-description text-center">
+                            Professional mining pool with advanced features and analytics.
+                        </p>
+                        
+                        <div class="stats-container rounded-lg p-4 mb-6">
+                            <div class="flex justify-between items-center mb-3 pb-2 border-b border-[#40E0D0]/10">
+                                <span class="text-gray-400">Hashrate</span>
+                                <span class="text-[#40E0D0] font-semibold">75 MH/s</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-3 pb-2 border-b border-[#40E0D0]/10">
+                                <span class="text-gray-400">Miners</span>
+                                <span class="text-[#40E0D0] font-semibold">750</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-400">Fee</span>
+                                <span class="text-[#40E0D0] font-semibold">1.0%</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="card-link text-center block">
+                            Start Mining
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-4">
+        <!-- Background Decoration -->
+        <div class="absolute inset-0">
+            <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                Ready to Take the <span class="gradient-text">Pill</span>?
+            </h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Start your journey with Salvium today and be part of the next generation of Private DeFi.
+            </p>
+            <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+                Get Started Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js?v=1"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Litepapers - Salvium Protocol</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!-- Favicons -->
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#00bfa5">
+		<link rel="shortcut icon" href="favicon/favicon.ico">
+		<meta name="msapplication-TileColor" content="#1e1e1e">
+		<meta name="msapplication-config" content="favicon/browserconfig.xml">
+		<meta name="theme-color" content="#1e1e1e">
+		
+		<!-- Fonts and Styles -->
+		<link rel="stylesheet" href="css/typography.css">
+		<link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/cards.css">
+		
+		<style>
+            :root {
+                --color-primary: #00bfa5;
+                --color-primary-dark: #009688;
+                --color-bg-dark: #1e1e1e;
+                --color-bg-darker: rgba(30, 30, 30, 0.95);
+                --color-text: #e0e0e0;
+                --font-primary: 'Josefin Sans', sans-serif;
+                --radius-sm: 2px;
+                --radius-md: 4px;
+                --radius-lg: 4px;
+            }
+
+            * {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            body {
+                font-family: var(--font-primary);
+                background-color: var(--color-bg-dark);
+                color: var(--color-text);
+                padding-top: 30px;
+            }
+
+            .nav-fixed {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 50;
+                background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .gradient-text {
+                background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            /* Card Styles */
+            .paper-card {
+                background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+                border: 1px solid rgba(0, 191, 165, 0.1);
+                border-radius: var(--radius-md);
+                overflow: hidden;
+                transition: all 0.3s ease;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .paper-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 12px rgba(0, 191, 165, 0.1);
+                border-color: rgba(0, 191, 165, 0.3);
+            }
+
+            .paper-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                display: block;
+                margin: 0;
+                padding: 0;
+            }
+
+            .paper-card .card-content {
+                padding: 1.5rem;
+            }
+
+            .paper-tag {
+                background: rgba(0, 191, 165, 0.1);
+                color: var(--color-primary);
+                padding: 0.25rem 0.75rem;
+                border-radius: var(--radius-sm);
+                font-size: 0.875rem;
+                display: inline-block;
+                margin-bottom: 0.5rem;
+            }
+
+            .paper-title {
+                color: var(--color-text);
+                font-size: 1.25rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: 600;
+            }
+
+            .paper-description {
+                color: var(--color-text-light, #b0b0b0);
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+            }
+
+            .paper-meta {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 1rem;
+                color: var(--color-text-light, #b0b0b0);
+                font-size: 0.875rem;
+            }
+
+            .paper-link {
+                color: var(--color-primary);
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                transition: all 0.3s ease;
+                font-weight: 500;
+            }
+
+            .paper-link i {
+                transition: transform 0.3s ease;
+            }
+
+            .paper-link:hover i {
+                transform: translateY(2px);
+            }
+
+            .cards-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+                padding: 2rem 0;
+            }
+
+            @media (max-width: 768px) {
+                .cards-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            
+            /* Global title styles */
+            h1, h2, h3, .title-font {
+                font-family: 'Josefin Sans', sans-serif;
+            }
+            
+            .section-title {
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: 700;
+            }
+
+            .card-title {
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: 600;
+            }
+        </style>
+	</head>
+	<body class="bg-[#1e1e1e]">
+		<!-- Particles Container -->
+		<div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+		<!-- Header will be injected here -->
+    <div id="header"></div>
+
+    <!-- Main Content -->
+		<main class="relative z-10">
+<!-- Hero Section -->
+        <section class="relative bg-[#1e1e1e] overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="./images/newimages/Page Headers/Litepaper Header-1024.webp" alt="Papers Header" class="w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+            </div>
+            <div class="relative z-10 py-24 lg:py-32">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                            Salvium <span class="gradient-text">Papers</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8">
+                            Explore our technical documentation and research
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-4 -mt-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                            <!-- English Version -->
+                            <div class="paper-card" data-aos="fade-up">
+                                <img src="./images/litepaper/english-litepaper-1024.webp" alt="English Litepaper" class="w-full h-48 object-cover">
+                                <div class="card-content">
+                                    <span class="paper-tag">English</span>
+                                    <h2 class="paper-title">English Version</h2>
+                                    <p class="paper-description">The comprehensive guide to Salvium Protocol, its features, and technical specifications.</p>
+                                    <div class="paper-meta">
+                                        <span><i class="fas fa-clock"></i> 15 min read</span>
+                                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                    </div>
+                                    <a href="docs/salvium-litepaper-v1_0-english.pdf" class="paper-link">
+                                        Read Paper
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                            <!-- Chinese Version -->
+                            <div class="paper-card" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./images/litepaper/chinese-litepaper-1024.webp" alt="Chinese Litepaper" class="w-full h-48 object-cover">
+                                <div class="card-content">
+                                    <span class="paper-tag">Chinese</span>
+                                    <h2 class="paper-title">Chinese Version</h2>
+                                    <p class="paper-description">Salvium Protocol的完整指南，包括其功能和技术规格。</p>
+                                    <div class="paper-meta">
+                                        <span><i class="fas fa-clock"></i> 15 min read</span>
+                                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                    </div>
+                                    <a href="docs/salvium-litepaper-v1_0-chinese.pdf" class="paper-link">
+                                        Read Paper
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                            <!-- Japanese Version -->
+                            <div class="paper-card" data-aos="fade-up" data-aos-delay="200">
+                                <img src="./images/litepaper/japanese-litepaper-1024.webp" alt="Japanese Litepaper" class="w-full h-48 object-cover">
+                                <div class="card-content">
+                                    <span class="paper-tag">Japanese</span>
+                                    <h2 class="paper-title">Japanese Version</h2>
+                                    <p class="paper-description">Salvium Protocolの包括的なガイド、その機能と技術仕様。</p>
+                                    <div class="paper-meta">
+                                        <span><i class="fas fa-clock"></i> 15 min read</span>
+                                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                    </div>
+                                    <a href="docs/salvium-litepaper-v1_0-japanese.pdf" class="paper-link">
+                                        Read Paper
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                            <!-- Korean Version -->
+                            <div class="paper-card" data-aos="fade-up" data-aos-delay="300">
+                                <img src="./images/litepaper/korean-litepaper-1024.webp" alt="Korean Litepaper" class="w-full h-48 object-cover">
+                                <div class="card-content">
+                                    <span class="paper-tag">Korean</span>
+                                    <h2 class="paper-title">Korean Version</h2>
+                                    <p class="paper-description">Salvium Protocol의 기능과 기술 사양에 대한 포괄적인 가이드.</p>
+                                    <div class="paper-meta">
+                                        <span><i class="fas fa-clock"></i> 15 min read</span>
+                                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                    </div>
+                                    <a href="docs/salvium-litepaper-v1_0-korean.pdf" class="paper-link">
+                                        Read Paper
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                            <!-- Spanish Version -->
+                            <div class="paper-card" data-aos="fade-up" data-aos-delay="400">
+                                <img src="./images/litepaper/spanish-litepaper-1024.webp" alt="Spanish Litepaper" class="w-full h-48 object-cover">
+                                <div class="card-content">
+                                    <span class="paper-tag">Spanish</span>
+                                    <h2 class="paper-title">Spanish Version</h2>
+                                    <p class="paper-description">Guía completa del Protocolo Salvium, sus características y especificaciones técnicas.</p>
+                                    <div class="paper-meta">
+                                        <span><i class="fas fa-clock"></i> 15 min read</span>
+                                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                    </div>
+                                    <a href="docs/salvium-litepaper-v1_0-spanish.pdf" class="paper-link">
+                                        Read Paper
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                            <!-- French Version -->
+                            <div class="paper-card" data-aos="fade-up" data-aos-delay="500">
+                                <img src="./images/litepaper/french-litepaper-1024.webp" alt="French Litepaper" class="w-full h-48 object-cover">
+                                <div class="card-content">
+                                    <span class="paper-tag">French</span>
+                                    <h2 class="paper-title">French Version</h2>
+                                    <p class="paper-description">Guide complet du Protocole Salvium, ses fonctionnalités et spécifications techniques.</p>
+                                    <div class="paper-meta">
+                                        <span><i class="fas fa-clock"></i> 15 min read</span>
+                                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                    </div>
+                                    <a href="docs/salvium-litepaper-v1_0-french.pdf" class="paper-link">
+                                        Read Paper
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                            <!-- German Version -->
+                            <div class="paper-card" data-aos="fade-up" data-aos-delay="600">
+                                <img src="./images/litepaper/german-litepaper-1024.webp" alt="German Litepaper" class="w-full h-48 object-cover">
+                                <div class="card-content">
+                                    <span class="paper-tag">German</span>
+                                    <h2 class="paper-title">German Version</h2>
+                                    <p class="paper-description">Umfassender Leitfaden zum Salvium Protocol, seinen Funktionen und technischen Spezifikationen.</p>
+                                    <div class="paper-meta">
+                                        <span><i class="fas fa-clock"></i> 15 min read</span>
+                                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                    </div>
+                                    <a href="docs/salvium-litepaper-v1_0-german.pdf" class="paper-link">
+                                        Read Paper
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+        </div>
+        <!-- CTA Section -->
+        <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-4">
+            <!-- Background Decoration -->
+            <div class="absolute inset-0">
+                <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                    Ready to Take the <span class="gradient-text">Pill</span>?
+                </h2>
+                <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Start your journey with Salvium today and be part of the next generation of Private DeFi.
+                </p>
+                <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+                    Get Started Now
+                </button>
+            </div>
+        </section>
+		</main>
+
+		<!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+		<script src="js/particles.js"></script>
+		<script src="js/header.js"></script>
+		<script src="js/footer.js?v=2"></script>
+		<script>
+			AOS.init({
+				duration: 800,
+				once: true
+			});
+		</script>
+	</body>
+</html>

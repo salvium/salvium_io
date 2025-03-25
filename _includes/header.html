@@ -1,0 +1,156 @@
+<header class="fixed w-full top-0 z-50 bg-[#1e1e1e] border-b border-[#40E0D0]/10">
+    <nav class="container mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="{{ '/images/salvium_wordmark_white_512x512px_transparent.webp' | relative_url }}" alt="Salvium Logo" class="h-8">
+                <img src="{{ '/images/salvium_coin_square_white_512x512px_transparent.webp' | relative_url }}" alt="Salvium Icon" class="h-8 ml-2">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <!-- Get Started Dropdown -->
+                <div class="relative dropdown-container">
+                    <button class="flex items-center space-x-1 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+                        <span>Get Started</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden bg-[#1e1e1e] border border-[#40E0D0]/10">
+                        <div class="py-1">
+                            <a href="exchanges.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Exchanges</a>
+                            <a href="about.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">About</a>
+                            <a href="papers.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Lite Paper</a>
+                            <a href="download.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Downloads</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Knowledge Dropdown -->
+                <div class="relative dropdown-container">
+                    <button class="flex items-center space-x-1 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+                        <span>Knowledge</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden bg-[#1e1e1e] border border-[#40E0D0]/10">
+                        <div class="py-1">
+                            <a href="faq.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">FAQ</a>
+                            <a href="knowledge-base.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Knowledge Base</a>
+                            <a href="blogs.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Blog</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools Dropdown -->
+                <div class="relative dropdown-container">
+                    <button class="flex items-center space-x-1 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+                        <span>Tools</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden bg-[#1e1e1e] border border-[#40E0D0]/10">
+                        <div class="py-1">
+                            <a href="stats.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Stats</a>
+                            <a href="https://explorer.salvium.io/" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Explorer</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Get Involved Dropdown -->
+                <div class="relative dropdown-container">
+                    <button class="flex items-center space-x-1 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+                        <span>Get Involved</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden bg-[#1e1e1e] border border-[#40E0D0]/10">
+                        <div class="py-1">
+                            <a href="community.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Community</a>
+                            <a href="pools.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Pools</a>
+                            <a href="roadmap.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Roadmap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <!-- Get Started Section -->
+                <div class="mobile-dropdown">
+                    <button class="w-full flex justify-between items-center text-[#40E0D0] px-3 py-2 rounded-md text-base font-medium hover:text-[#40E0D0]/80 transition-colors duration-200">
+                        <span>Get Started</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="exchanges.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Exchanges</a>
+                        <a href="about.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">About</a>
+                        <a href="papers.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Lite Paper</a>
+                        <a href="download.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Downloads</a>
+                    </div>
+                </div>
+
+                <!-- Knowledge Section -->
+                <div class="mobile-dropdown">
+                    <button class="w-full flex justify-between items-center text-[#40E0D0] px-3 py-2 rounded-md text-base font-medium hover:text-[#40E0D0]/80 transition-colors duration-200">
+                        <span>Knowledge</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="faq.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">FAQ</a>
+                        <a href="knowledge-base.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Knowledge Base</a>
+                        <a href="blogs.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Blog</a>
+                    </div>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="mobile-dropdown">
+                    <button class="w-full flex justify-between items-center text-[#40E0D0] px-3 py-2 rounded-md text-base font-medium hover:text-[#40E0D0]/80 transition-colors duration-200">
+                        <span>Tools</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="stats.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Stats</a>
+                        <a href="https://explorer.salvium.io/" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Explorer</a>
+                    </div>
+                </div>
+
+                <!-- Get Involved Section -->
+                <div class="mobile-dropdown">
+                    <button class="w-full flex justify-between items-center text-[#40E0D0] px-3 py-2 rounded-md text-base font-medium hover:text-[#40E0D0]/80 transition-colors duration-200">
+                        <span>Get Involved</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="community.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Community</a>
+                        <a href="pools.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Pools</a>
+                        <a href="roadmap.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Roadmap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

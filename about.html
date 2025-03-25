@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Salvium Protocol</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#40E0D0">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1e1e1e">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#1e1e1e">
+    
+    <!-- Fonts and Styles -->
+    <link rel="stylesheet" href="css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/cards.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            /* Primary Colors */
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+
+            /* Background Colors */
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-bg-header: rgba(30, 30, 30, 0.95);
+
+            /* Text Colors */
+            --color-text: #e0e0e0;
+            --color-text-light: rgba(224, 224, 224, 0.7);
+            --color-text-lighter: rgba(224, 224, 224, 0.5);
+
+            /* Accent Colors */
+            --color-accent: #4db6ac;
+            --color-accent-light: #80cbc4;
+
+            /* Border Colors */
+            --color-border: rgba(0, 191, 165, 0.15);
+            --color-border-light: rgba(0, 191, 165, 0.05);
+
+            /* Border Radius */
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+
+            /* Font */
+            --font-primary: 'Josefin Sans', sans-serif;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            padding-top: 30px;
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgb(30 30 30 / 19%), rgb(30 30 30 / 61%));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-scrolled {
+            background: linear-gradient(to bottom, rgb(30 30 30 / 40%), rgb(30 30 30 / 80%));
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to bottom, rgb(30 30 30 / 90%), rgb(30 30 30 / 95%));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        /* About page styles */
+        .about-section {
+            padding: 6rem 0;
+            background-color: var(--color-bg-dark);
+            color: #e0e0e0;
+        }
+
+        .about-nav {
+            padding: 2rem;
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+        }
+
+        .about-nav .nav-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .about-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .about-nav li {
+            margin-bottom: 1rem;
+        }
+
+        .about-nav li:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .about-nav a:hover {
+            color: var(--color-primary);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .about-content ul li {
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-content ul li::before {
+            content: "•";
+            color: #40E0D0;
+            font-size: 1.2em;
+            position: absolute;
+            left: -1.5rem;
+            top: -2px;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-section h3 {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin: 2rem 0 1rem;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #e0e0e0;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: var(--color-border);
+            margin: 4rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .about-nav {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#1e1e1e]">
+    <!-- Header will be injected here -->
+    <div id="header"></div>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="relative">
+            <!-- Hero Image -->
+            <div class="absolute inset-0">
+                <picture>
+                    <source srcset="./images/newimages/About.webp" type="image/webp">
+                    <img src="./images/newimages/About.png" alt="About Salvium" class="w-full h-full object-cover opacity-30">
+                </picture>
+                <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-75"></div>
+            </div>
+            <div class="relative z-10 py-24 lg:py-32">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-center">
+                            About <span class="gradient-text">Salvium</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8 text-center mx-auto max-w-2xl">
+                            Revolutionizing DeFi through innovation, security, and accessibility.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="about-section">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Navigation Sidebar -->
+                    <div class="md:col-span-1">
+                        <nav class="about-nav">
+                            <div class="nav-title">Quick Navigation</div>
+                            <ul>
+                                <li><a href="#overview">Overview</a></li>
+                                <li><a href="#technology">Technology</a></li>
+                                <li><a href="#features">Key Features</a></li>
+                                <li><a href="#security">Security</a></li>
+                                <li><a href="#distribution">Token Distribution</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="md:col-span-3">
+                        <div class="about-content">
+                            <section id="overview">
+                                <h2>Overview</h2>
+                                <p>
+                                    Salvium is a cutting-edge proof-of-work private blockchain that seamlessly combines staking, enhanced privacy and DeFi capabilities while navigating crypto regulations. Built on a fork of Monero, it retains Monero's advanced privacy features such as stealth addresses and ring signatures.
+                                </p>
+                                <p>
+                                    Taking a 'privacy-first' approach, Salvium is designed to meet full MiCA compliance. At launch, we will introduce phase one compliance features, such as refundable payments and a specialized 'exchange mode' for supporting these refunds.
+                                </p>
+                            </section>
+
+                            <div class="section-divider"></div>
+
+                            <section id="technology">
+                                <h2>Technology</h2>
+                                <h3>Mining Specifications</h3>
+                                <p>
+                                    Salvium utilizes the RandomX algorithm with a 120-second block time and a block reward of 123.825 SAL. Our dynamic difficulty adjustment ensures network stability and fair mining opportunities for all participants.
+                                </p>
+                                <h3>Staking Mechanism</h3>
+                                <p>
+                                    Our innovative staking system allocates 20% of block rewards to stakers, featuring no minimum lock period and instant unstaking capabilities. This flexible approach allows users to participate in network security while maintaining liquidity.
+                                </p>
+                            </section>
+
+                            <div class="section-divider"></div>
+
+                            <section id="features">
+                                <h2>Key Features</h2>
+                                <p>
+                                    Salvium introduces several groundbreaking features to the privacy coin ecosystem:
+                                </p>
+                                <ul class="list-disc pl-6 space-y-3 mb-6 text-gray-300">
+                                    <li>Native staking with flexible options</li>
+                                    <li>Advanced privacy features inherited from Monero</li>
+                                    <li>Conditional Payments System for enhanced DeFi capabilities</li>
+                                    <li>Regulatory compliance tools for exchange integration</li>
+                                </ul>
+                            </section>
+
+                            <div class="section-divider"></div>
+
+                            <section id="security">
+                                <h2>Security & Compliance</h2>
+                                <p>
+                                    Security is paramount at Salvium. We champion ethical usage while ensuring regulatory compliance, laying the groundwork for truly private decentralized finance. Our selective transparency features allow users to control their privacy level, crucial for exchange compliance.
+                                </p>
+                                <p>
+                                    The platform is proactively designed with upcoming regulations in mind, ensuring long-term sustainability and adoption.
+                                </p>
+                            </section>
+
+                            <div class="section-divider"></div>
+
+                            <section id="distribution">
+                                <h2>Token Distribution</h2>
+                                <p>
+                                    Salvium's token distribution is carefully designed to ensure sustainable development and community growth:
+                                </p>
+                                <ul class="list-disc pl-6 space-y-3 mb-6 text-gray-300">
+                                    <li><strong>Development Fund (40%)</strong>: Allocated for ongoing development, security audits, and technical improvements</li>
+                                    <li><strong>Community Fund (30%)</strong>: Dedicated to community rewards, ecosystem growth, and governance initiatives</li>
+                                    <li><strong>Marketing Fund (20%)</strong>: Reserved for marketing initiatives and awareness campaigns</li>
+                                    <li><strong>Team Fund (10%)</strong>: Allocated for team compensation and operational expenses</li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
+            <!-- Background Decoration -->
+            <div class="absolute inset-0">
+                <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                    Ready to Take the <span class="gradient-text">Pill</span>?
+                </h2>
+                <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Start your journey with Salvium today and be part of the next generation of Private DeFi.
+                </p>
+                <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+                    Get Started Now
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js?v=2"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

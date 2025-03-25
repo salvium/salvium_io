@@ -1,0 +1,17 @@
+---
+layout: none
+---
+{
+    "posts": [
+        {% for post in site.posts %}
+        {
+            "title": {{ post.title | jsonify }},
+            "url": "{{ post.url | relative_url }}",
+            "image": "{{ post.image | relative_url }}",
+            "date": "{{ post.date | date: '%B %d, %Y' }}",
+            "excerpt": {{ post.excerpt | strip_html | truncatewords: 30 | jsonify }},
+            "categories": "{{ post.categories | first }}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ]
+}

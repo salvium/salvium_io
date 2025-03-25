@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salvium - Decentralized Finance Innovation</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#0B272C">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#0B272C">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Primary Colors */
+            --color-primary: #40E0D0;
+            --color-primary-dark: #0AEB85;
+
+            /* Background Colors */
+            --color-bg-dark: #0B272C;
+            --color-bg-darker: #0B272C;
+            --color-bg-header: #0B272C;
+
+            /* Text Colors */
+            --color-text: #ffffff;
+            --color-text-light: #ffffff;
+            --color-text-lighter: #ffffff;
+
+            /* Accent Colors */
+            --color-accent: #40E0D0;
+            --color-accent-light: #40E0D0;
+
+            /* Border Colors */
+            --color-border: rgba(255, 255, 255, 0.15);
+            --color-border-light: rgba(255, 255, 255, 0.05);
+
+            /* Font */
+            --font-title: 'Josefin Sans', sans-serif;
+            --font-body: 'Inter', Arial, sans-serif;
+        }
+
+        /* Apply fonts globally */
+        body {
+            font-family: var(--font-body);
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-title {
+            font-family: var(--font-title);
+        }
+
+        /* Links and paragraphs */
+        p, a, span, div:not(.font-title) {
+            font-family: var(--font-body);
+        }
+    </style>
+</head>
+<body class="bg-[#0B272C] font-body">
+    <!-- Header container -->
+    <div id="header"></div>
+
+    <!-- Main content goes here -->
+    <main class="relative z-10">
+        <!-- Content sections -->
+    </main>
+
+    <!-- Footer container -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+    {{ footer_script|safe }}
+</body>
+</html>

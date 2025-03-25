@@ -1,0 +1,14 @@
+We are pleased to provide an update on Salvium's treasury, emphasizing our commitment to responsible stewardship and long-term project sustainability. As part of this commitment, we have decided to lock a portion of unused treasury funds for approximately two years. As outlined in our litepaper, 15.6 million SAL coins (8.48% of the total supply) were pre-mined and locked for operational funding. These coins are set to unlock in 24 installments of 650,000 SAL each, occurring approximately monthly (every 21,600 blocks), to support ongoing development and initiatives. It is anticipated that income generated from DeFi activities will gradually replace the need for this pre-mined fund after that period. The first tranche was unlocked at launch on July 3rd, 2024, establishing an operations treasury for the project. July’s expenses were minimal, resulting in the recent August tranche being unallocated at present. Given this, we have decided to lock the August tranche for an additional 23 months. This action extends our funded operational runway from 24 to 25 months. These funds have already been locked using existing protocol functionality, as shown in Fig. 1. This will complement other locked transactions visible in Fig. 2.
+
+**![](https://salvium.io/wp-content/uploads/2024/08/lock.jpg)_Fig 1._** _Screen shot showing confirmation of 674 day lock of 650k Sals._
+
+**![](https://salvium.io/wp-content/uploads/2024/08/premine.jpg)**_**Fig 2.** Screen shot of locked funds in governance wallet._
+
+Some may wonder why we don't allocate excess funds to paid marketing. While beneficial, we're cautious of SAL's current low liquidity as a new coin. Significant outflows to pay partners could be counterproductive at this stage. We will revisit marketing efforts as liquidity improves. We intend to continue locking unallocated treasury funds whenever possible. This strategy achieves several key objectives:
+
+*   Ensures funds are available only when needed for specific initiatives that advance Salvium's mission.
+*   Extends the duration of guaranteed operational funding.
+*   Reduces potential selling pressure on SAL coins, benefiting holders and stakers.
+*   Demonstrates our commitment to prudent treasury management.
+
+Additionally, we want to reiterate that the project will not stake any of the 15.6 million SAL earmarked for operational expenses, as this would unfairly dilute community stakers. Our focus remains on fair distribution and allocation of SAL coins. The Salvium team believes that transparent, responsible treasury management is vital for the long-term success of the project. We remain dedicated to safeguarding project resources and making decisions that benefit the entire Salvium ecosystem. We appreciate the community's ongoing support and look forward to deploying future treasury funds on impactful initiatives as Salvium continues to grow. As always, we welcome feedback and questions from the community.

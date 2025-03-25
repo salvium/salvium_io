@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3rd Party Tools - Salvium Protocol</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link rel="shortcut icon" href="./favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#0B272C">
+    <meta name="msapplication-config" content="./favicon/browserconfig.xml">
+    <meta name="theme-color" content="#0B272C">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/design-system.css">
+    <link rel="stylesheet" href="./css/cards.css">
+    <style>
+        :root {
+            /* Primary Colors */
+            --color-primary: #40E0D0;
+            --color-primary-dark: #009688;
+
+            /* Background Colors */
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: #1e1e1e;
+            --color-bg-header: #1e1e1e;
+
+            /* Text Colors */
+            --color-text: #e0e0e0;
+            --color-text-light: #e0e0e0;
+            --color-text-lighter: #b0b0b0;
+
+            /* Accent Colors */
+            --color-accent: #40E0D0;
+            --color-accent-light: #80cbc4;
+
+            /* Border Colors */
+            --color-border: rgba(0, 191, 165, 0.15);
+            --color-border-light: rgba(0, 191, 165, 0.05);
+
+            /* Font */
+            --font-title: 'Josefin Sans', sans-serif;
+            --font-body: 'Inter', Arial, sans-serif;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            padding-top: 36px;
+            font-family: var(--font-body);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        h1, h2, h3, h4, h5, h6, .gradient-text {
+            font-family: var(--font-title);
+        }
+
+        p, a, span, div, button {
+            font-family: var(--font-body);
+        }
+
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(64, 224, 208, 0.1);
+            transition: all 0.3s ease;
+            height: 72px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card {
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px var(--color-border);
+            border-color: var(--color-primary);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Header container -->
+    <div id="header"></div>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="relative bg-[#1e1e1e] overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="./images/newimages/Page Headers/Exchange Header-1024.webp" alt="Tools Header" class="w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+            </div>
+            <div class="relative z-10 py-24 lg:py-32">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                            Third Party <span class="gradient-text">Tools</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8">
+                            Explore community-built tools and resources for Salvium
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coin Trackers Section -->
+        <section class="py-20 relative">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">Coin <span class="gradient-text">Trackers</span></h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- CoinGecko -->
+                    <a href="https://www.coingecko.com/en/coins/salvium" target="_blank" class="card rounded-xl p-8 text-center" data-aos="fade-up">
+                        <i class="fas fa-chart-line text-4xl mb-6" style="color: var(--color-primary);"></i>
+                        <h3 class="text-xl font-semibold mb-3">CoinGecko</h3>
+                        <p class="text-gray-400">Track Salvium price, market cap, and trading volume on CoinGecko</p>
+                        <div class="mt-4">
+                            <span class="card-tag">Price Tracking</span>
+                        </div>
+                    </a>
+
+                    <!-- Coinpaprika -->
+                    <a href="https://coinpaprika.com/coin/sal-salvium/" target="_blank" class="card rounded-xl p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-chart-bar text-4xl mb-6" style="color: var(--color-primary);"></i>
+                        <h3 class="text-xl font-semibold mb-3">Coinpaprika</h3>
+                        <p class="text-gray-400">View detailed market analysis and statistics on Coinpaprika</p>
+                        <div class="mt-4">
+                            <span class="card-tag">Market Analysis</span>
+                        </div>
+                    </a>
+
+                    <!-- Coinranking -->
+                    <a href="https://coinranking.com/coin/Vl1CI175t+salvium-sal" target="_blank" class="card rounded-xl p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-trophy text-4xl mb-6" style="color: var(--color-primary);"></i>
+                        <h3 class="text-xl font-semibold mb-3">Coinranking</h3>
+                        <p class="text-gray-400">Check Salvium's ranking and market performance</p>
+                        <div class="mt-4">
+                            <span class="card-tag">Rankings</span>
+                        </div>
+                    </a>
+
+                    <!-- Forbes -->
+                    <a href="https://www.forbes.com/digital-assets/assets/salvium-sal/" target="_blank" class="card rounded-xl p-8 text-center" data-aos="fade-up">
+                        <i class="fas fa-newspaper text-4xl mb-6" style="color: var(--color-primary);"></i>
+                        <h3 class="text-xl font-semibold mb-3">Forbes Digital Assets</h3>
+                        <p class="text-gray-400">Professional market analysis and insights from Forbes</p>
+                        <div class="mt-4">
+                            <span class="card-tag">Market Insights</span>
+                        </div>
+                    </a>
+
+                    <!-- LiveCoinWatch -->
+                    <a href="https://www.livecoinwatch.com/price/Salvium-__SAL" target="_blank" class="card rounded-xl p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-clock text-4xl mb-6" style="color: var(--color-primary);"></i>
+                        <h3 class="text-xl font-semibold mb-3">LiveCoinWatch</h3>
+                        <p class="text-gray-400">Real-time price tracking and market data</p>
+                        <div class="mt-4">
+                            <span class="card-tag">Live Tracking</span>
+                        </div>
+                    </a>
+
+                    <!-- CoinCheckup -->
+                    <a href="https://coincheckup.com/coins/salvium" target="_blank" class="card rounded-xl p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-chart-pie text-4xl mb-6" style="color: var(--color-primary);"></i>
+                        <h3 class="text-xl font-semibold mb-3">CoinCheckup</h3>
+                        <p class="text-gray-400">Comprehensive coin analysis and market research</p>
+                        <div class="mt-4">
+                            <span class="card-tag">Market Research</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mining Tools Section -->
+        <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
+            <div class="container mx-auto px-4 relative">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">Mining <span class="gradient-text">Tools</span></h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Mining Pool -->
+                    <a href="https://miningpoolstats.stream/salvium" target="_blank" class="card rounded-xl p-8 text-center" data-aos="fade-up">
+                        <i class="fas fa-microchip text-4xl mb-6" style="color: var(--color-primary);"></i>
+                        <h3 class="text-xl font-semibold mb-3">Mining Pool Stats</h3>
+                        <p class="text-gray-400">View mining pool statistics and performance metrics</p>
+                        <div class="mt-4">
+                            <span class="card-tag">Pool Stats</span>
+                        </div>
+                    </a>
+
+                    <!-- Mining Calculator -->
+                    <a href="https://whattomine.com/coins/427-sal-randomx" target="_blank" class="card rounded-xl p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-calculator text-4xl mb-6" style="color: var(--color-primary);"></i>
+                        <h3 class="text-xl font-semibold mb-3">Mining Calculator</h3>
+                        <p class="text-gray-400">Calculate potential mining rewards and profitability</p>
+                        <div class="mt-4">
+                            <span class="card-tag">Profitability</span>
+                        </div>
+                    </a>
+
+                    <!-- Network Stats -->
+                    <a href="https://poolbay.io/crypto/5874/salvium" target="_blank" class="card rounded-xl p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-network-wired text-4xl mb-6" style="color: var(--color-primary);"></i>
+                        <h3 class="text-xl font-semibold mb-3">Network Statistics</h3>
+                        <p class="text-gray-400">Monitor network hashrate and difficulty levels</p>
+                        <div class="mt-4">
+                            <span class="card-tag">Network Stats</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+<!-- CTA Section -->
+<section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
+    <!-- Background Decoration -->
+    <div class="absolute inset-0">
+        <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+            Ready to Take the <span class="gradient-text">Pill</span>?
+        </h2>
+        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            Start your journey with Salvium today and be part of the next generation of Private DeFi.
+        </p>
+        <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+            Get Started Now
+        </button>
+    </div>
+</section>
+    <!-- Footer container -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/particles-config.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/footer.js?v=2"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    </script>
+</body>
+</html>

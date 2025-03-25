@@ -1,0 +1,234 @@
+---
+layout: blog
+title: Blog
+---
+
+<head>
+    <link rel="preconnect" href="{{ site.url }}">
+    <link rel="dns-prefetch" href="{{ site.url }}">
+    
+    <!-- Preload first 4 post images -->
+    {% for post in paginator.posts limit:4 %}
+        {% if post.image %}
+            <link rel="preload" as="image" href="{{ post.image | relative_url }}">
+        {% endif %}
+    {% endfor %}
+</head>
+
+<link rel="stylesheet" href="{{ site.baseurl }}/blog/assets/css/blog.css">
+
+<main class="relative z-10 pt-16">
+    <!-- Hero Section -->
+    <section class="relative">
+        <!-- Hero Image -->
+        <div class="absolute inset-0">
+            <picture>
+                <source srcset="{{ '/images/newimages/Page Headers/Blog Header.webp' | relative_url }}" type="image/webp">
+                <img 
+                    src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" 
+                    alt="Blog Header" 
+                    class="w-full h-full object-cover opacity-30"
+                    width="1920"
+                    height="1080"
+                    loading="eager"
+                    fetchpriority="high">
+            </picture>
+            <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-75"></div>
+        </div>
+        <div class="relative z-10 py-28 lg:py-36">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-center">
+                        Salvium <span class="gradient-text">Blog</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 text-center mx-auto max-w-2xl">
+                        Stay updated with the latest news, developments, and insights from the Salvium team.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid Section -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="blog-grid">
+            {% for post in paginator.posts %}
+            <div class="blog-grid-item">
+                <article class="ecosystem-card">
+                    {% if post.image %}
+                    <div class="blog-post-image-container">
+                        <a href="{{ post.url | relative_url }}" class="block hover:opacity-90 transition-opacity">
+                            {% if forloop.index < 5 %}
+                            <img 
+                                src="{{ post.image | relative_url }}"
+                                alt="{{ post.title }}" 
+                                class="blog-post-image"
+                                fetchpriority="high"
+                                loading="eager"
+                                decoding="async">
+                            {% else %}
+                            <img 
+                                src="{{ post.image | relative_url }}"
+                                alt="{{ post.title }}" 
+                                class="blog-post-image"
+                                loading="lazy"
+                                decoding="async">
+                            {% endif %}
+                        </a>
+                    </div>
+                    {% endif %}
+                    <div class="card-content">
+                        {% if post.categories %}
+                        <div class="mb-4">
+                            <span class="card-tag">
+                                {{ post.categories | first }}
+                            </span>
+                        </div>
+                        {% endif %}
+                        <a href="{{ post.url | relative_url }}" class="block hover:text-[#00bfa5] transition-colors">
+                            <h2 class="card-title">{{ post.title }}</h2>
+                        </a>
+                        <p class="card-description">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <time datetime="{{ post.date | date_to_xmlschema }}" class="text-sm text-[#b0b0b0]">
+                                {{ post.date | date: "%B %d, %Y" }}
+                            </time>
+                            <a href="{{ post.url | relative_url }}" class="card-link">
+                                Read More 
+                                <i class="fas fa-chevron-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if paginator.total_pages > 1 %}
+        <div class="pagination-container">
+            <div class="pagination">
+                {% if paginator.previous_page %}
+                <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-link">
+                    <i class="fas fa-chevron-left mr-2"></i> Previous
+                </a>
+                {% endif %}
+
+                {% for page in (1..paginator.total_pages) %}
+                    {% if page == paginator.page %}
+                    <span class="pagination-number active">{{ page }}</span>
+                    {% else %}
+                        {% if page == 1 %}
+                        <a href="{{ '/blog/' | relative_url }}" class="pagination-number">{{ page }}</a>
+                        {% else %}
+                        <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="pagination-number">{{ page }}</a>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                
+                {% if paginator.next_page %}
+                <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-link">
+                    Next <i class="fas fa-chevron-right ml-2"></i>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
+        <!-- Background Decoration -->
+        <div class="absolute inset-0">
+            <img src="{{ '/images/pools-1024.webp' | relative_url }}" alt="" class="absolute w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                Ready to Take the <span class="gradient-text">Pill</span>?
+            </h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Start your journey with Salvium today and be part of the next generation of Private DeFi.
+            </p>
+            <a href="{{ site.baseurl }}/download.html" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block" data-aos="fade-up" data-aos-delay="200">
+                Get Started Now
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer class="border-t border-[#40E0D0]/10 mt-8">
+    <div class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="text-center">
+                <img src="{{ '/images/salvium_coin_square_white_512x512px_transparent.webp' | relative_url }}" 
+                     alt="Salvium Logo" 
+                     class="h-20 w-auto mx-auto mb-6">
+                <p class="text-white max-w-md mx-auto mb-6">Private blockchain with DeFi</p>
+                <!-- Social Icons -->
+                <div class="flex justify-center space-x-6">
+                    <a href="https://x.com/salvium_io" class="hover:opacity-80 transition-opacity">
+                        <i class="fa-brands fa-x-twitter text-2xl" style="color: #40E0D0 !important;"></i>
+                    </a>
+                    <a href="https://t.me/salviumprotocol" class="hover:opacity-80 transition-opacity">
+                        <i class="fa-brands fa-telegram text-2xl" style="color: #40E0D0 !important;"></i>
+                    </a>
+                    <a href="https://discord.gg/salvium" class="hover:opacity-80 transition-opacity">
+                        <i class="fa-brands fa-discord text-2xl" style="color: #40E0D0 !important;"></i>
+                    </a>
+                    <a href="https://github.com/salvium" class="hover:opacity-80 transition-opacity">
+                        <i class="fa-brands fa-github text-2xl" style="color: #40E0D0 !important;"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-josefin font-semibold mb-4 text-[#40E0D0]">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="{{ site.baseurl }}/about.html" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">About Us</a></li>
+                    <li><a href="{{ site.baseurl }}/blog" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">Blog</a></li>
+                    <li><a href="{{ site.baseurl }}/faq.html" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">FAQ</a></li>
+                    <li><a href="{{ site.baseurl }}/exchanges.html" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">Exchanges</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-josefin font-semibold mb-4 text-[#40E0D0]">Resources</h4>
+                <ul class="space-y-2">
+                    <li><a href="{{ site.baseurl }}/download.html" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">Wallets</a></li>
+                    <li><a href="https://explorer.salvium.io/" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">Explorer</a></li>
+                    <li><a href="{{ site.baseurl }}/stats.html" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">Stats</a></li>
+                    <li><a href="{{ site.baseurl }}/tools.html" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">3rd Party Tools</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center text-white text-sm">
+            <p class="font-arial">&copy; {{ 'now' | date: "%Y" }} Salvium Protocol. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script defer>
+    // Optimized image loading
+    document.addEventListener('DOMContentLoaded', () => {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        
+        function loadImage(img) {
+            img.classList.add('loaded');
+        }
+        
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        loadImage(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            images.forEach(img => imageObserver.observe(img));
+        } else {
+            images.forEach(loadImage);
+        }
+    });
+</script>

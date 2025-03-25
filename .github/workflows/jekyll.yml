@@ -1,0 +1,46 @@
+name: Jekyll site CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2'
+        bundler-cache: false
+    
+    - name: Clean vendor
+      run: rm -rf vendor/bundle
+      
+    - name: Add platform to bundle lockfile
+      run: bundle lock --add-platform x86_64-linux
+      
+    - name: Bundle install
+      run: |
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+        
+    - name: Build site
+      run: |
+        JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config.production.yml --trace
+      env:
+        JEKYLL_ENV: production
+        JEKYLL_LOG_LEVEL: debug
+        
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_site

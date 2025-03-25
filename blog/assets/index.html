@@ -1,0 +1,304 @@
+---
+layout: default
+title: Blog
+---
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Salvium Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        /* Base styles */
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--background);
+            color: var(--text);
+        }
+
+        .blog-post-image-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            overflow: hidden;
+            background: var(--background-light);
+            border-radius: 0.5rem;
+        }
+
+        .blog-post-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.15s ease-in-out;
+        }
+
+        .blog-post-image.loaded {
+            opacity: 1;
+        }
+
+        /* Add loading animation */
+        .blog-post-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .blog-post-image.loaded + .blog-post-image-container::before {
+            display: none;
+        }
+    </style>
+
+    {% for post in paginator.posts limit:4 %}
+        {% if post.image %}
+            {% assign image_path = post.image | relative_url %}
+            {% assign image_name = image_path | split: '/' | last %}
+            {% assign normalized_name = image_name | replace: ' ', '-' | downcase %}
+            {% assign normalized_path = image_path | replace: image_name, normalized_name %}
+            {% assign webp_path = normalized_path | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
+            {% if forloop.index <= 1 %}
+            <!-- Only preload the first visible image -->
+            <link rel="preload" href="{{ webp_path }}" as="image" type="image/webp" fetchpriority="high" crossorigin="anonymous">
+            <link rel="preload" href="{{ normalized_path }}" as="image" fetchpriority="high" crossorigin="anonymous">
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</head>
+
+<link rel="stylesheet" href="{{ site.baseurl }}/blog/assets/css/blog.css">
+
+<style>
+    .blog-post-image-container {
+        position: relative;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        background: var(--background-light); /* Placeholder color */
+        overflow: hidden;
+    }
+    
+    .blog-post-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background-color: var(--background-light);
+    }
+
+    /* Add a subtle loading animation */
+    @keyframes imageLoad {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .blog-post-image {
+        animation: imageLoad 0.2s ease-out;
+    }
+</style>
+
+<main class="relative z-10">
+    <!-- Hero Section -->
+    <section class="blog-hero">
+        <div class="absolute inset-0">
+            <img 
+                src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" 
+                alt="Blog Header" 
+                class="blog-hero__image"
+                width="1920"
+                height="1080"
+                loading="eager"
+                fetchpriority="high">
+            <div class="blog-hero__gradient"></div>
+        </div>
+        <div class="blog-hero__content">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                        Salvium <span class="gradient-text">Blog</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8">
+                        Latest news and updates from the Salvium team
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mx-auto px-4 -mt-12 pb-16">
+        <div class="blog-grid mb-12">
+            {% for post in paginator.posts %}
+            <div class="blog-grid-item">
+                <article class="ecosystem-card h-full flex flex-col">
+                    {% if post.image %}
+                    <a href="{{ post.url | relative_url }}">
+                        <div class="blog-post-image-container">
+                            {% if forloop.index <= 4 %}
+                                {% assign priority = true %}
+                            {% else %}
+                                {% assign priority = false %}
+                            {% endif %}
+                            {% assign image_path = post.image | relative_url %}
+                            {% assign image_name = image_path | split: '/' | last %}
+                            {% assign normalized_name = image_name | replace: ' ', '-' | downcase %}
+                            {% assign normalized_path = image_path | replace: image_name, normalized_name %}
+                            {% assign webp_path = normalized_path | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
+                            <picture>
+                                <source
+                                    srcset="{{ webp_path }}"
+                                    type="image/webp"
+                                    {% if priority %}fetchpriority="high"{% endif %}>
+                                <img 
+                                    src="{{ normalized_path }}"
+                                    alt="{{ post.title }}" 
+                                    class="blog-post-image"
+                                    width="800"
+                                    height="450"
+                                    {% if priority %}
+                                    fetchpriority="high"
+                                    loading="eager"
+                                    {% else %}
+                                    loading="lazy"
+                                    {% endif %}
+                                    decoding="async"
+                                    onload="this.classList.add('loaded')">
+                            </picture>
+                        </div>
+                    </a>
+                    {% endif %}
+                    <div class="card-content flex-1 flex flex-col">
+                        {% if post.categories %}
+                        <div class="mb-4">
+                            <span class="card-tag">
+                                {{ post.categories | first }}
+                            </span>
+                        </div>
+                        {% endif %}
+                        <a href="{{ post.url | relative_url }}" class="hover:text-[#00bfa5] transition-colors">
+                            <h2 class="card-title mb-4">{{ post.title }}</h2>
+                        </a>
+                        <p class="card-description flex-1">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                        <div class="flex items-center justify-between mt-auto pt-4">
+                            <time datetime="{{ post.date | date_to_xmlschema }}" class="text-sm text-[#b0b0b0]">
+                                {{ post.date | date: "%B %d, %Y" }}
+                            </time>
+                            <a href="{{ post.url | relative_url }}" class="card-link">
+                                Read More 
+                                <i class="fas fa-chevron-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if paginator.total_pages > 1 %}
+        <nav class="mt-12 flex justify-center" aria-label="Blog pagination">
+            <div class="flex items-center gap-2">
+                {% if paginator.previous_page %}
+                <a href="{{ paginator.previous_page_path | relative_url }}" 
+                   class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200 flex items-center">
+                    <i class="fas fa-chevron-left mr-2"></i>
+                    Previous
+                </a>
+                {% endif %}
+
+                {% for page in (1..paginator.total_pages) %}
+                    {% if page == paginator.page %}
+                    <span class="px-4 py-2 bg-[#00bfa5] text-white rounded-md">{{ page }}</span>
+                    {% elsif page == 1 %}
+                    <a href="{{ '/blog/' | relative_url }}" 
+                       class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200">
+                        {{ page }}
+                    </a>
+                    {% else %}
+                    <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" 
+                       class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200">
+                        {{ page }}
+                    </a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if paginator.next_page %}
+                <a href="{{ paginator.next_page_path | relative_url }}" 
+                   class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200 flex items-center">
+                    Next
+                    <i class="fas fa-chevron-right ml-2"></i>
+                </a>
+                {% endif %}
+            </div>
+        </nav>
+        {% endif %}
+    </div>
+
+    <!-- CTA Section -->
+    {% include cta.html %}
+</main>
+
+<script defer>
+    // Optimized image loading
+    document.addEventListener('DOMContentLoaded', () => {
+        const options = {
+            root: null,
+            rootMargin: '100px 0px', // Increased margin for earlier loading
+            threshold: 0.1
+        };
+
+        // Preload next batch of images
+        const preloadNextImages = () => {
+            const images = Array.from(document.querySelectorAll('.blog-post-image[loading="lazy"]'));
+            const nextImages = images.slice(0, 4);
+            
+            nextImages.forEach(img => {
+                const parent = img.closest('picture');
+                if (parent) {
+                    const source = parent.querySelector('source');
+                    if (source) {
+                        // Instead of preload, use prefetch which is more appropriate for this use case
+                        const link = document.createElement('link');
+                        link.rel = 'prefetch';
+                        link.href = source.srcset;
+                        link.type = 'image/webp';
+                        document.head.appendChild(link);
+                    }
+                }
+                // Set loading to eager for the next batch of images
+                img.loading = 'eager';
+            });
+        };
+
+        // Create intersection observer for next batch
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    preloadNextImages();
+                    imageObserver.disconnect();
+                }
+            });
+        }, options);
+
+        // Start observing the last eager-loaded image
+        const eagerImages = document.querySelectorAll('.blog-post-image[fetchpriority="high"]');
+        if (eagerImages.length > 0) {
+            imageObserver.observe(eagerImages[eagerImages.length - 1]);
+        }
+    });
+</script>

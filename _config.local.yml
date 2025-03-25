@@ -1,0 +1,67 @@
+title: Salvium Protocol Blog
+email: your-email@example.com
+description: >-
+  Official blog of the Salvium Protocol - Latest news and updates
+baseurl: ""
+url: "http://localhost:3000"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+excerpt_separator: <!--more-->
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
+# Pagination
+paginate: 6
+paginate_path: /blog/page/:num/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+# Asset paths
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "assets/images"
+    values:
+      image: true
+  -
+    scope:
+      path: "assets/icons"
+    values:
+      image: true
+  -
+    scope:
+      path: "styles/css"
+    values:
+      css: true
+  -
+    scope:
+      path: "scripts"
+    values:
+      js: true
+
+# Exclude files and folders
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .jekyll-cache
+  - .sass-cache
+  - package.json
+  - package-lock.json
+  - README.md
+  - LICENSE 
