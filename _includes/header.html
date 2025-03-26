@@ -1,141 +1,10 @@
----
-layout: blog
-title: Blog
----
-
-<head>
-Expand
-index.html
-12 KB
-i updated and added {{ site.baseurl }} when needed
-locally works fine but i cant test on a custom domain now
-Zed — 15:25
-thx. I've put it live. 
-
-http://salvium.io/blog/
-Salvium Protocol
-Salvium Protocol
-Salvium News
-Image
-not working
-still issue with header logo
-syyko — 15:25
-can i see again?
-but everything else is loading fine?
-Zed — 15:25
-http://salvium.io/blog/
-Salvium Protocol
-Salvium Protocol
-Salvium News
-Image
-can you not see this page?
-syyko — 15:26
-no i cant
-i still see the old page
-Zed — 15:26
-Did you add this to your host file?
-
-185.199.108.153 salvium.io
-185.199.109.153 salvium.io
-185.199.110.153 salvium.io
-185.199.111.153 salvium.io
-
-185.199.108.153 docs.salvium.io
-185.199.109.153 docs.salvium.io
-185.199.110.153 docs.salvium.io
-185.199.111.153 docs.salvium.io
-syyko — 15:26
-i cant since im viewing  this on phone now
-Zed — 15:26
-np
-Image
-syyko — 15:31
-im on my laptop again
-i added the hosts but i still dont see it
-i flushed my DNS too
-okay now it worked
-Zed — 15:33
-ace
-syyko — 15:43
-omg it was so stupid fix
-
-                <a href="/" class="flex items-center">
-                    <img src="/images/salvium_wordmark_white_512x512px_transparent.webp" alt="Salvium Logo" class="w-24 opacity-100" style="height: auto;">
-                </a>
-we missed the / before images
-Zed — 15:46
-lol
-syyko — 15:48
-Image
-my internet is so bad 2mb screenshot isnt sending lol
-Zed — 15:51
-I can't see that in index.
-is that s in _includes\header.html
-syyko — 15:51
-ohh i didnt share with u the latest
----
-layout: blog
-title: Blog
----
-
-<head>
-Expand
-index.html
-12 KB
-Zed — 15:53
-Ah, I have to pick up kids - back in a bit
-syyko — 15:53
-no problem
-Zed — 16:35
-I'm back
-I added that. Still broken
-Is the problem in the header/include?
-<!-- Logo -->
-            <a href="{{ '/' | relative_url }}" class="flex items-center">
-                <img src="{{ '/images/salvium_wordmark_white_512x512px_transparent.webp' | relative_url }}" alt="Salvium Protocol Logo" class="h-8" />
-                <img src="{{ '/images/salvium_coin_square_white_512x512px_transparent.webp' | relative_url }}" alt="Salvium Coin Icon" class="h-8 ml-2" />
-            </a>
-syyko — 17:02
-hey im back i was eating
-check this
----
-layout: blog
-title: Blog
----
-
-<head>
-Expand
-index.html
-12 KB
 <header class="fixed w-full top-0 z-50 bg-[#1e1e1e] border-b border-[#40E0D0]/10">
     <nav class="container mx-auto px-4">
         <div class="flex justify-between items-center h-16">
             <!-- Logo -->
-            <a href="index.html" class="flex items-center">
-                <img src="{{ site.baseurl }}/images/salvium_wordmark_white_512x512px_transparent.webp" alt="Salvium Logo" class="h-8">
-Expand
-header.html
-12 KB
-syyko — 17:09
-updated _includes\header.html  too
-syyko — 17:57
-btw you need to update the baseurl in _config.yml
-Zed — 17:57
-I did that
-I will upload these files in 20 minutes
-syyko — 17:58
-also url
-baseurl: ""
-url: "https://salvium.io/"
-syyko — 17:58
-okay let me know i will be here to debug
-<header class="fixed w-full top-0 z-50 bg-[#1e1e1e] border-b border-[#40E0D0]/10">
-    <nav class="container mx-auto px-4">
-        <div class="flex justify-between items-center h-16">
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center">
-                <img src="{{ site.baseurl }}/images/salvium_wordmark_white_512x512px_transparent.webp" alt="Salvium Logo" class="h-8">
-                <img src="{{ site.baseurl }}/images/salvium_coin_square_white_512x512px_transparent.webp" alt="Salvium Icon" class="h-8 ml-2">
+            <a href="{{ site.baseurl }}/" class="flex items-center">
+                <img src="/{{ site.baseurl | remove_first: '/' }}/images/salvium_wordmark_white_512x512px_transparent.webp" alt="Salvium Protocol Logo" class="h-8" />
+                <img src="/{{ site.baseurl | remove_first: '/' }}/images/salvium_coin_square_white_512x512px_transparent.webp" alt="Salvium Coin Icon" class="h-8 ml-2" />
             </a>
 
             <!-- Desktop Navigation -->
@@ -150,10 +19,10 @@ okay let me know i will be here to debug
                     </button>
                     <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden bg-[#1e1e1e] border border-[#40E0D0]/10">
                         <div class="py-1">
-                            <a href="exchanges.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Exchanges</a>
-                            <a href="about.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">About</a>
-                            <a href="papers.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Lite Paper</a>
-                            <a href="download.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Downloads</a>
+                            <a href="{{ site.baseurl }}/exchanges.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Exchanges</a>
+                            <a href="{{ site.baseurl }}/about.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">About</a>
+                            <a href="{{ site.baseurl }}/papers.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Lite Paper</a>
+                            <a href="{{ site.baseurl }}/download.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Downloads</a>
                         </div>
                     </div>
                 </div>
@@ -168,9 +37,9 @@ okay let me know i will be here to debug
                     </button>
                     <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden bg-[#1e1e1e] border border-[#40E0D0]/10">
                         <div class="py-1">
-                            <a href="faq.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">FAQ</a>
-                            <a href="knowledge-base.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Knowledge Base</a>
-                            <a href="blogs.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Blog</a>
+                            <a href="{{ site.baseurl }}/faq.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">FAQ</a>
+                            <a href="{{ site.baseurl }}/knowledge-base.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Knowledge Base</a>
+                            <a href="{{ site.baseurl }}/blog" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Blog</a>
                         </div>
                     </div>
                 </div>
@@ -185,7 +54,7 @@ okay let me know i will be here to debug
                     </button>
                     <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden bg-[#1e1e1e] border border-[#40E0D0]/10">
                         <div class="py-1">
-                            <a href="stats.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Stats</a>
+                            <a href="{{ site.baseurl }}/stats.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Stats</a>
                             <a href="https://explorer.salvium.io/" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Explorer</a>
                         </div>
                     </div>
@@ -201,9 +70,9 @@ okay let me know i will be here to debug
                     </button>
                     <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden bg-[#1e1e1e] border border-[#40E0D0]/10">
                         <div class="py-1">
-                            <a href="community.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Community</a>
-                            <a href="pools.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Pools</a>
-                            <a href="roadmap.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Roadmap</a>
+                            <a href="{{ site.baseurl }}/community.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Community</a>
+                            <a href="{{ site.baseurl }}/pools.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Pools</a>
+                            <a href="{{ site.baseurl }}/roadmap.html" class="block px-4 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Roadmap</a>
                         </div>
                     </div>
                 </div>
@@ -231,10 +100,10 @@ okay let me know i will be here to debug
                         </svg>
                     </button>
                     <div class="hidden pl-4">
-                        <a href="exchanges.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Exchanges</a>
-                        <a href="about.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">About</a>
-                        <a href="papers.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Lite Paper</a>
-                        <a href="download.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Downloads</a>
+                        <a href="{{ site.baseurl }}/exchanges.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Exchanges</a>
+                        <a href="{{ site.baseurl }}/about.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">About</a>
+                        <a href="{{ site.baseurl }}/papers.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Lite Paper</a>
+                        <a href="{{ site.baseurl }}/download.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Downloads</a>
                     </div>
                 </div>
 
@@ -247,9 +116,9 @@ okay let me know i will be here to debug
                         </svg>
                     </button>
                     <div class="hidden pl-4">
-                        <a href="faq.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">FAQ</a>
-                        <a href="knowledge-base.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Knowledge Base</a>
-                        <a href="blogs.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Blog</a>
+                        <a href="{{ site.baseurl }}/faq.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">FAQ</a>
+                        <a href="{{ site.baseurl }}/knowledge-base.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Knowledge Base</a>
+                        <a href="{{ site.baseurl }}/blog" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Blog</a>
                     </div>
                 </div>
 
@@ -262,7 +131,7 @@ okay let me know i will be here to debug
                         </svg>
                     </button>
                     <div class="hidden pl-4">
-                        <a href="stats.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Stats</a>
+                        <a href="{{ site.baseurl }}/stats.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Stats</a>
                         <a href="https://explorer.salvium.io/" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Explorer</a>
                     </div>
                 </div>
@@ -276,9 +145,9 @@ okay let me know i will be here to debug
                         </svg>
                     </button>
                     <div class="hidden pl-4">
-                        <a href="community.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Community</a>
-                        <a href="pools.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Pools</a>
-                        <a href="roadmap.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Roadmap</a>
+                        <a href="{{ site.baseurl }}/community.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Community</a>
+                        <a href="{{ site.baseurl }}/pools.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Pools</a>
+                        <a href="{{ site.baseurl }}/roadmap.html" class="block px-3 py-2 text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">Roadmap</a>
                     </div>
                 </div>
             </div>
