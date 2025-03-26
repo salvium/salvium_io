@@ -1,5 +1,5 @@
-baseurl: "/salvium_io"
-url: "https://salvium.github.io/"
+baseurl: ""
+url: "https://salvium.io"
 
 # Production specific settings
 future: false
