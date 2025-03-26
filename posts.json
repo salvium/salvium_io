@@ -3,8 +3,8 @@
         
         {
             "title": "Understanding Salvium's v0.6 Series - Improved Difficulty Algorithm",
-            "url": "/salvium_io/blog/2024/12/18/v06-series-update/",
-            "image": "/salvium_io/images/blog/difficulty-algo.webp",
+            "url": "/blog/2024/12/18/v06-series-update/",
+            "image": "/images/blog/difficulty-algo.webp",
             "date": "December 18, 2024",
             "excerpt": "Introducing key improvements in Salvium v0.6, featuring a new difficulty adjustment algorithm for better network stability.",
             "categories": "Development"
@@ -12,8 +12,8 @@
         
         {
             "title": "The Evolution of Privacy in Cryptocurrency",
-            "url": "/salvium_io/blog/2024/12/18/evolution-of-privacy/",
-            "image": "/salvium_io/images/optimized/Blog%20The%20Evo%20or%20Privacy.webp",
+            "url": "/blog/2024/12/18/evolution-of-privacy/",
+            "image": "/images/optimized/Blog%20The%20Evo%20or%20Privacy.webp",
             "date": "December 18, 2024",
             "excerpt": "A look at how cryptocurrency privacy has evolved from its early days to modern compliance-aware solutions.",
             "categories": "Privacy"
@@ -21,8 +21,8 @@
         
         {
             "title": "Introducing Our New Desktop Wallet",
-            "url": "/salvium_io/blog/2024/12/18/desktop-wallet-launch/",
-            "image": "/salvium_io/images/blog/wallet-launch.webp",
+            "url": "/blog/2024/12/18/desktop-wallet-launch/",
+            "image": "/images/blog/wallet-launch.webp",
             "date": "December 18, 2024",
             "excerpt": "Announcing the launch of our new desktop wallet, designed to provide a seamless and secure experience for managing your digital assets.",
             "categories": "Product"
@@ -30,8 +30,8 @@
         
         {
             "title": "The Dawn of a New Market",
-            "url": "/salvium_io/blog/2024/12/18/dawn-of-new-market/",
-            "image": "/salvium_io/images/blog/new-dawn.webp",
+            "url": "/blog/2024/12/18/dawn-of-new-market/",
+            "image": "/images/blog/new-dawn.webp",
             "date": "December 18, 2024",
             "excerpt": "A new market opportunity emerges as privacy coins evolve to meet regulatory requirements while maintaining strong privacy features.",
             "categories": "Market"
@@ -39,8 +39,8 @@
         
         {
             "title": "Redefining Cryptocurrency for the Modern Era",
-            "url": "/salvium_io/blog/2024/12/18/redefining-cryptocurrency/",
-            "image": "/salvium_io/images/optimized/Blog%20Crypto%20landscape.webp",
+            "url": "/blog/2024/12/18/redefining-cryptocurrency/",
+            "image": "/images/optimized/Blog%20Crypto%20landscape.webp",
             "date": "December 18, 2024",
             "excerpt": "A fresh perspective on how modern cryptocurrencies are evolving to meet the demands of today's financial landscape while maintaining core blockchain principles.",
             "categories": "Technology"
@@ -48,8 +48,8 @@
         
         {
             "title": "TRANSCRIPT - Pursuit of Privacy AMA",
-            "url": "/salvium_io/blog/2024/12/18/privacy-ama/",
-            "image": "/salvium_io/images/blog/Blog%20AMA%20PP.webp",
+            "url": "/blog/2024/12/18/privacy-ama/",
+            "image": "/images/blog/Blog%20AMA%20PP.webp",
             "date": "December 18, 2024",
             "excerpt": "Full transcript of our recent AMA session discussing privacy in cryptocurrency and Salvium's unique approach.",
             "categories": "Community"
@@ -57,8 +57,8 @@
         
         {
             "title": "Protocol_tx - The Innovation Powering Salvium's Blockchain Future",
-            "url": "/salvium_io/blog/2024/12/18/protocol-tx-innovation/",
-            "image": "/salvium_io/images/blog/Blog%20Protocol%20TX-1024.webp",
+            "url": "/blog/2024/12/18/protocol-tx-innovation/",
+            "image": "/images/blog/Blog%20Protocol%20TX-1024.webp",
             "date": "December 18, 2024",
             "excerpt": "Introducing Protocol_tx, the groundbreaking technology that powers Salvium's innovative approach to blockchain privacy and security.",
             "categories": "Technology"
@@ -66,8 +66,8 @@
         
         {
             "title": "Salvium Protocol Audit - A Milestone in Innovation and Security",
-            "url": "/salvium_io/blog/2024/12/18/protocol-audit/",
-            "image": "/salvium_io/images/blog/protocol-audit.webp",
+            "url": "/blog/2024/12/18/protocol-audit/",
+            "image": "/images/blog/protocol-audit.webp",
             "date": "December 18, 2024",
             "excerpt": "Announcing the successful completion of our protocol audit, marking a significant milestone in Salvium's commitment to security and innovation.",
             "categories": "Security"
@@ -75,8 +75,8 @@
         
         {
             "title": "Salvium Treasury Update - August 2024 funds locked for 2-years",
-            "url": "/salvium_io/blog/2024/12/18/treasury-update/",
-            "image": "/salvium_io/images/blog/Blog%20Aug%20Tres-1024.webp",
+            "url": "/blog/2024/12/18/treasury-update/",
+            "image": "/images/blog/Blog%20Aug%20Tres-1024.webp",
             "date": "December 18, 2024",
             "excerpt": "Important update on the Salvium Treasury: August 2024 funds have been locked for a 2-year period, demonstrating our long-term commitment.",
             "categories": "Treasury"
