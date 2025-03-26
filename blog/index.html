@@ -10,7 +10,7 @@ title: Blog
     <!-- Preload first 4 post images -->
     {% for post in paginator.posts limit:4 %}
         {% if post.image %}
-            <link rel="preload" as="image" href="{{ post.image | relative_url }}">
+            <link rel="preload" as="image" href="{{ site.baseurl }}{{ post.image }}">
         {% endif %}
     {% endfor %}
 </head>
@@ -22,17 +22,14 @@ title: Blog
     <section class="relative">
         <!-- Hero Image -->
         <div class="absolute inset-0">
-            <picture>
-                <source srcset="{{ '../images/newimages/Page Headers/Blog Header.webp' | relative_url }}" type="image/webp">
-                <img 
-                    src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" 
-                    alt="Blog Header" 
-                    class="w-full h-full object-cover opacity-30"
-                    width="1920"
-                    height="1080"
-                    loading="eager"
-                    fetchpriority="high">
-            </picture>
+            <img 
+                src="{{ site.baseurl }}/images/newimages/Page Headers/Blog Header.webp" 
+                alt="Blog Header" 
+                class="w-full h-full object-cover opacity-30"
+                width="1920"
+                height="1080"
+                loading="eager"
+                fetchpriority="high">
             <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-75"></div>
         </div>
         <div class="relative z-10 py-28 lg:py-36">
@@ -52,15 +49,16 @@ title: Blog
     <!-- Blog Grid Section -->
     <section class="container mx-auto px-4 py-12">
         <div class="blog-grid">
-            {% for post in paginator.posts %}
+            {% assign sorted_posts = paginator.posts | sort: 'date' | reverse %}
+            {% for post in sorted_posts %}
             <div class="blog-grid-item">
                 <article class="ecosystem-card">
                     {% if post.image %}
                     <div class="blog-post-image-container">
-                        <a href="{{ post.url | relative_url }}" class="block hover:opacity-90 transition-opacity">
+                        <a href="{{ site.baseurl }}{{ post.url }}" class="block hover:opacity-90 transition-opacity">
                             {% if forloop.index < 5 %}
                             <img 
-                                src="{{ post.image | relative_url }}"
+                                src="{{ site.baseurl }}{{ post.image }}"
                                 alt="{{ post.title }}" 
                                 class="blog-post-image"
                                 fetchpriority="high"
@@ -68,7 +66,7 @@ title: Blog
                                 decoding="async">
                             {% else %}
                             <img 
-                                src="{{ post.image | relative_url }}"
+                                src="{{ site.baseurl }}{{ post.image }}"
                                 alt="{{ post.title }}" 
                                 class="blog-post-image"
                                 loading="lazy"
@@ -85,7 +83,7 @@ title: Blog
                             </span>
                         </div>
                         {% endif %}
-                        <a href="{{ post.url | relative_url }}" class="block hover:text-[#00bfa5] transition-colors">
+                        <a href="{{ site.baseurl }}{{ post.url }}" class="block hover:text-[#00bfa5] transition-colors">
                             <h2 class="card-title">{{ post.title }}</h2>
                         </a>
                         <p class="card-description">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
@@ -93,7 +91,7 @@ title: Blog
                             <time datetime="{{ post.date | date_to_xmlschema }}" class="text-sm text-[#b0b0b0]">
                                 {{ post.date | date: "%B %d, %Y" }}
                             </time>
-                            <a href="{{ post.url | relative_url }}" class="card-link">
+                            <a href="{{ site.baseurl }}{{ post.url }}" class="card-link">
                                 Read More 
                                 <i class="fas fa-chevron-right ml-2"></i>
                             </a>
@@ -109,7 +107,7 @@ title: Blog
         <div class="pagination-container">
             <div class="pagination">
                 {% if paginator.previous_page %}
-                <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-link">
+                <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="pagination-link">
                     <i class="fas fa-chevron-left mr-2"></i> Previous
                 </a>
                 {% endif %}
@@ -119,15 +117,15 @@ title: Blog
                     <span class="pagination-number active">{{ page }}</span>
                     {% else %}
                         {% if page == 1 %}
-                        <a href="{{ '/blog/' | relative_url }}" class="pagination-number">{{ page }}</a>
+                        <a href="{{ site.baseurl }}/blog/" class="pagination-number">{{ page }}</a>
                         {% else %}
-                        <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="pagination-number">{{ page }}</a>
+                        <a href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', page }}" class="pagination-number">{{ page }}</a>
                         {% endif %}
                     {% endif %}
                 {% endfor %}
                 
                 {% if paginator.next_page %}
-                <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-link">
+                <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="pagination-link">
                     Next <i class="fas fa-chevron-right ml-2"></i>
                 </a>
                 {% endif %}
@@ -140,7 +138,7 @@ title: Blog
     <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
         <!-- Background Decoration -->
         <div class="absolute inset-0">
-            <img src="{{ '/images/pools-1024.webp' | relative_url }}" alt="" class="absolute w-full h-full object-cover opacity-20">
+            <img src="{{ site.baseurl }}/images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
             <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
         </div>
         
@@ -162,7 +160,7 @@ title: Blog
     <div class="container mx-auto px-4 py-12">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div class="text-center">
-                <img src="{{ '/images/salvium_coin_square_white_512x512px_transparent.webp' | relative_url }}" 
+                <img src="{{ site.baseurl }}/images/salvium_coin_square_white_512x512px_transparent.webp" 
                      alt="Salvium Logo" 
                      class="h-20 w-auto mx-auto mb-6">
                 <p class="text-white max-w-md mx-auto mb-6">Private blockchain with DeFi</p>
