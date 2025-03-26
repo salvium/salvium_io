@@ -3,7 +3,7 @@ email: your-email@example.com
 description: >-
   Official blog of the Salvium Protocol - Latest news and updates
 baseurl: ""
-url: "https://salvium.github.io/"
+url: "https://salvium.io/"
 
 # Build settings
 markdown: kramdown
