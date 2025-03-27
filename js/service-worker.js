@@ -1,12 +1,12 @@
 const CACHE_NAME = 'salvium-cache-v1';
 const STATIC_ASSETS = [
-  './',
-  './css/output.css',
-  './dist/js/header.js',
-  './dist/js/footer.js',
-  './dist/js/components.js',
-  './images/salvium_coin_square_white_512x512px_transparent.png',
-  './images/salvium_wordmark_white_512x512px_transparent.png'
+  '/',
+  '/css/output.css',
+  '/dist/js/header.js',
+  '/dist/js/footer.js',
+  '/dist/js/components.js',
+  '/images/salvium_coin_square_white_512x512px_transparent.png',
+  '/images/salvium_wordmark_white_512x512px_transparent.webp'
 ];
 
 // Install event - cache static assets
