@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const isGitHubPages = window.location.hostname.includes('github.io');
     const isLocalhost = window.location.hostname.includes('127.0.0.1') || window.location.hostname.includes('localhost');
     const baseUrl = isGitHubPages || isLocalhost ? '' : '';
-    const imagePath = (isGitHubPages || isLocalhost) ? `${baseUrl}/images/` : 'images/';
+    const imagePath = '/images/'; // Simplified path for custom domain
 
     // Add font imports if they don't exist
     if (!document.querySelector('link[href*="fonts.googleapis.com/css2?family=Josefin+Sans"]')) {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container mx-auto px-4 h-full">
             <div class="flex justify-between items-center h-full">
                 <!-- Logo -->
-                <a href="${baseUrl}/" class="flex items-center">
+                <a href="/" class="flex items-center">
                     <img src="${imagePath}salvium_wordmark_white_512x512px_transparent.webp" alt="Salvium Logo" class="w-24 opacity-100" style="height: auto;">
                 </a>
 
