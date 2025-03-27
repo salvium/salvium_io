@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentPath = window.location.pathname;
     const isGitHubPages = window.location.hostname.includes('github.io');
     const isLocalhost = window.location.hostname.includes('127.0.0.1') || window.location.hostname.includes('localhost');
-    const baseUrl = isGitHubPages || isLocalhost ? '/salvium_io' : '';
+    const baseUrl = isGitHubPages || isLocalhost ? '' : '';
     const imagePath = (isGitHubPages || isLocalhost) ? `${baseUrl}/images/` : 'images/';
     
     const footerHtml = `
