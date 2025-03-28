@@ -51,9 +51,10 @@
 
             /* Font */
             --font-title: 'Josefin Sans', sans-serif;
-            --font-body: 'Inter', Arial, sans-serif;
-            /* Added for header consistency */
+            --font-body: 'Josefin Sans', sans-serif;
             --font-heading: 'Josefin Sans', sans-serif;
+            --font-primary: 'Josefin Sans', sans-serif;
+            --font-secondary: 'Josefin Sans', sans-serif;
         }
 
         * {
@@ -69,7 +70,7 @@
 
         body {
             padding-top: 36px;
-            font-family: var(--font-body);
+            font-family: var(--font-primary);
             background-color: var(--color-bg-dark);
             color: var(--color-text);
             line-height: 1.6;
@@ -77,11 +78,11 @@
         }
 
         h1, h2, h3, h4, h5, h6, .gradient-text {
-            font-family: var(--font-title);
+            font-family: var(--font-primary);
         }
 
         p, a, span, div, button {
-            font-family: var(--font-body);
+            font-family: var(--font-primary) !important;
         }
 
         /* Navigation styles - fixed to match other pages */
@@ -99,6 +100,22 @@
             height: 72px;
             display: flex;
             align-items: center;
+        }
+
+        /* Force Josefin Sans on all navigation elements */
+        .nav-fixed,
+        .nav-fixed *,
+        .dropdown-menu,
+        .dropdown-menu *,
+        .mobile-menu,
+        .mobile-menu *,
+        .dropdown-container,
+        .dropdown-container *,
+        .mobile-dropdown,
+        .mobile-dropdown *,
+        [class*="dropdown"],
+        [class*="dropdown"] * {
+            font-family: var(--font-primary) !important;
         }
 
         .nav-scrolled {
