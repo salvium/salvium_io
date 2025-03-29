@@ -2,15 +2,6 @@
     "posts": [
         
         {
-            "title": "Why Privacy Is Essential In Defi",
-            "url": "/blog/2025/03/24/why-privacy-is-essential-in-defi/",
-            "image": "",
-            "date": "March 24, 2025",
-            "excerpt": "As we approach our upcoming network upgrade, we want to explain the journey of our v0.6 series and why these changes were made. Since releasing v0.6.0, community feedback and testing...",
-            "categories": ""
-        },
-        
-        {
             "title": "Understanding Salvium's v0.6 Series - Improved Difficulty Algorithm",
             "url": "/blog/2024/12/18/v06-series-update/",
             "image": "/images/blog/difficulty-algo.webp",
@@ -89,6 +80,15 @@
             "date": "December 18, 2024",
             "excerpt": "Important update on the Salvium Treasury: August 2024 funds have been locked for a 2-year period, demonstrating our long-term commitment.",
             "categories": "Treasury"
+        },
+        
+        {
+            "title": "V06 Series Update",
+            "url": "/blog/2024/11/04/v06-series-update/",
+            "image": "",
+            "date": "November 04, 2024",
+            "excerpt": "As we approach our upcoming network upgrade, we want to explain the journey of our v0.6 series and why these changes were made. Since releasing v0.6.0, community feedback and testing...",
+            "categories": ""
         }
         
     ]

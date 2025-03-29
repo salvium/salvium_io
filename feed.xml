@@ -1,68 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-03-29T07:09:10+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of the Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">Why Privacy Is Essential In Defi</title><link href="https://salvium.io/blog/2025/03/24/why-privacy-is-essential-in-defi/" rel="alternate" type="text/html" title="Why Privacy Is Essential In Defi" /><published>2025-03-24T00:00:00+00:00</published><updated>2025-03-24T00:00:00+00:00</updated><id>https://salvium.io/blog/2025/03/24/why-privacy-is-essential-in-defi</id><content type="html" xml:base="https://salvium.io/blog/2025/03/24/why-privacy-is-essential-in-defi/"><![CDATA[<p>As we approach our upcoming network upgrade, we want to explain the journey of our v0.6 series and why these changes were made. Since releasing v0.6.0, community feedback and testing have led to several refinements, culminating in our latest release, v0.6.3.</p>
-
-<h2 id="improved-difficulty-adjustments">Improved Difficulty Adjustments</h2>
-
-<p>A key improvement in this upgrade is our transition to the Linearly Weighted Moving Average (LWMA) difficulty adjustment algorithm. While Salvium continues to use RandomX as its proven Proof of Work algorithm, LWMA changes how we adjust mining difficulty between blocks.</p>
-
-<h4 id="why-this-matters">Why This Matters:</h4>
-
-<ul>
-  <li>More stable block times through better difficulty adjustments</li>
-  <li>Improved response to hashrate fluctuations</li>
-  <li>Better resistance against block timing manipulation</li>
-  <li>More predictable and consistent block intervals</li>
-</ul>
-
-<h2 id="the-evolution-of-v06">The Evolution of v0.6</h2>
-
-<p>Our journey to v0.6.3 has been driven by community feedback and real-world testing:</p>
-
-<h4 id="v060-the-foundation">v0.6.0: The Foundation</h4>
-
-<ul>
-  <li>Introduced LWMA difficulty adjustments</li>
-  <li>Implemented new consensus rules (HF1)</li>
-  <li>Established base protocol improvements</li>
-</ul>
-
-<h4 id="v601-v602-refinement">v6.0.1-v6.0.2: Refinement</h4>
-
-<ul>
-  <li>Enhanced wallet performance</li>
-  <li>Improved transaction handling</li>
-  <li>Fixed minor operational issues</li>
-</ul>
-
-<h4 id="v063-the-complete-package">v0.6.3: The Complete Package</h4>
-
-<ul>
-  <li>Increased transaction input limit from 18 to 120+</li>
-  <li>Enhanced exchange integration capabilities</li>
-  <li>Resolved return_payment function issues</li>
-  <li>Final optimizations for upcoming Hard Fork 2</li>
-</ul>
-
-<h2 id="impact-for-different-users">Impact for Different Users</h2>
-
-<h4 id="for-miners">For Miners</h4>
-
-<p>While RandomX remains unchanged as our mining algorithm, the new difficulty adjustment system will provide more consistent block times and better handling of network hashrate changes. This means more predictable mining conditions for all participants.</p>
-
-<h4 id="for-exchanges">For Exchanges</h4>
-
-<p>The increased transaction input limit (now 120+) directly addresses feedback from exchanges, allowing for more efficient handling of withdrawals and better overall integration.</p>
-
-<h4 id="for-regular-users">For Regular Users</h4>
-
-<p>You’ll experience more reliable transactions, better wallet performance, and more consistent block times. The improvements in difficulty adjustments mean more predictable transaction confirmation times.</p>
-
-<h2 id="looking-forward">Looking Forward</h2>
-
-<p>These updates fine-tune Salvium’s existing strengths. The improved difficulty adjustments, enhanced transaction capabilities, and overall stability improvements position us well for the upcoming Hard Fork 2 and beyond.</p>
-
-<h4 id="action-required">Action Required</h4>
-
-<p>All users must upgrade to v0.6.3 before block height 89,800 (expected Tuesday, November 5th, GMT). This upgrade is mandatory to maintain network consensus. Download the latest version: <a href="https://github.com/salvium/salvium/releases/tag/v0.6.3">github.com/salvium/salvium/releases/tag/v0.6.3</a> We’re grateful for our community’s patience and feedback throughout this process. These improvements reflect our commitment to building a robust, fair, and efficient privacy-focused blockchain. <em>The Salvium Core Team</em></p>]]></content><author><name></name></author><summary type="html"><![CDATA[As we approach our upcoming network upgrade, we want to explain the journey of our v0.6 series and why these changes were made. Since releasing v0.6.0, community feedback and testing have led to several refinements, culminating in our latest release, v0.6.3. Improved Difficulty Adjustments A key improvement in this upgrade is our transition to the Linearly Weighted Moving Average (LWMA) difficulty adjustment algorithm. While Salvium continues to use RandomX as its proven Proof of Work algorithm, LWMA changes how we adjust mining difficulty between blocks. Why This Matters: More stable block times through better difficulty adjustments Improved response to hashrate fluctuations Better resistance against block timing manipulation More predictable and consistent block intervals The Evolution of v0.6 Our journey to v0.6.3 has been driven by community feedback and real-world testing: v0.6.0: The Foundation Introduced LWMA difficulty adjustments Implemented new consensus rules (HF1) Established base protocol improvements v6.0.1-v6.0.2: Refinement Enhanced wallet performance Improved transaction handling Fixed minor operational issues v0.6.3: The Complete Package Increased transaction input limit from 18 to 120+ Enhanced exchange integration capabilities Resolved return_payment function issues Final optimizations for upcoming Hard Fork 2 Impact for Different Users For Miners While RandomX remains unchanged as our mining algorithm, the new difficulty adjustment system will provide more consistent block times and better handling of network hashrate changes. This means more predictable mining conditions for all participants. For Exchanges The increased transaction input limit (now 120+) directly addresses feedback from exchanges, allowing for more efficient handling of withdrawals and better overall integration. For Regular Users You’ll experience more reliable transactions, better wallet performance, and more consistent block times. The improvements in difficulty adjustments mean more predictable transaction confirmation times. Looking Forward These updates fine-tune Salvium’s existing strengths. The improved difficulty adjustments, enhanced transaction capabilities, and overall stability improvements position us well for the upcoming Hard Fork 2 and beyond. Action Required All users must upgrade to v0.6.3 before block height 89,800 (expected Tuesday, November 5th, GMT). This upgrade is mandatory to maintain network consensus. Download the latest version: github.com/salvium/salvium/releases/tag/v0.6.3 We’re grateful for our community’s patience and feedback throughout this process. These improvements reflect our commitment to building a robust, fair, and efficient privacy-focused blockchain. The Salvium Core Team]]></summary></entry><entry><title type="html">Understanding Salvium’s v0.6 Series - Improved Difficulty Algorithm</title><link href="https://salvium.io/blog/2024/12/18/v06-series-update/" rel="alternate" type="text/html" title="Understanding Salvium’s v0.6 Series - Improved Difficulty Algorithm" /><published>2024-12-18T10:00:00+00:00</published><updated>2024-12-18T10:00:00+00:00</updated><id>https://salvium.io/blog/2024/12/18/v06-series-update</id><content type="html" xml:base="https://salvium.io/blog/2024/12/18/v06-series-update/"><![CDATA[<p>The v0.6 series brings significant improvements to Salvium’s difficulty adjustment algorithm, enhancing network stability and mining efficiency. This update represents a major step forward in our ongoing commitment to network optimization and security.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-03-29T07:09:55+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of the Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">Understanding Salvium’s v0.6 Series - Improved Difficulty Algorithm</title><link href="https://salvium.io/blog/2024/12/18/v06-series-update/" rel="alternate" type="text/html" title="Understanding Salvium’s v0.6 Series - Improved Difficulty Algorithm" /><published>2024-12-18T10:00:00+00:00</published><updated>2024-12-18T10:00:00+00:00</updated><id>https://salvium.io/blog/2024/12/18/v06-series-update</id><content type="html" xml:base="https://salvium.io/blog/2024/12/18/v06-series-update/"><![CDATA[<p>The v0.6 series brings significant improvements to Salvium’s difficulty adjustment algorithm, enhancing network stability and mining efficiency. This update represents a major step forward in our ongoing commitment to network optimization and security.</p>
 
 <p>Our new difficulty algorithm introduces faster adjustment responses to hash rate changes, enhanced stability against time-warp attacks, and more precise difficulty targeting. These improvements ensure a more reliable and efficient mining experience for all participants.</p>
 
@@ -794,4 +730,68 @@
 
 <p>We will continue to provide regular updates on treasury management and allocation strategies.</p>
 
-<p>Stay tuned for more updates on Salvium’s development and growth!</p>]]></content><author><name></name></author><category term="Treasury" /><summary type="html"><![CDATA[Important update on the Salvium Treasury: August 2024 funds have been locked for a 2-year period, demonstrating our long-term commitment.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/blog/Blog%20Aug%20Tres-1024.webp" /><media:content medium="image" url="https://salvium.io/images/blog/Blog%20Aug%20Tres-1024.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned for more updates on Salvium’s development and growth!</p>]]></content><author><name></name></author><category term="Treasury" /><summary type="html"><![CDATA[Important update on the Salvium Treasury: August 2024 funds have been locked for a 2-year period, demonstrating our long-term commitment.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/blog/Blog%20Aug%20Tres-1024.webp" /><media:content medium="image" url="https://salvium.io/images/blog/Blog%20Aug%20Tres-1024.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">V06 Series Update</title><link href="https://salvium.io/blog/2024/11/04/v06-series-update/" rel="alternate" type="text/html" title="V06 Series Update" /><published>2024-11-04T00:00:00+00:00</published><updated>2024-11-04T00:00:00+00:00</updated><id>https://salvium.io/blog/2024/11/04/v06-series-update</id><content type="html" xml:base="https://salvium.io/blog/2024/11/04/v06-series-update/"><![CDATA[<p>As we approach our upcoming network upgrade, we want to explain the journey of our v0.6 series and why these changes were made. Since releasing v0.6.0, community feedback and testing have led to several refinements, culminating in our latest release, v0.6.3.</p>
+
+<h2 id="improved-difficulty-adjustments">Improved Difficulty Adjustments</h2>
+
+<p>A key improvement in this upgrade is our transition to the Linearly Weighted Moving Average (LWMA) difficulty adjustment algorithm. While Salvium continues to use RandomX as its proven Proof of Work algorithm, LWMA changes how we adjust mining difficulty between blocks.</p>
+
+<h4 id="why-this-matters">Why This Matters:</h4>
+
+<ul>
+  <li>More stable block times through better difficulty adjustments</li>
+  <li>Improved response to hashrate fluctuations</li>
+  <li>Better resistance against block timing manipulation</li>
+  <li>More predictable and consistent block intervals</li>
+</ul>
+
+<h2 id="the-evolution-of-v06">The Evolution of v0.6</h2>
+
+<p>Our journey to v0.6.3 has been driven by community feedback and real-world testing:</p>
+
+<h4 id="v060-the-foundation">v0.6.0: The Foundation</h4>
+
+<ul>
+  <li>Introduced LWMA difficulty adjustments</li>
+  <li>Implemented new consensus rules (HF1)</li>
+  <li>Established base protocol improvements</li>
+</ul>
+
+<h4 id="v601-v602-refinement">v6.0.1-v6.0.2: Refinement</h4>
+
+<ul>
+  <li>Enhanced wallet performance</li>
+  <li>Improved transaction handling</li>
+  <li>Fixed minor operational issues</li>
+</ul>
+
+<h4 id="v063-the-complete-package">v0.6.3: The Complete Package</h4>
+
+<ul>
+  <li>Increased transaction input limit from 18 to 120+</li>
+  <li>Enhanced exchange integration capabilities</li>
+  <li>Resolved return_payment function issues</li>
+  <li>Final optimizations for upcoming Hard Fork 2</li>
+</ul>
+
+<h2 id="impact-for-different-users">Impact for Different Users</h2>
+
+<h4 id="for-miners">For Miners</h4>
+
+<p>While RandomX remains unchanged as our mining algorithm, the new difficulty adjustment system will provide more consistent block times and better handling of network hashrate changes. This means more predictable mining conditions for all participants.</p>
+
+<h4 id="for-exchanges">For Exchanges</h4>
+
+<p>The increased transaction input limit (now 120+) directly addresses feedback from exchanges, allowing for more efficient handling of withdrawals and better overall integration.</p>
+
+<h4 id="for-regular-users">For Regular Users</h4>
+
+<p>You’ll experience more reliable transactions, better wallet performance, and more consistent block times. The improvements in difficulty adjustments mean more predictable transaction confirmation times.</p>
+
+<h2 id="looking-forward">Looking Forward</h2>
+
+<p>These updates fine-tune Salvium’s existing strengths. The improved difficulty adjustments, enhanced transaction capabilities, and overall stability improvements position us well for the upcoming Hard Fork 2 and beyond.</p>
+
+<h4 id="action-required">Action Required</h4>
+
+<p>All users must upgrade to v0.6.3 before block height 89,800 (expected Tuesday, November 5th, GMT). This upgrade is mandatory to maintain network consensus. Download the latest version: <a href="https://github.com/salvium/salvium/releases/tag/v0.6.3">github.com/salvium/salvium/releases/tag/v0.6.3</a> We’re grateful for our community’s patience and feedback throughout this process. These improvements reflect our commitment to building a robust, fair, and efficient privacy-focused blockchain. <em>The Salvium Core Team</em></p>]]></content><author><name></name></author><summary type="html"><![CDATA[As we approach our upcoming network upgrade, we want to explain the journey of our v0.6 series and why these changes were made. Since releasing v0.6.0, community feedback and testing have led to several refinements, culminating in our latest release, v0.6.3. Improved Difficulty Adjustments A key improvement in this upgrade is our transition to the Linearly Weighted Moving Average (LWMA) difficulty adjustment algorithm. While Salvium continues to use RandomX as its proven Proof of Work algorithm, LWMA changes how we adjust mining difficulty between blocks. Why This Matters: More stable block times through better difficulty adjustments Improved response to hashrate fluctuations Better resistance against block timing manipulation More predictable and consistent block intervals The Evolution of v0.6 Our journey to v0.6.3 has been driven by community feedback and real-world testing: v0.6.0: The Foundation Introduced LWMA difficulty adjustments Implemented new consensus rules (HF1) Established base protocol improvements v6.0.1-v6.0.2: Refinement Enhanced wallet performance Improved transaction handling Fixed minor operational issues v0.6.3: The Complete Package Increased transaction input limit from 18 to 120+ Enhanced exchange integration capabilities Resolved return_payment function issues Final optimizations for upcoming Hard Fork 2 Impact for Different Users For Miners While RandomX remains unchanged as our mining algorithm, the new difficulty adjustment system will provide more consistent block times and better handling of network hashrate changes. This means more predictable mining conditions for all participants. For Exchanges The increased transaction input limit (now 120+) directly addresses feedback from exchanges, allowing for more efficient handling of withdrawals and better overall integration. For Regular Users You’ll experience more reliable transactions, better wallet performance, and more consistent block times. The improvements in difficulty adjustments mean more predictable transaction confirmation times. Looking Forward These updates fine-tune Salvium’s existing strengths. The improved difficulty adjustments, enhanced transaction capabilities, and overall stability improvements position us well for the upcoming Hard Fork 2 and beyond. Action Required All users must upgrade to v0.6.3 before block height 89,800 (expected Tuesday, November 5th, GMT). This upgrade is mandatory to maintain network consensus. Download the latest version: github.com/salvium/salvium/releases/tag/v0.6.3 We’re grateful for our community’s patience and feedback throughout this process. These improvements reflect our commitment to building a robust, fair, and efficient privacy-focused blockchain. The Salvium Core Team]]></summary></entry></feed>
