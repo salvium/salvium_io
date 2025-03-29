@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Privacy Is Essential In Defi - Salvium Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/design-system.css">
+    <link rel="stylesheet" href="/css/cards.css">
+    <link rel="stylesheet" href="/css/blog-post.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(45deg, #00bfa5, #40E0D0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Content -->
+    <p>As we approach our upcoming network upgrade, we want to explain the journey of our v0.6 series and why these changes were made. Since releasing v0.6.0, community feedback and testing have led to several refinements, culminating in our latest release, v0.6.3.</p>
+
+<h2 id="improved-difficulty-adjustments">Improved Difficulty Adjustments</h2>
+
+<p>A key improvement in this upgrade is our transition to the Linearly Weighted Moving Average (LWMA) difficulty adjustment algorithm. While Salvium continues to use RandomX as its proven Proof of Work algorithm, LWMA changes how we adjust mining difficulty between blocks.</p>
+
+<h4 id="why-this-matters">Why This Matters:</h4>
+
+<ul>
+  <li>More stable block times through better difficulty adjustments</li>
+  <li>Improved response to hashrate fluctuations</li>
+  <li>Better resistance against block timing manipulation</li>
+  <li>More predictable and consistent block intervals</li>
+</ul>
+
+<h2 id="the-evolution-of-v06">The Evolution of v0.6</h2>
+
+<p>Our journey to v0.6.3 has been driven by community feedback and real-world testing:</p>
+
+<h4 id="v060-the-foundation">v0.6.0: The Foundation</h4>
+
+<ul>
+  <li>Introduced LWMA difficulty adjustments</li>
+  <li>Implemented new consensus rules (HF1)</li>
+  <li>Established base protocol improvements</li>
+</ul>
+
+<h4 id="v601-v602-refinement">v6.0.1-v6.0.2: Refinement</h4>
+
+<ul>
+  <li>Enhanced wallet performance</li>
+  <li>Improved transaction handling</li>
+  <li>Fixed minor operational issues</li>
+</ul>
+
+<h4 id="v063-the-complete-package">v0.6.3: The Complete Package</h4>
+
+<ul>
+  <li>Increased transaction input limit from 18 to 120+</li>
+  <li>Enhanced exchange integration capabilities</li>
+  <li>Resolved return_payment function issues</li>
+  <li>Final optimizations for upcoming Hard Fork 2</li>
+</ul>
+
+<h2 id="impact-for-different-users">Impact for Different Users</h2>
+
+<h4 id="for-miners">For Miners</h4>
+
+<p>While RandomX remains unchanged as our mining algorithm, the new difficulty adjustment system will provide more consistent block times and better handling of network hashrate changes. This means more predictable mining conditions for all participants.</p>
+
+<h4 id="for-exchanges">For Exchanges</h4>
+
+<p>The increased transaction input limit (now 120+) directly addresses feedback from exchanges, allowing for more efficient handling of withdrawals and better overall integration.</p>
+
+<h4 id="for-regular-users">For Regular Users</h4>
+
+<p>You’ll experience more reliable transactions, better wallet performance, and more consistent block times. The improvements in difficulty adjustments mean more predictable transaction confirmation times.</p>
+
+<h2 id="looking-forward">Looking Forward</h2>
+
+<p>These updates fine-tune Salvium’s existing strengths. The improved difficulty adjustments, enhanced transaction capabilities, and overall stability improvements position us well for the upcoming Hard Fork 2 and beyond.</p>
+
+<h4 id="action-required">Action Required</h4>
+
+<p>All users must upgrade to v0.6.3 before block height 89,800 (expected Tuesday, November 5th, GMT). This upgrade is mandatory to maintain network consensus. Download the latest version: <a href="https://github.com/salvium/salvium/releases/tag/v0.6.3">github.com/salvium/salvium/releases/tag/v0.6.3</a> We’re grateful for our community’s patience and feedback throughout this process. These improvements reflect our commitment to building a robust, fair, and efficient privacy-focused blockchain. <em>The Salvium Core Team</em></p>
+
+
+    <!-- Scripts -->
+    <script>
+        window.jekyllPaths = {
+            root: '',
+            images: '/images',
+            css: '/css',
+            js: '/js'
+        };
+    </script>
+    <script src="/js/header_jekyll.js"></script>
+    <script src="/js/particles.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

@@ -2,6 +2,15 @@
     "posts": [
         
         {
+            "title": "Why Privacy Is Essential In Defi",
+            "url": "/blog/2025/03/24/why-privacy-is-essential-in-defi/",
+            "image": "",
+            "date": "March 24, 2025",
+            "excerpt": "As we approach our upcoming network upgrade, we want to explain the journey of our v0.6 series and why these changes were made. Since releasing v0.6.0, community feedback and testing...",
+            "categories": ""
+        },
+        
+        {
             "title": "Understanding Salvium's v0.6 Series - Improved Difficulty Algorithm",
             "url": "/blog/2024/12/18/v06-series-update/",
             "image": "/images/blog/difficulty-algo.webp",
