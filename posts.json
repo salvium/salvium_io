@@ -89,6 +89,15 @@
             "date": "November 04, 2024",
             "excerpt": "As we approach our upcoming network upgrade, we want to explain the journey of our v0.6 series and why these changes were made. Since releasing v0.6.0, community feedback and testing...",
             "categories": ""
+        },
+        
+        {
+            "title": "Privacy Ama",
+            "url": "/blog/2024/09/09/privacy-ama/",
+            "image": "",
+            "date": "September 09, 2024",
+            "excerpt": "On August 20th, the Salvium devs joined the Pursuit of Privacy community for an AMA. Thanks for hosting—it was a great discussion! In this AMA, we explore Salvium’s origins, its...",
+            "categories": ""
         }
         
     ]
