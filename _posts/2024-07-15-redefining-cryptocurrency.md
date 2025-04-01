@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Redefining Cryptocurrency for the Modern Era"
-date: 2024-12-18 09:00:00 +0200
-categories: Technology
+date: 2024-07-15 09:00:00 +0200
+categories: Education
 image: /images/optimized/Blog Crypto landscape.webp
 excerpt: "A fresh perspective on how modern cryptocurrencies are evolving to meet the demands of today's financial landscape while maintaining core blockchain principles."
 ---
