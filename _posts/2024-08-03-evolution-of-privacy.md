@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "The Evolution of Privacy in Cryptocurrency"
-date: 2024-12-18 11:00:00 +0200
-categories: Privacy
+date: 2024-08-03 11:00:00 +0200
+categories: Education
 image: /images/optimized/Blog The Evo or Privacy.webp
 excerpt: "A look at how cryptocurrency privacy has evolved from its early days to modern compliance-aware solutions."
 ---

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Introducing Our New Desktop Wallet"
-date: 2024-12-18 11:00:00 +0200
-categories: Product
+date: 2024-08-16 11:00:00 +0200
+categories: Updates
 image: /images/blog/wallet-launch.webp
 excerpt: "Announcing the launch of our new desktop wallet, designed to provide a seamless and secure experience for managing your digital assets."
 ---

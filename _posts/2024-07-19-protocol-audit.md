@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Salvium Protocol Audit - A Milestone in Innovation and Security"
-date: 2024-12-18 05:00:00 +0200
-categories: Security
+date: 2024-07-19 05:00:00 +0200
+categories: Updates
 image: /images/blog/protocol-audit.webp
 excerpt: "Announcing the successful completion of our protocol audit, marking a significant milestone in Salvium's commitment to security and innovation."
 ---

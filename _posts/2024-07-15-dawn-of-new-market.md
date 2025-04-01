@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "The Dawn of a New Market"
-date: 2024-12-18 10:00:00 +0200
-categories: Market
+date: 2024-07-15 10:00:00 +0200
+categories: Education
 image: /images/blog/new-dawn.webp
 excerpt: "A new market opportunity emerges as privacy coins evolve to meet regulatory requirements while maintaining strong privacy features."
 ---
