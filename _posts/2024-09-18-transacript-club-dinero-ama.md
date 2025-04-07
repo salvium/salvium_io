@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TRANSCRIPT – Club Dinero AMA"
+title: "Club Dinero AMA"
 date: 2024-09-18 09:51:00 +0200
 categories: Community
 image: /images/blog/club-dinero-ama.webp
