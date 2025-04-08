@@ -3,7 +3,7 @@ layout: post
 title: "A Clear Path Forward"
 date: 2025-04-07 10:00:00 +0200
 categories: Updates
-image: /images/blog/path-forward.webp
+image: /images/optimized/a-clear-path.webp
 excerpt: "An overview of Salvium's journey, the innovations introduced in Salvium Zero, and the roadmap toward regulatory-compliant privacy in Salvium One."
 ---
 
