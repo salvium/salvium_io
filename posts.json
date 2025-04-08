@@ -2,102 +2,120 @@
     "posts": [
         
         {
-            "title": "Understanding Salvium's v0.6 Series - Improved Difficulty Algorithm",
-            "url": "/blog/2024/12/18/v06-series-update/",
-            "image": "/images/blog/difficulty-algo.webp",
-            "date": "December 18, 2024",
-            "excerpt": "Introducing key improvements in Salvium v0.6, featuring a new difficulty adjustment algorithm for better network stability.",
-            "categories": "Development"
+            "title": "A Clear Path Forward",
+            "url": "/blog/2025/04/07/a-path-forward/",
+            "image": "/images/optimized/a-clear-path.webp",
+            "date": "April 07, 2025",
+            "excerpt": "An overview of Salvium's journey, the innovations introduced in Salvium Zero, and the roadmap toward regulatory-compliant privacy in Salvium One.",
+            "categories": "Updates"
         },
         
         {
-            "title": "The Evolution of Privacy in Cryptocurrency",
-            "url": "/blog/2024/12/18/evolution-of-privacy/",
-            "image": "/images/optimized/Blog%20The%20Evo%20or%20Privacy.webp",
-            "date": "December 18, 2024",
-            "excerpt": "A look at how cryptocurrency privacy has evolved from its early days to modern compliance-aware solutions.",
-            "categories": "Privacy"
+            "title": "Audit Completion and Supply Update",
+            "url": "/blog/2025/03/12/audit-completion-supply-update/",
+            "image": "/images/blog/audit-completion.webp",
+            "date": "March 12, 2025",
+            "excerpt": "Important update on our recent audit completion and current supply status of Salvium.",
+            "categories": "Updates"
         },
         
         {
-            "title": "Introducing Our New Desktop Wallet",
-            "url": "/blog/2024/12/18/desktop-wallet-launch/",
-            "image": "/images/blog/wallet-launch.webp",
-            "date": "December 18, 2024",
-            "excerpt": "Announcing the launch of our new desktop wallet, designed to provide a seamless and secure experience for managing your digital assets.",
-            "categories": "Product"
+            "title": "Audit 0.8.0",
+            "url": "/blog/2025/01/09/audit-080/",
+            "image": "/images/optimized/audit-080.webp",
+            "date": "January 09, 2025",
+            "excerpt": "Details on the completion and findings of the Salvium v0.8.0 audit.",
+            "categories": "Updates"
         },
         
         {
-            "title": "The Dawn of a New Market",
-            "url": "/blog/2024/12/18/dawn-of-new-market/",
-            "image": "/images/blog/new-dawn.webp",
-            "date": "December 18, 2024",
-            "excerpt": "A new market opportunity emerges as privacy coins evolve to meet regulatory requirements while maintaining strong privacy features.",
-            "categories": "Market"
-        },
-        
-        {
-            "title": "Redefining Cryptocurrency for the Modern Era",
-            "url": "/blog/2024/12/18/redefining-cryptocurrency/",
-            "image": "/images/optimized/Blog%20Crypto%20landscape.webp",
-            "date": "December 18, 2024",
-            "excerpt": "A fresh perspective on how modern cryptocurrencies are evolving to meet the demands of today's financial landscape while maintaining core blockchain principles.",
+            "title": "Understanding the Potential Inflation Vulnerability – Jan 2025",
+            "url": "/blog/2025/01/06/potential-inflation-vulnerability/",
+            "image": "/images/blog/inflation-vulnerability.webp",
+            "date": "January 06, 2025",
+            "excerpt": "Technical analysis of the potential inflation vulnerability and our response.",
             "categories": "Technology"
         },
         
         {
-            "title": "TRANSCRIPT - Pursuit of Privacy AMA",
-            "url": "/blog/2024/12/18/privacy-ama/",
-            "image": "/images/blog/Blog%20AMA%20PP.webp",
-            "date": "December 18, 2024",
-            "excerpt": "Full transcript of our recent AMA session discussing privacy in cryptocurrency and Salvium's unique approach.",
+            "title": "Understanding Salvium's v0.6 Series - Improved Difficulty Algorithm",
+            "url": "/blog/2024/11/04/v06-series-update/",
+            "image": "/images/blog/difficulty-algo.webp",
+            "date": "November 04, 2024",
+            "excerpt": "Introducing key improvements in Salvium v0.6, featuring a new difficulty adjustment algorithm for better network stability.",
+            "categories": "Technology"
+        },
+        
+        {
+            "title": "Club Dinero AMA",
+            "url": "/blog/2024/09/18/club-dinero-ama/",
+            "image": "/images/opimized/ama-club-d.webp",
+            "date": "September 18, 2024",
+            "excerpt": "Full transcript of our AMA session with the Club Dinero community discussing Salvium's vision and technology.",
             "categories": "Community"
         },
         
         {
-            "title": "Protocol_tx - The Innovation Powering Salvium's Blockchain Future",
-            "url": "/blog/2024/12/18/protocol-tx-innovation/",
-            "image": "/images/blog/Blog%20Protocol%20TX-1024.webp",
-            "date": "December 18, 2024",
-            "excerpt": "Introducing Protocol_tx, the groundbreaking technology that powers Salvium's innovative approach to blockchain privacy and security.",
-            "categories": "Technology"
+            "title": "The Pursuit of Privacy AMA – Highlights & Insights",
+            "url": "/blog/2024/09/09/privacy-ama/",
+            "image": "/images/blog/Blog%20AMA%20PP.webp",
+            "date": "September 09, 2024",
+            "excerpt": "On August 20th, the Salvium devs joined the Pursuit of Privacy community for an AMA. Thanks for hosting—it was a great discussion! In this AMA, we explore Salvium’s origins, its...",
+            "categories": "community"
         },
         
         {
-            "title": "Salvium Protocol Audit - A Milestone in Innovation and Security",
-            "url": "/blog/2024/12/18/protocol-audit/",
-            "image": "/images/blog/protocol-audit.webp",
-            "date": "December 18, 2024",
-            "excerpt": "Announcing the successful completion of our protocol audit, marking a significant milestone in Salvium's commitment to security and innovation.",
-            "categories": "Security"
+            "title": "Introducing Our New Desktop Wallet",
+            "url": "/blog/2024/08/16/desktop-wallet-launch/",
+            "image": "/images/blog/wallet-launch.webp",
+            "date": "August 16, 2024",
+            "excerpt": "Announcing the launch of our new desktop wallet, designed to provide a seamless and secure experience for managing your digital assets.",
+            "categories": "Updates"
         },
         
         {
             "title": "Salvium Treasury Update - August 2024 funds locked for 2-years",
-            "url": "/blog/2024/12/18/treasury-update/",
+            "url": "/blog/2024/08/15/treasury-update/",
             "image": "/images/blog/Blog%20Aug%20Tres-1024.webp",
-            "date": "December 18, 2024",
+            "date": "August 15, 2024",
             "excerpt": "Important update on the Salvium Treasury: August 2024 funds have been locked for a 2-year period, demonstrating our long-term commitment.",
-            "categories": "Treasury"
+            "categories": "Updates"
         },
         
         {
-            "title": "V06 Series Update",
-            "url": "/blog/2024/11/04/v06-series-update/",
-            "image": "",
-            "date": "November 04, 2024",
-            "excerpt": "As we approach our upcoming network upgrade, we want to explain the journey of our v0.6 series and why these changes were made. Since releasing v0.6.0, community feedback and testing...",
-            "categories": ""
+            "title": "The Evolution of Privacy in Cryptocurrency",
+            "url": "/blog/2024/08/03/evolution-of-privacy/",
+            "image": "/images/optimized/Blog%20The%20Evo%20or%20Privacy.webp",
+            "date": "August 03, 2024",
+            "excerpt": "A look at how cryptocurrency privacy has evolved from its early days to modern compliance-aware solutions.",
+            "categories": "Education"
         },
         
         {
-            "title": "Privacy Ama",
-            "url": "/blog/2024/09/09/privacy-ama/",
-            "image": "",
-            "date": "September 09, 2024",
-            "excerpt": "On August 20th, the Salvium devs joined the Pursuit of Privacy community for an AMA. Thanks for hosting—it was a great discussion! In this AMA, we explore Salvium’s origins, its...",
-            "categories": ""
+            "title": "Salvium Protocol Audit - A Milestone in Innovation and Security",
+            "url": "/blog/2024/07/19/protocol-audit/",
+            "image": "/images/blog/protocol-audit.webp",
+            "date": "July 19, 2024",
+            "excerpt": "Announcing the successful completion of our protocol audit, marking a significant milestone in Salvium's commitment to security and innovation.",
+            "categories": "Updates"
+        },
+        
+        {
+            "title": "The Dawn of a New Market",
+            "url": "/blog/2024/07/15/dawn-of-new-market/",
+            "image": "/images/blog/new-dawn.webp",
+            "date": "July 15, 2024",
+            "excerpt": "A new market opportunity emerges as privacy coins evolve to meet regulatory requirements while maintaining strong privacy features.",
+            "categories": "Education"
+        },
+        
+        {
+            "title": "Redefining Cryptocurrency for the Modern Era",
+            "url": "/blog/2024/07/15/redefining-cryptocurrency/",
+            "image": "/images/optimized/Blog%20Crypto%20landscape.webp",
+            "date": "July 15, 2024",
+            "excerpt": "A fresh perspective on how modern cryptocurrencies are evolving to meet the demands of today's financial landscape while maintaining core blockchain principles.",
+            "categories": "Education"
         }
         
     ]
