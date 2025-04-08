@@ -3,7 +3,7 @@ layout: post
 title: "Audit Completion and Supply Update"
 date: 2025-03-12 16:50:00 +0200
 categories: Updates
-image: /images/blog/audit-completion.webp
+image: /images/optimized/audit-complete.webp
 excerpt: "Important update on our recent audit completion and current supply status of Salvium."
 ---
 
