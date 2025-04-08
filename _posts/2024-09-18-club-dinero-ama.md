@@ -3,7 +3,7 @@ layout: post
 title: "Club Dinero AMA"
 date: 2024-09-18 09:51:00 +0200
 categories: Community
-image: /images/blog/club-dinero-ama.webp
+image: /images/opimized/ama-club-d.webp
 excerpt: "Full transcript of our AMA session with the Club Dinero community discussing Salvium's vision and technology."
 ---
 ## 1. What inspired the creation of Salvium, and how does it differ from other privacy-focused DeFi projects?
