@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </button>
                     <div class="mobile-dropdown-menu hidden pl-4 pb-2 space-y-2">
                         <a href="${baseUrl}/community.html" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Community</a>
-                        <a href="https://github.com/salvium/salvium_io" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">GitHub</a>
+                        <a href="https://github.com/salvium/" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">GitHub</a>
                     </div>
                 </div>
             </div>
