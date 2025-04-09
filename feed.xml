@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-04-08T15:11:57+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">A Clear Path Forward</title><link href="https://salvium.io/blog/2025/04/07/a-path-forward/" rel="alternate" type="text/html" title="A Clear Path Forward" /><published>2025-04-07T08:00:00+00:00</published><updated>2025-04-07T08:00:00+00:00</updated><id>https://salvium.io/blog/2025/04/07/a-path-forward</id><content type="html" xml:base="https://salvium.io/blog/2025/04/07/a-path-forward/"><![CDATA[<p>As we look back on the journey so far and ahead to what’s coming, it’s evident that Salvium has reached a pivotal moment. After weathering challenges and making significant technical breakthroughs, we have clarity on both our direction and purpose. This post marks the first in a series where we’ll explore the problems we’re solving, the innovative solutions we’re implementing, and our vision for the future of privacy in cryptocurrency.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-04-09T13:49:35+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">A Clear Path Forward</title><link href="https://salvium.io/blog/2025/04/07/a-path-forward/" rel="alternate" type="text/html" title="A Clear Path Forward" /><published>2025-04-07T08:00:00+00:00</published><updated>2025-04-07T08:00:00+00:00</updated><id>https://salvium.io/blog/2025/04/07/a-path-forward</id><content type="html" xml:base="https://salvium.io/blog/2025/04/07/a-path-forward/"><![CDATA[<p>As we look back on the journey so far and ahead to what’s coming, it’s evident that Salvium has reached a pivotal moment. After weathering challenges and making significant technical breakthroughs, we have clarity on both our direction and purpose. This post marks the first in a series where we’ll explore the problems we’re solving, the innovative solutions we’re implementing, and our vision for the future of privacy in cryptocurrency.</p>
 
 <h2 id="where-we-stand-today-salvium-zero">Where We Stand Today: Salvium Zero</h2>
 
 <p>Our current implementation, Salvium Zero, has proven the core concepts that make our approach unique. As a proof of concept, it successfully demonstrated:</p>
 
 <ul>
-  <li><strong>Asynchronous transactions</strong>: Enabling more complex operations like yield payouts</li>
-  <li><strong>Protocol TX</strong>: A supplementary block-level transaction mechanism for minting new coins</li>
+  <li><strong><a href="https://docs.salvium.org/kb/async-transactions">Asynchronous transactions</a></strong>: Enabling more complex operations like yield payouts</li>
+  <li><strong><a href="https://docs.salvium.org/kb/protocol-tx">Protocol TX</a></strong>: A supplementary block-level transaction mechanism for minting new coins</li>
   <li><strong>Return address scheme</strong>: A mechanism allowing recipients to return funds to senders without knowing their address</li>
 </ul>
 
@@ -14,12 +14,12 @@
 
 <h2 id="where-were-going-salvium-one">Where We’re Going: Salvium One</h2>
 
-<p>Salvium One represents a significant evolution, taking the foundation of Salvium Zero and extending it to achieve full regulatory compliance without compromising privacy. The key innovation driving this advancement is <strong>SPARC</strong> (Spend Proof and Anonymized Returns for CARROT), which combines:</p>
+<p>Salvium One represents a significant evolution, taking the foundation of Salvium Zero and extending it to achieve full regulatory compliance without compromising privacy. The key innovation driving this advancement is <strong><a href="https://docs.salvium.org/kb/sparc">SPARC</a></strong> (Spend Proof and Anonymized Returns for <a href="https://docs.salvium.org/kb/carrot">CARROT</a>), which combines:</p>
 
 <ul>
-  <li><strong>Enhanced return payments</strong>: Maintaining privacy while enabling bidirectional transactions</li>
-  <li><strong>Spend authority proofs</strong>: Preventing potential money laundering by verifying wallet control</li>
-  <li><strong>View-only wallet tier</strong>: Enabling compliant transaction history reporting without sharing private spend keys</li>
+  <li><strong><a href="https://docs.salvium.org/kb/sparc#anonymized-returns">Enhanced return payments</a></strong>: Maintaining privacy while enabling bidirectional transactions</li>
+  <li><strong><a href="https://docs.salvium.org/kb/sparc#spend-authority-proof">Spend authority proofs</a></strong>: Preventing potential money laundering by verifying wallet control</li>
+  <li><strong><a href="https://docs.salvium.org/kb/carrot#full-view-only-wallets">View-only wallet tier</a></strong>: Enabling compliant transaction history reporting without sharing private spend keys</li>
 </ul>
 
 <p>This combination of features uniquely positions Salvium among privacy-focused cryptocurrencies. While projects like Monero excel at privacy, they face increasing regulatory challenges and exchange delistings. Salvium’s approach creates a path for privacy coins to operate within regulatory frameworks while preserving their essential privacy features.</p>
@@ -39,9 +39,9 @@
 <p>In upcoming posts, we’ll dive deeper into:</p>
 
 <ul>
-  <li>The specific regulatory challenges facing privacy coins and how Salvium addresses them</li>
-  <li>The technical details of SPARC and how it extends the CARROT protocol</li>
-  <li>The mathematics behind our solutions and formal security proofs</li>
+  <li>The specific regulatory challenges facing privacy coins and how <a href="https://docs.salvium.org/kb/compliance">Salvium addresses them</a></li>
+  <li>The technical details of <a href="https://docs.salvium.org/kb/sparc">SPARC</a> and how it extends the <a href="https://docs.salvium.org/kb/carrot">CARROT protocol</a></li>
+  <li>The mathematics behind our solutions and <a href="https://docs.salvium.org/kb/security">formal security proofs</a></li>
 </ul>
 
 <p>We invite the community to engage with these discussions as we build a privacy-focused cryptocurrency that’s both regulatory compliant and technically advanced.</p>]]></content><author><name></name></author><category term="Updates" /><summary type="html"><![CDATA[An overview of Salvium's journey, the innovations introduced in Salvium Zero, and the roadmap toward regulatory-compliant privacy in Salvium One.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/optimized/a-clear-path.webp" /><media:content medium="image" url="https://salvium.io/images/optimized/a-clear-path.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Audit Completion and Supply Update</title><link href="https://salvium.io/blog/2025/03/12/audit-completion-supply-update/" rel="alternate" type="text/html" title="Audit Completion and Supply Update" /><published>2025-03-12T14:50:00+00:00</published><updated>2025-03-12T14:50:00+00:00</updated><id>https://salvium.io/blog/2025/03/12/audit-completion-supply-update</id><content type="html" xml:base="https://salvium.io/blog/2025/03/12/audit-completion-supply-update/"><![CDATA[<p>We’re pleased to announce the successful completion of Salvium’s comprehensive supply audit. This audit became necessary after a security incident allowed unauthorized coin minting. For detailed information, please visit: <a href="https://salvium.io/salvium-knowledge-base/salvium-supply-audit/">Salvium Knowledge Base - Supply Audit</a>.</p>
