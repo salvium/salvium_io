@@ -7,6 +7,9 @@ title: Blog
     <link rel="preconnect" href="{{ site.url }}">
     <link rel="dns-prefetch" href="{{ site.url }}">
     
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/favicon/favicon.svg">
+    
     <!-- Preload first 4 post images -->
     {% for post in paginator.posts limit:4 %}
         {% if post.image %}
