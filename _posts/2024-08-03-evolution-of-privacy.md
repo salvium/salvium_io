@@ -10,7 +10,7 @@ In the early days of cryptocurrency, the cypherpunk movement envisioned a financ
 
 ### The Conceptual Shift in Crypto Privacy
 
-![Crypto Privacy Evolution](/images/optimized/Crypto-Privacy-Evolution.png)
+![Crypto Privacy Evolution](/images/optimized/Crypto-Privacy-Evolution.jpeg)
 
 The above chart offers a thought-provoking model of how the landscape of privacy in cryptocurrency is likely to evolve. It proposes a scenario where the prevalence of "underground" privacy solutions in crypto could decline, while "compliant" privacy solutions see a significant rise.
 
