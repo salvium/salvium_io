@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden" style="background: rgba(30, 30, 30, 0.98);">
                             <div class="py-2">
                                 <a href="${baseUrl}/community.html" class="block px-4 py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Community</a>
-                                <a href="https://github.com/salvium/salvium_io" class="block px-4 py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">GitHub</a>
+                                <a href="https://github.com/salvium" class="block px-4 py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </button>
                     <div class="mobile-dropdown-menu hidden pl-4 pb-2 space-y-2">
                         <a href="${baseUrl}/community.html" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">Community</a>
-                        <a href="https://github.com/salvium/" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">GitHub</a>
+                        <a href="https://github.com/salvium" class="block py-2.5 transition-all duration-200 hover:bg-[#40E0D0]/10" style="color: #40E0D0; font-family: var(--font-heading)">GitHub</a>
                     </div>
                 </div>
             </div>
