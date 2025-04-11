@@ -206,37 +206,8 @@
         }
 
         /* CTA Section Styles */
-        .py-16.relative.overflow-hidden.bg-[#0B272C].mt-8.mb-0 {
-            background-color: var(--color-bg-dark);
-            overflow: hidden;
-            min-height: 500px;
-        }
-
-        @media (min-width: 1024px) {
-            .py-16.relative.overflow-hidden.bg-[#0B272C].mt-8.mb-0 {
-                min-height: 600px;
-            }
-        }
-
-        .py-16.relative.overflow-hidden.bg-[#0B272C].mt-8.mb-0 .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.3;
-        }
-
-        .py-16.relative.overflow-hidden.bg-[#0B272C].mt-8.mb-0 .hero-content {
-            position: relative;
-            z-index: 10;
-            padding: 4rem 0;
-        }
-
-        .py-16.relative.overflow-hidden.bg-[#0B272C].mt-8.mb-0 .hero-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--color-text);
-            margin-bottom: 1rem;
-        }
+        /* Removed invalid CTA section CSS. Tailwind utility classes now handle all CTA section styling. */
+        
     </style>
 </head>
 
@@ -307,13 +278,13 @@
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <a href="https://tradeogre.com/exchange/SAL-USDT" target="_blank" class="card-link">
-                                Trade SAL/USDT
-                                <i class="fa-solid fa-angle-down"></i>
+                            <a href="https://tradeogre.com/exchange/SAL-USDT" target="_blank" class="card-link flex flex-col items-start">
+                                <span>Trade</span>
+                                <span class="inline-flex items-center gap-1">SAL/USDT <i class="fa-solid fa-angle-down"></i></span>
                             </a>
-                            <a href="https://tradeogre.com/exchange/SAL-BTC" target="_blank" class="card-link">
-                                Trade SAL/BTC
-                                <i class="fa-solid fa-angle-down"></i>
+                            <a href="https://tradeogre.com/exchange/SAL-BTC" target="_blank" class="card-link flex flex-col items-start">
+                                <span>Trade</span>
+                                <span class="inline-flex items-center gap-1">SAL/BTC <i class="fa-solid fa-angle-down"></i></span>
                             </a>
                         </div>
                     </div>
@@ -394,9 +365,9 @@
             <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
                 Start your journey with Salvium today and be part of the next generation of Private DeFi.
             </p>
-            <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+            <a href="about.html" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block" data-aos="fade-up" data-aos-delay="200">
                 Get Started Now
-            </button>
+            </a>
         </div>
     </section>
 
