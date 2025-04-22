@@ -13,19 +13,19 @@ As we look back on the journey so far and ahead to what's coming, it's evident t
 
 Our current implementation, Salvium Zero, has proven the core concepts that make our approach unique. As a proof of concept, it successfully demonstrated:
 
-- **[Asynchronous transactions](https://docs.salvium.org/kb/async-transactions)**: Enabling more complex operations like yield payouts
-- **[Protocol TX](https://docs.salvium.org/kb/protocol-tx)**: A supplementary block-level transaction mechanism for minting new coins
+- **[Asynchronous transactions](https://docs.salvium.io/THE%20PROTOCOL/Asynchronous%20Transactions%20%28AT%29/)**: Enabling more complex operations like yield payouts
+- **[Protocol TX](https://docs.salvium.io/THE%20PROTOCOL/Protocol_tx/)**: A supplementary block-level transaction mechanism for minting new coins
 - **Return address scheme**: A mechanism allowing recipients to return funds to senders without knowing their address
 
 While these innovations set the groundwork for our vision, we recognized limitations in fully meeting regulatory requirements, particularly regarding anti-money laundering (AML) compliance and the European Union's Markets in Crypto-Assets (MiCA) regulations.
 
 ## Where We're Going: Salvium One
 
-Salvium One represents a significant evolution, taking the foundation of Salvium Zero and extending it to achieve full regulatory compliance without compromising privacy. The key innovation driving this advancement is **[SPARC](https://docs.salvium.org/kb/sparc)** (Spend Proof and Anonymized Returns for [CARROT](https://docs.salvium.org/kb/carrot)), which combines:
+Salvium One represents a significant evolution, taking the foundation of Salvium Zero and extending it to achieve full regulatory compliance without compromising privacy. The key innovation driving this advancement is **[SPARC](https://docs.salvium.io/THE%20PROJECT/sparc)** (Spend Proof and Anonymized Returns for [CARROT](https://docs.salvium.io/THE%20PROJECT/carrot)), which combines:
 
-- **[Enhanced return payments](https://docs.salvium.org/kb/sparc#anonymized-returns)**: Maintaining privacy while enabling bidirectional transactions
-- **[Spend authority proofs](https://docs.salvium.org/kb/sparc#spend-authority-proof)**: Preventing potential money laundering by verifying wallet control
-- **[View-only wallet tier](https://docs.salvium.org/kb/carrot#full-view-only-wallets)**: Enabling compliant transaction history reporting without sharing private spend keys
+- **[Enhanced return payments](https://docs.salvium.io/THE%20PROJECT/sparc/#anonymized-returns)**: Maintaining privacy while enabling bidirectional transactions
+- **[Spend authority proofs](https://docs.salvium.io/THE%20PROJECT/sparc/#spend-authority-proof)**: Preventing potential money laundering by verifying wallet control
+- **[View-only wallet tier](https://docs.salvium.io/THE%20PROJECT/carrot/#full-view-only-wallets)**: Enabling compliant transaction history reporting without sharing private spend keys
 
 This combination of features uniquely positions Salvium among privacy-focused cryptocurrencies. While projects like Monero excel at privacy, they face increasing regulatory challenges and exchange delistings. Salvium's approach creates a path for privacy coins to operate within regulatory frameworks while preserving their essential privacy features.
 
@@ -41,8 +41,8 @@ Our roadmap is ambitious but clear:
 
 In upcoming posts, we'll dive deeper into:
 
-- The specific regulatory challenges facing privacy coins and how [Salvium addresses them](https://docs.salvium.org/kb/compliance)
-- The technical details of [SPARC](https://docs.salvium.org/kb/sparc) and how it extends the [CARROT protocol](https://docs.salvium.org/kb/carrot)
-- The mathematics behind our solutions and [formal security proofs](https://docs.salvium.org/kb/security)
+- The specific regulatory challenges facing privacy coins and how Salvium addresses them.
+- The technical details of [SPARC](https://docs.salvium.io/THE%20PROJECT/sparc/) and how it extends the [CARROT protocol](https://docs.salvium.io/THE%20PROJECT/carrot/).
+- The mathematics behind our solutions and formal security proofs.
 
 We invite the community to engage with these discussions as we build a privacy-focused cryptocurrency that's both regulatory compliant and technically advanced.
