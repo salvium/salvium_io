@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li><a href="${baseUrl}/blog" style="color: #40E0D0 !important; font-family: var(--font-body)" class="hover:text-[#40E0D0]/80 transition-colors">Blog</a></li>
                         <li><a href="${baseUrl}/faq.html" style="color: #40E0D0 !important; font-family: var(--font-body)" class="hover:text-[#40E0D0]/80 transition-colors">FAQ</a></li>
                         <li><a href="${baseUrl}/exchanges.html" style="color: #40E0D0 !important; font-family: var(--font-body)" class="hover:text-[#40E0D0]/80 transition-colors">Exchanges</a></li>
-                    </ul>
+                        <li><a href="${baseUrl}/papers.html" style="color: #40E0D0 !important; font-family: var(--font-body)" class="hover:text-[#40E0D0]/80 transition-colors">Lite Paper</a></li>
+                        </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4 text-[#40E0D0]" style="font-family: var(--font-heading)">Tools</h4>
@@ -48,7 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li><a href="https://explorer.salvium.io/" style="color: #40E0D0 !important; font-family: var(--font-body)" class="hover:text-[#40E0D0]/80 transition-colors">Explorer</a></li>
                         <li><a href="${baseUrl}/stats.html" style="color: #40E0D0 !important; font-family: var(--font-body)" class="hover:text-[#40E0D0]/80 transition-colors">Stats</a></li>
                         <li><a href="${baseUrl}/tools.html" style="color: #40E0D0 !important; font-family: var(--font-body)" class="hover:text-[#40E0D0]/80 transition-colors">3rd Party Tools</a></li>
-                    </ul>
+                        <li><a href="https://github.com/salvium/brand-assets" style="color: #40E0D0 !important; font-family: var(--font-body)" class="hover:text-[#40E0D0]/80 transition-colors">Brand Resources</a></li>
+                        </ul>
                 </div>
             </div>
             <div class="text-center text-white text-sm">
