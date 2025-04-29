@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Privacy Coins and Regulation: Understanding the Challenge"
-date: 2024-07-22 10:00:00 +0200
+date: 2025-04-29 10:00:00 +0200
 categories: Education
 image: /images/optimized/privacy-regulation.png
 excerpt: "As privacy coins face increasing regulatory pressure, particularly under MiCA, we explore the challenges and opportunities in creating compliant privacy solutions."
