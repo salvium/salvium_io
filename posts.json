@@ -92,6 +92,15 @@
         },
         
         {
+            "title": "Privacy Coins and Regulation: Understanding the Challenge",
+            "url": "/blog/2024/07/22/privacy-coins-and-regulation-understanding-the-challenge/",
+            "image": "/images/optimized/privacy-regulation.png",
+            "date": "July 22, 2024",
+            "excerpt": "As privacy coins face increasing regulatory pressure, particularly under MiCA, we explore the challenges and opportunities in creating compliant privacy solutions.",
+            "categories": "Education"
+        },
+        
+        {
             "title": "Salvium Protocol Audit - A Milestone in Innovation and Security",
             "url": "/blog/2024/07/19/protocol-audit/",
             "image": "/images/blog/protocol-audit.webp",
