@@ -2,6 +2,15 @@
     "posts": [
         
         {
+            "title": "Privacy Coins and Regulation: Understanding the Challenge",
+            "url": "/blog/2025/04/29/privacy-coins-and-regulation-understanding-the-challenge/",
+            "image": "/images/optimized/privacy-regulation.png",
+            "date": "April 29, 2025",
+            "excerpt": "As privacy coins face increasing regulatory pressure, particularly under MiCA, we explore the challenges and opportunities in creating compliant privacy solutions.",
+            "categories": "Education"
+        },
+        
+        {
             "title": "A Clear Path Forward",
             "url": "/blog/2025/04/07/a-path-forward/",
             "image": "/images/optimized/a-clear-path.webp",
@@ -88,15 +97,6 @@
             "image": "/images/optimized/Blog%20The%20Evo%20or%20Privacy.webp",
             "date": "August 03, 2024",
             "excerpt": "A look at how cryptocurrency privacy has evolved from its early days to modern compliance-aware solutions.",
-            "categories": "Education"
-        },
-        
-        {
-            "title": "Privacy Coins and Regulation: Understanding the Challenge",
-            "url": "/blog/2024/07/22/privacy-coins-and-regulation-understanding-the-challenge/",
-            "image": "/images/optimized/privacy-regulation.png",
-            "date": "July 22, 2024",
-            "excerpt": "As privacy coins face increasing regulatory pressure, particularly under MiCA, we explore the challenges and opportunities in creating compliant privacy solutions.",
             "categories": "Education"
         },
         
