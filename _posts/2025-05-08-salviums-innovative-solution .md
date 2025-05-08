@@ -4,11 +4,9 @@ title: "SPARC and Carrot: Salvium's Innovative Solution for Compliant Privacy"
 date: 2025-05-08 10:00:00 +0200
 author: Salvium Protocol
 categories: Education
-image: /images/optimized/salvium-solution.jpg
+image: images/optimized/salvium-solution.jpg
 excerpt: "Exploring how Salvium's SPARC technology extends the CARROT protocol to enable regulatory compliance without compromising privacy, offering a new path forward for privacy coins."
 ---
-
-# **SPARC and Carrot: Salvium's Innovative Solution for Compliant Privacy**
 
 In our previous posts, we introduced Salvium's vision and explored the regulatory challenges facing privacy coins. Today, we'll examine our technical solution—how Salvium One addresses these challenges through innovative cryptographic approaches that maintain privacy while enabling regulatory compliance.
 
