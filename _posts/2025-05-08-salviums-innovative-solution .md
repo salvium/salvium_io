@@ -109,7 +109,7 @@ Independent security researchers have reviewed SPARC and found it to be "an impr
 
 Traditional privacy coins face a difficult choice: maintain privacy and face delistings or compromise privacy for compliance. SPARC represents a third path—maintaining essential privacy while enabling regulatory compliance.
 
-This approach transforms privacy coins from theoretical privacy tools to practical financial instruments that can operate within regulated systems while still preserving their core value proposition.
+This approach transforms privacy coins from theoretical privacy tools to practical financial instruments that can operate within regulated systems, while still preserving their core value proposition.
 
 ## **Next Steps**
 
