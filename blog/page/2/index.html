@@ -97,6 +97,10 @@
     <!-- Preload first 4 post images -->
     
         
+            <link rel="preload" as="image" href="/images/blog/difficulty-algo.webp">
+        
+    
+        
             <link rel="preload" as="image" href="/images/optimized/ama-club-d.webp">
         
     
@@ -106,10 +110,6 @@
     
         
             <link rel="preload" as="image" href="/images/blog/wallet-launch.webp">
-        
-    
-        
-            <link rel="preload" as="image" href="/images/blog/Blog Aug Tres-1024.webp">
         
     
 </head>
@@ -149,6 +149,48 @@
     <section class="container mx-auto px-4 py-12">
         <div class="blog-grid">
             
+            
+            <div class="blog-grid-item">
+                <article class="ecosystem-card">
+                    
+                    <div class="blog-post-image-container">
+                        <a href="/blog/2024/11/04/v06-series-update/" class="block hover:opacity-90 transition-opacity">
+                            
+                            <img 
+                                src="/images/blog/difficulty-algo.webp"
+                                alt="Understanding Salvium's v0.6 Series - Improved Difficulty Algorithm" 
+                                class="blog-post-image"
+                                fetchpriority="high"
+                                loading="eager"
+                                decoding="async">
+                            
+                        </a>
+                    </div>
+                    
+                    <div class="card-content">
+                        
+                        <div class="mb-4">
+                            <span class="card-tag">
+                                Technology
+                            </span>
+                        </div>
+                        
+                        <a href="/blog/2024/11/04/v06-series-update/" class="block hover:text-[#00bfa5] transition-colors">
+                            <h2 class="card-title">Understanding Salvium's v0.6 Series - Improved Difficulty Algorithm</h2>
+                        </a>
+                        <p class="card-description">Introducing key improvements in Salvium v0.6, featuring a new difficulty adjustment algorithm for better network stability.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <time datetime="2024-11-04T10:00:00+00:00" class="text-sm text-[#b0b0b0]">
+                                November 04, 2024
+                            </time>
+                            <a href="/blog/2024/11/04/v06-series-update/" class="card-link">
+                                Read More 
+                                <i class="fas fa-chevron-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
             
             <div class="blog-grid-item">
                 <article class="ecosystem-card">
@@ -286,8 +328,7 @@
                                 src="/images/blog/Blog Aug Tres-1024.webp"
                                 alt="Salvium Treasury Update - August 2024 funds locked for 2-years" 
                                 class="blog-post-image"
-                                fetchpriority="high"
-                                loading="eager"
+                                loading="lazy"
                                 decoding="async">
                             
                         </a>
@@ -351,47 +392,6 @@
                                 August 03, 2024
                             </time>
                             <a href="/blog/2024/08/03/evolution-of-privacy/" class="card-link">
-                                Read More 
-                                <i class="fas fa-chevron-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            
-            <div class="blog-grid-item">
-                <article class="ecosystem-card">
-                    
-                    <div class="blog-post-image-container">
-                        <a href="/blog/2024/07/19/protocol-audit/" class="block hover:opacity-90 transition-opacity">
-                            
-                            <img 
-                                src="/images/blog/protocol-audit.webp"
-                                alt="Salvium Protocol Audit - A Milestone in Innovation and Security" 
-                                class="blog-post-image"
-                                loading="lazy"
-                                decoding="async">
-                            
-                        </a>
-                    </div>
-                    
-                    <div class="card-content">
-                        
-                        <div class="mb-4">
-                            <span class="card-tag">
-                                Updates
-                            </span>
-                        </div>
-                        
-                        <a href="/blog/2024/07/19/protocol-audit/" class="block hover:text-[#00bfa5] transition-colors">
-                            <h2 class="card-title">Salvium Protocol Audit - A Milestone in Innovation and Security</h2>
-                        </a>
-                        <p class="card-description">Announcing the successful completion of our protocol audit, marking a significant milestone in Salvium's commitment to security and innovation.</p>
-                        <div class="flex items-center justify-between mt-4">
-                            <time datetime="2024-07-19T03:00:00+00:00" class="text-sm text-[#b0b0b0]">
-                                July 19, 2024
-                            </time>
-                            <a href="/blog/2024/07/19/protocol-audit/" class="card-link">
                                 Read More 
                                 <i class="fas fa-chevron-right ml-2"></i>
                             </a>

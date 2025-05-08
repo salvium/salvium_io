@@ -2,6 +2,15 @@
     "posts": [
         
         {
+            "title": "SPARC and Carrot: Salvium's Innovative Solution for Compliant Privacy",
+            "url": "/blog/2025/05/08/salviums-innovative-solution/",
+            "image": "/images/optimized/salvium-solution.jpg",
+            "date": "May 08, 2025",
+            "excerpt": "Exploring how Salvium's SPARC technology extends the CARROT protocol to enable regulatory compliance without compromising privacy, offering a new path forward for privacy coins.",
+            "categories": "Education"
+        },
+        
+        {
             "title": "Privacy Coins and Regulation: Understanding the Challenge",
             "url": "/blog/2025/04/29/privacy-coins-and-regulation-understanding-the-challenge/",
             "image": "/images/optimized/privacy-regulation.png",
