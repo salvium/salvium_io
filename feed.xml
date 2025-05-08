@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-05-08T13:35:21+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">SPARC and Carrot: Salvium’s Innovative Solution for Compliant Privacy</title><link href="https://salvium.io/blog/2025/05/08/salviums-innovative-solution/" rel="alternate" type="text/html" title="SPARC and Carrot: Salvium’s Innovative Solution for Compliant Privacy" /><published>2025-05-08T08:00:00+00:00</published><updated>2025-05-08T08:00:00+00:00</updated><id>https://salvium.io/blog/2025/05/08/salviums-innovative-solution</id><content type="html" xml:base="https://salvium.io/blog/2025/05/08/salviums-innovative-solution/"><![CDATA[<p>In our previous posts, we introduced Salvium’s vision and explored the regulatory challenges facing privacy coins. Today, we’ll examine our technical solution—how Salvium One addresses these challenges through innovative cryptographic approaches that maintain privacy while enabling regulatory compliance.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-05-08T14:41:08+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">SPARC and Carrot: Salvium’s Innovative Solution for Compliant Privacy</title><link href="https://salvium.io/blog/2025/05/08/salviums-innovative-solution/" rel="alternate" type="text/html" title="SPARC and Carrot: Salvium’s Innovative Solution for Compliant Privacy" /><published>2025-05-08T08:00:00+00:00</published><updated>2025-05-08T08:00:00+00:00</updated><id>https://salvium.io/blog/2025/05/08/salviums-innovative-solution</id><content type="html" xml:base="https://salvium.io/blog/2025/05/08/salviums-innovative-solution/"><![CDATA[<h1 id="sparc-and-carrot-salviums-innovative-solution-for-compliant-privacy"><strong>SPARC and Carrot: Salvium’s Innovative Solution for Compliant Privacy</strong></h1>
+
+<p>In our previous posts, we introduced Salvium’s vision and explored the regulatory challenges facing privacy coins. Today, we’ll examine our technical solution—how Salvium One addresses these challenges through innovative cryptographic approaches that maintain privacy while enabling regulatory compliance.</p>
 
 <h2 id="the-core-innovation-sparc"><strong>The Core Innovation: SPARC</strong></h2>
 
@@ -16,35 +18,6 @@
 <p>CARROT (Cryptonote Address on Rerandomizable-RingCT-Output Transactions) is a proposed addressing protocol originally designed for Monero. While not yet implemented in Monero, it provides several key capabilities that Salvium leverages:</p>
 
 <h3 id="enhanced-privacy-with-practical-features"><strong>Enhanced Privacy with Practical Features</strong></h3>
-
-<p>CARROT improves on traditional CryptoNote addressing by enabling:</p>
-
-<ul>
-  <li><strong>Full view-only wallets</strong>: Unlike traditional Monero view-only wallets that can only see incoming transactions, CARROT allo</li>
-</ul>
-
-<p>date: 2025-05-02 09:30:00 +0000</p>
-
-<h1 id="sparc-and-carrot-salviums-innovative-solution-for-compliant-privacy"><strong>SPARC and Carrot: Salvium’s Innovative Solution for Compliant Privacy</strong></h1>
-
-<p>In our previous posts, we introduced Salvium’s vision and explored the regulatory challenges facing privacy coins. Today, we’ll examine our technical solution—how Salvium One addresses these challenges through innovative cryptographic approaches that maintain privacy while enabling regulatory compliance.</p>
-
-<h2 id="the-core-innovation-sparc-1"><strong>The Core Innovation: SPARC</strong></h2>
-
-<p>At the heart of Salvium One lies SPARC (Spend Proof and Anonymized Returns for CARROT), our extension of the Carrot protocol that enables two critical capabilities:</p>
-
-<ol>
-  <li><strong>Anonymized returns</strong>: A privacy-preserving mechanism for two-way transactions</li>
-  <li><strong>Spend authority proofs</strong>: A method to verify control over receiving addresses without revealing private keys</li>
-</ol>
-
-<p>To understand how SPARC works and why it matters, let’s first explore its foundation—the CARROT protocol—and then examine how SPARC extends it to solve our specific challenges.</p>
-
-<h2 id="understanding-carrot-1"><strong>Understanding CARROT</strong></h2>
-
-<p>CARROT (Cryptonote Address on Rerandomizable-RingCT-Output Transactions) is a proposed addressing protocol originally designed for Monero. While not yet implemented in Monero, it provides several key capabilities that Salvium leverages:</p>
-
-<h3 id="enhanced-privacy-with-practical-features-1"><strong>Enhanced Privacy with Practical Features</strong></h3>
 
 <p>CARROT improves on traditional CryptoNote addressing by enabling:</p>
 
@@ -131,18 +104,6 @@
 <h3 id="private-smart-contracts"><strong>Private Smart Contracts</strong></h3>
 
 <p>The foundation for complex, private return logic that can be built into applications—laying groundwork for Salvium Two.</p>
-
-<h2 id="quantum-resistance-considerations"><strong>Quantum Resistance Considerations</strong></h2>
-
-<p>Both CARROT and SPARC incorporate design elements intended to provide protection against quantum computing threats:</p>
-
-<ul>
-  <li><strong>Forward secrecy</strong>: Even if encryption is broken in the future, past transaction details remain confidential</li>
-  <li><strong>Modified cryptographic constructions</strong>: Adaptations to standard cryptographic approaches that increase resistance to quantum algorithms</li>
-  <li><strong>Unlinkability</strong>: Preventing the linking of transactions, which could be vulnerable to analysis by quantum computers</li>
-</ul>
-
-<p>While no system can claim perfect quantum resistance today, SPARC represents a significant step toward creating privacy technology that will remain secure in a post-quantum world.</p>
 
 <h2 id="technical-quality"><strong>Technical Quality</strong></h2>
 
