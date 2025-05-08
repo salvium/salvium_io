@@ -53,7 +53,6 @@ CARROT (Cryptonote Address on Rerandomizable-RingCT-Output Transactions) is a pr
 CARROT improves on traditional CryptoNote addressing by enabling:
 
 * **Full view-only wallets**: Unlike traditional Monero view-only wallets that can only see incoming transactions, CARROT allows monitoring of both incoming and outgoing transactions without compromising security  
-* **Forward secrecy**: Protection against future advances in computing, including quantum computers  
 * **Enhanced security**: Protection against attacks like the Janus Attack (which can link multiple addresses to the same owner) and the Burning Bug (where users can inadvertently lose funds)
 
 ### **Advanced Wallet Architecture**
