@@ -8,29 +8,6 @@ image: /images/optimized/salvium-solution.jpg
 excerpt: "Exploring how Salvium's SPARC technology extends the CARROT protocol to enable regulatory compliance without compromising privacy, offering a new path forward for privacy coins."
 ---
 
-In our previous posts, we introduced Salvium's vision and explored the regulatory challenges facing privacy coins. Today, we'll examine our technical solution—how Salvium One addresses these challenges through innovative cryptographic approaches that maintain privacy while enabling regulatory compliance.
-
-## **The Core Innovation: SPARC**
-
-At the heart of Salvium One lies SPARC (Spend Proof and Anonymized Returns for CARROT), our extension of the Carrot protocol that enables two critical capabilities:
-
-1. **Anonymized returns**: A privacy-preserving mechanism for two-way transactions  
-2. **Spend authority proofs**: A method to verify control over receiving addresses without revealing private keys
-
-To understand how SPARC works and why it matters, let's first explore its foundation—the CARROT protocol—and then examine how SPARC extends it to solve our specific challenges.
-
-## **Understanding CARROT**
-
-CARROT (Cryptonote Address on Rerandomizable-RingCT-Output Transactions) is a proposed addressing protocol originally designed for Monero. While not yet implemented in Monero, it provides several key capabilities that Salvium leverages:
-
-### **Enhanced Privacy with Practical Features**
-
-CARROT improves on traditional CryptoNote addressing by enabling:
-
-* **Full view-only wallets**: Unlike traditional Monero view-only wallets that can only see incoming transactions, CARROT allo
-
-date: 2025-05-02 09:30:00 +0000
-
 # **SPARC and Carrot: Salvium's Innovative Solution for Compliant Privacy**
 
 In our previous posts, we introduced Salvium's vision and explored the regulatory challenges facing privacy coins. Today, we'll examine our technical solution—how Salvium One addresses these challenges through innovative cryptographic approaches that maintain privacy while enabling regulatory compliance.
@@ -125,16 +102,6 @@ Funds can be returned automatically if conditions aren't met, enabling trustless
 ### **Private Smart Contracts**
 
 The foundation for complex, private return logic that can be built into applications—laying groundwork for Salvium Two.
-
-## **Quantum Resistance Considerations**
-
-Both CARROT and SPARC incorporate design elements intended to provide protection against quantum computing threats:
-
-* **Forward secrecy**: Even if encryption is broken in the future, past transaction details remain confidential  
-* **Modified cryptographic constructions**: Adaptations to standard cryptographic approaches that increase resistance to quantum algorithms  
-* **Unlinkability**: Preventing the linking of transactions, which could be vulnerable to analysis by quantum computers
-
-While no system can claim perfect quantum resistance today, SPARC represents a significant step toward creating privacy technology that will remain secure in a post-quantum world.
 
 ## **Technical Quality**
 
