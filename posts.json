@@ -11,6 +11,15 @@
         },
         
         {
+            "title": "Inside Salvium: A deep dive with SRCG",
+            "url": "/blog/2025/06/04/ama/",
+            "image": "/images/blog/ama.png",
+            "date": "June 04, 2025",
+            "excerpt": "In a recent flurry of updates, Salvium's lead developer shared deep insights into the project’s roadmap, technical direction, and evolving goals.",
+            "categories": "AMA"
+        },
+        
+        {
             "title": "SPARC and Carrot: Salvium's Innovative Solution for Compliant Privacy",
             "url": "/blog/2025/05/08/salviums-innovative-solution/",
             "image": "/images/optimized/salvium-solution.jpg",

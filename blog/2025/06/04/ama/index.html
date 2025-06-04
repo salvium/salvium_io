@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salvium One: Countdown to Mainnet - Salvium Protocol</title>
+    <title>Inside Salvium: A deep dive with SRCG - Salvium Protocol</title>
     
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
@@ -95,97 +95,87 @@
             <!-- Header Image -->
             <div class="relative mb-6 md:mb-8 -mx-2 sm:mx-0">
                 
-                <img src="/images/blog/salvium-one-countdown.png" alt="Salvium One: Countdown to Mainnet" class="w-full h-[400px] md:h-[450px] lg:h-[600px] object-cover object-center">
+                <img src="/images/blog/ama.png" alt="Inside Salvium: A deep dive with SRCG" class="w-full h-[400px] md:h-[450px] lg:h-[600px] object-cover object-center">
                 
             </div>
 
             <div class="py-2 md:py-4">
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 font-heading leading-tight">Salvium One: Countdown to Mainnet</h1>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 font-heading leading-tight">Inside Salvium: A deep dive with SRCG</h1>
                 <div class="flex flex-wrap items-center text-gray-300 text-lg mb-4 md:mb-6">
                     <time datetime="2025-06-04T09:00:00+00:00" class="font-medium">June 04, 2025</time>
                     
                     <span class="mx-2 text-[#40E0D0]">•</span>
-                    <span style="background: rgba(0, 191, 165, 0.1); color: #00bfa5; padding: 0.375rem 1rem; border-radius: 2px; font-size: 1rem; display: inline-block; font-family: 'Inter', Arial, sans-serif; text-transform: uppercase;">Updates</span>
+                    <span style="background: rgba(0, 191, 165, 0.1); color: #00bfa5; padding: 0.375rem 1rem; border-radius: 2px; font-size: 1rem; display: inline-block; font-family: 'Inter', Arial, sans-serif; text-transform: uppercase;">AMA</span>
                     
                 </div>
             </div>
             
             <div class="prose prose-lg mx-auto bg-[#2a2a2a] rounded-none shadow-lg mb-12 p-4 sm:p-6 md:p-8">
-                <p><em>A progress update for the Salvium community</em></p>
+                <p>In a recent flurry of updates, Salvium’s lead developer, SomeRandomCryptoGuy shared deep insights into the project’s roadmap, technical direction, and evolving goals. While it wasn’t an official AMA, the transparency and detail provided felt like one. We’ve distilled the highlights into a Q&amp;A format to give the community a clearer picture of where Salvium is headed—from foundational layers to the game-changing vision of Salvium Two.</p>
 
-<h2 id="what-is-salvium-one"><strong>What is Salvium One?</strong></h2>
+<blockquote>
+  <p><strong>Q: Can you walk us through the long-term vision for Salvium?</strong></p>
 
-<p>Salvium One is the next major version of the Salvium network. It blends our existing privacy features (inherited from CryptoNote) with two new building-blocks:</p>
+  <p><strong>A:</strong> Salvium started with a 2-year roadmap, split into three key stages:</p>
 
-<p><strong>Carrot addressing scheme:</strong> An improved stealth address scheme that uses two independent “base points”. Carrot adds new privacy and usability features, whilst remaining backwards compatible. It also makes it harder for attackers to break, and prepares us for future upgrades. An updated version of the CLSAG signature scheme — <strong>T-CLSAG</strong>— has been developed in-house, and is also included. <a href="https://docs.salvium.io/THE%20PROJECT/carrot/">Learn more</a></p>
+  <p>– <strong>Salvium Zero</strong> was our proof-of-concept. It introduced protocol-level asynchronous transactions, handling of transactional imbalances, return payments, and staking mechanics.</p>
 
-<p><strong>SPARC proof suite:</strong> A family of cryptographic proofs that lets a sender prove control of an output without revealing any private-key information.<br />
-<a href="https://docs.salvium.io/THE%20PROJECT/sparc/">Knowledge-base overview ›</a> | <a href="https://salvium.io/blog/2025/05/08/salviums-innovative-solution/">Plain-language blog post ›</a></p>
+  <p>– <strong>Salvium One</strong> focuses on delivering privacy with regulatory compliance. With frameworks like MiCA pushing privacy coins off exchanges, we saw a chance to differentiate by building compliant privacy into the protocol itself.</p>
 
-<p>These tools let us <strong>aim for selective transparency</strong>: ordinary users keep their full privacy, while businesses and exchanges can reveal <em>just enough</em> information to satisfy regulations when required.</p>
+  <p>– <strong>Salvium Two</strong> is where the real scalability happens. It’s intended as a full smart-contract platform—possibly DAG-based or something similar—focused on transaction throughput without being constrained by 2-minute block times. This layer-2 system shifts reconciliation back to layer-1, but rewards layer-1 validators with a cut of layer-2 gas fees.</p>
+</blockquote>
 
-<h2 id="key-features-at-a-glance"><strong>Key Features at a Glance</strong></h2>
+<hr />
 
-<table>
-  <thead>
-    <tr>
-      <th>Feature</th>
-      <th>Why it matters (for everyone)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Encrypted return payments</strong></td>
-      <td>A recipient can return funds to the exact output they came from—so exchanges can reject or refund deposits without exposing either party’s history.</td>
-    </tr>
-    <tr>
-      <td><strong>Spend-authority proofs</strong></td>
-      <td>A lightweight proof that confirms the spender really owns the output, protecting against forged transactions.</td>
-    </tr>
-    <tr>
-      <td><strong>Programmable privacy options</strong></td>
-      <td>Wallets will be able to share optional “view keys,” helping us move <strong>toward</strong> regulatory compliance without dropping privacy for typical users.</td>
-    </tr>
-    <tr>
-      <td><strong>Polyseed recovery</strong></td>
-      <td>Shorter (16-word) seed phrases that still offer more entropy than the old 25-word list, plus an embedded “birthday” height so wallets sync faster.</td>
-    </tr>
-    <tr>
-      <td><strong>Native staking, upgraded</strong></td>
-      <td>The existing yield system continues, now protected by the new T-CLSAG signatures.</td>
-    </tr>
-  </tbody>
-</table>
+<blockquote>
+  <p><strong>Q: What makes Salvium Two different from other smart-contract platforms?</strong></p>
 
-<p>This isn’t just an incremental upgrade—it’s the point where Salvium becomes a production-ready foundation for compliant private DeFi.</p>
+  <p><strong>A:</strong> Salvium Two will be designed as a transaction-oriented layer, rather than a block-oriented one. We’re not married to any one structure—DAG is a strong candidate—but the guiding principle is to eliminate block overhead and unlock scalability. We believe this model, when paired with our compliant privacy base, can be incredibly disruptive to both crypto and DeFi.</p>
+</blockquote>
 
-<h2 id="where-we-stand"><strong>Where We Stand</strong></h2>
+<hr />
 
-<ul>
-  <li><strong>Mathematics under review</strong> – The complete SPARC pre-print (Carrot, encrypted returns, T-CLSAG, and privacy-selection logic) is complete and will be delivered to <strong>Cypher Stack</strong> for an independent audit.</li>
-  <li><strong>Code nearing completion</strong> – Internal test code can already sign, verify, and stake with the new proofs.</li>
-  <li><strong>Test-net preparations underway</strong> – Public testing and the final preparation for mainnet will start as soon as audits are complete.</li>
-</ul>
+<blockquote>
+  <p><strong>Q: How confident are you about reaching those goals within the two-year timeframe?</strong></p>
 
-<h2 id="what-happens-over-the-coming-weeks"><strong>What Happens Over the Coming Weeks</strong></h2>
+  <p><strong>A:</strong> We’ve funded the project so that even if anything happens to individual team members, the treasury will continue supporting ongoing development. That was built into the original 2-year plan. We’re not at the finish line yet, but we’re on track and as committed as ever. I’m still up at night researching quantum-secure proofs and building out the architectural design for Salvium Two. It’s that exciting.</p>
+</blockquote>
 
-<ol>
-  <li><strong>Cypher Stack feedback</strong> – We share the full report and patch anything they raise.</li>
-  <li><strong>Public testnet</strong> – Open chain, faucet, explorer, and CLI tools so anyone can try Carrot + SPARC transactions and Polyseed restores.</li>
-  <li><strong>White-paper publication</strong> – A single document for Salvium One that explains—step by step—the three pillars of SPARC: return payments, spend-authority proofs, and optional transparency.</li>
-  <li><strong>Main-network activation</strong> – After a stable testnet run and a green audit, we set a fork height and notify miners and service operators well in advance.</li>
-</ol>
+<hr />
 
-<h2 id="how-you-can-help"><strong>How You Can Help</strong></h2>
+<blockquote>
+  <p><strong>Q: How are you handling the potential delay with FCMP++?</strong></p>
 
-<ul>
-  <li><strong>Read the pre-print</strong> when the link is posted; ask questions in Discord.</li>
-  <li><strong>Join the testnet</strong> and try everything you can think of—edge cases welcome.</li>
-  <li><strong>Report bugs</strong> through GitHub issues or the Discord <strong>#testnet</strong> channel.</li>
-  <li><strong>Spread the word</strong> – the more eyes we have, the stronger Salvium One will be.</li>
-</ul>
+  <p><strong>A:</strong> That’s been one of the bigger uncertainties. With the recent delays, we’re now evaluating whether to build a full chain-membership proof scheme in-house. That wasn’t part of the original plan, but we’ve already started liaising with cryptographers to explore it. We’re staying flexible and ready to pivot if needed.</p>
+</blockquote>
 
-<p>Thank you for supporting Salvium. Stay tuned on Discord and <a href="https://x.com/salvium_io">@salvium_io</a> for real-time updates as we move through these final steps toward Salvium One.</p>
+<hr />
+
+<blockquote>
+  <p><strong>Q: What does the development team structure look like right now?</strong></p>
+
+  <p><strong>A:</strong> It’s far from a one-person show. Devs like Akil have been making more commits than I have lately. We also have strong support from our partners at Cypher Stack. As we get closer to launch, you’ll see more of the broader team—including Community Managers, Marketing, and other support roles—stepping into the spotlight.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p><strong>Q: What should the crypto world expect from Salvium One’s launch?</strong></p>
+
+  <p><strong>A:</strong> When Salvium One launches, it’s going to send a clear message: privacy can coexist with compliance. That’s not just a tagline—it’s a reality we’re building. And Salvium is leading that charge.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p><strong>Q: And what about Salvium Two? Any hints?</strong></p>
+
+  <p><strong>A:</strong> Honestly, people have no idea what’s coming. Salvium Two will be a massively disruptive force across the entire crypto and DeFi ecosystem. We’re aiming to fundamentally reshape how people think about transaction processing and scalability.</p>
+</blockquote>
+
+<hr />
+
+<p><em>Stay tuned for the mainnet launch announcement and follow <a href="https://x.com/salvium_io">@Salvium_io</a> on X for real-time updates.</em></p>
 
             </div>
         </div>
@@ -196,7 +186,7 @@
     <div class="container mx-auto">
         <div class="flex items-center justify-center space-x-8">
             
-            <a href="/blog/2025/06/04/ama/" class="text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+            <a href="/blog/2025/05/08/salviums-innovative-solution/" class="text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
                 <svg class="w-6 h-6 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
@@ -211,6 +201,13 @@
                 All Posts
             </a>
 
+            
+            <a href="/blog/2025/06/04/salvium-one-countdown/" class="text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+                Next
+                <svg class="w-6 h-6 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
             
         </div>
     </div>
