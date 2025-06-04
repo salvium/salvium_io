@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-06-04T11:50:05+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">Salvium One: Countdown to Mainnet</title><link href="https://salvium.io/blog/2025/06/04/salvium-one-countdown/" rel="alternate" type="text/html" title="Salvium One: Countdown to Mainnet" /><published>2025-06-04T09:00:00+00:00</published><updated>2025-06-04T09:00:00+00:00</updated><id>https://salvium.io/blog/2025/06/04/salvium-one-countdown</id><content type="html" xml:base="https://salvium.io/blog/2025/06/04/salvium-one-countdown/"><![CDATA[<p><em>A progress update for the Salvium community</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-06-04T11:54:27+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">Salvium One: Countdown to Mainnet</title><link href="https://salvium.io/blog/2025/06/04/salvium-one-countdown/" rel="alternate" type="text/html" title="Salvium One: Countdown to Mainnet" /><published>2025-06-04T09:00:00+00:00</published><updated>2025-06-04T09:00:00+00:00</updated><id>https://salvium.io/blog/2025/06/04/salvium-one-countdown</id><content type="html" xml:base="https://salvium.io/blog/2025/06/04/salvium-one-countdown/"><![CDATA[<p><em>A progress update for the Salvium community</em></p>
 
 <h2 id="what-is-salvium-one"><strong>What is Salvium One?</strong></h2>
 
@@ -58,9 +58,9 @@
 
 <ol>
   <li><strong>Cypher Stack feedback</strong> – We share the full report and patch anything they raise.</li>
-  <li><strong>Public test-net</strong> – Open chain, faucet, explorer, and CLI tools so anyone can try Carrot + SPARC transactions and Polyseed restores. A small bug-bounty will run alongside.</li>
+  <li><strong>Public testnet</strong> – Open chain, faucet, explorer, and CLI tools so anyone can try Carrot + SPARC transactions and Polyseed restores.</li>
   <li><strong>White-paper publication</strong> – A single document for Salvium One that explains—step by step—the three pillars of SPARC: return payments, spend-authority proofs, and optional transparency.</li>
-  <li><strong>Main-network activation</strong> – After a stable test-net run and a green audit, we set a fork height and notify miners and service operators well in advance.</li>
+  <li><strong>Main-network activation</strong> – After a stable testnet run and a green audit, we set a fork height and notify miners and service operators well in advance.</li>
 </ol>
 
 <h2 id="how-you-can-help"><strong>How You Can Help</strong></h2>
