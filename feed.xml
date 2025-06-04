@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-06-04T11:43:17+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">SPARC and Carrot: Salvium’s Innovative Solution for Compliant Privacy</title><link href="https://salvium.io/blog/2025/05/08/salviums-innovative-solution/" rel="alternate" type="text/html" title="SPARC and Carrot: Salvium’s Innovative Solution for Compliant Privacy" /><published>2025-05-08T08:00:00+00:00</published><updated>2025-05-08T08:00:00+00:00</updated><id>https://salvium.io/blog/2025/05/08/salviums-innovative-solution</id><content type="html" xml:base="https://salvium.io/blog/2025/05/08/salviums-innovative-solution/"><![CDATA[<p>In our previous posts, we introduced Salvium’s vision and explored the regulatory challenges facing privacy coins. Today, we’ll examine our technical solution—how Salvium One addresses these challenges through innovative cryptographic approaches that maintain privacy while enabling regulatory compliance.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-06-04T11:50:05+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">Salvium One: Countdown to Mainnet</title><link href="https://salvium.io/blog/2025/06/04/salvium-one-countdown/" rel="alternate" type="text/html" title="Salvium One: Countdown to Mainnet" /><published>2025-06-04T09:00:00+00:00</published><updated>2025-06-04T09:00:00+00:00</updated><id>https://salvium.io/blog/2025/06/04/salvium-one-countdown</id><content type="html" xml:base="https://salvium.io/blog/2025/06/04/salvium-one-countdown/"><![CDATA[<p><em>A progress update for the Salvium community</em></p>
+
+<h2 id="what-is-salvium-one"><strong>What is Salvium One?</strong></h2>
+
+<p>Salvium One is the next major version of the Salvium network. It blends our existing privacy features (inherited from CryptoNote) with two new building-blocks:</p>
+
+<p><strong>Carrot addressing scheme:</strong> An improved stealth address scheme that uses two independent “base points”. Carrot adds new privacy and usability features, whilst remaining backwards compatible. It also makes it harder for attackers to break, and prepares us for future upgrades. An updated version of the CLSAG signature scheme—<strong>T-CLSAG</strong>—has been developed in-house, and is also included. <a href="https://docs.salvium.io/knowledge-base/carrot-addressing">Learn more</a></p>
+
+<p><strong>SPARC proof suite:</strong> A family of cryptographic proofs that lets a sender prove control of an output without revealing any private-key information.<br />
+<a href="https://docs.salvium.io/THE%20PROJECT/sparc/">Knowledge-base overview ›</a> | <a href="https://salvium.io/blog/2025/05/08/salviums-innovative-solution/">Plain-language blog post ›</a></p>
+
+<p>These tools let us <strong>aim for selective transparency</strong>: ordinary users keep their full privacy, while businesses and exchanges can reveal <em>just enough</em> information to satisfy regulations when required.</p>
+
+<h2 id="key-features-at-a-glance"><strong>Key Features at a Glance</strong></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Why it matters (for everyone)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Encrypted return payments</strong></td>
+      <td>A recipient can return funds to the exact output they came from—so exchanges can reject or refund deposits without exposing either party’s history.</td>
+    </tr>
+    <tr>
+      <td><strong>Spend-authority proofs</strong></td>
+      <td>A lightweight proof that confirms the spender really owns the output, protecting against forged transactions.</td>
+    </tr>
+    <tr>
+      <td><strong>Programmable privacy options</strong></td>
+      <td>Wallets will be able to share optional “view keys,” helping us move <strong>toward</strong> regulatory compliance without dropping privacy for typical users.</td>
+    </tr>
+    <tr>
+      <td><strong>Polyseed recovery</strong></td>
+      <td>Shorter (16-word) seed phrases that still offer more entropy than the old 25-word list, plus an embedded “birthday” height so wallets sync faster.</td>
+    </tr>
+    <tr>
+      <td><strong>Native staking, upgraded</strong></td>
+      <td>The existing yield system continues, now protected by the new T-CLSAG signatures.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This isn’t just an incremental upgrade—it’s the point where Salvium becomes a production-ready foundation for compliant private DeFi.</p>
+
+<h2 id="where-we-stand"><strong>Where We Stand</strong></h2>
+
+<ul>
+  <li><strong>Mathematics under review</strong> – The complete SPARC pre-print (Carrot, encrypted returns, T-CLSAG, and privacy-selection logic) is complete and will be delivered to <strong>Cypher Stack</strong> for an independent audit.</li>
+  <li><strong>Code nearing completion</strong> – Internal test code can already sign, verify, and stake with the new proofs.</li>
+  <li><strong>Test-net preparations underway</strong> – Public testing and the final preparation for mainnet will start as soon as audits are complete.</li>
+</ul>
+
+<h2 id="what-happens-over-the-coming-weeks"><strong>What Happens Over the Coming Weeks</strong></h2>
+
+<ol>
+  <li><strong>Cypher Stack feedback</strong> – We share the full report and patch anything they raise.</li>
+  <li><strong>Public test-net</strong> – Open chain, faucet, explorer, and CLI tools so anyone can try Carrot + SPARC transactions and Polyseed restores. A small bug-bounty will run alongside.</li>
+  <li><strong>White-paper publication</strong> – A single document for Salvium One that explains—step by step—the three pillars of SPARC: return payments, spend-authority proofs, and optional transparency.</li>
+  <li><strong>Main-network activation</strong> – After a stable test-net run and a green audit, we set a fork height and notify miners and service operators well in advance.</li>
+</ol>
+
+<h2 id="how-you-can-help"><strong>How You Can Help</strong></h2>
+
+<ul>
+  <li><strong>Read the pre-print</strong> when the link is posted; ask questions in Discord.</li>
+  <li><strong>Join the test-net</strong> and try everything you can think of—edge cases welcome.</li>
+  <li><strong>Report bugs</strong> through GitHub issues or the Discord <strong>#testnet</strong> channel.</li>
+  <li><strong>Spread the word</strong> – the more eyes we have, the stronger Salvium One will be.</li>
+</ul>
+
+<p>Thank you for supporting Salvium. Stay tuned on Discord and <strong>@salvium_io</strong> for real-time updates as we move through these final steps toward Salvium One.</p>]]></content><author><name></name></author><category term="Updates" /><summary type="html"><![CDATA[Mainnet is almost here: the team hits a major milestone as Salvium One enters its final countdown.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/blog/salvium-one-countdown.png" /><media:content medium="image" url="https://salvium.io/images/blog/salvium-one-countdown.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">SPARC and Carrot: Salvium’s Innovative Solution for Compliant Privacy</title><link href="https://salvium.io/blog/2025/05/08/salviums-innovative-solution/" rel="alternate" type="text/html" title="SPARC and Carrot: Salvium’s Innovative Solution for Compliant Privacy" /><published>2025-05-08T08:00:00+00:00</published><updated>2025-05-08T08:00:00+00:00</updated><id>https://salvium.io/blog/2025/05/08/salviums-innovative-solution</id><content type="html" xml:base="https://salvium.io/blog/2025/05/08/salviums-innovative-solution/"><![CDATA[<p>In our previous posts, we introduced Salvium’s vision and explored the regulatory challenges facing privacy coins. Today, we’ll examine our technical solution—how Salvium One addresses these challenges through innovative cryptographic approaches that maintain privacy while enabling regulatory compliance.</p>
 
 <h2 id="the-core-innovation-sparc"><strong>The Core Innovation: SPARC</strong></h2>
 
@@ -694,161 +768,4 @@
 
 <h2 id="8-in-the-knowledge-base-section-it-is-mentioned-that-exchanges-require-the-ability-to-monitor-transactions-in-authorized-wallets-via-a-viewkey-mechanism-can-you-explain-how-this-view-key-mechanism-is-technically-implemented-in-the-salvium-protocol-and-how-it-ensures-both-user-privacy-and-regulatory-compliance-what-security-measures-are-in-place-to-prevent-the-abuse-of-these-view-keys-by-authorized-entities">8. In the Knowledge Base section, it is mentioned that exchanges require the ability to monitor transactions in authorized wallets via a ‘viewkey’ mechanism. Can you explain how this ‘view key’ mechanism is technically implemented in the Salvium protocol, and how it ensures both user privacy and regulatory compliance? What security measures are in place to prevent the abuse of these ‘view keys’ by ‘authorized entities’?</h2>
 
-<p>The view key mechanism is currently being developed. It is being designed as an optional feature to balance privacy with compliance. Salvium will use a dual-key system: a ‘view-balance key’ (k_vb) and a ‘master key’ (k_m). The view-balance key allows authorized entities, like exchanges, to monitor transaction history and balances without the ability to spend funds. The master key remains necessary for spending and preserving security. Even with a view key, the observer cannot link transactions to external identities or connected addresses, ensuring privacy. Security measures include revocable keys, access logs, and selective disclosure, where users can choose which transactions or time periods to share. This system is</p>]]></content><author><name></name></author><category term="community" /><summary type="html"><![CDATA[On August 20th, the Salvium devs joined the Pursuit of Privacy community for an AMA. Thanks for hosting—it was a great discussion! In this AMA, we explore Salvium’s origins, its Confidential Transactions, staking model, and key innovations like Asynchronous Transactions (AT) and Transactional Imbalances (TI). We also discuss the team’s funding strategy and how Salvium aims to position itself as a leader in the privacy coin space. 1. To start the AMA, can you tell us the story behind the Salvium project, and what it aims to achieve? Salvium was originally called Fulmo as a nod to Monero (meaning ‘coin’), Fulmo means ‘lightning’ in Esperanto. The original concept was inspired by a presentation by Pedro Moreno-Sánchez at MoneroKon 2019 on “Dual Outputs: Enabling Payment-Channel Networks in Monero”. You can find it on YouTube. He highlighted the trade-offs between privacy, scalability, and functionality in cryptocurrencies and laid out a proposal using dual outputs to enable payment channels, and a lightning network style layer 2. While working through various ideas to use this extended capability set, and considering what things like conditional payments would enable, a prototype was built for a yield payment system that paid out asynchronously. Only at that point did it become clear that if you can send a transaction at one point in time, and have it do ‘stuff’ at some point in the future, then return it securely and privately—you’ve just built a system capable of running code on the blockchain. So Fulmo became too limiting a name, and Salvium was born. 2. Can you tell us about each team member’s background? Have you worked on other projects before? While we haven’t focused on individual identities, we’re not anonymous. But we are also not seeking exposure. The lead developers are known in the space as Dweab and Neac and are responsible for creating the coloured coin technology used in projects like Haven Protocol. Both are also fully doxxed, and their careers are known. Dweab started as a software engineer and mathematician and then went into high-level corporate roles. Neac has been a software engineer for over 30 years and is also a very accomplished and capable mathematician and cryptographer. Beyond these two individuals, there is a wider team of contributors that have a broad range of skills, including economics, finance, DevOps, technical, and creative. 3. You have chosen to have the project funds (12% of max supply) locked in a contract with gradual release over 24 months. Why did you choose this setup over other funding options, such as a block tax, premine, or community donations? We chose a 9% premine with a 24-month gradual release because it provides both transparency and financial stability. Another 3% was allocated to early contributors and the founding team, compensating them for nearly a year of development and costs before launch. By releasing 650,000 SAL per month, we have a stable funding source to deliver on our roadmap. We considered alternatives like community donations or ongoing developer fees, but those options either lacked financial stability or posed potential conflicts of interest. The 24-month lock-up also shows our commitment to the project’s long-term vision. In August 2024, we locked one month of unused payments for another two years to demonstrate our long-term commitment. This model allows us to focus on development without short-term market pressures. 4. People rarely discuss the choices of tokenomics and project financing (rewards/premine) over a timeline. Don’t you think your choice to allocate Salvium’s project funding with a token release over 24 months is risky given the current market conditions? It seems like a short-term bet where a bull market within the next two years is necessary to ensure your funding for the subsequent years. The timing of sales must be very well chosen to avoid running out of funding for future developments (after the first two years). What are your thoughts on this? The 24-month release was designed to meet Salvium’s initial funding needs while aligning with the community’s interests. We’re aware of the market risks, but we aren’t relying on a bull market. Our strategy includes prudent financial management, a flexible development pace that can adapt to SAL’s value, and the potential for locking additional unused SAL tokens for future use. This is to build real value and generate trust and ongoing interest. Transparency with our community is crucial throughout this process. 5. The Knowledge Base section of your website mentions that Salvium uses ‘Confidential Transactions’ to mask transaction amounts. Can you explain in detail the cryptographic mechanism used to implement these confidential transactions, and how it differs from implementations in other blockchains like Monero or Zcash? Additionally, how do you manage the verification of transaction integrity without revealing the amounts? Salvium’s Confidential Transactions (CTs) are the same as Monero’s, with the exception that Salvium also provides uniformly random commitment masks for all consumed outputs, as opposed to some consumed outputs as Monero does, creating a reduction in the potential for information leakage. 6. Staking on Salvium is based on periods of approximately 30 days (21,600 blocks) with a yield of 20% of block rewards during the initial phase of the project. How does the Salvium protocol plan to adjust these staking rewards during the transition to a fee-based DeFi model, while maintaining sufficient incentives for participants? Maintaining network security and participant incentives is a priority. The current 20% share of block rewards for stakers will remain in place as we begin rolling out DeFi features in the future. As DeFi applications grow and generate revenue, we’ll gradually transition from block reward-based staking to a gas/fee distribution model. This transition will be carefully managed, ensuring that stakers continue to receive attractive rewards. We’ll be transparent about any changes and seek community input to strike the right balance, ensuring the economic model remains sustainable as we expand DeFi capabilities. 7. Salvium introduces anonymous refundable transactions as a compliance feature. Can you detail the cryptographic process that allows for an anonymous refund of a transaction while ensuring the exact amount is returned to the correct sender? How does this mechanism integrate with other privacy features of Salvium, such as Stealth Addresses and Ring Signatures? Our approach builds upon the “Return Address Scheme” originally proposed by Knacc for Monero in 2019, adapting and extending it to meet the specific needs of Salvium’s regulatory compliance goals. We developed the mathematical proof for this in early 2024, and CypherStack audited it just before the launch of Salvium’s mainnet. Salvium’s refundable transactions are an optional feature that integrates privacy with regulatory compliance. When Alice sends a transaction to Bob, she includes an encrypted “return address” (F_ab) in the transaction, which Bob can later use if a refund is needed. This return address is encrypted using a Diffie-Hellman shared secret, ensuring only Bob can decrypt it. If a refund is required, Bob can use this information to create a new transaction without knowing Alice’s actual address. This method preserves privacy by using stealth addresses and ring signatures, maintaining unlinkability and anonymity while enabling refunds. The refund amount is verified using Pedersen commitments and range proofs, ensuring the integrity of the transaction. 8. In the Knowledge Base section, it is mentioned that exchanges require the ability to monitor transactions in authorized wallets via a ‘viewkey’ mechanism. Can you explain how this ‘view key’ mechanism is technically implemented in the Salvium protocol, and how it ensures both user privacy and regulatory compliance? What security measures are in place to prevent the abuse of these ‘view keys’ by ‘authorized entities’? The view key mechanism is currently being developed. It is being designed as an optional feature to balance privacy with compliance. Salvium will use a dual-key system: a ‘view-balance key’ (k_vb) and a ‘master key’ (k_m). The view-balance key allows authorized entities, like exchanges, to monitor transaction history and balances without the ability to spend funds. The master key remains necessary for spending and preserving security. Even with a view key, the observer cannot link transactions to external identities or connected addresses, ensuring privacy. Security measures include revocable keys, access logs, and selective disclosure, where users can choose which transactions or time periods to share. This system is]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/blog/Blog%20AMA%20PP.webp" /><media:content medium="image" url="https://salvium.io/images/blog/Blog%20AMA%20PP.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Introducing Our New Desktop Wallet</title><link href="https://salvium.io/blog/2024/08/16/desktop-wallet-launch/" rel="alternate" type="text/html" title="Introducing Our New Desktop Wallet" /><published>2024-08-16T09:00:00+00:00</published><updated>2024-08-16T09:00:00+00:00</updated><id>https://salvium.io/blog/2024/08/16/desktop-wallet-launch</id><content type="html" xml:base="https://salvium.io/blog/2024/08/16/desktop-wallet-launch/"><![CDATA[<p>We’re excited to announce the launch of our new desktop wallet, designed from the ground up to provide a seamless and secure experience for managing your digital assets. This release represents a significant milestone in our commitment to making cryptocurrency more accessible and user-friendly.</p>
-
-<h4 id="intuitive-design--user-experience">Intuitive Design &amp; User Experience</h4>
-
-<p>Our new wallet combines robust security features with an intuitive interface, making it easy for both newcomers and experienced users to manage their assets effectively. We’ve focused on creating a clean, straightforward design that puts the most important features at your fingertips:</p>
-
-<ul>
-  <li><strong>Dashboard Overview</strong>: Quick access to balances and recent transactions</li>
-  <li><strong>Transaction History</strong>: Detailed view of all past transactions with advanced filtering</li>
-  <li><strong>Address Book</strong>: Easy management of frequently used addresses</li>
-  <li><strong>Network Status</strong>: Real-time information about network health and synchronization</li>
-</ul>
-
-<h4 id="advanced-security-features">Advanced Security Features</h4>
-
-<p>Security was our top priority during development. The wallet includes multiple layers of protection:</p>
-
-<ol>
-  <li><strong>Encryption &amp; Key Management</strong>
-    <ul>
-      <li>Advanced encryption for wallet files</li>
-      <li>Secure key storage mechanisms</li>
-      <li>Optional hardware wallet integration</li>
-      <li>Multi-signature support</li>
-    </ul>
-  </li>
-  <li><strong>Access Control</strong>
-    <ul>
-      <li>PIN/password protection</li>
-      <li>Two-factor authentication</li>
-      <li>Session management</li>
-      <li>Auto-logout functionality</li>
-    </ul>
-  </li>
-  <li><strong>Backup Solutions</strong>
-    <ul>
-      <li>Automated backup scheduling</li>
-      <li>Encrypted backup files</li>
-      <li>Seed phrase recovery</li>
-      <li>Cloud backup options (optional)</li>
-    </ul>
-  </li>
-</ol>
-
-<h4 id="core-functionality">Core Functionality</h4>
-
-<p>The wallet supports all essential functions with enhanced features:</p>
-
-<ol>
-  <li><strong>Transaction Management</strong>
-    <ul>
-      <li>Fast and secure sending/receiving</li>
-      <li>Custom fee settings</li>
-      <li>Batch transactions</li>
-      <li>Transaction notes and labels</li>
-    </ul>
-  </li>
-  <li><strong>Address Management</strong>
-    <ul>
-      <li>Multiple address support</li>
-      <li>Address generation</li>
-      <li>QR code integration</li>
-      <li>Address verification</li>
-    </ul>
-  </li>
-  <li><strong>Privacy Features</strong>
-    <ul>
-      <li>Ring signature implementation</li>
-      <li>Stealth addresses</li>
-      <li>Transaction mixing</li>
-      <li>Privacy level selection</li>
-    </ul>
-  </li>
-</ol>
-
-<h4 id="unique-features">Unique Features</h4>
-
-<p>We’ve implemented several unique features that set our wallet apart:</p>
-
-<ol>
-  <li><strong>Smart Transaction Planning</strong>
-    <ul>
-      <li>Fee optimization</li>
-      <li>Transaction scheduling</li>
-      <li>Recurring payments</li>
-      <li>Priority management</li>
-    </ul>
-  </li>
-  <li><strong>Integration Capabilities</strong>
-    <ul>
-      <li>Exchange integration</li>
-      <li>DeFi protocol support</li>
-      <li>Cross-chain compatibility</li>
-      <li>API access for developers</li>
-    </ul>
-  </li>
-</ol>
-
-<h4 id="user-support--documentation">User Support &amp; Documentation</h4>
-
-<p>We’re committed to helping users get the most out of their wallet:</p>
-
-<ul>
-  <li><strong>In-Wallet Help</strong>: Contextual help and tooltips</li>
-  <li><strong>Documentation</strong>: Comprehensive user guides</li>
-  <li><strong>Video Tutorials</strong>: Step-by-step visual guides</li>
-  <li><strong>Support Chat</strong>: Direct access to support team</li>
-</ul>
-
-<h4 id="future-development">Future Development</h4>
-
-<p>Our development roadmap includes exciting upcoming features:</p>
-
-<ol>
-  <li><strong>Enhanced Features</strong>
-    <ul>
-      <li>Advanced portfolio tracking</li>
-      <li>Market data integration</li>
-      <li>Custom alert systems</li>
-      <li>Advanced analytics</li>
-    </ul>
-  </li>
-  <li><strong>Additional Integrations</strong>
-    <ul>
-      <li>More hardware wallet support</li>
-      <li>Additional exchange connections</li>
-      <li>Enhanced DeFi capabilities</li>
-      <li>Mobile companion app</li>
-    </ul>
-  </li>
-</ol>
-
-<h4 id="getting-started">Getting Started</h4>
-
-<p>Download the wallet from our official website and follow these steps:</p>
-
-<ol>
-  <li><strong>Installation</strong>
-    <ul>
-      <li>Simple setup process</li>
-      <li>Quick start guide</li>
-      <li>Security configuration</li>
-      <li>Network synchronization</li>
-    </ul>
-  </li>
-  <li><strong>First Steps</strong>
-    <ul>
-      <li>Wallet creation/import</li>
-      <li>Security setup</li>
-      <li>First transaction</li>
-      <li>Backup creation</li>
-    </ul>
-  </li>
-</ol>
-
-<p>We’re committed to continuing development and improvement of the wallet based on user feedback. Regular updates will bring new features and enhancements, ensuring that our wallet remains at the forefront of cryptocurrency technology.</p>
-
-<p>Try our new desktop wallet today and experience the future of digital asset management. For support or feedback, reach out to our team through our official channels.</p>]]></content><author><name></name></author><category term="Updates" /><summary type="html"><![CDATA[Announcing the launch of our new desktop wallet, designed to provide a seamless and secure experience for managing your digital assets.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/blog/wallet-launch.webp" /><media:content medium="image" url="https://salvium.io/images/blog/wallet-launch.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>The view key mechanism is currently being developed. It is being designed as an optional feature to balance privacy with compliance. Salvium will use a dual-key system: a ‘view-balance key’ (k_vb) and a ‘master key’ (k_m). The view-balance key allows authorized entities, like exchanges, to monitor transaction history and balances without the ability to spend funds. The master key remains necessary for spending and preserving security. Even with a view key, the observer cannot link transactions to external identities or connected addresses, ensuring privacy. Security measures include revocable keys, access logs, and selective disclosure, where users can choose which transactions or time periods to share. This system is</p>]]></content><author><name></name></author><category term="community" /><summary type="html"><![CDATA[On August 20th, the Salvium devs joined the Pursuit of Privacy community for an AMA. Thanks for hosting—it was a great discussion! In this AMA, we explore Salvium’s origins, its Confidential Transactions, staking model, and key innovations like Asynchronous Transactions (AT) and Transactional Imbalances (TI). We also discuss the team’s funding strategy and how Salvium aims to position itself as a leader in the privacy coin space. 1. To start the AMA, can you tell us the story behind the Salvium project, and what it aims to achieve? Salvium was originally called Fulmo as a nod to Monero (meaning ‘coin’), Fulmo means ‘lightning’ in Esperanto. The original concept was inspired by a presentation by Pedro Moreno-Sánchez at MoneroKon 2019 on “Dual Outputs: Enabling Payment-Channel Networks in Monero”. You can find it on YouTube. He highlighted the trade-offs between privacy, scalability, and functionality in cryptocurrencies and laid out a proposal using dual outputs to enable payment channels, and a lightning network style layer 2. While working through various ideas to use this extended capability set, and considering what things like conditional payments would enable, a prototype was built for a yield payment system that paid out asynchronously. Only at that point did it become clear that if you can send a transaction at one point in time, and have it do ‘stuff’ at some point in the future, then return it securely and privately—you’ve just built a system capable of running code on the blockchain. So Fulmo became too limiting a name, and Salvium was born. 2. Can you tell us about each team member’s background? Have you worked on other projects before? While we haven’t focused on individual identities, we’re not anonymous. But we are also not seeking exposure. The lead developers are known in the space as Dweab and Neac and are responsible for creating the coloured coin technology used in projects like Haven Protocol. Both are also fully doxxed, and their careers are known. Dweab started as a software engineer and mathematician and then went into high-level corporate roles. Neac has been a software engineer for over 30 years and is also a very accomplished and capable mathematician and cryptographer. Beyond these two individuals, there is a wider team of contributors that have a broad range of skills, including economics, finance, DevOps, technical, and creative. 3. You have chosen to have the project funds (12% of max supply) locked in a contract with gradual release over 24 months. Why did you choose this setup over other funding options, such as a block tax, premine, or community donations? We chose a 9% premine with a 24-month gradual release because it provides both transparency and financial stability. Another 3% was allocated to early contributors and the founding team, compensating them for nearly a year of development and costs before launch. By releasing 650,000 SAL per month, we have a stable funding source to deliver on our roadmap. We considered alternatives like community donations or ongoing developer fees, but those options either lacked financial stability or posed potential conflicts of interest. The 24-month lock-up also shows our commitment to the project’s long-term vision. In August 2024, we locked one month of unused payments for another two years to demonstrate our long-term commitment. This model allows us to focus on development without short-term market pressures. 4. People rarely discuss the choices of tokenomics and project financing (rewards/premine) over a timeline. Don’t you think your choice to allocate Salvium’s project funding with a token release over 24 months is risky given the current market conditions? It seems like a short-term bet where a bull market within the next two years is necessary to ensure your funding for the subsequent years. The timing of sales must be very well chosen to avoid running out of funding for future developments (after the first two years). What are your thoughts on this? The 24-month release was designed to meet Salvium’s initial funding needs while aligning with the community’s interests. We’re aware of the market risks, but we aren’t relying on a bull market. Our strategy includes prudent financial management, a flexible development pace that can adapt to SAL’s value, and the potential for locking additional unused SAL tokens for future use. This is to build real value and generate trust and ongoing interest. Transparency with our community is crucial throughout this process. 5. The Knowledge Base section of your website mentions that Salvium uses ‘Confidential Transactions’ to mask transaction amounts. Can you explain in detail the cryptographic mechanism used to implement these confidential transactions, and how it differs from implementations in other blockchains like Monero or Zcash? Additionally, how do you manage the verification of transaction integrity without revealing the amounts? Salvium’s Confidential Transactions (CTs) are the same as Monero’s, with the exception that Salvium also provides uniformly random commitment masks for all consumed outputs, as opposed to some consumed outputs as Monero does, creating a reduction in the potential for information leakage. 6. Staking on Salvium is based on periods of approximately 30 days (21,600 blocks) with a yield of 20% of block rewards during the initial phase of the project. How does the Salvium protocol plan to adjust these staking rewards during the transition to a fee-based DeFi model, while maintaining sufficient incentives for participants? Maintaining network security and participant incentives is a priority. The current 20% share of block rewards for stakers will remain in place as we begin rolling out DeFi features in the future. As DeFi applications grow and generate revenue, we’ll gradually transition from block reward-based staking to a gas/fee distribution model. This transition will be carefully managed, ensuring that stakers continue to receive attractive rewards. We’ll be transparent about any changes and seek community input to strike the right balance, ensuring the economic model remains sustainable as we expand DeFi capabilities. 7. Salvium introduces anonymous refundable transactions as a compliance feature. Can you detail the cryptographic process that allows for an anonymous refund of a transaction while ensuring the exact amount is returned to the correct sender? How does this mechanism integrate with other privacy features of Salvium, such as Stealth Addresses and Ring Signatures? Our approach builds upon the “Return Address Scheme” originally proposed by Knacc for Monero in 2019, adapting and extending it to meet the specific needs of Salvium’s regulatory compliance goals. We developed the mathematical proof for this in early 2024, and CypherStack audited it just before the launch of Salvium’s mainnet. Salvium’s refundable transactions are an optional feature that integrates privacy with regulatory compliance. When Alice sends a transaction to Bob, she includes an encrypted “return address” (F_ab) in the transaction, which Bob can later use if a refund is needed. This return address is encrypted using a Diffie-Hellman shared secret, ensuring only Bob can decrypt it. If a refund is required, Bob can use this information to create a new transaction without knowing Alice’s actual address. This method preserves privacy by using stealth addresses and ring signatures, maintaining unlinkability and anonymity while enabling refunds. The refund amount is verified using Pedersen commitments and range proofs, ensuring the integrity of the transaction. 8. In the Knowledge Base section, it is mentioned that exchanges require the ability to monitor transactions in authorized wallets via a ‘viewkey’ mechanism. Can you explain how this ‘view key’ mechanism is technically implemented in the Salvium protocol, and how it ensures both user privacy and regulatory compliance? What security measures are in place to prevent the abuse of these ‘view keys’ by ‘authorized entities’? The view key mechanism is currently being developed. It is being designed as an optional feature to balance privacy with compliance. Salvium will use a dual-key system: a ‘view-balance key’ (k_vb) and a ‘master key’ (k_m). The view-balance key allows authorized entities, like exchanges, to monitor transaction history and balances without the ability to spend funds. The master key remains necessary for spending and preserving security. Even with a view key, the observer cannot link transactions to external identities or connected addresses, ensuring privacy. Security measures include revocable keys, access logs, and selective disclosure, where users can choose which transactions or time periods to share. This system is]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/blog/Blog%20AMA%20PP.webp" /><media:content medium="image" url="https://salvium.io/images/blog/Blog%20AMA%20PP.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

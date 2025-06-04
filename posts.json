@@ -2,6 +2,15 @@
     "posts": [
         
         {
+            "title": "Salvium One: Countdown to Mainnet",
+            "url": "/blog/2025/06/04/salvium-one-countdown/",
+            "image": "/images/blog/salvium-one-countdown.png",
+            "date": "June 04, 2025",
+            "excerpt": "Mainnet is almost here: the team hits a major milestone as Salvium One enters its final countdown.",
+            "categories": "Updates"
+        },
+        
+        {
             "title": "SPARC and Carrot: Salvium's Innovative Solution for Compliant Privacy",
             "url": "/blog/2025/05/08/salviums-innovative-solution/",
             "image": "/images/optimized/salvium-solution.jpg",
