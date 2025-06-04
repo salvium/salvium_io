@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Salvium One: Countdown to Mainnet"
-date: 2025-06-05 09:00:00 +0000
+date: 2025-06-04 09:00:00 +0000
 categories: Updates
 image: /images/blog/salvium-one-countdown.png
 excerpt: "Mainnet is almost here: the team hits a major milestone as Salvium One enters its final countdown."
