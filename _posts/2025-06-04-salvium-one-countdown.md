@@ -41,9 +41,9 @@ This isn’t just an incremental upgrade—it’s the point where Salvium become
 ## **What Happens Over the Coming Weeks**
 
 1. **Cypher Stack feedback** – We share the full report and patch anything they raise.
-2. **Public test-net** – Open chain, faucet, explorer, and CLI tools so anyone can try Carrot + SPARC transactions and Polyseed restores. A small bug-bounty will run alongside.
+2. **Public testnet** – Open chain, faucet, explorer, and CLI tools so anyone can try Carrot + SPARC transactions and Polyseed restores.
 3. **White-paper publication** – A single document for Salvium One that explains—step by step—the three pillars of SPARC: return payments, spend-authority proofs, and optional transparency.
-4. **Main-network activation** – After a stable test-net run and a green audit, we set a fork height and notify miners and service operators well in advance.
+4. **Main-network activation** – After a stable testnet run and a green audit, we set a fork height and notify miners and service operators well in advance.
 
 ## **How You Can Help**
 
