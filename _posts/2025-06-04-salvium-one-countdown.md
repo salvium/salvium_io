@@ -13,7 +13,7 @@ excerpt: "Mainnet is almost here: the team hits a major milestone as Salvium One
 
 Salvium One is the next major version of the Salvium network. It blends our existing privacy features (inherited from CryptoNote) with two new building-blocks:
 
-**Carrot addressing scheme:** An improved stealth address scheme that uses two independent “base points”. Carrot adds new privacy and usability features, whilst remaining backwards compatible. It also makes it harder for attackers to break, and prepares us for future upgrades. An updated version of the CLSAG signature scheme—**T-CLSAG**—has been developed in-house, and is also included. [Learn more](https://docs.salvium.io/knowledge-base/carrot-addressing)
+**Carrot addressing scheme:** An improved stealth address scheme that uses two independent “base points”. Carrot adds new privacy and usability features, whilst remaining backwards compatible. It also makes it harder for attackers to break, and prepares us for future upgrades. An updated version of the CLSAG signature scheme — **T-CLSAG**— has been developed in-house, and is also included. [Learn more](https://docs.salvium.io/THE%20PROJECT/carrot/)
 
 **SPARC proof suite:** A family of cryptographic proofs that lets a sender prove control of an output without revealing any private-key information.  
 [Knowledge-base overview ›](https://docs.salvium.io/THE%20PROJECT/sparc/) | [Plain-language blog post ›](https://salvium.io/blog/2025/05/08/salviums-innovative-solution/)
@@ -48,8 +48,8 @@ This isn’t just an incremental upgrade—it’s the point where Salvium become
 ## **How You Can Help**
 
 * **Read the pre-print** when the link is posted; ask questions in Discord.
-* **Join the test-net** and try everything you can think of—edge cases welcome.
+* **Join the testnet** and try everything you can think of—edge cases welcome.
 * **Report bugs** through GitHub issues or the Discord **#testnet** channel.
 * **Spread the word** – the more eyes we have, the stronger Salvium One will be.
 
-Thank you for supporting Salvium. Stay tuned on Discord and **@salvium\_io** for real-time updates as we move through these final steps toward Salvium One.
+Thank you for supporting Salvium. Stay tuned on Discord and [@salvium\_io](https://x.com/salvium_io) for real-time updates as we move through these final steps toward Salvium One.
