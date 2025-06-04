@@ -11,6 +11,15 @@
         },
         
         {
+            "title": "Ama",
+            "url": "/blog/2025/06/04/ama/",
+            "image": "",
+            "date": "June 04, 2025",
+            "excerpt": "layout: post title: “Inside Salvium: A deep dive with SRCG” date: 2025-06-05 09:00:00 +0000 author: Salvium Core Team categories: [Updates, AMA] image: /images/blog/ama.png excerpt: “In a recent flurry of updates,...",
+            "categories": ""
+        },
+        
+        {
             "title": "SPARC and Carrot: Salvium's Innovative Solution for Compliant Privacy",
             "url": "/blog/2025/05/08/salviums-innovative-solution/",
             "image": "/images/optimized/salvium-solution.jpg",
