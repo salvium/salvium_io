@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-06-07T17:14:33+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">T-CLSAG Submitted for Cryptographic Audit</title><link href="https://salvium.io/blog/2025/06/07/maths-audit/" rel="alternate" type="text/html" title="T-CLSAG Submitted for Cryptographic Audit" /><published>2025-06-07T09:00:00+00:00</published><updated>2025-06-07T09:00:00+00:00</updated><id>https://salvium.io/blog/2025/06/07/maths-audit</id><content type="html" xml:base="https://salvium.io/blog/2025/06/07/maths-audit/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-06-07T17:23:47+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">T-CLSAG Submitted for Cryptographic Audit</title><link href="https://salvium.io/blog/2025/06/07/maths-audit/" rel="alternate" type="text/html" title="T-CLSAG Submitted for Cryptographic Audit" /><published>2025-06-07T09:00:00+00:00</published><updated>2025-06-07T09:00:00+00:00</updated><id>https://salvium.io/blog/2025/06/07/maths-audit</id><content type="html" xml:base="https://salvium.io/blog/2025/06/07/maths-audit/"><![CDATA[<h2 id="introduction">Introduction</h2>
 
-<p>Today marks a significant milestone in Salvium’s development journey. We are proud to announce that our research paper “Two-scalar CLSAG Signature Scheme for Monero’s Carrot Addressing (T-CLSAG)” has been submitted to Cypher Stack for formal cryptographic audit. This represents not just a technical achievement, but a crucial step toward implementing some of the most advanced privacy features in the cryptocurrency space.</p>
+<p>Today marks a significant milestone in Salvium’s development journey. We are proud to announce that our research paper <strong>“Two-scalar CLSAG Signature Scheme for Monero’s Carrot Addressing (T-CLSAG)”</strong> has been submitted to Cypher Stack for formal cryptographic audit. This represents not just a technical achievement, but a crucial step toward implementing some of the most advanced privacy features in the cryptocurrency space.</p>
 
 <blockquote>
-  <p><strong>Download / view the full preprint (PDF, ~190 KB):</strong>  <a href="https://raw.githubusercontent.com/salvium/salvium_library/main/preprints/Two-scalar%20CLSAG%20Signature%20Scheme.pdf" target="_blank" rel="noopener">Two-scalar CLSAG Signature Scheme</a></p>
+  <p><strong>Download / view the full preprint (PDF, ~190 KB):</strong><br />
+<a href="https://raw.githubusercontent.com/salvium/salvium_library/main/preprints/Two-scalar%20CLSAG%20Signature%20Scheme.pdf" target="_blank" rel="noopener">Two-scalar CLSAG Signature Scheme</a></p>
 </blockquote>
 
 <h2 id="understanding-preprints-and-why-they-matter">Understanding Preprints and Why They Matter</h2>
@@ -11,37 +12,37 @@
 <p>Before diving into the technical details, it’s important to understand what a preprint represents in the world of cryptographic research. A preprint is an academic paper that has been prepared for peer review but has not yet undergone formal publication. In the cryptocurrency and cryptography fields, preprints serve several critical functions:</p>
 
 <ol>
-  <li><strong>Transparency</strong>: They allow the community to examine proposed protocols before implementation</li>
-  <li><strong>Peer Review</strong>: They enable expert cryptographers to identify potential vulnerabilities or improvements</li>
-  <li><strong>Academic Rigor</strong>: They demonstrate commitment to following established scientific protocols</li>
-  <li><strong>Security Validation</strong>: Independent audits verify that mathematical claims hold under scrutiny</li>
+  <li><strong>Transparency</strong> – They allow the community to examine proposed protocols before implementation</li>
+  <li><strong>Peer Review</strong> – They enable expert cryptographers to identify potential vulnerabilities or improvements</li>
+  <li><strong>Academic Rigor</strong> – They demonstrate commitment to following established scientific protocols</li>
+  <li><strong>Security Validation</strong> – Independent audits verify that mathematical claims hold under scrutiny</li>
 </ol>
 
-<p>For a privacy-focused protocol like Salvium, submitting our work for independent audit by specialists like Cypher Stack is not just best practice—it’s essential. Cypher Stack brings extensive expertise in Monero security and cryptographic research, making them the ideal choice to validate our innovations.</p>
+<p>For a privacy-focused protocol like Salvium, submitting our work for independent audit by specialists like Cypher Stack is not just best practice — it’s essential. Cypher Stack brings extensive expertise in Monero security and cryptographic research, making them the ideal choice to validate our innovations.</p>
 
 <h2 id="the-technical-innovation-t-clsag-explained">The Technical Innovation: T-CLSAG Explained</h2>
 
 <h3 id="what-is-clsag">What is CLSAG?</h3>
 
-<p>CLSAG (Concise Linkable Spontaneous Anonymous Group signatures) is the current signature scheme used by Monero to provide privacy and prevent double-spending. Traditional CLSAG allows a user to prove they know one secret key ( x ) corresponding to a public key ( K = xG ), where ( G ) is a standard elliptic curve generator.</p>
+<p>CLSAG (Concise Linkable Spontaneous Anonymous Group signatures) is the current signature scheme used by Monero to provide privacy and prevent double-spending. Traditional CLSAG allows a user to prove they know one secret key $x$ corresponding to a public key $K = xG$, where $G$ is a standard elliptic-curve generator.</p>
 
 <h3 id="the-carrot-addressing-challenge">The Carrot Addressing Challenge</h3>
 
-<p>The proposed Carrot addressing scheme introduces a more sophisticated public key format:</p>
+<p>The proposed Carrot addressing scheme introduces a more sophisticated public-key format:</p>
 
-<p>[ K_o = xG + yT ]</p>
+\[K_o = xG + yT\]
 
-<p>Where ( G ) and ( T ) are two distinct elliptic curve generators. This dual-generator approach enables powerful new features like forward secrecy and enhanced privacy protections. However, it also presents a significant cryptographic challenge: how do you prove knowledge of both secrets ( x ) and ( y ) while maintaining all the privacy and efficiency guarantees of the original CLSAG scheme?</p>
+<p>where $G$ and $T$ are two distinct elliptic-curve generators. This dual-generator approach enables powerful new features like forward secrecy and enhanced privacy protections. However, it also presents a significant cryptographic challenge: how do you prove knowledge of both secrets $x$ and $y$ while maintaining all the privacy and efficiency guarantees of the original CLSAG scheme?</p>
 
 <h3 id="our-solution-t-clsag">Our Solution: T-CLSAG</h3>
 
 <p>Our T-CLSAG scheme solves this challenge elegantly by:</p>
 
 <ol>
-  <li><strong>Extending the Challenge Chain</strong>: We modify CLSAG’s iterative challenge computation to account for both scalar secrets</li>
-  <li><strong>Preserving Key Images</strong>: We maintain the traditional key image structure ( L = x \cdot H_p(K_o) ), ensuring backward compatibility</li>
-  <li><strong>Aggregate Proof Structure</strong>: We use cryptographic aggregation to prove knowledge of both secrets efficiently</li>
-  <li><strong>Domain Separation</strong>: We employ careful domain separators to prevent cryptographic mixing between different contexts</li>
+  <li><strong>Extending the Challenge Chain</strong> – We modify CLSAG’s iterative challenge computation to account for both scalar secrets</li>
+  <li><strong>Preserving Key Images</strong> – We maintain the traditional key-image structure $L = x \cdot H_p(K_o)$, ensuring backward compatibility</li>
+  <li><strong>Aggregate Proof Structure</strong> – We use cryptographic aggregation to prove knowledge of both secrets efficiently</li>
+  <li><strong>Domain Separation</strong> – We employ careful domain separators to prevent cryptographic mixing between different contexts</li>
 </ol>
 
 <p>The mathematical elegance lies in how we extend the existing proof system without compromising any of its security properties. The signature remains concise, the anonymity set is preserved, and double-spend protection functions exactly as before.</p>
@@ -50,7 +51,7 @@
 
 <h3 id="development-completion">Development Completion</h3>
 
-<p>The submission of this preprint represents the culmination of extensive development work. The bulk of our implementation is complete—we’re not starting from scratch or proposing theoretical concepts. Instead, we’re validating the mathematical foundations of a working system. This puts us in an enviable position where the cryptographic audit is the primary remaining step before deployment.</p>
+<p>The submission of this preprint represents the culmination of extensive development work. The bulk of our implementation is complete — we’re not starting from scratch or proposing theoretical concepts. Instead, we’re validating the mathematical foundations of a working system. This puts us in an enviable position where the cryptographic audit is the primary remaining step before deployment.</p>
 
 <h3 id="collaborative-achievement">Collaborative Achievement</h3>
 
@@ -70,7 +71,7 @@
 
 <h3 id="forward-secrecy">Forward Secrecy</h3>
 
-<p>T-CLSAG enables forward secrecy properties that protect user privacy even against future cryptographic advances, including potential quantum computing threats. This future-proofing is essential for a long-term privacy strategy.</p>
+<p>T-CLSAG enables forward-secrecy properties that protect user privacy even against future cryptographic advances, including potential quantum-computing threats. This future-proofing is essential for a long-term privacy strategy.</p>
 
 <h3 id="defi-integration">DeFi Integration</h3>
 
@@ -83,10 +84,10 @@
 <p>Salvium’s approach differs in crucial ways:</p>
 
 <ol>
-  <li><strong>Implementation Focus</strong>: While much of the ecosystem work remains theoretical, Salvium is implementing practical solutions</li>
-  <li><strong>Regulatory Awareness</strong>: Our development is guided by real-world regulatory requirements</li>
-  <li><strong>DeFi Integration</strong>: We’re building specifically for decentralized finance applications</li>
-  <li><strong>Innovation Speed</strong>: Our focused approach allows us to move quickly from research to implementation</li>
+  <li><strong>Implementation Focus</strong> – While much of the ecosystem work remains theoretical, Salvium is implementing practical solutions</li>
+  <li><strong>Regulatory Awareness</strong> – Our development is guided by real-world regulatory requirements</li>
+  <li><strong>DeFi Integration</strong> – We’re building specifically for decentralized finance applications</li>
+  <li><strong>Innovation Speed</strong> – Our focused approach allows us to move quickly from research to implementation</li>
 </ol>
 
 <h2 id="what-comes-next">What Comes Next</h2>
@@ -94,10 +95,10 @@
 <p>The Cypher Stack audit will thoroughly examine our mathematical proofs, implementation considerations, and security claims. This process typically involves:</p>
 
 <ol>
-  <li><strong>Mathematical Verification</strong>: Confirming that our proofs are sound and complete</li>
-  <li><strong>Security Analysis</strong>: Identifying potential attack vectors or vulnerabilities</li>
-  <li><strong>Implementation Review</strong>: Ensuring that the theoretical scheme can be securely implemented</li>
-  <li><strong>Performance Evaluation</strong>: Assessing computational and storage requirements</li>
+  <li><strong>Mathematical Verification</strong> – Confirming that our proofs are sound and complete</li>
+  <li><strong>Security Analysis</strong> – Identifying potential attack vectors or vulnerabilities</li>
+  <li><strong>Implementation Review</strong> – Ensuring that the theoretical scheme can be securely implemented</li>
+  <li><strong>Performance Evaluation</strong> – Assessing computational and storage requirements</li>
 </ol>
 
 <p>Upon successful completion of the audit, we’ll be ready to integrate T-CLSAG into Salvium’s mainnet, representing a significant advancement in blockchain privacy technology.</p>
@@ -108,35 +109,41 @@
 
 <p>We define aggregate public keys that combine multiple inputs:</p>
 
-<p>[ W_i = \sum H_n(T_j, R, L_1, \ldots, L_m) \cdot K_{i,j} ]</p>
+\[W_i = \sum H_n(T_j, R, L_1, \ldots, L_m)\, K_{i,j}\]
 
-<p>This aggregation allows us to prove knowledge of secrets across multiple inputs efficiently while maintaining the ring signature’s anonymity properties.</p>
+<p>This aggregation allows us to prove knowledge of secrets across multiple inputs efficiently while maintaining the ring-signature’s anonymity properties.</p>
 
 <h3 id="challenge-chain-extension">Challenge Chain Extension</h3>
 
 <p>The iterative challenge computation becomes:</p>
 
-<p>[ c_{i+1} = H_n(T_c, R, m, [r_{x,i}G + r_{y,i}T + c_i W_i], [r_{x,i} H_p(K_i) + c_i \widetilde{W}]) ]</p>
+\[c_{i+1} = H_n\!\bigl(
+  T_c, R, m,\,
+  [\,r_{x,i}G + r_{y,i}T + c_i W_i],\,
+  [\,r_{x,i} H_p(K_i) + c_i \widetilde{W}]
+\bigr)\]
 
 <p>This extension ensures that both scalar secrets must be known to complete the proof, while the challenge chain maintains its essential security properties.</p>
 
 <h3 id="backward-compatibility">Backward Compatibility</h3>
 
-<p>Crucially, our key image computation remains:</p>
+<p>Crucially, our key-image computation remains:</p>
 
-<p>[ L_j = x_j \cdot H_p(K_{\pi,j}) ]</p>
+\[L_j = x_j \cdot H_p\!\bigl(K_{\pi,j}\bigr)\]
 
 <p>This ensures that existing double-spend detection mechanisms continue to function without modification.</p>
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>The submission of our T-CLSAG preprint for cryptographic audit represents more than a technical milestone—it demonstrates Salvium’s commitment to rigorous security standards and innovative privacy technology. By extending proven cryptographic techniques to support advanced addressing schemes, we’re building the foundation for the next generation of privacy-preserving blockchain applications.</p>
+<p>The submission of our T-CLSAG preprint for cryptographic audit represents more than a technical milestone — it demonstrates Salvium’s commitment to rigorous security standards and innovative privacy technology. By extending proven cryptographic techniques to support advanced addressing schemes, we’re building the foundation for the next generation of privacy-preserving blockchain applications.</p>
 
 <p>As we await the results of the Cypher Stack audit, we remain committed to transparency, security, and pushing the boundaries of what’s possible in private blockchain technology. The future of decentralized finance is private, compliant, and built on solid mathematical foundations.</p>
 
 <p>We’ll continue to update the community as the audit progresses and look forward to sharing the validated T-CLSAG implementation in the near future.</p>
 
-<hr />]]></content><author><name></name></author><category term="Updates" /><summary type="html"><![CDATA[T-CLSAG signature scheme has been submitted to Cypher Stack for formal cryptographic audit]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/blog/maths-audit.png" /><media:content medium="image" url="https://salvium.io/images/blog/maths-audit.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Inside Salvium: A deep dive with SRCG</title><link href="https://salvium.io/blog/2025/06/04/ama/" rel="alternate" type="text/html" title="Inside Salvium: A deep dive with SRCG" /><published>2025-06-04T09:00:00+00:00</published><updated>2025-06-04T09:00:00+00:00</updated><id>https://salvium.io/blog/2025/06/04/ama</id><content type="html" xml:base="https://salvium.io/blog/2025/06/04/ama/"><![CDATA[<p>In a recent flurry of updates, Salvium’s lead developer, SomeRandomCryptoGuy shared deep insights into the project’s roadmap, technical direction, and evolving goals. While it wasn’t an official AMA, the transparency and detail provided felt like one. We’ve distilled the highlights into a Q&amp;A format to give the community a clearer picture of where Salvium is headed—from foundational layers to the game-changing vision of Salvium Two.</p>
+<hr />
+
+<p><em>For technical readers interested in the full mathematical details, the complete T-CLSAG preprint will be made available following the completion of the cryptographic audit.</em></p>]]></content><author><name></name></author><category term="Updates" /><summary type="html"><![CDATA[T-CLSAG signature scheme has been submitted to Cypher Stack for formal cryptographic audit.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/blog/maths-audit.png" /><media:content medium="image" url="https://salvium.io/images/blog/maths-audit.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Inside Salvium: A deep dive with SRCG</title><link href="https://salvium.io/blog/2025/06/04/ama/" rel="alternate" type="text/html" title="Inside Salvium: A deep dive with SRCG" /><published>2025-06-04T09:00:00+00:00</published><updated>2025-06-04T09:00:00+00:00</updated><id>https://salvium.io/blog/2025/06/04/ama</id><content type="html" xml:base="https://salvium.io/blog/2025/06/04/ama/"><![CDATA[<p>In a recent flurry of updates, Salvium’s lead developer, SomeRandomCryptoGuy shared deep insights into the project’s roadmap, technical direction, and evolving goals. While it wasn’t an official AMA, the transparency and detail provided felt like one. We’ve distilled the highlights into a Q&amp;A format to give the community a clearer picture of where Salvium is headed—from foundational layers to the game-changing vision of Salvium Two.</p>
 
 <blockquote>
   <p><strong>Q: Can you walk us through the long-term vision for Salvium?</strong></p>
