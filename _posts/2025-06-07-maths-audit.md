@@ -29,24 +29,24 @@ For a privacy-focused protocol like Salvium, submitting our work for independent
 
 ### What is CLSAG?
 
-CLSAG (Concise Linkable Spontaneous Anonymous Group signatures) is the current signature scheme used by Monero to provide privacy and prevent double-spending. Traditional CLSAG allows a user to prove they know one secret key $x$ corresponding to a public key $K = xG$, where $G$ is a standard elliptic-curve generator.
+CLSAG (Concise Linkable Spontaneous Anonymous Group signatures) is the current signature scheme used by Monero to provide privacy and prevent double-spending. Traditional CLSAG allows a user to prove they know one secret key \\(x\\) corresponding to a public key \\(K = xG\\), where \\(G\\) is a standard elliptic-curve generator.
 
 ### The Carrot Addressing Challenge
 
 The proposed Carrot addressing scheme introduces a more sophisticated public-key format:
 
-$$
+\\[
 K_o = xG + yT
-$$
+\\]
 
-where $G$ and $T$ are two distinct elliptic-curve generators. This dual-generator approach enables powerful new features like forward secrecy and enhanced privacy protections. However, it also presents a significant cryptographic challenge: how do you prove knowledge of both secrets $x$ and $y$ while maintaining all the privacy and efficiency guarantees of the original CLSAG scheme?
+where \\(G\\) and \\(T\\) are two distinct elliptic-curve generators. This dual-generator approach enables powerful new features like forward secrecy and enhanced privacy protections. However, it also presents a significant cryptographic challenge: how do you prove knowledge of both secrets \\(x\\) and \\(y\\) while maintaining all the privacy and efficiency guarantees of the original CLSAG scheme?
 
 ### Our Solution: T-CLSAG
 
 Our T-CLSAG scheme solves this challenge elegantly by:
 
 1. **Extending the Challenge Chain** – We modify CLSAG's iterative challenge computation to account for both scalar secrets  
-2. **Preserving Key Images** – We maintain the traditional key-image structure $L = x \cdot H_p(K_o)$, ensuring backward compatibility  
+2. **Preserving Key Images** – We maintain the traditional key-image structure \\(L = x \\cdot H_p(K_o)\\), ensuring backward compatibility  
 3. **Aggregate Proof Structure** – We use cryptographic aggregation to prove knowledge of both secrets efficiently  
 4. **Domain Separation** – We employ careful domain separators to prevent cryptographic mixing between different contexts
 
@@ -110,9 +110,9 @@ Upon successful completion of the audit, we'll be ready to integrate T-CLSAG int
 
 We define aggregate public keys that combine multiple inputs:
 
-$$
-W_i = \sum H_n(T_j, R, L_1, \ldots, L_m)\, K_{i,j}
-$$
+\\[
+W_i = \sum H_n(T_j, R, L_1, \\ldots, L_m)\, K_{i,j}
+\\]
 
 This aggregation allows us to prove knowledge of secrets across multiple inputs efficiently while maintaining the ring-signature's anonymity properties.
 
@@ -120,13 +120,13 @@ This aggregation allows us to prove knowledge of secrets across multiple inputs 
 
 The iterative challenge computation becomes:
 
-$$
-c_{i+1} = H_n\!\bigl(
+\\[
+c_{i+1} = H_n\\bigl(
   T_c, R, m,\,
-  [\,r_{x,i}G + r_{y,i}T + c_i W_i],\,
-  [\,r_{x,i} H_p(K_i) + c_i \widetilde{W}]
-\bigr)
-$$
+  [r_{x,i}G + r_{y,i}T + c_i W_i],\,
+  [r_{x,i} H_p(K_i) + c_i \\widetilde{W}]
+\\bigr)
+\\]
 
 This extension ensures that both scalar secrets must be known to complete the proof, while the challenge chain maintains its essential security properties.
 
@@ -134,9 +134,9 @@ This extension ensures that both scalar secrets must be known to complete the pr
 
 Crucially, our key-image computation remains:
 
-$$
-L_j = x_j \cdot H_p\!\bigl(K_{\pi,j}\bigr)
-$$
+\\[
+L_j = x_j \\cdot H_p\\bigl(K_{\\pi,j}\\bigr)
+\\]
 
 This ensures that existing double-spend detection mechanisms continue to function without modification.
 
@@ -149,5 +149,3 @@ As we await the results of the Cypher Stack audit, we remain committed to transp
 We'll continue to update the community as the audit progresses and look forward to sharing the validated T-CLSAG implementation in the near future.
 
 ---
-
-*For technical readers interested in the full mathematical details, the complete T-CLSAG preprint will be made available following the completion of the cryptographic audit.*
