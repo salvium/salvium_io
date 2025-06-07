@@ -2,6 +2,15 @@
     "posts": [
         
         {
+            "title": "T-CLSAG Submitted for Cryptographic Audit",
+            "url": "/blog/2025/06/07/maths-audit/",
+            "image": "/images/blog/maths-audit.png",
+            "date": "June 07, 2025",
+            "excerpt": " T-CLSAG signature scheme has been submitted to Cypher Stack for formal cryptographic audit for audit.",
+            "categories": "Updates"
+        },
+        
+        {
             "title": "Salvium One: Countdown to Mainnet",
             "url": "/blog/2025/06/04/salvium-one-countdown/",
             "image": "/images/blog/salvium-one-countdown.png",

@@ -102,6 +102,10 @@
     <!-- Preload first 4 post images -->
     
         
+            <link rel="preload" as="image" href="/images/blog/wallet-launch.webp">
+        
+    
+        
             <link rel="preload" as="image" href="/images/blog/Blog Aug Tres-1024.webp">
         
     
@@ -111,10 +115,6 @@
     
         
             <link rel="preload" as="image" href="/images/blog/protocol-audit.webp">
-        
-    
-        
-            <link rel="preload" as="image" href="/images/blog/new-dawn.webp">
         
     
 </head>
@@ -154,6 +154,48 @@
     <section class="container mx-auto px-4 py-12">
         <div class="blog-grid">
             
+            
+            <div class="blog-grid-item">
+                <article class="ecosystem-card">
+                    
+                    <div class="blog-post-image-container">
+                        <a href="/blog/2024/08/16/desktop-wallet-launch/" class="block hover:opacity-90 transition-opacity">
+                            
+                            <img 
+                                src="/images/blog/wallet-launch.webp"
+                                alt="Introducing Our New Desktop Wallet" 
+                                class="blog-post-image"
+                                fetchpriority="high"
+                                loading="eager"
+                                decoding="async">
+                            
+                        </a>
+                    </div>
+                    
+                    <div class="card-content">
+                        
+                        <div class="mb-4">
+                            <span class="card-tag">
+                                Updates
+                            </span>
+                        </div>
+                        
+                        <a href="/blog/2024/08/16/desktop-wallet-launch/" class="block hover:text-[#00bfa5] transition-colors">
+                            <h2 class="card-title">Introducing Our New Desktop Wallet</h2>
+                        </a>
+                        <p class="card-description">Announcing the launch of our new desktop wallet, designed to provide a seamless and secure experience for managing your digital assets.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <time datetime="2024-08-16T09:00:00+00:00" class="text-sm text-[#b0b0b0]">
+                                August 16, 2024
+                            </time>
+                            <a href="/blog/2024/08/16/desktop-wallet-launch/" class="card-link">
+                                Read More 
+                                <i class="fas fa-chevron-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
             
             <div class="blog-grid-item">
                 <article class="ecosystem-card">
@@ -291,8 +333,7 @@
                                 src="/images/blog/new-dawn.webp"
                                 alt="The Dawn of a New Market" 
                                 class="blog-post-image"
-                                fetchpriority="high"
-                                loading="eager"
+                                loading="lazy"
                                 decoding="async">
                             
                         </a>

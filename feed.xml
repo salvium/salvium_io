@@ -1,4 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-06-07T16:53:47+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">Inside Salvium: A deep dive with SRCG</title><link href="https://salvium.io/blog/2025/06/04/ama/" rel="alternate" type="text/html" title="Inside Salvium: A deep dive with SRCG" /><published>2025-06-04T09:00:00+00:00</published><updated>2025-06-04T09:00:00+00:00</updated><id>https://salvium.io/blog/2025/06/04/ama</id><content type="html" xml:base="https://salvium.io/blog/2025/06/04/ama/"><![CDATA[<p>In a recent flurry of updates, Salvium’s lead developer, SomeRandomCryptoGuy shared deep insights into the project’s roadmap, technical direction, and evolving goals. While it wasn’t an official AMA, the transparency and detail provided felt like one. We’ve distilled the highlights into a Q&amp;A format to give the community a clearer picture of where Salvium is headed—from foundational layers to the game-changing vision of Salvium Two.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://salvium.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://salvium.io/" rel="alternate" type="text/html" /><updated>2025-06-07T16:55:47+00:00</updated><id>https://salvium.io/feed.xml</id><title type="html">Salvium Protocol Blog</title><subtitle>Official blog of Salvium Protocol - Latest news and updates</subtitle><entry><title type="html">T-CLSAG Submitted for Cryptographic Audit</title><link href="https://salvium.io/blog/2025/06/07/maths-audit/" rel="alternate" type="text/html" title="T-CLSAG Submitted for Cryptographic Audit" /><published>2025-06-07T09:00:00+00:00</published><updated>2025-06-07T09:00:00+00:00</updated><id>https://salvium.io/blog/2025/06/07/maths-audit</id><content type="html" xml:base="https://salvium.io/blog/2025/06/07/maths-audit/"><![CDATA[<h2 id="introduction">Introduction</h2>
+
+<p>Today marks a significant milestone in Salvium’s development journey. We are proud to announce that our research paper “Two-scalar CLSAG Signature Scheme for Monero’s Carrot Addressing (T-CLSAG)” has been submitted to Cypher Stack for formal cryptographic audit. This represents not just a technical achievement, but a crucial step toward implementing some of the most advanced privacy features in the cryptocurrency space.</p>
+
+<h2 id="understanding-preprints-and-why-they-matter">Understanding Preprints and Why They Matter</h2>
+
+<p>Before diving into the technical details, it’s important to understand what a preprint represents in the world of cryptographic research. A preprint is an academic paper that has been prepared for peer review but has not yet undergone formal publication. In the cryptocurrency and cryptography fields, preprints serve several critical functions:</p>
+
+<ol>
+  <li><strong>Transparency</strong>: They allow the community to examine proposed protocols before implementation</li>
+  <li><strong>Peer Review</strong>: They enable expert cryptographers to identify potential vulnerabilities or improvements</li>
+  <li><strong>Academic Rigor</strong>: They demonstrate commitment to following established scientific protocols</li>
+  <li><strong>Security Validation</strong>: Independent audits verify that mathematical claims hold under scrutiny</li>
+</ol>
+
+<p>For a privacy-focused protocol like Salvium, submitting our work for independent audit by specialists like Cypher Stack is not just best practice—it’s essential. Cypher Stack brings extensive expertise in Monero security and cryptographic research, making them the ideal choice to validate our innovations.</p>
+
+<h2 id="the-technical-innovation-t-clsag-explained">The Technical Innovation: T-CLSAG Explained</h2>
+
+<h3 id="what-is-clsag">What is CLSAG?</h3>
+
+<p>CLSAG (Concise Linkable Spontaneous Anonymous Group signatures) is the current signature scheme used by Monero to provide privacy and prevent double-spending. Traditional CLSAG allows a user to prove they know one secret key ( x ) corresponding to a public key ( K = xG ), where ( G ) is a standard elliptic curve generator.</p>
+
+<h3 id="the-carrot-addressing-challenge">The Carrot Addressing Challenge</h3>
+
+<p>The proposed Carrot addressing scheme introduces a more sophisticated public key format:</p>
+
+<p>[ K_o = xG + yT ]</p>
+
+<p>Where ( G ) and ( T ) are two distinct elliptic curve generators. This dual-generator approach enables powerful new features like forward secrecy and enhanced privacy protections. However, it also presents a significant cryptographic challenge: how do you prove knowledge of both secrets ( x ) and ( y ) while maintaining all the privacy and efficiency guarantees of the original CLSAG scheme?</p>
+
+<h3 id="our-solution-t-clsag">Our Solution: T-CLSAG</h3>
+
+<p>Our T-CLSAG scheme solves this challenge elegantly by:</p>
+
+<ol>
+  <li><strong>Extending the Challenge Chain</strong>: We modify CLSAG’s iterative challenge computation to account for both scalar secrets</li>
+  <li><strong>Preserving Key Images</strong>: We maintain the traditional key image structure ( L = x \cdot H_p(K_o) ), ensuring backward compatibility</li>
+  <li><strong>Aggregate Proof Structure</strong>: We use cryptographic aggregation to prove knowledge of both secrets efficiently</li>
+  <li><strong>Domain Separation</strong>: We employ careful domain separators to prevent cryptographic mixing between different contexts</li>
+</ol>
+
+<p>The mathematical elegance lies in how we extend the existing proof system without compromising any of its security properties. The signature remains concise, the anonymity set is preserved, and double-spend protection functions exactly as before.</p>
+
+<h2 id="why-this-represents-a-major-milestone">Why This Represents a Major Milestone</h2>
+
+<h3 id="development-completion">Development Completion</h3>
+
+<p>The submission of this preprint represents the culmination of extensive development work. The bulk of our implementation is complete—we’re not starting from scratch or proposing theoretical concepts. Instead, we’re validating the mathematical foundations of a working system. This puts us in an enviable position where the cryptographic audit is the primary remaining step before deployment.</p>
+
+<h3 id="collaborative-achievement">Collaborative Achievement</h3>
+
+<p>This work has been in collaboration with Cypher Stack’s cryptographers. Their expertise in Monero’s cryptographic foundations has been invaluable in refining our approach. We want to express our sincere gratitude for their ongoing support and partnership in advancing the state of privacy-preserving blockchain technology.</p>
+
+<h3 id="industry-leadership">Industry Leadership</h3>
+
+<p>While the broader Monero ecosystem continues to explore advanced addressing schemes and signature protocols, Salvium is taking the lead in practical implementation. Our T-CLSAG scheme represents original research that advances the entire field of privacy-focused cryptocurrencies.</p>
+
+<h2 id="how-this-advances-salviums-mission">How This Advances Salvium’s Mission</h2>
+
+<p>Salvium’s core mission centers on creating a privacy-first blockchain that can comply with emerging regulatory frameworks while maintaining the strong privacy guarantees that users expect. T-CLSAG and Carrot addressing are crucial components of this vision:</p>
+
+<h3 id="regulatory-compliance">Regulatory Compliance</h3>
+
+<p>The enhanced cryptographic flexibility provided by dual-secret proofs enables features like selective transparency and compliance-friendly privacy. Users can maintain strong privacy by default while having the option to provide specific disclosures when required by regulation.</p>
+
+<h3 id="forward-secrecy">Forward Secrecy</h3>
+
+<p>T-CLSAG enables forward secrecy properties that protect user privacy even against future cryptographic advances, including potential quantum computing threats. This future-proofing is essential for a long-term privacy strategy.</p>
+
+<h3 id="defi-integration">DeFi Integration</h3>
+
+<p>The advanced cryptographic capabilities unlocked by T-CLSAG provide the foundation for sophisticated DeFi applications that maintain privacy. This aligns with Salvium’s goal of becoming the leading platform for private decentralized finance.</p>
+
+<h2 id="the-broader-context-moneros-development">The Broader Context: Monero’s Development</h2>
+
+<p>It’s worth acknowledging the broader ecosystem context. The Monero project has been instrumental in supporting research into advanced addressing schemes and signature protocols. Projects like FCMP++ (Full-Chain Membership Proofs) and various addressing proposals have created a rich research environment.</p>
+
+<p>Salvium’s approach differs in crucial ways:</p>
+
+<ol>
+  <li><strong>Implementation Focus</strong>: While much of the ecosystem work remains theoretical, Salvium is implementing practical solutions</li>
+  <li><strong>Regulatory Awareness</strong>: Our development is guided by real-world regulatory requirements</li>
+  <li><strong>DeFi Integration</strong>: We’re building specifically for decentralized finance applications</li>
+  <li><strong>Innovation Speed</strong>: Our focused approach allows us to move quickly from research to implementation</li>
+</ol>
+
+<h2 id="what-comes-next">What Comes Next</h2>
+
+<p>The Cypher Stack audit will thoroughly examine our mathematical proofs, implementation considerations, and security claims. This process typically involves:</p>
+
+<ol>
+  <li><strong>Mathematical Verification</strong>: Confirming that our proofs are sound and complete</li>
+  <li><strong>Security Analysis</strong>: Identifying potential attack vectors or vulnerabilities</li>
+  <li><strong>Implementation Review</strong>: Ensuring that the theoretical scheme can be securely implemented</li>
+  <li><strong>Performance Evaluation</strong>: Assessing computational and storage requirements</li>
+</ol>
+
+<p>Upon successful completion of the audit, we’ll be ready to integrate T-CLSAG into Salvium’s mainnet, representing a significant advancement in blockchain privacy technology.</p>
+
+<h2 id="technical-deep-dive-key-innovations">Technical Deep Dive: Key Innovations</h2>
+
+<h3 id="aggregate-public-keys">Aggregate Public Keys</h3>
+
+<p>We define aggregate public keys that combine multiple inputs:</p>
+
+<p>[ W_i = \sum H_n(T_j, R, L_1, \ldots, L_m) \cdot K_{i,j} ]</p>
+
+<p>This aggregation allows us to prove knowledge of secrets across multiple inputs efficiently while maintaining the ring signature’s anonymity properties.</p>
+
+<h3 id="challenge-chain-extension">Challenge Chain Extension</h3>
+
+<p>The iterative challenge computation becomes:</p>
+
+<p>[ c_{i+1} = H_n(T_c, R, m, [r_{x,i}G + r_{y,i}T + c_i W_i], [r_{x,i} H_p(K_i) + c_i \widetilde{W}]) ]</p>
+
+<p>This extension ensures that both scalar secrets must be known to complete the proof, while the challenge chain maintains its essential security properties.</p>
+
+<h3 id="backward-compatibility">Backward Compatibility</h3>
+
+<p>Crucially, our key image computation remains:</p>
+
+<p>[ L_j = x_j \cdot H_p(K_{\pi,j}) ]</p>
+
+<p>This ensures that existing double-spend detection mechanisms continue to function without modification.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The submission of our T-CLSAG preprint for cryptographic audit represents more than a technical milestone—it demonstrates Salvium’s commitment to rigorous security standards and innovative privacy technology. By extending proven cryptographic techniques to support advanced addressing schemes, we’re building the foundation for the next generation of privacy-preserving blockchain applications.</p>
+
+<p>As we await the results of the Cypher Stack audit, we remain committed to transparency, security, and pushing the boundaries of what’s possible in private blockchain technology. The future of decentralized finance is private, compliant, and built on solid mathematical foundations.</p>
+
+<p>We’ll continue to update the community as the audit progresses and look forward to sharing the validated T-CLSAG implementation in the near future.</p>
+
+<hr />
+
+<p><em>For technical readers interested in the full mathematical details, the complete T-CLSAG preprint will be made available following the completion of the cryptographic audit.</em></p>]]></content><author><name></name></author><category term="Updates" /><summary type="html"><![CDATA[T-CLSAG signature scheme has been submitted to Cypher Stack for formal cryptographic audit for audit.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/blog/maths-audit.png" /><media:content medium="image" url="https://salvium.io/images/blog/maths-audit.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Inside Salvium: A deep dive with SRCG</title><link href="https://salvium.io/blog/2025/06/04/ama/" rel="alternate" type="text/html" title="Inside Salvium: A deep dive with SRCG" /><published>2025-06-04T09:00:00+00:00</published><updated>2025-06-04T09:00:00+00:00</updated><id>https://salvium.io/blog/2025/06/04/ama</id><content type="html" xml:base="https://salvium.io/blog/2025/06/04/ama/"><![CDATA[<p>In a recent flurry of updates, Salvium’s lead developer, SomeRandomCryptoGuy shared deep insights into the project’s roadmap, technical direction, and evolving goals. While it wasn’t an official AMA, the transparency and detail provided felt like one. We’ve distilled the highlights into a Q&amp;A format to give the community a clearer picture of where Salvium is headed—from foundational layers to the game-changing vision of Salvium Two.</p>
 
 <blockquote>
   <p><strong>Q: Can you walk us through the long-term vision for Salvium?</strong></p>
@@ -714,88 +850,4 @@
 
 <p>The updated algorithm uses a rolling window of block times and implements weighted averaging that prioritizes recent blocks while considering historical data. We’ve also added guard rails to prevent extreme difficulty swings, making the network more stable and predictable.</p>
 
-<p>These improvements translate into a more stable mining experience with better rewards distribution. Miners will see more consistent block times, improved profitability through predictable mining rewards, and reduced orphan rates thanks to better block time consistency.</p>]]></content><author><name></name></author><category term="Technology" /><summary type="html"><![CDATA[Introducing key improvements in Salvium v0.6, featuring a new difficulty adjustment algorithm for better network stability.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/blog/difficulty-algo.webp" /><media:content medium="image" url="https://salvium.io/images/blog/difficulty-algo.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Club Dinero AMA</title><link href="https://salvium.io/blog/2024/09/18/club-dinero-ama/" rel="alternate" type="text/html" title="Club Dinero AMA" /><published>2024-09-18T07:51:00+00:00</published><updated>2024-09-18T07:51:00+00:00</updated><id>https://salvium.io/blog/2024/09/18/club-dinero-ama</id><content type="html" xml:base="https://salvium.io/blog/2024/09/18/club-dinero-ama/"><![CDATA[<h2 id="1-what-inspired-the-creation-of-salvium-and-how-does-it-differ-from-other-privacy-focused-defi-projects">1. What inspired the creation of Salvium, and how does it differ from other privacy-focused DeFi projects?</h2>
-
-<p>Salvium’s origins can be traced to insights gained at MoneroKon 2019, particularly from Pedro Moreno-Sánchez’s presentation on enabling payment channels in Monero. This sparked our interest in exploring the balance between privacy, scalability, and functionality in cryptocurrencies. Initially, we called the project “Fulmo,” meaning “lightning” in Esperanto, but as we delved deeper into conditional payments and asynchronous transactions, we realized we were creating something much more powerful – an approach that enabled smart contracts while maintaining privacy. That’s when Salvium was born.</p>
-
-<p>What sets Salvium apart is our unique approach to integrating privacy with DeFi. Our protocol_tx mechanism allows for more sophisticated transaction types than traditional privacy coins. We’ve developed features like Transactional Imbalances and Asynchronous Transactions that enable complex DeFi operations within a privacy-preserving framework. In addition, without compromising privacy, we have built-in compliance features like refundable transactions and selective disclosure. This means that we can meet new Mica rules for listing on centralized exchanges.</p>
-
-<h2 id="2-how-is-salvium-striking-a-balance-between-maintaining-user-privacy-and-adhering-to-regulations-without-compromising-its-privacy-features">2. How is Salvium striking a balance between maintaining user privacy and adhering to regulations, without compromising its privacy features?</h2>
-
-<p>The first thing to understand is that we haven’t compromised any of Monero’s native privacy features. We have enhanced them. The compliance features don’t interfere with privacy, they provide optional features on top, so there is no compromise with privacy.</p>
-
-<p>To achieve compliance, we have added refundable transactions that allow exchanges to return funds, without compromising the privacy of the original sender. We are also developing a view key mechanism using a dual-key system that enables authorized entities to view transaction history and balances without the ability to spend funds or link transactions to external identities. But it’s the holder who chooses who to authorize. And which wallet to authorize. This approach allows us to operate in regulated environments while still providing robust privacy for most users and transactions.</p>
-
-<h2 id="3-how-does-salvium-fit-into-the-broader-defi-ecosystem-what-kind-of-defi-applications-do-you-envision-being-built-on-salvium">3. How does Salvium fit into the broader DeFi ecosystem? What kind of DeFi applications do you envision being built on Salvium?</h2>
-
-<p>We see Salvium as a foundational layer for privacy-preserving DeFi applications. Our goal is to enable complex financial operations with built-in privacy features, something that’s unique in the current DeFi landscape.</p>
-
-<p>As for the types of DeFi applications we envision, there’s a wide range. We’re excited about the potential for private AMM DEXes that could leverage our Asynchronous Transactions to enable swaps without revealing trade sizes or user identities. We also see great potential for privacy-preserving lending protocols, using our Transactional Imbalances to manage collateralization and liquidations privately.</p>
-
-<p>Other possibilities include anonymous yield farming, private options and derivatives, confidential stablecoins, and even privacy-focused prediction markets. Salvium could support anonymous governance systems, enabling private voting for DAO-like structures. The key advantage here is that all these applications would benefit from Salvium’s native privacy features, compliance capabilities, and advanced transaction types. This allows for services that are challenging or impossible to implement on other platforms while maintaining strong privacy guarantees.</p>
-
-<h2 id="4-are-there-partnerships-or-integrations-planned-with-other-defi-platforms-or-projects">4. Are there partnerships or integrations planned with other DeFi platforms or projects?</h2>
-
-<p>Partnerships and integrations will be a core part of our growth strategy. Our current focus is to meet all the requirements for listing on centralized exchanges in the EU. The bulk of the development for this has been done, but the ability to view the wallet needs to be completed. This will unlock our first major CEX.</p>
-
-<p>We are constantly having discussions around the potential of DeFi - but the real conversations won’t take shape until after the view wallet work is complete.</p>
-
-<h2 id="5-what-are-the-major-advantages-of-using-salvium-for-defi-protocols-compared-to-other-platforms-particularly-in-terms-of-privacy">5. What are the major advantages of using Salvium for DeFi protocols compared to other platforms, particularly in terms of privacy?</h2>
-
-<p>Yes, privacy is the feature that differentiates us in DeFi. And nobody shouldn’t underestimate how seriously we take this, we are still building Privacy features now, and following developments in the Monero community very closely.</p>
-
-<p>But our biggest advantage is that we embrace 3 big concepts in crypto. Privacy, compliance and DeFi. We published a Venn diagram recently that explains our unique position in crypto. Coins that comply with crypto regulations will have far greater reach - so we believe compliant privacy will be dominant in the future. We are tipped to become one of the first compliant, private defi projects.</p>
-
-<h2 id="6-what-are-the-key-milestones-on-the-salvium-roadmap-and-what-should-we-expect-from-the-upcoming-06-release">6. What are the key milestones on the Salvium roadmap, and what should we expect from the upcoming 0.6 release?</h2>
-
-<p>0.6 is a relatively minor update. The next significant milestone is Salvium 1.0 - as this will be when we meet the Mica Regulations. The return address is already live, but we will have “exchange mode” - which is where an enhanced view key option will give users options to share wallet details with exchanges.</p>
-
-<p>This will be included in Salvium 1.0 which will enable our first listing on a regulated CEX. This is a huge milestone as it will demonstrate the power of compliant privacy. Devs are working on the maths now, we plan to conduct another audit before writing the code and intend to launch it in the new year.</p>
-
-<h2 id="7-can-you-elaborate-on-the-hard-fork-thats-part-of-the-06-release-what-changes-or-improvements-can-users-expect">7. Can you elaborate on the hard fork that’s part of the 0.6 release? What changes or improvements can users expect?</h2>
-
-<p>Yes, it will be a hard fork that enables support for multiple outputs, it will make things easier for the pool operators. However, the main event will be 1.0 - when full compliance becomes a reality. But we do expect wallets to be updated before then. This will enable multi-sig, required by some bigger exchanges. And hopefully a Mac OS and even an Android GUI.</p>
-
-<h2 id="8-are-there-plans-to-expand-salviums-use-cases-beyond-privacy-focused-defi">8. Are there plans to expand Salvium’s use cases beyond privacy-focused DeFi?</h2>
-
-<p>Private DeFi is our core focus, which in itself is incredibly broad. This alone could keep us busy for decades. That said, we are very aware of the applications for this kind of privacy technology outside of finance.</p>
-
-<p>We have discussed voting systems. Our anonymous yet verifiable transaction structure could be used to create secure, private voting mechanisms - which I hope will form a core part of Salvium’s governance going forward. Our encryption and identity protection features have potential applications in secure, private communication platforms.</p>
-
-<p>There are also applications in supply-chain management, where our verifiable transaction system could be used for tracking goods while maintaining business confidentiality. Healthcare data management is likely to leverage blockchain technology to handle sensitive medical data. Gaming and digital collectibles too, where we could create platforms for tradeable digital assets with privacy features.</p>
-
-<p>We’ve even considered how our cryptographic primitives could be used in privacy-preserving machine learning systems and confidential IoT data management. That said, DeFi will be our focus. Expansion must align with our core competencies and not dilute our primary focus. But as privacy becomes increasingly important across various sectors, we believe Salvium’s technology could find numerous applications beyond DeFi. And as a decentralized and open source project, we’d encourage anyone with an interest in any of these areas to take the initiative and run with it.</p>
-
-<h2 id="9-weve-heard-discussions-about-a-wrapped-sal-wsal-how-will-this-function-and-will-there-be-a-bridge-for-seamless-onboarding-from-ethereum-back-to-native-sal-additionally-how-will-this-benefit-salvium-in-the-long-term">9. We’ve heard discussions about a wrapped SAL (wSAL). How will this function, and will there be a bridge for seamless onboarding from Ethereum back to native SAL? Additionally, how will this benefit Salvium in the long term?</h2>
-
-<p>The wrapped SAL (wSAL) is an important initiative for expanding Salvium’s ecosystem and improving interoperability. Essentially, wSAL will be an ERC-20 token on Ethereum that represents native SAL at a 1:1 ratio. We want to develop a decentralized bridge to facilitate the wrapping and unwrapping process. Users will be able to lock native SAL and mint an equivalent amount of wSAL, or burn wSAL to release native SAL.</p>
-
-<p>In terms of long-term benefits, there are several key advantages. First, wSAL can be traded on Ethereum DEXes, which could potentially increase overall liquidity for SAL. It also means users can interact with SAL through familiar Ethereum wallets and interfaces, broadening our accessibility.</p>
-
-<p>Perhaps most excitingly, wSAL can be used in Ethereum’s vast DeFi ecosystem, which significantly expands the use cases for SAL. This also lays the groundwork for future cross-chain applications and interoperability. Listing on Ethereum-based DEXes could increase visibility for Salvium and attract new users to our ecosystem. We’re really seeing this as a way to position Salvium as a bridge between privacy-focused and mainstream blockchain ecosystems.</p>
-
-<h2 id="10-monero-is-planning-to-implement-fcmp-does-salvium-have-any-plans-to-adopt-this-technology-if-so-how-could-salvium-potentially-benefit-from-its-implementation-in-the-future">10. Monero is planning to implement FCMP++. Does Salvium have any plans to adopt this technology? If so, how could Salvium potentially benefit from its implementation in the future?</h2>
-
-<p>We are in discussions with Kayaba regarding the early adoption of certain aspects of the FCMP++ implementation into Salvium. In particular, the FCMP++ solution for output view keys appears to be a perfect fit for Salvium’s need to allow authorized viewing of a wallet’s transaction history. The most likely scenario is that FCMP++ will have a phased adoption into Salvium, and there is a good chance this will happen ahead of its’ deployment within Monero.</p>
-
-<h2 id="11-are-there-any-plans-to-introduce-mobile-or-hardware-wallets-for-salvium-weve-heard-about-potential-integration-with-cake-wallet-can-you-provide-an-update-on-how-thats-progressing-and-whether-its-likely-to-happen-in-the-near-future">11. Are there any plans to introduce mobile or hardware wallets for Salvium? We’ve heard about potential integration with Cake Wallet, can you provide an update on how that’s progressing and whether it’s likely to happen in the near future?</h2>
-
-<p>We’ve recently launched a desktop GUI wallet for Windows and Linux. It’s built on a re-skinned fork of the Monero GUI wallet with additional staking functionality. Users can gain 20% of the block reward in private with a few clicks in the wallet. This has given us a Windows and Linux wallet - and we expect Mac OS version soon - and hopefully an Android version too.</p>
-
-<p>Cake Wallet would be fantastic. We have reached out to the Cake Wallet team and are very willing to put in the development work to make this happen. Nothing has been confirmed yet. On the hardware wallet front, we haven’t progressed this yet, but it’s definitely on the wish list.</p>
-
-<p>Our goal is to ensure that Salvium users have a range of secure, user-friendly wallet options that cater to different needs and preferences. We recognise that expanding our wallet ecosystem is crucial for wider adoption and accessibility of Salvium.</p>
-
-<h2 id="12-are-there-any-plans-for-salvium-to-be-integrated-with-serai-dex-in-the-future">12. Are there any plans for Salvium to be integrated with Serai Dex in the future?</h2>
-
-<p>It’s certainly on our wish list! Ultimately it is down to Serai to decide what coins to include in their DEX, but we do believe that a regulatory-compliant privacy coin has a place in a leading-edge privacy project like Serai.</p>
-
-<h2 id="13-where-do-you-see-salvium-and-its-ecosystem-in-the-next-24-months">13. Where do you see Salvium and its ecosystem in the next 24 months?</h2>
-
-<p>With a clear and straightforward plan, we aim to become the go-to private and compliant blockchain for Layer-2 decentralized applications (dApps) - this can be achieved within 24 months. This will allow us to be listed on regulated exchanges, setting us apart from most other privacy coins.</p>
-
-<p>We aim to have a user-friendly experience that allows developers to use Salvium as a base coin in Layer-2 dApps. This introduces a crucial concept: Layer 2 tokens can inherit key properties from the Salvium base layer coin. While the specific features will depend on the chosen implementation, developers will have the flexibility to incorporate compliant privacy into their dApps if desired. This effectively represents the emergence of a new class of tokens, tailored for both privacy and regulatory compliance.</p>
-
-<p>Many privacy-focused projects will struggle with the new regulations. With Salvium’s base coin, teams will be able to develop tokens and Apps that offer both privacy benefits and meet the rules that allow a major CEX listing. This fills a significant gap in crypto.</p>
-
-<p>In parallel, we aim to assemble an exceptional team, a vibrant community, and strategic partners who will help us grow.</p>]]></content><author><name></name></author><category term="Community" /><summary type="html"><![CDATA[Full transcript of our AMA session with the Club Dinero community discussing Salvium's vision and technology.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/optimized/ama-club-d.webp" /><media:content medium="image" url="https://salvium.io/images/optimized/ama-club-d.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>These improvements translate into a more stable mining experience with better rewards distribution. Miners will see more consistent block times, improved profitability through predictable mining rewards, and reduced orphan rates thanks to better block time consistency.</p>]]></content><author><name></name></author><category term="Technology" /><summary type="html"><![CDATA[Introducing key improvements in Salvium v0.6, featuring a new difficulty adjustment algorithm for better network stability.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://salvium.io/images/blog/difficulty-algo.webp" /><media:content medium="image" url="https://salvium.io/images/blog/difficulty-algo.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
