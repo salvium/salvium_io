@@ -7,8 +7,6 @@ image: /images/blog/maths-audit.png
 excerpt: " T-CLSAG signature scheme has been submitted to Cypher Stack for formal cryptographic audit for audit."
 ---
 
-{% raw %}
-
 ## Introduction
 
 Today marks a significant milestone in Salvium's development journey. We are proud to announce that our research paper "Two-scalar CLSAG Signature Scheme for Monero's Carrot Addressing (T-CLSAG)" has been submitted to Cypher Stack for formal cryptographic audit. This represents not just a technical achievement, but a crucial step toward implementing some of the most advanced privacy features in the cryptocurrency space.
@@ -140,4 +138,3 @@ We'll continue to update the community as the audit progresses and look forward 
 
 ---
 
-{% endraw %}
