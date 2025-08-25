@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="py-1">
                                 <a href="https://github.com/salvium" class="block px-4 py-2 transition-all duration-200" style="color: #40E0D0">GitHub</a>
                                 <a href="https://t.me/salviumprotocol" class="block px-4 py-2 transition-all duration-200" style="color: #40E0D0">Telegram</a>
-                                <a href="https://discord.gg/salvium" class="block px-4 py-2 transition-all duration-200" style="color: #40E0D0">Discord</a>
+                                <a href="https://discord.gg/gvbyNQQ86p" class="block px-4 py-2 transition-all duration-200" style="color: #40E0D0">Discord</a>
                             </div>
                         </div>
                     </div>
