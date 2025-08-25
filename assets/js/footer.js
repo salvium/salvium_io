@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <a href="https://t.me/salviumprotocol" target="_blank" class="text-[#40E0D0] hover:text-[#40E0D0]/80">
                             <i class="fab fa-telegram text-xl"></i>
                         </a>
-                        <a href="https://discord.gg/salvium" target="_blank" class="text-[#40E0D0] hover:text-[#40E0D0]/80">
+                        <a href="https://discord.gg/gvbyNQQ86p" target="_blank" class="text-[#40E0D0] hover:text-[#40E0D0]/80">
                             <i class="fab fa-discord text-xl"></i>
                         </a>
                         <a href="https://medium.com/@salviumprotocol" target="_blank" class="text-[#40E0D0] hover:text-[#40E0D0]/80">
