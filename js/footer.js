@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <a href="https://t.me/salviumcommunity" class="hover:opacity-80 transition-opacity">
                             <i class="fa-brands fa-telegram text-2xl" style="color: #40E0D0 !important;"></i>
                         </a>
-                        <a href="https://discord.gg/Dg24hjpn" class="hover:opacity-80 transition-opacity">
+                        <a href="https://discord.com/invite/P3rrAjkyYs" class="hover:opacity-80 transition-opacity">
                             <i class="fa-brands fa-discord text-2xl" style="color: #40E0D0 !important;"></i>
                         </a>
                         <a href="https://github.com/salvium" class="hover:opacity-80 transition-opacity">
