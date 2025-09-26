@@ -9,6 +9,8 @@ excerpt: "Today we release the Salvium One White Paper - documenting proven tech
 
 Today marks a pivotal moment for Salvium and the entire privacy coin ecosystem. We're releasing the Salvium One White Paper - not a promise of what we'll build, but a technical specification of what we've already achieved.
 
+**Read the Full White Paper**: [Download PDF](https://github.com/salvium/salvium_library/blob/main/papers/Salvium_One_White_Paper_v1.pdf)
+
 ## The Problem We Solved
 
 Privacy coins face an existential crisis. The EU's Markets in Crypto-Assets (MiCA) regulation Article 76(3) requires exchanges to identify holders and transaction histories for privacy coins. The result? Monero delisted. Zcash restricted. A $15 billion market segment is effectively banned from regulated exchanges.
@@ -85,8 +87,6 @@ Unlike existing solutions:
 
 This white paper represents more than technical documentation - it's a manifesto for the future of privacy in finance. We've proven that privacy and compliance aren't mutually exclusive. Now it's time to build that future together.
 
-**Read the Full White Paper**: [Download PDF](https://raw.githubusercontent.com/salvium/salvium_library/main/papers/Salvium_One_White_Paper_v1.pdf)
-
 
 **Explore the Code**: [github.com/salvium](https://github.com/salvium)
 
@@ -102,4 +102,5 @@ This white paper represents more than technical documentation - it's a manifesto
 Salvium One isn't theoretical. It's not a roadmap or a promise. It's proven technology solving real problems today. With SPARC, we've achieved what the entire privacy coin ecosystem said was impossible: regulatory compliance without sacrificing privacy.
 
 The age of choosing between privacy and participation is over. Welcome to Salvium One.
+
 
