@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li><a href="${baseUrl}/faq.html" style="color: #40E0D0 !important; font-family: var(--font-body)" class="hover:text-[#40E0D0]/80 transition-colors">FAQ</a></li>
                         <li><a href="${baseUrl}/exchanges.html" style="color: #40E0D0 !important; font-family: var(--font-body)" class="hover:text-[#40E0D0]/80 transition-colors">Exchanges</a></li>
                         <li><a href="${baseUrl}/papers.html" style="color: #40E0D0 !important; font-family: var(--font-body)" class="hover:text-[#40E0D0]/80 transition-colors">Lite Paper</a></li>
+                        <li><a href="https://github.com/salvium/salvium_library/blob/main/papers/Salvium_One_White_Paper_v1.pdf" target="_blank" style="color: #40E0D0 !important;" class="hover:text-[#40E0D0]/80 transition-colors font-arial">White Paper</a></li>
                         </ul>
                 </div>
                 <div>
