@@ -219,169 +219,184 @@
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
     <!-- Header container -->
     <div id="header"></div>
+<div class="main-wrapper">
+  <main class="relative z-10">
+    <!-- Hero Section -->
+    <section class="relative bg-[#1e1e1e] overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="./images/newimages/Page Headers/Download Header-1024.webp" alt="Download Header" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+      </div>
+      <div class="relative z-10 py-24 lg:py-32">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Salvium <span class="gradient-text">Downloads</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-8">
+              Get started with Salvium wallets and tools
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="main-wrapper">
-        <main class="relative z-10">
-            <!-- Hero Section -->
-            <section class="relative bg-[#1e1e1e] overflow-hidden">
-                <div class="absolute inset-0">
-                    <img src="./images/newimages/Page Headers/Download Header-1024.webp" alt="Download Header" class="w-full h-full object-cover opacity-30">
-                    <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
-                </div>
-                <div class="relative z-10 py-24 lg:py-32">
-                    <div class="container mx-auto px-4">
-                        <div class="max-w-4xl mx-auto text-center">
-                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                                Salvium <span class="gradient-text">Downloads</span>
-                            </h1>
-                            <p class="text-xl text-gray-300 mb-8">
-                                Get started with Salvium wallets and tools
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <div class="container mx-auto px-4 -mt-8">
 
-            <div class="container mx-auto px-4 -mt-8">
- <!-- Desktop Wallet Section Title -->
-                <h2 class="text-3xl font-bold text-center mb-4 mt-16" data-aos="fade-up">
-                    Desktop Wallets
-                </h2>
-                <p class="text-gray-400 text-center mb-8" data-aos="fade-up" data-aos-delay="100">
-                    Download the Salvium Desktop Wallet for your operating system
-                </p>
+      <!-- GUI Wallets -->
+      <h2 class="text-3xl font-bold text-center mb-2 mt-16" data-aos="fade-up">
+        GUI Wallets (Desktop)
+      </h2>
+      <p class="text-gray-400 text-center mb-6" data-aos="fade-up" data-aos-delay="100">
+        Legacy GUI builds are available below for short-term needs.
+      </p>
 
-                
-                <!-- Desktop Wallet Cards -->
-               <div class="downloads-grid">
-    <!-- Windows Desktop -->
-    <div class="download-card" data-aos="fade-up">
-        <img src="images/downloads/Micorsoft_Windows_logo.jpg" alt="Windows" class="card-image">
-        <div class="card-content">
-            <span class="download-tag">Desktop</span>
-            <h3 class="download-title">Windows - Version 0.9.5a</h3>
+      <!-- Warning Banner -->
+      <div class="max-w-5xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="150" role="alert" aria-live="polite">
+        <div class="relative overflow-hidden rounded-2xl border border-yellow-500/30 bg-gradient-to-br from-yellow-100/10 via-yellow-200/5 to-transparent p-5 backdrop-blur">
+          <div class="flex items-start gap-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0 mt-0.5 text-yellow-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10.29 3.86a2.25 2.25 0 013.42 0l7.42 9.11c1.24 1.52.13 3.78-1.71 3.78H4.58c-1.84 0-2.95-2.26-1.71-3.78l7.42-9.11zM12 8.25a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 9a.9.9 0 100-1.8.9.9 0 000 1.8z" clip-rule="evenodd"/>
+            </svg>
+            <div class="text-yellow-100/90">
+              <p class="font-semibold text-yellow-200">Important: Legacy GUI wallets will not work until the hard fork</p>
+              <p class="mt-1 text-sm text-yellow-100/80 leading-relaxed">
+                These GUI builds (<strong>v0.9.5a</strong>) are provided for short-term use only and are <em>not</em> compatible with <strong>Salvium One</strong> until the hard fork activates on
+                <strong>October 13, 2025</strong> (approx. 2:00&nbsp;PM&nbsp;GMT). Another desktop solution is being developed.<br>
+                For reliability today, we recommend using the <a href="#cli" class="underline decoration-yellow-400/60 hover:decoration-yellow-300">CLI v1.0.0</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop Wallet Cards -->
+      <div class="downloads-grid">
+        <!-- Windows Desktop (Legacy GUI) -->
+        <div class="download-card" data-aos="fade-up">
+          <img src="images/downloads/Micorsoft_Windows_logo.jpg" alt="Windows" class="card-image">
+          <div class="card-content">
+            <span class="download-tag">Desktop (Legacy GUI)</span>
+            <h3 class="download-title">Windows — Version 0.9.5a</h3>
             <div class="sha-text">
-                SHA256: 99562e45686c6d425aa6c1b6634fbf07b64e483119dbf95536eda1b4edd48ed9
+              SHA256: 99562e45686c6d425aa6c1b6634fbf07b64e483119dbf95536eda1b4edd48ed9
             </div>
             <a href="https://github.com/salvium/salvium-gui/releases/download/v0.9.5a/salvium-gui-v0.9.5a-win64.zip" class="card-link">
-                Download
-                <i class="fa-solid fa-angle-down"></i>
+              Download <i class="fa-solid fa-angle-down"></i>
             </a>
+          </div>
         </div>
-    </div>
 
-    <!-- Linux Desktop -->
-    <div class="download-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="images/downloads/Linux_logo.jpg" alt="Linux" class="card-image">
-        <div class="card-content">
-            <span class="download-tag">Desktop</span>
-            <h3 class="download-title">Linux - Version 0.9.5a</h3>
+        <!-- Linux Desktop (Legacy GUI) -->
+        <div class="download-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/downloads/Linux_logo.jpg" alt="Linux" class="card-image">
+          <div class="card-content">
+            <span class="download-tag">Desktop (Legacy GUI)</span>
+            <h3 class="download-title">Linux — Version 0.9.5a</h3>
             <div class="sha-text">
-                SHA256: 0384bc08eb0d830b25a82d21f4935e577d032b74b85f5538c43172dfdd249a20
+              SHA256: 0384bc08eb0d830b25a82d21f4935e577d032b74b85f5538c43172dfdd249a20
             </div>
             <a href="https://github.com/salvium/salvium-gui/releases/download/v0.9.5a/salvium-gui-v0.9.5a-linux-x86_64.zip" class="card-link">
-                Download
-                <i class="fa-solid fa-angle-down"></i>
+              Download <i class="fa-solid fa-angle-down"></i>
             </a>
+          </div>
         </div>
+      </div>
+
+      <!-- CLI Section -->
+      <h2 class="text-4xl font-bold text-center mb-4 mt-24" data-aos="fade-up" id="cli">
+        Command Line Interface
+      </h2>
+      <p class="text-center text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="100">
+        Download the Salvium CLI v1.0.0 for your operating system
+      </p>
+
+      <div class="downloads-grid">
+        <!-- Windows x64 CLI -->
+        <div class="download-card" data-aos="fade-up">
+          <img src="images/downloads/Micorsoft_Windows_logo.jpg" alt="Windows CLI" class="card-image">
+          <div class="card-content">
+            <span class="download-tag">CLI</span>
+            <h3 class="download-title">Windows (x64) — Version 1.0.0</h3>
+            <div class="sha-text">
+              SHA256: 66099a6ce9e7f807e1248d090ed4a212d55b81bec5932fa0552259c61e40515c
+            </div>
+            <a href="https://github.com/salvium/salvium/releases/download/v1.0.0/salvium-v1.0.0-win64.zip" class="card-link">
+              Download <i class="fa-solid fa-angle-down"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- macOS ARM64 CLI -->
+        <div class="download-card" data-aos="fade-up">
+          <img src="images/downloads/Apple_computers_logo.jpg" alt="macOS CLI" class="card-image">
+          <div class="card-content">
+            <span class="download-tag">CLI</span>
+            <h3 class="download-title">macOS (ARM64) — Version 1.0.0</h3>
+            <div class="sha-text">
+              SHA256: fc0f21e743d6b6c952b0977a7fccef0aefaa5503d4317e9979d34ec6b085108c
+            </div>
+            <a href="https://github.com/salvium/salvium/releases/download/v1.0.0/salvium-v1.0.0-macos-arm64.zip" class="card-link">
+              Download <i class="fa-solid fa-angle-down"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- macOS x86_64 CLI -->
+        <div class="download-card" data-aos="fade-up">
+          <img src="images/downloads/Apple_computers_logo.jpg" alt="macOS x86 CLI" class="card-image">
+          <div class="card-content">
+            <span class="download-tag">CLI</span>
+            <h3 class="download-title">macOS (x86_64) — Version 1.0.0</h3>
+            <div class="sha-text">
+              SHA256: 01679fafa3a0b741679caa666a718ccacb6a84f83eb0d3de301b4ada4d1f17a6
+            </div>
+            <a href="https://github.com/salvium/salvium/releases/download/v1.0.0/salvium-v1.0.0-macos-x86_64.zip" class="card-link">
+              Download <i class="fa-solid fa-angle-down"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Linux x86_64 CLI -->
+        <div class="download-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/downloads/Linux_logo.jpg" alt="Linux CLI" class="card-image">
+          <div class="card-content">
+            <span class="download-tag">CLI</span>
+            <h3 class="download-title">Linux (x86_64) — Version 1.0.0</h3>
+            <div class="sha-text">
+              SHA256: 91f240fe764c026014caef543e0bfbc151b67f8929e8c15f03c4352d59313247
+            </div>
+            <a href="https://github.com/salvium/salvium/releases/download/v1.0.0/salvium-v1.0.0-linux-x86_64.zip" class="card-link">
+              Download <i class="fa-solid fa-angle-down"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
+  </main>
+
+  <!-- CTA Section -->
+  <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-4">
+    <div class="absolute inset-0">
+      <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+    </div>
+
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+        Ready to Take the <span class="gradient-text">Pill</span>?
+      </h2>
+      <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        Start your journey with Salvium today and be part of the next generation of Private DeFi.
+      </p>
+      <a href="about.html" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block" data-aos="fade-up" data-aos-delay="200">
+        Get Started Now
+      </a>
+    </div>
+  </section>
 </div>
-<!-- CLI Section -->
-<h2 class="text-4xl font-bold text-center mb-4 mt-24" data-aos="fade-up">
-    Command Line Interface
-</h2>
-<p class="text-center text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="100">
-    Download the Salvium CLI for your operating system
-</p>
 
-<div class="downloads-grid">
-    <!-- Windows x64 CLI -->
-    <div class="download-card" data-aos="fade-up">
-        <img src="images/downloads/Micorsoft_Windows_logo.jpg" alt="Windows CLI" class="card-image">
-        <div class="card-content">
-            <span class="download-tag">CLI</span>
-            <h3 class="download-title">Windows (x64) - Version 0.9.5a</h3>
-            <div class="sha-text">
-                SHA256: 1bd2c18d9dfba3f37540d9d79e85117e1fc941187a86006104b37e0cd1694945
-            </div>
-            <a href="https://github.com/salvium/salvium/releases/download/v0.9.5a/salvium-v0.9.5a-win64.zip" class="card-link">
-                Download
-                <i class="fa-solid fa-angle-down"></i>
-            </a>
-        </div>
-    </div>
 
-    <!-- macOS ARM64 CLI -->
-    <div class="download-card" data-aos="fade-up">
-        <img src="images/downloads/Apple_computers_logo.jpg" alt="macOS CLI" class="card-image">
-        <div class="card-content">
-            <span class="download-tag">CLI</span>
-            <h3 class="download-title">macOS (ARM64) - Version 0.9.5a</h3>
-            <div class="sha-text">
-                SHA256: 4be2e025d080a7cb1e5d4ba7b1b730ec927d3ab574353454c24566c2ddf43069
-            </div>
-            <a href="https://github.com/salvium/salvium/releases/download/v0.9.5a/salvium-v0.9.5a-macos-arm64.zip" class="card-link">
-                Download
-                <i class="fa-solid fa-angle-down"></i>
-            </a>
-        </div>
-    </div>
-
-    <!-- macOS x86 CLI -->
-    <div class="download-card" data-aos="fade-up">
-        <img src="images/downloads/Apple_computers_logo.jpg" alt="macOS x86 CLI" class="card-image">
-        <div class="card-content">
-            <span class="download-tag">CLI</span>
-            <h3 class="download-title">macOS (x86) - Version 0.9.5a</h3>
-            <div class="sha-text">
-                SHA256: 443ccdb100173a0d3ff3c53a4d03398ba5b14ec75ee9d669485783835851e91c
-            </div>
-            <a href="https://github.com/salvium/salvium/releases/download/v0.9.5a/salvium-v0.9.5a-macos-x86_64.zip" class="card-link">
-                Download
-                <i class="fa-solid fa-angle-down"></i>
-            </a>
-        </div>
-    </div>
-
-    <!-- Linux CLI (standard) -->
-    <div class="download-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="images/downloads/Linux_logo.jpg" alt="Linux CLI" class="card-image">
-        <div class="card-content">
-            <span class="download-tag">CLI</span>
-            <h3 class="download-title">Linux (x86_64) - Version 0.9.5a</h3>
-            <div class="sha-text">
-                SHA256: 31bed6deb9a781006f2c205cf2b3958c340bde86d3e6a3ba8d154ff8693d9905
-            </div>
-            <a href="https://github.com/salvium/salvium/releases/download/v0.9.5a/salvium-v0.9.5a-linux-x86_64.zip" class="card-link">
-                Download
-                <i class="fa-solid fa-angle-down"></i>
-            </a>
-        </div>
-    </div>
-</div>
-            </div>
-        </main>
-        <!-- CTA Section -->
-        <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-4">
-            <!-- Background Decoration -->
-            <div class="absolute inset-0">
-                <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
-                <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
-            </div>
-            
-            <div class="container mx-auto px-4 text-center relative z-10">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
-                    Ready to Take the <span class="gradient-text">Pill</span>?
-                </h2>
-                <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Start your journey with Salvium today and be part of the next generation of Private DeFi.
-                </p>
-                <a href="about.html" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block" data-aos="fade-up" data-aos-delay="200">
-                    Get Started Now
-                </a>
-            </div>
-        </section>
-    </div>
 
     <!-- Footer container -->
     <div id="footer"></div>
