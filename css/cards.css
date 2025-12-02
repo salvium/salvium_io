@@ -151,8 +151,10 @@
 
 .exchange-card .card-image {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: #1a1a1a;
     padding: 0;
     margin: 0;
     display: block;
