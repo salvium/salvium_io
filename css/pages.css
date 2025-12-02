@@ -1,0 +1,303 @@
+/* Page Specific Styles */
+
+/* =========================================
+   About & FAQ Pages
+   ========================================= */
+.about-section {
+    padding: 4rem 0;
+    background-color: transparent;
+}
+
+.about-nav {
+    position: sticky;
+    top: 6rem;
+    background: rgba(30, 30, 30, 0.6);
+    border: 1px solid rgba(0, 191, 165, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.nav-title {
+    color: var(--primary, #00bfa5);
+    font-weight: 700;
+    font-size: 1.25rem;
+    /* Slightly larger to match screenshot */
+    margin-bottom: 1rem;
+    /* text-transform: uppercase; REMOVED to match screenshot */
+    letter-spacing: 0.02em;
+    /* Reduced letter spacing */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.about-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.about-nav a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    /* Adjusted to 1rem */
+    font-family: var(--font-primary);
+}
+
+.about-nav a:hover {
+    color: var(--primary, #00bfa5);
+    background: rgba(0, 191, 165, 0.1);
+    /* padding-left: 1rem; REMOVED animation */
+}
+
+.about-content h2 {
+    color: var(--primary, #00bfa5);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    font-family: var(--font-heading);
+}
+
+.about-content h3 {
+    color: var(--primary, #00bfa5);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+}
+
+.about-content p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    margin: 3rem 0;
+}
+
+/* Fix for anchor offset due to fixed header */
+section[id] {
+    scroll-margin-top: 8rem;
+}
+
+/* =========================================
+   Stats Page
+   ========================================= */
+.coming-soon-container {
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 191, 165, 0.1);
+    border-radius: 1rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 4rem auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.coming-soon-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #00bfa5, transparent);
+}
+
+.coming-soon-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
+}
+
+.coming-soon-text {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   Papers Page
+   ========================================= */
+.paper-card {
+    background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+    border: 1px solid rgba(0, 191, 165, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.paper-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 191, 165, 0.1);
+    border-color: rgba(0, 191, 165, 0.3);
+}
+
+.paper-card .card-content {
+    padding: 1.5rem;
+}
+
+.paper-tag {
+    background: rgba(0, 191, 165, 0.1);
+    color: #00bfa5;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+    font-size: 0.875rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-primary);
+}
+
+.paper-title {
+    font-family: var(--font-heading);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--text, #e0e0e0);
+}
+
+.paper-description {
+    font-family: var(--font-primary);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.paper-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.paper-meta i {
+    color: var(--primary, #00bfa5);
+    margin-right: 0.25rem;
+}
+
+.paper-link {
+    font-family: var(--font-heading);
+    color: #00bfa5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.paper-link:hover {
+    color: #00967d;
+}
+
+.paper-link i {
+    transition: transform 0.2s ease;
+}
+
+.paper-link:hover i {
+    transform: translateY(2px);
+}
+
+/* =========================================
+   Roadmap Page
+   ========================================= */
+.roadmap-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.roadmap-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(0, 191, 165, 0.2);
+}
+
+.roadmap-section {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+}
+
+.roadmap-section::before {
+    content: '';
+    position: absolute;
+    left: -2.6rem;
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    background: #1e1e1e;
+    border: 2px solid #00bfa5;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.roadmap-section h2 {
+    color: #00bfa5;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+.roadmap-section p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.roadmap-section strong {
+    color: white;
+    display: block;
+    margin-bottom: 0.25rem;
+}

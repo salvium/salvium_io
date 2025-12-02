@@ -1,623 +1,217 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salvium - Decentralized Finance Innovation</title>
-    
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-    <link rel="manifest" href="./favicon/site.webmanifest">
-    <link rel="shortcut icon" href="./favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#0B272C">
-    <meta name="msapplication-config" content="./favicon/browserconfig.xml">
-    <meta name="theme-color" content="#0B272C">
-    
-    <link rel="stylesheet" href="css/common-fonts.css">
-    <link rel="stylesheet" href="css/typography.css">
-    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/design-system.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <style>
-        :root {
-            /* Primary Colors */
-            --color-primary: #00bfa5;
-            --color-primary-dark: #009688;
+---
+layout: default
+title: Home
+---
 
-            /* Background Colors */
-            --color-bg-dark: #1e1e1e;
-            --color-bg-darker: #1e1e1e;
-            --color-bg-header: #1e1e1e;
-
-            /* Text Colors */
-            --color-text: #e0e0e0;
-            --color-text-light: #e0e0e0;
-            --color-text-lighter: #b0b0b0;
-
-            /* Accent Colors */
-            --color-accent: #4db6ac;
-            --color-accent-light: #80cbc4;
-
-            /* Border Colors */
-            --color-border: rgba(0, 191, 165, 0.15);
-            --color-border-light: rgba(0, 191, 165, 0.05);
-
-            /* Font */
-            --font-title: 'Josefin Sans', sans-serif;
-            --font-body: 'Josefin Sans', sans-serif;
-            --font-heading: 'Josefin Sans', sans-serif;
-            --font-primary: 'Josefin Sans', sans-serif;
-            --font-secondary: 'Josefin Sans', sans-serif;
-        }
-
-        * {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html, body {
-            overflow-x: hidden;
-            width: 100%;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        body {
-            padding-top: 36px;
-            font-family: var(--font-primary);
-            background-color: var(--color-bg-dark);
-            color: var(--color-text);
-            line-height: 1.6;
-            position: relative;
-        }
-
-        h1, h2, h3, h4, h5, h6, .gradient-text {
-            font-family: var(--font-primary);
-        }
-
-        p, a, span, div, button {
-            font-family: var(--font-primary) !important;
-        }
-
-        /* Navigation styles - fixed to match other pages */
-        .nav-fixed {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            background: linear-gradient(to bottom, rgb(30 30 30 / 19%), rgb(30 30 30 / 61%));
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
-            transition: all 0.3s ease;
-            height: 72px;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Force Josefin Sans on all navigation elements */
-        .nav-fixed,
-        .nav-fixed *,
-        .dropdown-menu,
-        .dropdown-menu *,
-        .mobile-menu,
-        .mobile-menu *,
-        .dropdown-container,
-        .dropdown-container *,
-        .mobile-dropdown,
-        .mobile-dropdown *,
-        [class*="dropdown"],
-        [class*="dropdown"] * {
-            font-family: var(--font-primary) !important;
-        }
-
-        .nav-scrolled {
-            background: linear-gradient(to bottom, rgb(30 30 30 / 40%), rgb(30 30 30 / 80%));
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 72px;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to bottom, rgb(30 30 30 / 90%), rgb(30 30 30 / 95%));
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(64, 224, 208, 0.1);
-            z-index: 49;
-            padding: 1rem 0;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .mobile-menu.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu .flex {
-                flex-direction: column;
-                align-items: center;
-                gap: 1.5rem;
-            }
-        }
-
-        /* Hero section styles */
-        .hero-gradient {
-            position: relative;
-            min-height: 66vh;
-            padding-top: 80px;
-            overflow: hidden;
-            background: transparent;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            padding-top: 2rem;
-            color: white;
-        }
-
-        .hero-text {
-            color: white;
-            opacity: 1 !important;
-            position: relative;
-            z-index: 10;
-        }
-
-        .hero-text * {
-            opacity: 1 !important;
-        }
-
-        /* Decorative elements */
-        .decorative-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(
-                circle at center,
-                var(--color-primary) 0%,
-                transparent 70%
-            );
-            opacity: 0.1;
-            filter: blur(40px);
-            pointer-events: none;
-        }
-
-        /* Floating animation */
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        /* Button styles */
-        .btn-primary {
-            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
-            color: white !important;
-            padding: 0.75rem 2rem;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 191, 165, 0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid var(--color-primary);
-            color: var(--color-text);
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(0, 191, 165, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 191, 165, 0.1);
-        }
-
-        .gradient-text {
-            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .mt-4rem {
-            margin-top: 4rem;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-stack {
-                flex-direction: column;
-                width: 100%;
-            }
-            .mobile-full {
-                width: 100% !important;
-                max-width: 100% !important;
-            }
-            .mobile-center {
-                text-align: center !important;
-            }
-            .mobile-mb {
-                margin-bottom: 2rem;
-            }
-            .mobile-smaller-text {
-                font-size: 2.5rem !important;
-                line-height: 1.2 !important;
-            }
-            .hero-text {
-                text-align: center !important;
-            }
-            .trust-indicators {
-                justify-content: center !important;
-                gap: 1rem !important;
-            }
-            .trust-indicator {
-                flex: 0 1 auto;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .mobile-smaller-text {
-                font-size: 2rem !important;
-            }
-            .trust-indicators {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-        .hero-content {
-            max-width: 100%;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: flex-start;
-        }
-
-        /* Feature Cards Styling */
-        .feature-card {
-            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
-            border: 1px solid rgba(0, 191, 165, 0.1);
-            border-radius: 1rem;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 191, 165, 0.2);
-            box-shadow: 0 8px 24px rgba(0, 191, 165, 0.1);
-        }
-
-        .feature-image {
-            width: 100%;
-            height: 240px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .feature-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover .feature-image img {
-            transform: scale(1.05);
-        }
-
-        .feature-content {
-            padding: 2rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .feature-icon-wrapper {
-            width: 4rem;
-            height: 4rem;
-            background: rgba(0, 191, 165, 0.1);
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .feature-icon-wrapper:hover {
-            background: rgba(0, 191, 165, 0.15);
-        }
-
-        .feature-icon-wrapper img {
-            width: 2rem;
-            height: 2rem;
-        }
-
-        .feature-card h3 {
-            color: var(--color-text);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 0;
-        }
-
-        .feature-card p {
-            color: var(--color-text-lighter);
-            font-size: 1.125rem;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            .feature-image {
-                height: 200px;
-            }
-            .feature-content {
-                padding: 1.5rem;
-            }
-            .feature-card h3 {
-                font-size: 1.25rem;
-            }
-            .feature-card p {
-                font-size: 1rem;
-            }
-        }
-    </style>
-</head>
-<body class="bg-[#1e1e1e]">
-    <!-- Header will be injected here -->
-    <div id="header"></div>
-
-    <!-- Main Content -->
-    <main class="relative z-10">
-        <!-- Hero Section -->
-        <section class="relative">
-            <!-- Hero Image -->
-            <div class="absolute inset-0">
-                <picture>
-                    <source srcset="./images/wide-hero-1024.webp" type="image/webp">
-                    <img src="./images/wide-hero-1024.webp" alt="Salvium Hero" class="w-full h-full object-cover opacity-30">
-                </picture>
-                <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-75"></div>
-            </div>
-            <div class="relative z-10 py-24 lg:py-32">
-                <div class="container mx-auto px-4">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div class="hero-content text-left mobile-center aos-init aos-animate" data-aos="fade-right">
-                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 mobile-smaller-text text-white !opacity-100 hero-text">
-                                The Future of <span class="gradient-text !opacity-100">Private DeFi</span>
-                            </h1>
-                            <p class="text-lg md:text-xl text-gray-100 mb-6 md:mb-8 !opacity-100 hero-text">
-                                Layer 1 blockchain that balances privacy and regulations.
-                            </p>
-                            <div class="hero-buttons mb-8 md:mb-12 flex flex-col md:flex-row gap-4">
-                                <a href="./about.html" class="btn-primary px-6 md:px-8 py-3 !text-white font-semibold inline-flex items-center justify-center mobile-full rounded-none">
-                                    Get Started
-                                </a>
-                                <a href="https://salvium.github.io/salvium_docs/" class="px-6 md:px-8 py-3 border border-[#40E0D0] text-white hover:bg-[#40E0D0]/10 transition-colors font-semibold inline-flex items-center justify-center mobile-full rounded-none">
-                                    Learn More
-                                </a>
-                            </div>
-                            <!-- Trust indicators -->
-                            <div class="trust-indicators flex flex-wrap items-center gap-4 xs:gap-6 sm:gap-8 mt-6 sm:mt-8">
-                                <div class="trust-indicator flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#40E0D0]/5 transition-colors">
-                                    <img src="./images/lock-icon.svg" alt="Private" class="w-8 h-8 sm:w-9 sm:h-9">
-                                    <span class="text-lg sm:text-xl font-medium whitespace-nowrap text-white opacity-100">Private</span>
-                                </div>
-                                <div class="trust-indicator flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#40E0D0]/5 transition-colors">
-                                    <img src="./images/shield-icon.svg" alt="Compliant" class="w-8 h-8 sm:w-9 sm:h-9">
-                                    <span class="text-lg sm:text-xl font-medium whitespace-nowrap text-white opacity-100">Compliant</span>
-                                </div>
-                                <div class="trust-indicator flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#40E0D0]/5 transition-colors">
-                                    <div class="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center" style="color: #40E0D0;">
-                                        <i class="fa-solid fa-network-wired text-2xl"></i>
-                                    </div>
-                                    <span class="text-lg sm:text-xl font-medium whitespace-nowrap text-white opacity-100">Programmable</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="py-20 relative">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold mb-6 aos-init aos-animate" data-aos="fade-up">
-                        Why Choose <span class="gradient-text">Salvium</span>
-                    </h2>
-                    <p class="text-lg text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                        Privacy, compliance, and smart contracts form the foundation of a truly sovereign financial future.
+<!-- Main Content -->
+<section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="{{ site.baseurl }}/images/wide-hero-1024.webp" alt="Hero Background"
+            class="w-full h-full object-cover opacity-40">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 via-[#1e1e1e]/50 to-[#1e1e1e]"></div>
+    </div>
+    <div class="relative z-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="hero-content text-left mobile-center aos-init aos-animate" data-aos="fade-right">
+                    <h1
+                        class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 mobile-smaller-text text-white !opacity-100 hero-text">
+                        The Future of <span class="gradient-text !opacity-100">Private DeFi</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-100 mb-6 md:mb-8 !opacity-100 hero-text">
+                        Layer 1 blockchain that balances privacy and regulations.
                     </p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Privacy Feature -->
-                    <div class="ecosystem-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                        <img src="./images/newimages/Page%20Headers/Litepaper%20Header.webp" alt="Privacy Feature" class="card-image opacity-100">
-                        <div class="card-content">
-                            <span class="card-tag">Privacy</span>
-                            <h3 class="card-title">Privacy by Design</h3>
-                            <p class="card-description">Built on robust cryptographic foundations with zero-knowledge proofs for uncompromising security and confidentiality.</p>
-                        </div>
+                    <div class="hero-buttons mb-8 md:mb-12 flex flex-col md:flex-row gap-4">
+                        <a href="{% link about.html %}"
+                            class="btn-primary px-6 md:px-8 py-3 !text-white font-semibold inline-flex items-center justify-center mobile-full rounded-none">
+                            Get Started
+                        </a>
+                        <a href="https://salvium.github.io/salvium_docs/"
+                            class="px-6 md:px-8 py-3 border border-[#40E0D0] text-white hover:bg-[#40E0D0]/10 transition-colors font-semibold inline-flex items-center justify-center mobile-full rounded-none">
+                            Learn More
+                        </a>
                     </div>
-                    
-                    <!-- Compliance Feature -->
-                    <div class="ecosystem-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                        <img src="./images/newimages/Page%20Headers/Exchange%20Header.webp" alt="Compliance Feature" class="card-image opacity-100">
-                        <div class="card-content">
-                            <span class="card-tag">Compliance</span>
-                            <h3 class="card-title">Regulatory Resilience</h3>
-                            <p class="card-description">One of the few privacy-focused chains striving for MiCA compliance—designed to thrive where others cannot operate.</p>
+                    <!-- Trust indicators -->
+                    <div class="trust-indicators flex flex-wrap items-center gap-4 xs:gap-6 sm:gap-8 mt-6 sm:mt-8">
+                        <div
+                            class="trust-indicator flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#40E0D0]/5 transition-colors">
+                            <img src="./images/lock-icon.svg" alt="Private" class="w-8 h-8 sm:w-9 sm:h-9">
+                            <span
+                                class="text-lg sm:text-xl font-medium whitespace-nowrap text-white opacity-100">Private</span>
                         </div>
-                    </div>
-                    
-                    <!-- Programmable Feature -->
-                    <div class="ecosystem-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                        <img src="./images/newimages/Page%20Headers/Pools%20Header.webp" alt="Programmable Feature" class="card-image opacity-100">
-                        <div class="card-content">
-                            <span class="card-tag">Programmable</span>
-                            <h3 class="card-title">Privacy Meets Possibility</h3>
-                            <p class="card-description">Developing private smart contract capabilities for DeFi, stablecoins, and more—all while preserving transaction confidentiality.</p>
+                        <div
+                            class="trust-indicator flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#40E0D0]/5 transition-colors">
+                            <img src="./images/shield-icon.svg" alt="Compliant" class="w-8 h-8 sm:w-9 sm:h-9">
+                            <span
+                                class="text-lg sm:text-xl font-medium whitespace-nowrap text-white opacity-100">Compliant</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ecosystem Section -->
-        <div class="mb-8">
-            <div class="container mx-auto px-4 relative">
-                <div class="text-center mb-8">
-                    <h2 class="text-4xl font-bold mb-4 aos-init" data-aos="fade-up">
-                        Salvium <span class="gradient-text">Ecosystem</span>
-                    </h2>
-                    <p class="text-lg text-gray-300 max-w-2xl mx-auto aos-init" data-aos="fade-up" data-aos-delay="100">
-                        Discover the key components powering our privacy-preserving network
-                    </p>
-                </div>
-                
-                <div class="cards-grid mt-6 aos-init" data-aos="fade-up" data-aos-delay="100">
-                    <!-- Governance Card -->
-                    <div class="ecosystem-card">
-                        <div class="relative w-full h-48 md:h-64 overflow-hidden">
-                            <img src="./images/newimages/ecosystem/governance.webp" alt="Governance" class="w-full h-full object-cover opacity-100">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-tag">Governance</span>
-                            <h3 class="card-title">Decentralized & Community-Driven</h3>
-                            <p class="card-description">A fair and open ecosystem where miners, stakers, and developers collectively shape the future of privacy-focused finance.</p>
-                            <a href="about.html" class="card-link">Learn More <i class="fa-solid fa-chevron-down"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Staking Card -->
-                    <div class="ecosystem-card">
-                        <div class="relative w-full h-48 md:h-64 overflow-hidden">
-                            <img src="./images/newimages/ecosystem/yield.webp" alt="Staking & Yield" class="w-full h-full object-cover opacity-100">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-tag">Staking & Yield</span>
-                            <h3 class="card-title">Earn While Securing the Network</h3>
-                            <p class="card-description">Stake SAL tokens to strengthen the ecosystem and receive 20% of block rewards as incentive.</p>
-                            <a href="about.html" class="card-link">Learn More <i class="fa-solid fa-chevron-down"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Future Card -->
-                    <div class="ecosystem-card">
-                        <div class="relative w-full h-48 md:h-64 overflow-hidden">
-                            <img src="./images/newimages/ecosystem/defi-future.webp" alt="Future" class="w-full h-full object-cover opacity-100">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-tag">Future</span>
-                            <h3 class="card-title">Expanding the Private Economy</h3>
-                            <p class="card-description">From staking to comprehensive private DeFi, Salvium is evolving to support next-generation financial applications with balanced compliance and privacy.</p>
-                            <a href="about.html" class="card-link">Learn More <i class="fa-solid fa-chevron-down"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Additional Card -->
-                    <div class="ecosystem-card">
-                        <div class="relative w-full h-48 md:h-64 overflow-hidden">
-                            <img src="./images/newimages/ecosystem/compliance.webp" alt="Compliance" class="w-full h-full object-cover opacity-100">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-tag">Compliance</span>
-                            <h3 class="card-title">Privacy with Accountability</h3>
-                            <p class="card-description">Experience how Salvium uniquely balances user privacy with regulatory requirements through innovative cryptographic solutions.</p>
-                            <a href="about.html" class="card-link">Learn More <i class="fa-solid fa-chevron-down"></i></a>
+                        <div
+                            class="trust-indicator flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#40E0D0]/5 transition-colors">
+                            <div class="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center" style="color: #40E0D0;">
+                                <i class="fa-solid fa-network-wired text-2xl"></i>
+                            </div>
+                            <span
+                                class="text-lg sm:text-xl font-medium whitespace-nowrap text-white opacity-100">Programmable</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- CTA Section -->
-        <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
-            <!-- Background Decoration -->
-            <div class="absolute inset-0">
-                <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
-                <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+<!-- Features Section -->
+<section class="py-20 relative">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-6 aos-init aos-animate" data-aos="fade-up">
+                Why Choose <span class="gradient-text">Salvium</span>
+            </h2>
+            <p class="text-lg text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto aos-init aos-animate" data-aos="fade-up"
+                data-aos-delay="100">
+                Privacy, compliance, and smart contracts form the foundation of a truly sovereign financial future.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Privacy Feature -->
+            <div class="ecosystem-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                <img src="./images/newimages/Page%20Headers/Litepaper%20Header.webp" alt="Privacy Feature"
+                    class="card-image opacity-100">
+                <div class="card-content">
+                    <span class="card-tag">Privacy</span>
+                    <h3 class="card-title">Privacy by Design</h3>
+                    <p class="card-description">Built on robust cryptographic foundations with zero-knowledge proofs
+                        for uncompromising security and confidentiality.</p>
+                </div>
             </div>
-            
-            <div class="container mx-auto px-4 text-center relative z-10">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 aos-init" data-aos="fade-up">
-                    Join the <span class="gradient-text">Private DeFi</span> Revolution
-                </h2>
-                <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto aos-init" data-aos="fade-up" data-aos-delay="100">
-                    Experience the future of private finance with Salvium's innovative blockchain technology.
-                </p>
-                <a href="download.html" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block aos-init" data-aos="fade-up" data-aos-delay="200">
-                    Get Started Now
-                </a>
+
+            <!-- Compliance Feature -->
+            <div class="ecosystem-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <img src="./images/newimages/Page%20Headers/Exchange%20Header.webp" alt="Compliance Feature"
+                    class="card-image opacity-100">
+                <div class="card-content">
+                    <span class="card-tag">Compliance</span>
+                    <h3 class="card-title">Regulatory Resilience</h3>
+                    <p class="card-description">One of the few privacy-focused chains striving for MiCA
+                        compliance—designed to thrive where others cannot operate.</p>
+                </div>
             </div>
-        </section>
-    </main>
 
-    <!-- Footer will be injected here -->
-    <div id="footer"></div>
+            <!-- Programmable Feature -->
+            <div class="ecosystem-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                <img src="./images/newimages/Page%20Headers/Pools%20Header.webp" alt="Programmable Feature"
+                    class="card-image opacity-100">
+                <div class="card-content">
+                    <span class="card-tag">Programmable</span>
+                    <h3 class="card-title">Privacy Meets Possibility</h3>
+                    <p class="card-description">Developing private smart contract capabilities for DeFi,
+                        stablecoins, and more—all while preserving transaction confidentiality.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <!-- Scripts -->
-    <script src="js/header.js"></script>
-    <script src="js/footer.js?v=2"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-    </script>
-</body>
-</html>
+<!-- Ecosystem Section -->
+<div class="mb-8">
+    <div class="container mx-auto px-4 relative">
+        <div class="text-center mb-8">
+            <h2 class="text-4xl font-bold mb-4 aos-init" data-aos="fade-up">
+                Salvium <span class="gradient-text">Ecosystem</span>
+            </h2>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto aos-init" data-aos="fade-up" data-aos-delay="100">
+                Discover the key components powering our privacy-preserving network
+            </p>
+        </div>
+
+        <div class="cards-grid mt-6 aos-init" data-aos="fade-up" data-aos-delay="100">
+            <!-- Governance Card -->
+            <div class="ecosystem-card">
+                <div class="relative w-full h-48 md:h-64 overflow-hidden">
+                    <img src="./images/newimages/ecosystem/governance.webp" alt="Governance"
+                        class="w-full h-full object-cover opacity-100">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Governance</span>
+                    <h3 class="card-title">Decentralized & Community-Driven</h3>
+                    <p class="card-description">A fair and open ecosystem where miners, stakers, and developers
+                        collectively shape the future of privacy-focused finance.</p>
+                    <a href="{% link about.html %}" class="card-link">Learn More <i
+                            class="fa-solid fa-chevron-down"></i></a>
+                </div>
+            </div>
+
+            <!-- Staking Card -->
+            <div class="ecosystem-card">
+                <div class="relative w-full h-48 md:h-64 overflow-hidden">
+                    <img src="./images/newimages/ecosystem/yield.webp" alt="Staking & Yield"
+                        class="w-full h-full object-cover opacity-100">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Staking & Yield</span>
+                    <h3 class="card-title">Earn While Securing the Network</h3>
+                    <p class="card-description">Stake SAL tokens to strengthen the ecosystem and receive 20% of
+                        block rewards as incentive.</p>
+                    <a href="{% link about.html %}" class="card-link">Learn More <i
+                            class="fa-solid fa-chevron-down"></i></a>
+                </div>
+            </div>
+
+            <!-- Future Card -->
+            <div class="ecosystem-card">
+                <div class="relative w-full h-48 md:h-64 overflow-hidden">
+                    <img src="./images/newimages/ecosystem/defi-future.webp" alt="Future"
+                        class="w-full h-full object-cover opacity-100">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Future</span>
+                    <h3 class="card-title">Expanding the Private Economy</h3>
+                    <p class="card-description">From staking to comprehensive private DeFi, Salvium is evolving to
+                        support next-generation financial applications with balanced compliance and privacy.</p>
+                    <a href="{% link about.html %}" class="card-link">Learn More <i
+                            class="fa-solid fa-chevron-down"></i></a>
+                </div>
+            </div>
+
+            <!-- Additional Card -->
+            <div class="ecosystem-card">
+                <div class="relative w-full h-48 md:h-64 overflow-hidden">
+                    <img src="./images/newimages/ecosystem/compliance.webp" alt="Compliance"
+                        class="w-full h-full object-cover opacity-100">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Compliance</span>
+                    <h3 class="card-title">Privacy with Accountability</h3>
+                    <p class="card-description">Experience how Salvium uniquely balances user privacy with
+                        regulatory requirements through innovative cryptographic solutions.</p>
+                    <a href="{% link about.html %}" class="card-link">Learn More <i
+                            class="fa-solid fa-chevron-down"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
+    <!-- Background Decoration -->
+    <div class="absolute inset-0">
+        <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+    </div>
+
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-4xl md:text-5xl font-bold mb-8 aos-init" data-aos="fade-up">
+            Join the <span class="gradient-text">Private DeFi</span> Revolution
+        </h2>
+        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto aos-init" data-aos="fade-up" data-aos-delay="100">
+            Experience the future of private finance with Salvium's innovative blockchain technology.
+        </p>
+        <a href="{% link download.html %}"
+            class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block aos-init"
+            data-aos="fade-up" data-aos-delay="200">
+            Get Started Now
+        </a>
+    </div>
+</section>

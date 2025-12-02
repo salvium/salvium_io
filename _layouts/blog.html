@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} - {% endif %}Salvium Protocol</title>
-    
+
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/favicon/favicon.svg">
-    
+
     <!-- Fonts and Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +19,7 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/css/design-system.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/cards.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/blog-post.css">
-    
+
     <!-- Custom Styles -->
     <style>
         :root {
@@ -37,7 +38,8 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        html, body {
+        html,
+        body {
             overflow-x: hidden;
             width: 100%;
             -webkit-font-smoothing: antialiased;
@@ -81,18 +83,19 @@
             transition: all 0.3s ease;
         }
     </style>
-    <script type="text/javascript"
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
 </head>
+
 <body class="bg-[#1e1e1e]">
     <!-- Header will be injected here -->
-    <div id="header"></div>
+    {% include header.html %}
 
     <!-- Content -->
     {{ content }}
+
+    {% include footer.html %}
 
     <!-- Scripts -->
     <script>
@@ -103,10 +106,10 @@
             js: '{{ site.baseurl }}/js'
         };
     </script>
-    <script src="{{ site.baseurl }}/js/header.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init();
     </script>
 </body>
+
 </html>
