@@ -18,30 +18,104 @@ redirect_from:
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                         Mining <span class="gradient-text">Pools</span>
                     </h1>
-                    <p class="text-xl text-gray-300 mb-4">
+                    <p class="text-xl text-gray-300 mb-8">
                         Join our trusted mining pools and start earning Salvium rewards
-                    </p>
-                    <p id="last-update" class="text-sm text-gray-400 mt-2">
-                        <span class="inline-block animate-pulse">●</span> Loading pool data...
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="container mx-auto px-4 -mt-8">
-        <div id="pools-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-            <!-- Loading state -->
-            <div class="col-span-full text-center py-12">
-                <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#40E0D0] mb-4"></div>
-                <p class="text-gray-400">Fetching pool statistics...</p>
+    <!-- Pools Section -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Kryptex Pool -->
+                <a href="https://pool.kryptex.com/sal" target="_blank" rel="noopener"
+                    class="card rounded-xl p-8 text-center h-full flex flex-col" data-aos="fade-up">
+                    <i class="fas fa-server text-4xl mb-6" style="color: var(--color-primary);"></i>
+                    <h3 class="text-xl font-semibold mb-3">Kryptex Pool</h3>
+                    <p class="text-gray-400 flex-grow">Multi-coin mining pool with PPS+ rewards and auto-exchange options.</p>
+                    <div class="mt-4 flex justify-center gap-2">
+                        <span class="card-tag">PPS+</span>
+                        <span class="card-tag">1% Fee</span>
+                    </div>
+                    <span class="card-link mt-4">Visit Pool <i class="fa-solid fa-angle-right"></i></span>
+                </a>
+
+                <!-- HeroMiners -->
+                <a href="https://salvium.herominers.com/" target="_blank" rel="noopener"
+                    class="card rounded-xl p-8 text-center h-full flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-server text-4xl mb-6" style="color: var(--color-primary);"></i>
+                    <h3 class="text-xl font-semibold mb-3">HeroMiners</h3>
+                    <p class="text-gray-400 flex-grow">Multi-coin mining pool with PPS+ and PROPX payment systems, supporting both pool and solo mining.</p>
+                    <div class="mt-4 flex justify-center gap-2">
+                        <span class="card-tag">PPS+ / PROPX</span>
+                        <span class="card-tag">Low Fee</span>
+                    </div>
+                    <span class="card-link mt-4">Visit Pool <i class="fa-solid fa-angle-right"></i></span>
+                </a>
+
+                <!-- MiningOcean -->
+                <a href="https://salvium.miningocean.org/" target="_blank" rel="noopener"
+                    class="card rounded-xl p-8 text-center h-full flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-server text-4xl mb-6" style="color: var(--color-primary);"></i>
+                    <h3 class="text-xl font-semibold mb-3">MiningOcean</h3>
+                    <p class="text-gray-400 flex-grow">Mining pool with PPLNS payment system, supporting both pool and solo mining.</p>
+                    <div class="mt-4 flex justify-center gap-2">
+                        <span class="card-tag">PPLNS</span>
+                        <span class="card-tag">Low Fee</span>
+                    </div>
+                    <span class="card-link mt-4">Visit Pool <i class="fa-solid fa-angle-right"></i></span>
+                </a>
+
+                <!-- HashVault -->
+                <a href="https://hashvault.pro/salvium/" target="_blank" rel="noopener"
+                    class="card rounded-xl p-8 text-center h-full flex flex-col" data-aos="fade-up">
+                    <i class="fas fa-server text-4xl mb-6" style="color: var(--color-primary);"></i>
+                    <h3 class="text-xl font-semibold mb-3">HashVault</h3>
+                    <p class="text-gray-400 flex-grow">Multi-coin mining pool with PPLNS and solo mining support.</p>
+                    <div class="mt-4 flex justify-center gap-2">
+                        <span class="card-tag">PPLNS / Solo</span>
+                        <span class="card-tag">0.9% Fee</span>
+                    </div>
+                    <span class="card-link mt-4">Visit Pool <i class="fa-solid fa-angle-right"></i></span>
+                </a>
+
+                <!-- Rplant -->
+                <a href="https://pool.rplant.xyz/" target="_blank" rel="noopener"
+                    class="card rounded-xl p-8 text-center h-full flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-server text-4xl mb-6" style="color: var(--color-primary);"></i>
+                    <h3 class="text-xl font-semibold mb-3">Rplant</h3>
+                    <p class="text-gray-400 flex-grow">Multi-coin mining pool with PROP payment system.</p>
+                    <div class="mt-4 flex justify-center gap-2">
+                        <span class="card-tag">PROP</span>
+                        <span class="card-tag">1% Fee</span>
+                    </div>
+                    <span class="card-link mt-4">Visit Pool <i class="fa-solid fa-angle-right"></i></span>
+                </a>
+
+                <!-- Suprnova -->
+                <a href="https://sal.suprnova.cc" target="_blank" rel="noopener"
+                    class="card rounded-xl p-8 text-center h-full flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-server text-4xl mb-6" style="color: var(--color-primary);"></i>
+                    <h3 class="text-xl font-semibold mb-3">Suprnova</h3>
+                    <p class="text-gray-400 flex-grow">Multi-coin mining pool with PPLNS payment system.</p>
+                    <div class="mt-4 flex justify-center gap-2">
+                        <span class="card-tag">PPLNS</span>
+                        <span class="card-tag">0% Fee</span>
+                    </div>
+                    <span class="card-link mt-4">Visit Pool <i class="fa-solid fa-angle-right"></i></span>
+                </a>
+
             </div>
         </div>
-    </div>
+    </section>
 </main>
 
 <!-- CTA Section -->
-<section class="py-16 relative overflow-hidden bg-[#0B272C] mt-4">
+<section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
     <div class="absolute inset-0">
         <img src="{{ site.baseurl }}/images/pools-1024.webp" alt=""
             class="absolute w-full h-full object-cover opacity-20">
@@ -64,11 +138,11 @@ redirect_from:
 
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
-<script src="{{ site.baseurl }}/js/pools.js"></script>
 <script>
     AOS.init({
         duration: 800,
-        once: true
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
     });
 </script>
