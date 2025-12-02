@@ -18,6 +18,7 @@ excerpt_separator: <!--more-->
 plugins:
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-redirect-from
 
 # Pagination
 paginate: 6
