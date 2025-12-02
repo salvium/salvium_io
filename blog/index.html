@@ -6,15 +6,15 @@ title: Blog
 <head>
     <link rel="preconnect" href="{{ site.url }}">
     <link rel="dns-prefetch" href="{{ site.url }}">
-    
+
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/favicon/favicon.svg">
-    
+
     <!-- Preload first 4 post images -->
     {% for post in paginator.posts limit:4 %}
-        {% if post.image %}
-            <link rel="preload" as="image" href="{{ site.baseurl }}{{ post.image }}">
-        {% endif %}
+    {% if post.image %}
+    <link rel="preload" as="image" href="{{ site.baseurl }}{{ post.image }}">
+    {% endif %}
     {% endfor %}
 </head>
 
@@ -25,13 +25,8 @@ title: Blog
     <section class="relative">
         <!-- Hero Image -->
         <div class="absolute inset-0">
-            <img 
-                src="{{ site.baseurl }}/images/newimages/Page Headers/Blog Header.webp" 
-                alt="Blog Header" 
-                class="w-full h-full object-cover opacity-30"
-                width="1920"
-                height="1080"
-                loading="eager"
+            <img src="{{ site.baseurl }}/images/newimages/Page Headers/Blog Header.webp" alt="Blog Header"
+                class="w-full h-full object-cover opacity-30" width="1920" height="1080" loading="eager"
                 fetchpriority="high">
             <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-75"></div>
         </div>
@@ -59,22 +54,13 @@ title: Blog
                     {% if post.image %}
                     <div class="blog-post-image-container">
                         <a href="{{ site.baseurl }}{{ post.url }}" class="block hover:opacity-90 transition-opacity">
-                            {% if forloop.index < 5 %}
-                            <img 
-                                src="{{ site.baseurl }}{{ post.image }}"
-                                alt="{{ post.title }}" 
-                                class="blog-post-image"
-                                fetchpriority="high"
-                                loading="eager"
+                            {% if forloop.index < 5 %} <img src="{{ site.baseurl }}{{ post.image }}"
+                                alt="{{ post.title }}" class="blog-post-image" fetchpriority="high" loading="eager"
                                 decoding="async">
-                            {% else %}
-                            <img 
-                                src="{{ site.baseurl }}{{ post.image }}"
-                                alt="{{ post.title }}" 
-                                class="blog-post-image"
-                                loading="lazy"
-                                decoding="async">
-                            {% endif %}
+                                {% else %}
+                                <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title }}"
+                                    class="blog-post-image" loading="lazy" decoding="async">
+                                {% endif %}
                         </a>
                     </div>
                     {% endif %}
@@ -95,7 +81,7 @@ title: Blog
                                 {{ post.date | date: "%B %d, %Y" }}
                             </time>
                             <a href="{{ site.baseurl }}{{ post.url }}" class="card-link">
-                                Read More 
+                                Read More
                                 <i class="fas fa-chevron-right ml-2"></i>
                             </a>
                         </div>
@@ -116,17 +102,18 @@ title: Blog
                 {% endif %}
 
                 {% for page in (1..paginator.total_pages) %}
-                    {% if page == paginator.page %}
-                    <span class="pagination-number active">{{ page }}</span>
-                    {% else %}
-                        {% if page == 1 %}
-                        <a href="{{ site.baseurl }}/blog/" class="pagination-number">{{ page }}</a>
-                        {% else %}
-                        <a href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', page }}" class="pagination-number">{{ page }}</a>
-                        {% endif %}
-                    {% endif %}
+                {% if page == paginator.page %}
+                <span class="pagination-number active">{{ page }}</span>
+                {% else %}
+                {% if page == 1 %}
+                <a href="{{ site.baseurl }}/blog/" class="pagination-number">{{ page }}</a>
+                {% else %}
+                <a href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', page }}"
+                    class="pagination-number">{{ page }}</a>
+                {% endif %}
+                {% endif %}
                 {% endfor %}
-                
+
                 {% if paginator.next_page %}
                 <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="pagination-link">
                     Next <i class="fas fa-chevron-right ml-2"></i>
@@ -141,10 +128,11 @@ title: Blog
     <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
         <!-- Background Decoration -->
         <div class="absolute inset-0">
-            <img src="{{ site.baseurl }}/images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
+            <img src="{{ site.baseurl }}/images/pools-1024.webp" alt=""
+                class="absolute w-full h-full object-cover opacity-20">
             <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
         </div>
-        
+
         <div class="container mx-auto px-4 text-center relative z-10">
             <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
                 Ready to Take the <span class="gradient-text">Pill</span>?
@@ -152,44 +140,191 @@ title: Blog
             <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
                 Start your journey with Salvium today and be part of the next generation of Private DeFi.
             </p>
-            <a href="{{ site.baseurl }}/download.html" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block" data-aos="fade-up" data-aos-delay="200">
+            <a href="{% link download.html %}"
+                class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block"
+                data-aos="fade-up" data-aos-delay="200">
                 Get Started Now
             </a>
         </div>
     </section>
-</main>
+    ---
+    layout: blog
+    title: Blog
+    ---
 
-<!-- White Line Separator -->
-<div class="w-full border-t border-[#40E0D0]/20 my-0"></div>
+    <head>
+        <link rel="preconnect" href="{{ site.url }}">
+        <link rel="dns-prefetch" href="{{ site.url }}">
 
-<!-- Footer will be injected here -->
-<div id="footer"></div>
+        <!-- Favicons -->
+        <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/favicon/favicon.svg">
 
-<script defer>
-    // Optimized image loading
-    document.addEventListener('DOMContentLoaded', () => {
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        
-        function loadImage(img) {
-            img.classList.add('loaded');
-        }
-        
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        loadImage(entry.target);
-                        observer.unobserve(entry.target);
-                    }
+        <!-- Preload first 4 post images -->
+        {% for post in paginator.posts limit:4 %}
+        {% if post.image %}
+        <link rel="preload" as="image" href="{{ site.baseurl }}{{ post.image }}">
+        {% endif %}
+        {% endfor %}
+    </head>
+
+    <link rel="stylesheet" href="{{ site.baseurl }}/blog/assets/css/blog.css">
+
+    <main class="relative z-10 pt-16">
+        <!-- Hero Section -->
+        <section class="relative">
+            <!-- Hero Image -->
+            <div class="absolute inset-0">
+                <img src="{{ site.baseurl }}/images/newimages/Page Headers/Blog Header.webp" alt="Blog Header"
+                    class="w-full h-full object-cover opacity-30" width="1920" height="1080" loading="eager"
+                    fetchpriority="high">
+                <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-75"></div>
+            </div>
+            <div class="relative z-10 py-28 lg:py-36">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-center">
+                            Salvium <span class="gradient-text">Blog</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8 text-center mx-auto max-w-2xl">
+                            Stay updated with the latest news, developments, and insights from the Salvium team.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Grid Section -->
+        <section class="container mx-auto px-4 py-12">
+            <div class="blog-grid">
+                {% assign sorted_posts = paginator.posts | sort: 'date' | reverse %}
+                {% for post in sorted_posts %}
+                <div class="blog-grid-item">
+                    <article class="ecosystem-card">
+                        {% if post.image %}
+                        <div class="blog-post-image-container">
+                            <a href="{{ site.baseurl }}{{ post.url }}"
+                                class="block hover:opacity-90 transition-opacity">
+                                {% if forloop.index < 5 %} <img src="{{ site.baseurl }}{{ post.image }}"
+                                    alt="{{ post.title }}" class="blog-post-image" fetchpriority="high" loading="eager"
+                                    decoding="async">
+                                    {% else %}
+                                    <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title }}"
+                                        class="blog-post-image" loading="lazy" decoding="async">
+                                    {% endif %}
+                            </a>
+                        </div>
+                        {% endif %}
+                        <div class="card-content">
+                            {% if post.categories %}
+                            <div class="mb-4">
+                                <span class="card-tag">
+                                    {{ post.categories | first }}
+                                </span>
+                            </div>
+                            {% endif %}
+                            <a href="{{ site.baseurl }}{{ post.url }}"
+                                class="block hover:text-[#00bfa5] transition-colors">
+                                <h2 class="card-title">{{ post.title }}</h2>
+                            </a>
+                            <p class="card-description">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <time datetime="{{ post.date | date_to_xmlschema }}" class="text-sm text-[#b0b0b0]">
+                                    {{ post.date | date: "%B %d, %Y" }}
+                                </time>
+                                <a href="{{ site.baseurl }}{{ post.url }}" class="card-link">
+                                    Read More
+                                    <i class="fas fa-chevron-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Pagination -->
+            {% if paginator.total_pages > 1 %}
+            <div class="pagination-container">
+                <div class="pagination">
+                    {% if paginator.previous_page %}
+                    <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="pagination-link">
+                        <i class="fas fa-chevron-left mr-2"></i> Previous
+                    </a>
+                    {% endif %}
+
+                    {% for page in (1..paginator.total_pages) %}
+                    {% if page == paginator.page %}
+                    <span class="pagination-number active">{{ page }}</span>
+                    {% else %}
+                    {% if page == 1 %}
+                    <a href="{{ site.baseurl }}/blog/" class="pagination-number">{{ page }}</a>
+                    {% else %}
+                    <a href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', page }}"
+                        class="pagination-number">{{ page }}</a>
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if paginator.next_page %}
+                    <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="pagination-link">
+                        Next <i class="fas fa-chevron-right ml-2"></i>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
+            <!-- Background Decoration -->
+            <div class="absolute inset-0">
+                <img src="{{ site.baseurl }}/images/pools-1024.webp" alt=""
+                    class="absolute w-full h-full object-cover opacity-20">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+            </div>
+
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                    Ready to Take the <span class="gradient-text">Pill</span>?
+                </h2>
+                <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Start your journey with Salvium today and be part of the next generation of Private DeFi.
+                </p>
+                <a href="{% link download.html %}"
+                    class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block"
+                    data-aos="fade-up" data-aos-delay="200">
+                    Get Started Now
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- White Line Separator -->
+    <div class="w-full border-t border-[#40E0D0]/20 my-0"></div>
+
+    <script defer>
+        // Optimized image loading
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+
+            function loadImage(img) {
+                img.classList.add('loaded');
+            }
+
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            loadImage(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
                 });
-            });
-            
-            images.forEach(img => imageObserver.observe(img));
-        } else {
-            images.forEach(loadImage);
-        }
-    });
-</script>
 
-<!-- Scripts -->
-<script src="{{ site.baseurl }}/js/footer.js?v=2"></script>
+                images.forEach(img => imageObserver.observe(img));
+            } else {
+                images.forEach(loadImage);
+            }
+        });
+    </script>
