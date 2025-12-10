@@ -251,13 +251,14 @@ section[id] {
     margin: 0 auto;
     position: relative;
     padding-left: 2rem;
+    padding-top: 2rem;
 }
 
 .roadmap-container::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
+    left: -3px;
+    top: 2rem;
     bottom: 0;
     width: 2px;
     background: rgba(0, 191, 165, 0.2);
