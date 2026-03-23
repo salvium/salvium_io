@@ -8,6 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="{{ site.baseurl }}/css/typography.css">
+    <!-- Generator Styles: must load BEFORE Tailwind CDN so CDN responsive utilities (md:flex etc) win the cascade -->
+    {% if page.generator_styles %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/generator/index.css">
+    {% endif %}
     <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
