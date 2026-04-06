@@ -32,16 +32,8 @@ redirect_from:
 
     <div class="container mx-auto px-4 -mt-8">
 
-      <!-- GUI Wallets -->
-      <h2 class="text-3xl font-bold text-center mb-2 mt-16" data-aos="fade-up">
-        GUI Wallets (Desktop)
-      </h2>
-      <p class="text-gray-400 text-center mb-6" data-aos="fade-up" data-aos-delay="100">
-        Legacy GUI builds are currently unavailable.
-      </p>
-
-      <!-- Warning Banner -->
-      <div class="max-w-5xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="150" role="alert" aria-live="polite">
+      <!-- Hard Fork Notice -->
+      <div class="max-w-5xl mx-auto mb-10 mt-16" data-aos="fade-up" role="alert" aria-live="polite">
         <div
           class="relative overflow-hidden rounded-2xl border border-yellow-500/30 bg-gradient-to-br from-yellow-100/10 via-yellow-200/5 to-transparent p-5 backdrop-blur">
           <div class="flex items-start gap-4">
@@ -53,23 +45,89 @@ redirect_from:
             </svg>
             <div class="text-yellow-100/90">
               <p class="font-semibold text-yellow-200">
-                Important: Legacy GUI wallets are no longer functional.
+                Important: Upgrade required ahead of the Milestone 1 hard fork.
               </p>
               <p class="mt-1 text-sm text-yellow-100/80 leading-relaxed">
-                Following the network hard fork at block 465,000, legacy GUI wallets no longer function.
-                Please use the <strong>CLI wallets below</strong> (v1.1.0 or later) which support the new protocol.
+                The network will hard fork at block <strong>465,000</strong> on <strong>13 April 2026</strong>.
+                All users must upgrade to <strong>v1.1.1</strong> (CLI or GUI) before then to remain on the
+                network. This release brings Salvium Assets, Carrot &amp; SPARC support, and the new
+                treasury-based emission model.
               </p>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- GUI Wallets -->
+      <h2 class="text-3xl font-bold text-center mb-2 mt-16" data-aos="fade-up">
+        GUI Wallets (Desktop)
+      </h2>
+      <p class="text-gray-400 text-center mb-8" data-aos="fade-up" data-aos-delay="100">
+        Download the Salvium One GUI v1.1.1 — Milestone 1 release
+      </p>
+
+      <div class="downloads-grid">
+        <!-- Windows x64 GUI -->
+        <div class="download-card" data-aos="fade-up">
+          <img src="{{ site.baseurl }}/images/downloads/Micorsoft_Windows_logo.jpg" alt="Windows GUI"
+            class="card-image">
+          <div class="card-content">
+            <span class="download-tag">GUI</span>
+            <h3 class="download-title">Windows (x64) — Version 1.1.1</h3>
+            <div class="sha-text">
+              SHA256: 2ff6bdc705c620b5abf6606ab8c3979a6dd254986d7f921a36c77b26fba62b4a
+            </div>
+            <a href="https://github.com/salvium/salvium-gui/releases/download/v1.1.1/salvium-gui-v1.1.1-windows-x64.zip"
+              class="card-link">
+              Download <i class="fa-solid fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- macOS ARM64 GUI -->
+        <div class="download-card" data-aos="fade-up">
+          <img src="{{ site.baseurl }}/images/downloads/Apple_computers_logo.jpg" alt="macOS GUI" class="card-image">
+          <div class="card-content">
+            <span class="download-tag">GUI</span>
+            <h3 class="download-title">macOS (ARM64) — Version 1.1.1</h3>
+            <div class="sha-text">
+              SHA256: 608210325dea6d4ea9b48cc05e47d37ce83523687557a6130e21aac35dfbb228
+            </div>
+            <a href="https://github.com/salvium/salvium-gui/releases/download/v1.1.1/salvium-gui-v1.1.1-macos-arm64-unsigned.zip"
+              class="card-link">
+              Download <i class="fa-solid fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Linux x64 GUI -->
+        <div class="download-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="{{ site.baseurl }}/images/downloads/Linux_logo.jpg" alt="Linux GUI" class="card-image">
+          <div class="card-content">
+            <span class="download-tag">GUI</span>
+            <h3 class="download-title">Linux (x64) — Version 1.1.1</h3>
+            <div class="sha-text">
+              SHA256: 00c8654860c95310827793ff5331477d6fe8875e2eb2faa1d2c451350ee8316f
+            </div>
+            <a href="https://github.com/salvium/salvium-gui/releases/download/v1.1.1/salvium-gui-v1.1.1-linux-x64-static.zip"
+              class="card-link">
+              Download <i class="fa-solid fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-sm text-gray-500 mt-6 max-w-3xl mx-auto" data-aos="fade-up">
+        Note: the macOS build is unsigned and ARM64 (Apple Silicon) only. macOS x86_64 and Linux ARM64
+        GUI builds are not available for this release — please use the CLI wallets below on those platforms.
+      </p>
+
       <!-- CLI Section -->
       <h2 class="text-4xl font-bold text-center mb-4 mt-24" data-aos="fade-up" id="cli">
         Command Line Interface
       </h2>
       <p class="text-center text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="100">
-        Download the Salvium CLI v1.1.0
+        Download the Salvium CLI v1.1.1
       </p>
 
       <div class="downloads-grid">
@@ -79,11 +137,11 @@ redirect_from:
             class="card-image">
           <div class="card-content">
             <span class="download-tag">CLI</span>
-            <h3 class="download-title">Windows (x64) — Version 1.1.0</h3>
+            <h3 class="download-title">Windows (x64) — Version 1.1.1</h3>
             <div class="sha-text">
-              SHA256: bb9c9175726b82e061a6a332a27a6845805be4779928df3abbbd5c0f54691c9a
+              SHA256: 33e7c1e1bc4e5a1f9c40482eba993a5efb97a8feedfb36dca863bbb5bd9e794f
             </div>
-            <a href="https://github.com/salvium/salvium/releases/download/v1.1.0/salvium-v1.1.0-win64.zip"
+            <a href="https://github.com/salvium/salvium/releases/download/v1.1.1/salvium-v1.1.1-win64.zip"
               class="card-link">
               Download <i class="fa-solid fa-angle-right"></i>
             </a>
@@ -95,11 +153,11 @@ redirect_from:
           <img src="{{ site.baseurl }}/images/downloads/Apple_computers_logo.jpg" alt="macOS CLI" class="card-image">
           <div class="card-content">
             <span class="download-tag">CLI</span>
-            <h3 class="download-title">macOS (ARM64) — Version 1.1.0</h3>
+            <h3 class="download-title">macOS (ARM64) — Version 1.1.1</h3>
             <div class="sha-text">
-              SHA256: e032e42ebac862bf90d71f0a231d9f3ddb5583e321ec153ee05144d87629980b
+              SHA256: d22bbe19fa5e7eb7ebaf95eee336d73cbd59ded7b5e737213e89a8b84d5791eb
             </div>
-            <a href="https://github.com/salvium/salvium/releases/download/v1.1.0/salvium-v1.1.0-macos-aarch64.zip"
+            <a href="https://github.com/salvium/salvium/releases/download/v1.1.1/salvium-v1.1.1-macos-aarch64.zip"
               class="card-link">
               Download <i class="fa-solid fa-angle-right"></i>
             </a>
@@ -112,11 +170,11 @@ redirect_from:
             class="card-image">
           <div class="card-content">
             <span class="download-tag">CLI</span>
-            <h3 class="download-title">macOS (x86_64) — Version 1.1.0</h3>
+            <h3 class="download-title">macOS (x86_64) — Version 1.1.1</h3>
             <div class="sha-text">
-              SHA256: 0f31f09cf7be38b50a35510172bc94b7a4fb07c7107c79c4f055754c282c99f5
+              SHA256: 262e2bdffc3c4fee89ec79451a6181175671db5874726d359077c4479754076e
             </div>
-            <a href="https://github.com/salvium/salvium/releases/download/v1.1.0/salvium-v1.1.0-macos-x86_64.zip"
+            <a href="https://github.com/salvium/salvium/releases/download/v1.1.1/salvium-v1.1.1-macos-x86_64.zip"
               class="card-link">
               Download <i class="fa-solid fa-angle-right"></i>
             </a>
@@ -128,33 +186,34 @@ redirect_from:
           <img src="{{ site.baseurl }}/images/downloads/Linux_logo.jpg" alt="Linux CLI" class="card-image">
           <div class="card-content">
             <span class="download-tag">CLI</span>
-            <h3 class="download-title">Linux (x86_64) — Version 1.1.0</h3>
+            <h3 class="download-title">Linux (x86_64) — Version 1.1.1</h3>
             <div class="sha-text">
-              SHA256: d1a5138f892189dfccc1d51d72ce24147fe6f1a2a5d465d350651426a71282a4
+              SHA256: 33321419bb426507de0f5de7c1977e436ca34bf4db620fa00eede1fa318b7994
             </div>
-            <a href="https://github.com/salvium/salvium/releases/download/v1.1.0/salvium-v1.1.0-ubuntu22.04-linux-x86_64.zip"
+            <a href="https://github.com/salvium/salvium/releases/download/v1.1.1/salvium-v1.1.1-ubuntu22.04-linux-x86_64.zip"
               class="card-link">
               Download <i class="fa-solid fa-angle-right"></i>
             </a>
           </div>
         </div>
 
-        <!-- Linux ARM64 CLI (New) -->
+        <!-- Linux ARM64 CLI -->
         <div class="download-card" data-aos="fade-up" data-aos-delay="100">
           <img src="{{ site.baseurl }}/images/downloads/Linux_logo.jpg" alt="Linux ARM64 CLI" class="card-image">
           <div class="card-content">
             <span class="download-tag">CLI</span>
-            <h3 class="download-title">Linux (ARM64) — Version 1.1.0</h3>
+            <h3 class="download-title">Linux (ARM64) — Version 1.1.1</h3>
             <div class="sha-text">
-              SHA256: 4424fd93391daab7eee47c54ab7aad7810a16f4c866209d41ba016d984605ffb
+              SHA256: 72b37fa30df6b136dba380b88e9ccc4d66804d8286a221a87e944e337f4ba593
             </div>
-            <a href="https://github.com/salvium/salvium/releases/download/v1.1.0/salvium-v1.1.0-ubuntu22.04-linux-aarch64.zip"
+            <a href="https://github.com/salvium/salvium/releases/download/v1.1.1/salvium-v1.1.1-ubuntu22.04-linux-aarch64.zip"
               class="card-link">
               Download <i class="fa-solid fa-angle-right"></i>
             </a>
           </div>
         </div>
       </div>
+
     </div>
   </main>
 
