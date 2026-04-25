@@ -44,10 +44,18 @@
             --radius-lg: 4px;
         }
 
+        html,
+        body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
         body {
             font-family: var(--font-primary);
             background-color: var(--color-bg-dark);
             color: var(--color-text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .mobile-menu {
