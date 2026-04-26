@@ -1,0 +1,538 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand-aligned tokens (per Salvium Brand Guidelines) */
+  --color-bg-dark: #1e1e1e;
+  --color-bg-darker: #141414;
+  --color-bg-deep: #0d0d0d;
+  --color-bg-header: #1e1e1e;
+
+  --color-text: #e0e0e0;
+  --color-text-light: #e0e0e0;
+  --color-text-lighter: #b0b0b0;
+
+  --color-accent: #40E0D0;          /* primary accent */
+  --color-accent-light: #80cbc4;    /* secondary accent */
+  --color-salvium-dot: #0AEB85;     /* sacred green dot — never alter */
+
+  --color-border: rgba(0, 191, 165, 0.15);
+  --color-border-light: rgba(0, 191, 165, 0.05);
+
+  /* Internal aliases used throughout the app */
+  --bg: var(--color-bg-dark);
+  --bg-2: var(--color-bg-darker);
+  --teal: var(--color-accent);
+  --neon: var(--color-salvium-dot);
+  --mute: var(--color-text-lighter);
+  --glass: rgba(255, 255, 255, 0.04);
+  --border: var(--color-border);
+  --border-strong: rgba(10, 235, 133, 0.45);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  /* Brand bg per Salvium Brand Guidelines: --color-bg-dark = #1e1e1e */
+  background: var(--color-bg-dark);
+  color: var(--color-text);
+  font-family: 'Roboto', system-ui, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-display {
+  font-family: 'Poppins', system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Global immersive backdrop */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(900px 600px at 12% -10%, rgba(0, 191, 165, 0.05), transparent 60%),
+    radial-gradient(800px 500px at 100% 10%, rgba(0, 191, 165, 0.04), transparent 55%),
+    var(--color-bg-dark);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Scanline overlay removed for a cleaner editorial feel. */
+
+/* Mobile drawer surface — mirrors the site's teal-tinted dark backdrop */
+.mobile-drawer {
+  background:
+    radial-gradient(900px 600px at 10% -10%, rgba(0, 191, 165, 0.18), transparent 60%),
+    radial-gradient(700px 500px at 110% 110%, rgba(10, 235, 133, 0.10), transparent 55%),
+    radial-gradient(500px 400px at 50% 50%, rgba(0, 191, 165, 0.05), transparent 70%),
+    rgba(13, 13, 13, 0.96);
+}
+
+/* Surfaces — brand-spec teal-tinted borders per Salvium Brand Guidelines
+   (--color-border: rgba(0, 191, 165, 0.15), --color-border-light: rgba(0, 191, 165, 0.05)) */
+.glass {
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+}
+
+/* Section chapter divider (qubic-style) — hairline that fades from edges */
+.section-chapter {
+  position: relative;
+}
+.section-chapter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08) 25%, rgba(255,255,255,0.08) 75%, transparent);
+  pointer-events: none;
+}
+
+/* Display chapter heading scale — qubic-grade typographic weight */
+.chapter-title {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  font-size: clamp(2.5rem, 6.5vw, 5.75rem);
+  color: #fff;
+}
+
+/* Editorial card — qubic-style: subtle border, strong title, arrow CTA, lift on hover */
+.s-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.018);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.85rem 1.85rem 4.5rem;
+  transition: background .3s ease, border-color .3s ease, transform .3s ease;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+}
+.s-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(64, 224, 208, 0.85), transparent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .55s ease;
+}
+.s-card:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-4px);
+}
+.s-card:hover::before { transform: scaleX(1); }
+.s-card .s-card-arrow {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-lighter);
+  transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+}
+.s-card:hover .s-card-arrow {
+  background: #00BFA5;
+  color: #04150d;
+  border-color: #00BFA5;
+  transform: translate(2px, -2px);
+}
+.s-card-index {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: var(--color-text-lighter);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+}
+
+/* Nav dropdowns: opaque dark surface that reads regardless of what's behind.
+   Many body sections use `transform` (Reveal animation), which creates a new
+   stacking context and breaks `backdrop-filter`. Using a near-solid background
+   with a subtle blur on top keeps the dropdown legible on every scroll position. */
+.nav-dropdown {
+  background: rgba(14, 14, 14, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.6);
+}
+
+.neon-text {
+  /* Site accent (matches live salvium.io teal-green) */
+  color: #00BFA5;
+}
+
+/* Hero equation — Private + Programmable = Sovereign --------------------- */
+.hero-equation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.2em 0.45em;
+  line-height: 1.08;
+  color: #fff;
+}
+/* Make room for descenders (e.g. the 'g' in Sovereign / Programmable) */
+.hero-equation .word { padding-bottom: 0.18em; }
+.hero-equation .drop {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-0.6em) scale(0.96);
+  filter: blur(10px);
+  animation: token-drop 0.8s cubic-bezier(0.2, 0.7, 0.15, 1.05) forwards;
+  animation-delay: var(--d, 0s);
+  will-change: transform, opacity, filter;
+}
+.hero-equation .op {
+  color: #40E0D0;
+  font-weight: 500;
+  font-size: 0.82em;
+  text-shadow: 0 0 24px rgba(64, 224, 208, 0.55);
+  /* operators pop in with a subtle rotation */
+  animation: token-pop 0.7s cubic-bezier(0.2, 0.9, 0.2, 1.1) forwards;
+  animation-delay: var(--d, 0s);
+}
+.hero-equation .sovereign {
+  background: linear-gradient(180deg, #ffffff 0%, #80cbc4 60%, #00BFA5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-equation .sovereign::after {
+  /* glow that ignites once the word lands */
+  content: '';
+  position: absolute;
+}
+/* Continuous glow pulse on Sovereign after it lands */
+.hero-equation .sovereign {
+  position: relative;
+  text-shadow: 0 0 0 rgba(0, 191, 165, 0);
+  animation:
+    token-drop 0.8s cubic-bezier(0.2, 0.7, 0.15, 1.05) forwards,
+    sovereign-glow 3.6s ease-in-out 2.4s infinite;
+  animation-delay: var(--d, 0s), 2.4s;
+}
+@keyframes token-drop {
+  0%   { opacity: 0; transform: translateY(-0.7em) scale(0.94); filter: blur(12px); }
+  60%  { opacity: 1; transform: translateY(0.08em) scale(1.02); filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes token-pop {
+  0%   { opacity: 0; transform: translateY(-0.4em) rotate(-15deg) scale(0.6); filter: blur(8px); }
+  60%  { opacity: 1; transform: translateY(0) rotate(8deg) scale(1.15); filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) rotate(0) scale(1); filter: blur(0); }
+}
+@keyframes sovereign-glow {
+  0%, 100% { text-shadow: 0 0 14px rgba(0,191,165,0.25), 0 0 30px rgba(64,224,208,0.10); }
+  50%      { text-shadow: 0 0 28px rgba(0,191,165,0.55), 0 0 60px rgba(64,224,208,0.30); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-equation .drop,
+  .hero-equation .op,
+  .hero-equation .sovereign {
+    opacity: 1; transform: none; filter: none; animation: none;
+  }
+}
+
+/* Removed the gradient mask border — too flashy. Glass border is enough. */
+.glow-border { position: relative; }
+
+/* Qubic-style pill buttons (in components layer so Tailwind utilities like
+   `hidden` / `inline-flex` can override the default display) */
+@layer components {
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    padding: 0.7rem 1.4rem; border-radius: 999px;
+    background: #ffffff;
+    color: #0a0a0a; font-weight: 600; font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem; letter-spacing: 0.005em;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    transition: background .2s ease, transform .2s ease, box-shadow .25s ease;
+    box-shadow: 0 0 0 0 rgba(64, 224, 208, 0);
+  }
+  .btn-primary:hover {
+    background: #f4fffd;
+    transform: translateY(-1px);
+    box-shadow: 0 0 24px rgba(64, 224, 208, 0.35);
+  }
+  .btn-primary .icon-chip {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: #0a0a0a; color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-left: -0.4rem;
+  }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    padding: 0.7rem 1.4rem; border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--color-text); background: rgba(255,255,255,0.02);
+    font-family: 'Poppins', sans-serif; font-weight: 500;
+    font-size: 0.9rem; letter-spacing: 0.005em;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.06); border-color: rgba(255, 255, 255, 0.35); }
+
+  /* Compact OS download chip — sits beneath product CTAs */
+  .os-chip {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.02);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    transition: border-color .2s ease, color .2s ease, background .2s ease, transform .2s ease;
+    text-decoration: none;
+  }
+  .os-chip:hover {
+    border-color: rgba(64,224,208,0.45);
+    color: #ffffff;
+    background: rgba(64,224,208,0.06);
+    transform: translateY(-1px);
+  }
+  .os-chip svg { opacity: 0.75; }
+  .os-chip:hover svg { opacity: 1; color: #5eead4; }
+}
+
+/* Feature card — full-bleed dark hero card with subtle pattern bg */
+.feature-card {
+  position: relative;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(64,224,208,0.10) 0%, transparent 60%),
+    linear-gradient(180deg, #0f1311 0%, #0a0d0c 100%);
+}
+.feature-card::before {
+  /* Subtle hex/dot pattern overlay */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(64,224,208,0.10) 1px, transparent 0);
+  background-size: 22px 22px;
+  opacity: 0.5;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, #000 30%, transparent 80%);
+  pointer-events: none;
+}
+.feature-card::after {
+  /* Soft top glow */
+  content: '';
+  position: absolute;
+  top: -20%; left: 10%; right: 10%;
+  height: 60%;
+  background: radial-gradient(closest-side, rgba(0,191,165,0.18), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* Blog cover — auto-generated category gradient placeholder */
+.blog-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #0a0d0c;
+}
+.blog-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.blog-cover-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.92);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-align: center;
+  padding: 1.25rem;
+}
+.blog-cover-fallback::before {
+  /* dotted texture */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.10) 1px, transparent 0);
+  background-size: 14px 14px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 30%, transparent 80%);
+  pointer-events: none;
+  opacity: 0.55;
+}
+.blog-cover-fallback::after {
+  /* soft glow blob */
+  content: '';
+  position: absolute;
+  top: -30%; left: -10%; width: 80%; height: 120%;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.18), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+.blog-cover-fallback .cat-label {
+  position: relative;
+  z-index: 1;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 999px;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(8px);
+}
+/* Category palettes */
+.bc-compliance   { background: linear-gradient(135deg, #0a3a2f 0%, #064d3a 50%, #00BFA5 100%); }
+.bc-engineering  { background: linear-gradient(135deg, #0a2336 0%, #0e3a4a 50%, #40E0D0 100%); }
+.bc-release      { background: linear-gradient(135deg, #082818 0%, #0d4029 50%, #0AEB85 100%); }
+.bc-whitepaper   { background: linear-gradient(135deg, #1a2a26 0%, #2a3d38 50%, #80cbc4 100%); }
+.bc-security     { background: linear-gradient(135deg, #2a1414 0%, #3a1f24 50%, #b86d6d 100%); }
+.bc-update       { background: linear-gradient(135deg, #1a1a22 0%, #2a2a36 50%, #6e7a8a 100%); }
+.bc-default      { background: linear-gradient(135deg, #0d1311 0%, #14211c 50%, #00BFA5 100%); }
+
+/* Two-up product card with bottom visual area */
+.product-card {
+  position: relative;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, #0f1311 0%, #0a0d0c 100%);
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .3s ease, transform .3s ease;
+}
+.product-card:hover {
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-3px);
+}
+.product-card .product-visual {
+  position: relative;
+  margin-top: auto;
+  height: 220px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  background:
+    radial-gradient(80% 100% at 50% 100%, rgba(64,224,208,0.30) 0%, transparent 65%),
+    radial-gradient(60% 80% at 50% 100%, rgba(10,235,133,0.20) 0%, transparent 65%),
+    linear-gradient(180deg, transparent, rgba(0,0,0,0.4));
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.product-card .product-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+  background-size: 18px 18px;
+  mask-image: linear-gradient(180deg, #000 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 100%);
+}
+
+.pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.35rem 0.75rem; border-radius: 6px;
+  font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
+  border: 1px solid var(--color-border);
+  background: rgba(0, 191, 165, 0.05);
+  color: var(--color-text-lighter);
+  font-family: 'Poppins', sans-serif;
+}
+
+.connector {
+  position: relative;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+.connector::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(64,224,208,0.95) 45%, rgba(10,235,133,1) 55%, transparent 100%);
+  background-size: 220% 100%;
+  animation: connector-flow 2.2s linear infinite;
+}
+@keyframes connector-flow {
+  0%   { background-position: 220% 0; }
+  100% { background-position: -120% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .connector::before { animation: none; }
+}
+
+.card-hover {
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 191, 165, 0.4);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.in-view { animation: fadeUp 0.8s ease-out both; }
+
+/* Markdown */
+.prose-salvium { color: #d8dfe2; line-height: 1.75; }
+.prose-salvium h1 { font-size: 2rem; font-weight: 700; margin: 1.5rem 0 1rem; color: #fff; }
+.prose-salvium h2 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #fff; }
+.prose-salvium h3 { font-size: 1.2rem; font-weight: 600; margin: 1.25rem 0 0.5rem; color: #c8f3ee; }
+.prose-salvium p { margin: 0.85rem 0; }
+.prose-salvium a { color: #0AEB85; text-decoration: underline; text-decoration-color: rgba(10,235,133,0.4); }
+.prose-salvium a:hover { text-decoration-color: #0AEB85; }
+.prose-salvium ul { list-style: disc; padding-left: 1.4rem; margin: 0.85rem 0; }
+.prose-salvium ol { list-style: decimal; padding-left: 1.4rem; margin: 0.85rem 0; }
+.prose-salvium li { margin: 0.3rem 0; }
+.prose-salvium code { font-family: 'Roboto Mono', monospace; background: rgba(64,224,208,0.14); padding: 0.1rem 0.4rem; border-radius: 6px; font-size: 0.9em; color: #c8f3ee; }
+.prose-salvium pre { background: #06080a; border: 1px solid var(--border); border-radius: 12px; padding: 1rem; overflow-x: auto; }
+.prose-salvium pre code { background: transparent; padding: 0; color: #d8dfe2; }
+.prose-salvium blockquote { border-left: 3px solid #0AEB85; padding-left: 1rem; color: #b6c2c4; margin: 1rem 0; }
+.prose-salvium hr { border: 0; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+/* scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0d0d0d; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #40E0D0, #0AEB85); border-radius: 10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

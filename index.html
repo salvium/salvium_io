@@ -1,217 +1,33 @@
----
-layout: default
-title: Home
----
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/brand/coin_icon/white/circular/svg/salvium_coin_circle_white_solid.svg" />
+    <link rel="apple-touch-icon" href="/brand/coin_icon/white/circular/solid/salvium_coin_circle_white_512x512px_solid.png" />
+    <meta name="theme-color" content="#1e1e1e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Salvium — the industry's first Layer 1 PoW privacy blockchain that balances enhanced privacy, regulatory compatibility, and private DeFi." />
+    <title>Salvium · The Future of Private DeFi</title>
 
-<!-- Main Content -->
-<section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img src="{{ site.baseurl }}/images/wide-hero-1024.webp" alt="Hero Background"
-            class="w-full h-full object-cover opacity-40">
-        <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 via-[#1e1e1e]/50 to-[#1e1e1e]"></div>
-    </div>
-    <div class="relative z-10">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="hero-content text-left mobile-center aos-init aos-animate" data-aos="fade-right">
-                    <h1
-                        class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 mobile-smaller-text text-white !opacity-100 hero-text">
-                        The Future of <span class="gradient-text !opacity-100">Private DeFi</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-gray-100 mb-6 md:mb-8 !opacity-100 hero-text">
-                        Layer 1 blockchain that balances privacy and regulations.
-                    </p>
-                    <div class="hero-buttons mb-8 md:mb-12 flex flex-col md:flex-row gap-4">
-                        <a href="{% link about.html %}"
-                            class="btn-primary px-6 md:px-8 py-3 !text-white font-semibold inline-flex items-center justify-center mobile-full rounded-none">
-                            Get Started
-                        </a>
-                        <a href="https://salvium.github.io/salvium_docs/"
-                            class="px-6 md:px-8 py-3 border border-[#40E0D0] text-white hover:bg-[#40E0D0]/10 transition-colors font-semibold inline-flex items-center justify-center mobile-full rounded-none">
-                            Learn More
-                        </a>
-                    </div>
-                    <!-- Trust indicators -->
-                    <div class="trust-indicators flex flex-wrap items-center gap-4 xs:gap-6 sm:gap-8 mt-6 sm:mt-8">
-                        <div
-                            class="trust-indicator flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#40E0D0]/5 transition-colors">
-                            <img src="./images/lock-icon.svg" alt="Private" class="w-8 h-8 sm:w-9 sm:h-9">
-                            <span
-                                class="text-lg sm:text-xl font-medium whitespace-nowrap text-white opacity-100">Private</span>
-                        </div>
-                        <div
-                            class="trust-indicator flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#40E0D0]/5 transition-colors">
-                            <img src="./images/shield-icon.svg" alt="Compliant" class="w-8 h-8 sm:w-9 sm:h-9">
-                            <span
-                                class="text-lg sm:text-xl font-medium whitespace-nowrap text-white opacity-100">Compliant</span>
-                        </div>
-                        <div
-                            class="trust-indicator flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#40E0D0]/5 transition-colors">
-                            <div class="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center" style="color: #40E0D0;">
-                                <i class="fa-solid fa-network-wired text-2xl"></i>
-                            </div>
-                            <span
-                                class="text-lg sm:text-xl font-medium whitespace-nowrap text-white opacity-100">Programmable</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Salvium" />
+    <meta property="og:title" content="Salvium · The Future of Private DeFi" />
+    <meta property="og:description" content="The industry's first Layer 1 PoW privacy blockchain that balances enhanced privacy, regulatory compatibility, and private DeFi." />
+    <meta property="og:url" content="https://salvium.io/" />
+    <meta property="og:image" content="https://salvium.io/brand/banner.jpg" />
 
-<!-- Features Section -->
-<section class="py-20 relative">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-6 aos-init aos-animate" data-aos="fade-up">
-                Why Choose <span class="gradient-text">Salvium</span>
-            </h2>
-            <p class="text-lg text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto aos-init aos-animate" data-aos="fade-up"
-                data-aos-delay="100">
-                Privacy, compliance, and smart contracts form the foundation of a truly sovereign financial future.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Privacy Feature -->
-            <div class="ecosystem-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                <img src="./images/newimages/Page%20Headers/Litepaper%20Header.webp" alt="Privacy Feature"
-                    class="card-image opacity-100">
-                <div class="card-content">
-                    <span class="card-tag">Privacy</span>
-                    <h3 class="card-title">Privacy by Design</h3>
-                    <p class="card-description">Built on robust cryptographic foundations with zero-knowledge proofs
-                        for uncompromising security and confidentiality.</p>
-                </div>
-            </div>
-
-            <!-- Compliance Feature -->
-            <div class="ecosystem-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                <img src="./images/newimages/Page%20Headers/Exchange%20Header.webp" alt="Compliance Feature"
-                    class="card-image opacity-100">
-                <div class="card-content">
-                    <span class="card-tag">Compliance</span>
-                    <h3 class="card-title">Regulatory Resilience</h3>
-                    <p class="card-description">One of the few privacy-focused chains striving for MiCA
-                        compliance—designed to thrive where others cannot operate.</p>
-                </div>
-            </div>
-
-            <!-- Programmable Feature -->
-            <div class="ecosystem-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                <img src="./images/newimages/Page%20Headers/Pools%20Header.webp" alt="Programmable Feature"
-                    class="card-image opacity-100">
-                <div class="card-content">
-                    <span class="card-tag">Programmable</span>
-                    <h3 class="card-title">Privacy Meets Possibility</h3>
-                    <p class="card-description">Developing private smart contract capabilities for DeFi,
-                        stablecoins, and more—all while preserving transaction confidentiality.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Ecosystem Section -->
-<div class="mb-8">
-    <div class="container mx-auto px-4 relative">
-        <div class="text-center mb-8">
-            <h2 class="text-4xl font-bold mb-4 aos-init" data-aos="fade-up">
-                Salvium <span class="gradient-text">Ecosystem</span>
-            </h2>
-            <p class="text-lg text-gray-300 max-w-2xl mx-auto aos-init" data-aos="fade-up" data-aos-delay="100">
-                Discover the key components powering our privacy-preserving network
-            </p>
-        </div>
-
-        <div class="cards-grid mt-6 aos-init" data-aos="fade-up" data-aos-delay="100">
-            <!-- Governance Card -->
-            <div class="ecosystem-card">
-                <div class="relative w-full h-48 md:h-64 overflow-hidden">
-                    <img src="./images/newimages/ecosystem/governance.webp" alt="Governance"
-                        class="w-full h-full object-cover opacity-100">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag">Governance</span>
-                    <h3 class="card-title">Decentralized & Community-Driven</h3>
-                    <p class="card-description">A fair and open ecosystem where miners, stakers, and developers
-                        collectively shape the future of privacy-focused finance.</p>
-                    <a href="{% link about.html %}" class="card-link">Learn More <i
-                            class="fa-solid fa-chevron-down"></i></a>
-                </div>
-            </div>
-
-            <!-- Staking Card -->
-            <div class="ecosystem-card">
-                <div class="relative w-full h-48 md:h-64 overflow-hidden">
-                    <img src="./images/newimages/ecosystem/yield.webp" alt="Staking & Yield"
-                        class="w-full h-full object-cover opacity-100">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag">Staking & Yield</span>
-                    <h3 class="card-title">Earn While Securing the Network</h3>
-                    <p class="card-description">Stake SAL tokens to strengthen the ecosystem and receive 20% of
-                        block rewards as incentive.</p>
-                    <a href="{% link about.html %}" class="card-link">Learn More <i
-                            class="fa-solid fa-chevron-down"></i></a>
-                </div>
-            </div>
-
-            <!-- Future Card -->
-            <div class="ecosystem-card">
-                <div class="relative w-full h-48 md:h-64 overflow-hidden">
-                    <img src="./images/newimages/ecosystem/defi-future.webp" alt="Future"
-                        class="w-full h-full object-cover opacity-100">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag">Future</span>
-                    <h3 class="card-title">Expanding the Private Economy</h3>
-                    <p class="card-description">From staking to comprehensive private DeFi, Salvium is evolving to
-                        support next-generation financial applications with balanced compliance and privacy.</p>
-                    <a href="{% link about.html %}" class="card-link">Learn More <i
-                            class="fa-solid fa-chevron-down"></i></a>
-                </div>
-            </div>
-
-            <!-- Additional Card -->
-            <div class="ecosystem-card">
-                <div class="relative w-full h-48 md:h-64 overflow-hidden">
-                    <img src="./images/newimages/ecosystem/compliance.webp" alt="Compliance"
-                        class="w-full h-full object-cover opacity-100">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag">Compliance</span>
-                    <h3 class="card-title">Privacy with Accountability</h3>
-                    <p class="card-description">Experience how Salvium uniquely balances user privacy with
-                        regulatory requirements through innovative cryptographic solutions.</p>
-                    <a href="{% link about.html %}" class="card-link">Learn More <i
-                            class="fa-solid fa-chevron-down"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- CTA Section -->
-<section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
-    <!-- Background Decoration -->
-    <div class="absolute inset-0">
-        <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
-        <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
-    </div>
-
-    <div class="container mx-auto px-4 text-center relative z-10">
-        <h2 class="text-4xl md:text-5xl font-bold mb-8 aos-init" data-aos="fade-up">
-            Join the <span class="gradient-text">Private DeFi</span> Revolution
-        </h2>
-        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto aos-init" data-aos="fade-up" data-aos-delay="100">
-            Experience the future of private finance with Salvium's innovative blockchain technology.
-        </p>
-        <a href="{% link download.html %}"
-            class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block aos-init"
-            data-aos="fade-up" data-aos-delay="200">
-            Get Started Now
-        </a>
-    </div>
-</section>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Salvium · The Future of Private DeFi" />
+    <meta name="twitter:description" content="The industry's first Layer 1 PoW privacy blockchain that balances enhanced privacy, regulatory compatibility, and private DeFi." />
+    <meta name="twitter:image" content="https://salvium.io/brand/banner.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
