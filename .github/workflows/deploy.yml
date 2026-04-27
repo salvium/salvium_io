@@ -63,14 +63,19 @@ jobs:
           test -s dist/manifest.json
           test -s dist/robots.txt
           test -d dist/favicon
-          # Every blog post in _posts/ should have its own /blog/<slug>/ stub
-          # AND appear in the sitemap. If these counts diverge the user-facing
-          # blog will silently lose posts.
+          # Every blog post in _posts/ should have:
+          #   - /blog/<slug>/index.html (canonical SPA stub)
+          #   - /blog/YYYY/MM/DD/<slug>/index.html (Jekyll-permalink redirect,
+          #     because Twitter / AMAs / audit reports link to those)
+          #   - one entry in sitemap.xml
+          # If these counts diverge the blog silently loses posts on deploy.
           posts=$(find _posts -maxdepth 1 -name '*.md' | wc -l)
-          stubs=$(find dist/blog -mindepth 2 -name 'index.html' | wc -l)
+          canonical=$(find dist/blog -mindepth 2 -maxdepth 2 -name 'index.html' | wc -l)
+          legacy=$(find dist/blog -mindepth 5 -name 'index.html' | wc -l)
           sitemap_posts=$(grep -cE '<loc>https://salvium\.io/blog/[^<]+</loc>' dist/sitemap.xml)
-          echo "posts=$posts stubs=$stubs sitemap_posts=$sitemap_posts"
-          [ "$posts" -eq "$stubs" ]
+          echo "posts=$posts canonical=$canonical legacy=$legacy sitemap_posts=$sitemap_posts"
+          [ "$posts" -eq "$canonical" ]
+          [ "$posts" -eq "$legacy" ]
           [ "$posts" -eq "$sitemap_posts" ]
           # Sanity: the production CSS bundle should contain at least one
           # token actually used at runtime — guards against Tailwind purging
