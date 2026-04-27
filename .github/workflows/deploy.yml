@@ -17,10 +17,17 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      # Actions are pinned to commit SHAs (not floating tags) because this
+      # workflow has id-token: write — a compromised tagged release would
+      # let an attacker mint OIDC tokens against our production environment.
+      # SHA-pinning is GitHub's recommended hardening for such workflows.
+      # Comments next to each SHA list the corresponding tag for human review.
+      # Dependabot can keep these current via the github-actions ecosystem.
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4
         with:
           node-version: 20
           cache: npm
@@ -29,19 +36,59 @@ jobs:
         run: npm ci
 
       - name: Build site
+        env:
+          # Enables strict mode in scripts/build-blog.mjs so a malformed post
+          # or empty _posts/ fails the build instead of silently shipping
+          # broken content.
+          NODE_ENV: production
         run: npm run build
 
+      - name: Validate build artifact
+        # Smoke test the deploy artifact before upload. Catches: empty
+        # build, broken SPA fallback, missing redirect stubs, sitemap
+        # drift from posts, missing per-post stub. One failure here is
+        # cheaper to fix than a broken production deploy.
+        run: |
+          set -euo pipefail
+          test -s dist/index.html
+          test -s dist/404.html
+          # 404.html must be byte-identical to index.html — that's how
+          # GitHub Pages serves the SPA on unknown paths after the first
+          # static-stub layer.
+          cmp dist/index.html dist/404.html
+          test -s dist/CNAME
+          grep -q '^salvium\.io$' dist/CNAME
+          test -s dist/sitemap.xml
+          test -s dist/feed.xml
+          test -s dist/manifest.json
+          test -s dist/robots.txt
+          test -d dist/favicon
+          # Every blog post in _posts/ should have its own /blog/<slug>/ stub
+          # AND appear in the sitemap. If these counts diverge the user-facing
+          # blog will silently lose posts.
+          posts=$(find _posts -maxdepth 1 -name '*.md' | wc -l)
+          stubs=$(find dist/blog -mindepth 2 -name 'index.html' | wc -l)
+          sitemap_posts=$(grep -cE '<loc>https://salvium\.io/blog/[^<]+</loc>' dist/sitemap.xml)
+          echo "posts=$posts stubs=$stubs sitemap_posts=$sitemap_posts"
+          [ "$posts" -eq "$stubs" ]
+          [ "$posts" -eq "$sitemap_posts" ]
+          # Sanity: the production CSS bundle should contain at least one
+          # token actually used at runtime — guards against Tailwind purging
+          # everything if the content globs ever break.
+          grep -q -E '\.text-teal\b|\.os-chip\b' dist/assets/index-*.css
+
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa  # v3
         with:
           path: dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e  # v4
