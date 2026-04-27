@@ -8,6 +8,7 @@ import {
   FileText, Calendar, Clock, Tag, ArrowLeft,
   RotateCcw, Terminal, Wallet, BookOpen, Smartphone, Globe,
   HelpCircle, TrendingUp, Pickaxe, ArrowLeftRight, Server, Search,
+  Copy, Heart, AlertTriangle,
 } from 'lucide-react'
 
 import { SEED_POSTS, ROADMAP, PRIVACY_FLOW, STATS, TOKENOMICS } from './data/seed.js'
@@ -2281,6 +2282,86 @@ function ToolsPage() {
   )
 }
 
+// Donation addresses for the project. These are project-controlled — they fund
+// development, audits, and community initiatives. Always verify before sending.
+const DONATE_ADDRESSES = [
+  {
+    label: 'Standard Donation Address',
+    description: 'Use this for regular SAL donations.',
+    address: 'SaLvdTpya4SEgMWDVQ9eDsgJJEwhB2pb5N4YZPMeVjg4BpwoigpKuTMS1TC92ziNyu5EvKaXLMy2LX8PXa1kNsRjBSYPTgyc3J5',
+  },
+  {
+    label: 'Carrot Donation Address',
+    description: 'Use this Carrot address if your wallet supports it.',
+    address: 'SC11SxSj5yuT71WCWB1VsthazjnakytLLZrdpD3k7RKGVQEWH57w6zNbvhvP14dheJNiGwvwy3Fp915khxe1KMGuAea3anrm8a',
+  },
+]
+
+function DonateAddressCard({ entry }) {
+  // Local state for "copied" feedback. Resets after 2s so users can copy again.
+  const [copied, setCopied] = useState(false)
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(entry.address)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error('[DonateAddressCard] clipboard write failed:', err)
+    }
+  }
+  return (
+    <div className="glass rounded-2xl p-6">
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <h2 className="font-display text-xl md:text-2xl font-semibold text-white">{entry.label}</h2>
+          <p className="mt-1 text-sm text-white/65">{entry.description}</p>
+        </div>
+        <button
+          type="button"
+          onClick={handleCopy}
+          aria-label={`Copy ${entry.label}`}
+          className="shrink-0 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/15 bg-white/5 hover:bg-white/10 text-xs font-mono uppercase tracking-[0.18em] text-white/85 transition-colors"
+        >
+          {copied ? <CheckCircle2 size={13} /> : <Copy size={13} />}
+          {copied ? 'Copied' : 'Copy'}
+        </button>
+      </div>
+      <div className="mt-4 rounded-lg border border-white/10 bg-black/30 p-4">
+        <p className="font-mono text-sm md:text-base break-all text-white/90 leading-relaxed">
+          {entry.address}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+function DonatePage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="/ Donate"
+        title="Support Salvium"
+        intro="Your support funds development, audits, and community initiatives. Thank you."
+      />
+      <section className="relative pb-12">
+        <div className="max-w-3xl mx-auto px-5 lg:px-8 space-y-5">
+          {DONATE_ADDRESSES.map((entry) => (
+            <DonateAddressCard key={entry.label} entry={entry} />
+          ))}
+          <div className="rounded-2xl border border-yellow-500/25 bg-yellow-100/[0.04] p-5 flex items-start gap-3">
+            <AlertTriangle size={18} className="text-yellow-200/85 shrink-0 mt-0.5" />
+            <p className="text-sm text-yellow-100/85 leading-relaxed">
+              Always verify the address before sending. On-chain transactions are irreversible —
+              double-check every character matches what&rsquo;s shown above.
+            </p>
+          </div>
+        </div>
+      </section>
+      <FinalCTA />
+    </>
+  )
+}
+
 function ExchangesPage() {
   return (
     <>
@@ -2411,7 +2492,6 @@ export default function App() {
     '/download': '/#products',
     '/community': '/#community',
     '/roadmap': '/#roadmap',
-    '/donate': '/#community',
   }
   useEffect(() => {
     const target = HOME_SECTION_REDIRECTS[route]
@@ -2430,6 +2510,7 @@ export default function App() {
     case '/tools':     page = <ToolsPage />; break
     case '/exchanges': page = <ExchangesPage />; break
     case '/pools':     page = <PoolsPage />; break
+    case '/donate':    page = <DonatePage />; break
     case '/blog':      page = (
       <>
         <Blog posts={posts} />
@@ -2440,7 +2521,6 @@ export default function App() {
     case '/download':
     case '/community':
     case '/roadmap':
-    case '/donate':
       page = (
         <>
           <Hero />
