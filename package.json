@@ -8,7 +8,7 @@
     "dev": "vite",
     "prebuild": "node scripts/build-blog.mjs",
     "build": "vite build",
-    "postbuild": "node scripts/spa-404.mjs && node scripts/build-sitemap.mjs && node scripts/build-redirects.mjs",
+    "postbuild": "node scripts/spa-404.mjs && node scripts/build-sitemap.mjs && node scripts/build-redirects.mjs && node scripts/build-blog-stubs.mjs",
     "preview": "vite preview",
     "build:blog": "node scripts/build-blog.mjs"
   },

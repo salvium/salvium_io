@@ -34,7 +34,11 @@ async function main() {
   const urls = [
     ...STATIC_ROUTES.map((r) => ({ loc: SITE + r, lastmod: today })),
     ...postFiles.map((f) => ({
-      loc: `${SITE}/blog#${slugFromFilename(f)}`,
+      // /blog/<slug> not /blog#<slug>: search engines treat fragments as the
+      // same canonical URL, so individual posts only get indexed when each
+      // has its own pathname. The build-blog-stubs script emits a real
+      // index.html for each so the URL returns 200 (not the SPA 404 fallback).
+      loc: `${SITE}/blog/${slugFromFilename(f)}`,
       lastmod: dateFromFilename(f) || today,
     })),
   ]

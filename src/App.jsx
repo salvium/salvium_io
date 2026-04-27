@@ -1272,7 +1272,7 @@ function Roadmap() {
 function MarkdownLink({ href = '', children, ...rest }) {
   const blogMatch = /^https?:\/\/(?:www\.)?salvium\.io\/blog\/\d{4}\/\d{2}\/\d{2}\/([^/?#]+)\/?/i.exec(href)
   if (blogMatch) {
-    return <Link to={`/blog#${blogMatch[1]}`}>{children}</Link>
+    return <Link to={`/blog/${blogMatch[1]}`}>{children}</Link>
   }
   // Other same-origin salvium.io paths: send to home (downloads, knowledge-base, etc.).
   const sameOrigin = /^https?:\/\/(?:www\.)?salvium\.io\//i.test(href)
@@ -1347,7 +1347,7 @@ function BlogPreview({ posts }) {
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {latest.map((p, i) => (
             <Reveal key={p.id} delay={i * 60}>
-              <Link to={`/blog#${p.id}`} className="s-card h-full pb-16 text-left flex flex-col w-full">
+              <Link to={`/blog/${p.id}`} className="s-card h-full pb-16 text-left flex flex-col w-full">
                 <BlogCover post={p} />
                 <div className="mt-5 flex items-center justify-between gap-3 text-[11px]">
                   <span className="font-mono uppercase tracking-[0.18em] text-teal">{p.category}</span>
@@ -1375,24 +1375,25 @@ function BlogPreview({ posts }) {
 }
 
 function Blog({ posts }) {
-  const initialId = typeof window !== 'undefined' ? window.location.hash.replace(/^#/, '') : ''
-  const hasInitial = initialId && posts.some((p) => p.id === initialId)
-  const [view, setView] = useState(hasInitial ? { mode: 'post', id: initialId } : { mode: 'list', id: null })
+  // The URL is the source of truth for which post (if any) is selected.
+  // /blog/<slug> shows that post; legacy /blog#<slug> still resolves the same
+  // way so old shared links don't break. usePath re-renders on navigation so
+  // pushState in <Link> propagates here without extra wiring.
+  const fullPath = usePath()
+  const pathPart = fullPath.split('#')[0] || '/'
+  const slugFromPath = pathPart.match(/^\/blog\/([^/]+)\/?$/)?.[1] || ''
+  const slugFromHash = fullPath.split('#')[1] || ''
+  const requestedId = decodeURIComponent(slugFromPath || slugFromHash)
+  const current = requestedId ? posts.find((p) => p.id === requestedId) : null
+  const mode = current ? 'post' : 'list'
+
   const [filter, setFilter] = useState('All')
-
-  useEffect(() => {
-    const onHash = () => {
-      const id = window.location.hash.replace(/^#/, '')
-      if (id && posts.some((p) => p.id === id)) {
-        setView({ mode: 'post', id })
-        window.scrollTo({ top: 0, behavior: 'auto' })
-      }
-    }
-    window.addEventListener('hashchange', onHash)
-    return () => window.removeEventListener('hashchange', onHash)
-  }, [posts])
-
   const [query, setQuery] = useState('')
+
+  // Reset scroll on each navigation between list ↔ post views.
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' })
+  }, [requestedId])
 
   const categoryCounts = useMemo(() => {
     const counts = {}
@@ -1418,21 +1419,19 @@ function Blog({ posts }) {
     return [...list].sort((a, b) => (a.date < b.date ? 1 : -1))
   }, [posts, filter, query])
 
-  const current = posts.find((p) => p.id === view.id)
-
   // ── Post detail view ────────────────────────────────────────────────────
-  if (view.mode === 'post' && current) {
+  if (mode === 'post' && current) {
     return (
       <>
         <PageHero eyebrow="/ Blog" title={current.title} />
         <section className="relative pb-16">
           <div className="max-w-3xl mx-auto px-5 lg:px-8">
-            <button
-              onClick={() => { setView({ mode: 'list', id: null }); if (window.location.hash) window.history.replaceState({}, '', '/blog') }}
+            <Link
+              to="/blog"
               className="text-sm text-teal hover:text-white transition-colors inline-flex items-center gap-1 mb-6"
             >
               <ArrowLeft size={14} /> Back to all posts
-            </button>
+            </Link>
             <div className="flex flex-wrap items-center gap-3 text-xs text-mute">
               <span className="pill !text-[10px]"><Tag size={11} /> {current.category}</span>
               <span className="flex items-center gap-1.5 font-mono"><Calendar size={12} /> {formatDate(current.date)}</span>
@@ -1534,10 +1533,10 @@ function Blog({ posts }) {
               ) : (
                 <div className="grid md:grid-cols-2 gap-4">
                   {visible.map((p) => (
-                    <button
+                    <Link
                       key={p.id}
-                      onClick={() => { setView({ mode: 'post', id: p.id }); window.history.pushState({}, '', `/blog#${p.id}`); window.scrollTo({ top: 0, behavior: 'auto' }) }}
-                      className="s-card h-full pb-16 text-left flex flex-col w-full"
+                      to={`/blog/${p.id}`}
+                      className="s-card h-full pb-16 text-left flex flex-col w-full no-underline text-inherit"
                     >
                       <BlogCover post={p} />
                       <div className="mt-5 flex items-center justify-between gap-3 text-[11px]">
@@ -1548,7 +1547,7 @@ function Blog({ posts }) {
                       <p className="mt-3 text-sm text-white/60 leading-relaxed line-clamp-4">{p.excerpt}</p>
                       <div className="mt-auto pt-5 text-[11px] text-mute flex items-center gap-1.5 font-mono"><Clock size={11} /> {readableTime(p.body)}</div>
                       <span className="s-card-arrow"><ArrowRight size={14} /></span>
-                    </button>
+                    </Link>
                   ))}
                 </div>
               )}
@@ -2543,7 +2542,16 @@ export default function App() {
   }, [route])
 
   let page
-  switch (route) {
+  // Blog list (/blog) and individual posts (/blog/<slug>) both render the
+  // <Blog> component — it derives list-vs-post mode from the URL itself.
+  if (route === '/blog' || route.startsWith('/blog/')) {
+    page = (
+      <>
+        <Blog posts={posts} />
+        <FinalCTA />
+      </>
+    )
+  } else switch (route) {
     case '/about':     page = <AboutPage />; break
     case '/faq':       page = <FaqPage />; break
     case '/papers':    page = <PapersPage />; break
@@ -2551,12 +2559,6 @@ export default function App() {
     case '/exchanges': page = <ExchangesPage />; break
     case '/pools':     page = <PoolsPage />; break
     case '/donate':    page = <DonatePage />; break
-    case '/blog':      page = (
-      <>
-        <Blog posts={posts} />
-        <FinalCTA />
-      </>
-    ); break
     case '/':
     case '/download':
     case '/community':
