@@ -1727,7 +1727,35 @@ function Products() {
           </div>
         </Reveal>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-5">
+        {/* Post-fork upgrade notice. The Salvium hard fork completed at block
+            465,000 on 13 April 2026; legacy v1.0.x builds and unupdated GUI
+            wallets can no longer sync. Surfacing this above the download cards
+            so users understand WHY they need the latest binary, not just that
+            one exists. */}
+        <Reveal>
+          <div
+            role="alert"
+            aria-live="polite"
+            className="mt-10 max-w-4xl mx-auto rounded-2xl border border-yellow-500/30 bg-gradient-to-br from-yellow-100/[0.06] via-yellow-200/[0.03] to-transparent p-5 backdrop-blur"
+          >
+            <div className="flex items-start gap-3">
+              <AlertTriangle size={20} className="text-yellow-300 shrink-0 mt-0.5" />
+              <div className="text-yellow-100/90 text-left">
+                <p className="font-semibold text-yellow-200">
+                  Upgrade required: legacy wallets and nodes no longer work.
+                </p>
+                <p className="mt-1.5 text-sm text-yellow-100/85 leading-relaxed">
+                  The Salvium hard fork completed at block <strong>465,000</strong> on
+                  <strong> 13 April 2026</strong>. Legacy GUI wallets and any CLI build older
+                  than <strong>v1.1.x</strong> can no longer sync with the network. Pick the
+                  latest GUI Wallet or CLI below.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="mt-10 grid md:grid-cols-2 gap-5">
           <Reveal>
             <div className="product-card h-full">
               <div className="px-8 pt-10 pb-6 text-center">
@@ -1752,6 +1780,18 @@ function Products() {
                   </a>
                 </div>
                 <OsChips state={wallet} releasesUrl={WALLET_FALLBACK} />
+                {/* macOS-only hint: the .dmg is unsigned, so Gatekeeper labels
+                    it "damaged" on first launch. The fix is to clear the
+                    quarantine attribute. Surfacing the exact command saves a
+                    support cycle every time a Mac user downloads. */}
+                <p className="mt-4 text-xs text-white/55 leading-relaxed max-w-md mx-auto">
+                  <strong className="text-yellow-200/85 font-semibold">macOS:</strong>{' '}
+                  the build is unsigned. If macOS reports it as &ldquo;damaged&rdquo;, open Terminal
+                  and run:
+                  <code className="block mt-2 px-3 py-2 bg-black/40 rounded text-[#40E0D0] text-[11px] break-all font-mono">
+                    xattr -cr /Applications/salvium-wallet-gui.app
+                  </code>
+                </p>
               </div>
               <div className="product-visual">
                 <div className="relative z-10 flex flex-col items-center gap-3">
