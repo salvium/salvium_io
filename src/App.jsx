@@ -1564,88 +1564,146 @@ function Blog({ posts }) {
 // ---------------------------------------------------------------------------
 // PRODUCTS — Salvium Wallet + Salvium One (qubic-style two-up)
 // ---------------------------------------------------------------------------
-// Filename patterns per OS used to pick the right asset from a GitHub release.
+// Filename patterns per OS, in priority order — first match wins. Listing
+// multiple patterns per OS lets us gracefully fall through architectures
+// (e.g. macOS Apple Silicon preferred, fallback to Intel; Linux x86_64
+// preferred, fallback to aarch64). Without this, an Intel-Mac or ARM-Linux
+// user would silently get the releases page instead of a working binary.
 const WALLET_PATTERNS = {
-  windows: /windows-x64.*\.zip$/i,
-  macos:   /(\.dmg$|macos.*\.zip$)/i,
-  linux:   /linux-x64.*\.zip$/i,
+  windows: [/windows-x64.*\.zip$/i, /win.*\.zip$/i],
+  macos:   [/\.dmg$/i, /macos.*\.zip$/i],
+  linux:   [/linux-x64.*\.zip$/i, /linux-x86_64.*\.zip$/i, /linux.*\.zip$/i],
 }
 const CLI_PATTERNS = {
-  windows: /win64.*\.zip$/i,
-  macos:   /macos-(aarch64|arm64).*\.zip$/i,
-  linux:   /linux-x86_64.*\.zip$/i,
+  windows: [/win64.*\.zip$/i],
+  macos:   [/macos-(aarch64|arm64).*\.zip$/i, /macos-x86_64.*\.zip$/i],
+  linux:   [/linux-x86_64.*\.zip$/i, /linux-aarch64.*\.zip$/i],
 }
 
 // Fallback to the GitHub releases page if the API call fails (rate limit, offline).
 const WALLET_FALLBACK = 'https://github.com/salvium/salvium-gui/releases/latest'
 const CLI_FALLBACK    = 'https://github.com/salvium/salvium/releases/latest'
 
-// Resolve the latest-release asset URLs for a given GitHub repo by OS.
-// Uses sessionStorage so we hit the API at most once per page session.
+// A real release-asset URL looks like /<owner>/<repo>/releases/download/...
+// The /releases/latest *page* URL doesn't match — useful for distinguishing
+// "real binary link" from "fallback page link" when validating cached state.
+function isAssetUrl(s) {
+  return typeof s === 'string' &&
+    /^https:\/\/github\.com\/[^/]+\/[^/]+\/releases\/download\//.test(s)
+}
+function allAssetUrls(links) {
+  return links && typeof links === 'object' &&
+    isAssetUrl(links.windows) && isAssetUrl(links.macos) && isAssetUrl(links.linux)
+}
+
+// Resolve latest-release asset URLs for a GitHub repo. Returns:
+//   { status: 'loading' | 'ready' | 'error', links: { windows, macos, linux }, error }
+// On any failure (rate limit, network error, malformed JSON) status='error'
+// and links contain the releases-page fallback so the chips still go *somewhere*
+// useful. Only successful asset URLs are cached — failures are NOT cached so
+// a single rate-limit hit doesn't poison the whole session.
 function useLatestRelease(owner, repo, patterns, fallback) {
-  const [links, setLinks] = useState({ windows: fallback, macos: fallback, linux: fallback })
+  const fallbackLinks = { windows: fallback, macos: fallback, linux: fallback }
+  const [state, setState] = useState({ status: 'loading', links: fallbackLinks, error: null })
+
   useEffect(() => {
     let alive = true
     const cacheKey = `gh-latest:${owner}/${repo}`
+
+    // Try cache — but only trust it if every entry is a real asset URL.
+    // A poisoned cache (e.g. previous session cached the fallback page URL)
+    // is dropped so the next fetch can recover.
     try {
-      const cached = sessionStorage.getItem(cacheKey)
-      if (cached) {
-        const parsed = JSON.parse(cached)
-        if (parsed && parsed.windows) { setLinks(parsed); return () => { alive = false } }
+      const raw = sessionStorage.getItem(cacheKey)
+      if (raw) {
+        const parsed = JSON.parse(raw)
+        if (allAssetUrls(parsed)) {
+          setState({ status: 'ready', links: parsed, error: null })
+          return () => { alive = false }
+        }
+        sessionStorage.removeItem(cacheKey)
       }
-    } catch {}
+    } catch (e) {
+      console.warn(`[useLatestRelease ${owner}/${repo}] cache parse failed:`, e)
+      try { sessionStorage.removeItem(cacheKey) } catch {}
+    }
 
     fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`, {
       headers: { Accept: 'application/vnd.github+json' },
     })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((data) => {
-        if (!alive || !data || !Array.isArray(data.assets)) return
-        const next = { windows: fallback, macos: fallback, linux: fallback }
+      .then(async (r) => {
+        if (!r.ok) throw new Error(`GitHub API ${r.status} ${r.statusText}`)
+        const data = await r.json()
+        if (!data || !Array.isArray(data.assets)) throw new Error('Malformed release JSON')
+        if (!alive) return
+        const next = { ...fallbackLinks }
         for (const os of Object.keys(patterns)) {
-          const hit = data.assets.find((a) => patterns[os].test(a.name))
-          if (hit && hit.browser_download_url) next[os] = hit.browser_download_url
+          for (const re of patterns[os]) {
+            const hit = data.assets.find((a) => re.test(a.name))
+            if (hit?.browser_download_url) { next[os] = hit.browser_download_url; break }
+          }
         }
-        setLinks(next)
-        try { sessionStorage.setItem(cacheKey, JSON.stringify(next)) } catch {}
+        setState({ status: 'ready', links: next, error: null })
+        if (allAssetUrls(next)) {
+          try { sessionStorage.setItem(cacheKey, JSON.stringify(next)) } catch {}
+        }
       })
-      .catch(() => { /* keep fallback */ })
+      .catch((err) => {
+        if (!alive) return
+        console.error(`[useLatestRelease ${owner}/${repo}]`, err)
+        setState({ status: 'error', links: fallbackLinks, error: err.message })
+      })
+
     return () => { alive = false }
   }, [owner, repo, fallback])
-  return links
+
+  return state
 }
 
 // Renders a row of compact platform chips. Accepts either:
-//   - links={{ windows, macos, linux }} (default OS triplet)
+//   - state={ status, links } from useLatestRelease (GUI/CLI products)
 //   - items=[{ label, href }] (custom set, e.g. Android/iOS/Desktop)
-function OsChips({ links, items }) {
-  const list = items ?? [
-    { label: 'Windows', href: links?.windows },
-    { label: 'macOS',   href: links?.macos },
-    { label: 'Linux',   href: links?.linux },
-  ]
+// On error status, chips still link to the fallback (releases page) and a
+// small inline notice tells the user GitHub couldn't be reached.
+function OsChips({ state, items, releasesUrl }) {
+  const list = items ?? (state ? [
+    { label: 'Windows', href: state.links.windows },
+    { label: 'macOS',   href: state.links.macos },
+    { label: 'Linux',   href: state.links.linux },
+  ] : [])
+  const isError = state?.status === 'error'
   return (
-    <div className="mt-4 flex flex-wrap justify-center gap-2">
-      {list.map(({ label, href }) => (
-        <a
-          key={label}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="os-chip"
-          aria-label={`Download for ${label}`}
-        >
-          <Download size={11} />
-          {label}
-        </a>
-      ))}
+    <div className="mt-4 flex flex-col items-center gap-2">
+      <div className="flex flex-wrap justify-center gap-2">
+        {list.map(({ label, href }) => (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="os-chip"
+            aria-label={`Download for ${label}`}
+          >
+            <Download size={11} />
+            {label}
+          </a>
+        ))}
+      </div>
+      {isError && releasesUrl && (
+        <p className="text-[10px] text-yellow-200/80 font-mono uppercase tracking-[0.18em]">
+          Couldn&rsquo;t reach GitHub.{' '}
+          <a href={releasesUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-100">
+            Open releases
+          </a>
+        </p>
+      )}
     </div>
   )
 }
 
 function Products() {
-  const walletLinks = useLatestRelease('salvium', 'salvium-gui', WALLET_PATTERNS, WALLET_FALLBACK)
-  const cliLinks    = useLatestRelease('salvium', 'salvium',     CLI_PATTERNS,    CLI_FALLBACK)
+  const wallet = useLatestRelease('salvium', 'salvium-gui', WALLET_PATTERNS, WALLET_FALLBACK)
+  const cli    = useLatestRelease('salvium', 'salvium',     CLI_PATTERNS,    CLI_FALLBACK)
   return (
     <section id="products" className="section-chapter relative py-20 md:py-36">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
@@ -1692,7 +1750,7 @@ function Products() {
                     <Github size={14} /> Source
                   </a>
                 </div>
-                <OsChips links={walletLinks} />
+                <OsChips state={wallet} releasesUrl={WALLET_FALLBACK} />
               </div>
               <div className="product-visual">
                 <div className="relative z-10 flex flex-col items-center gap-3">
@@ -1730,7 +1788,7 @@ function Products() {
                     <Github size={14} /> Source
                   </a>
                 </div>
-                <OsChips links={cliLinks} />
+                <OsChips state={cli} releasesUrl={CLI_FALLBACK} />
               </div>
               <div className="product-visual">
                 <div className="relative z-10 flex flex-col items-center gap-3">
