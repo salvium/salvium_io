@@ -1140,6 +1140,7 @@ function Tokenomics() {
                 aria-hidden="true"
                 className="absolute -right-16 -bottom-16 w-72 opacity-[0.06] pointer-events-none select-none"
                 draggable="false"
+                onError={(e) => { e.currentTarget.style.display = 'none' }}
               />
               <div className="relative text-xs uppercase tracking-[0.18em] text-mute mb-3">Capped supply distribution</div>
               <div className="h-3 w-full rounded-full overflow-hidden flex bg-white/5">
@@ -1305,10 +1306,25 @@ function BlogCover({ post, eager = false }) {
   const cat = (post.category || 'default').toLowerCase().replace(/[^a-z0-9]+/g, '-')
   const knownCats = ['compliance', 'engineering', 'release', 'whitepaper', 'security', 'update']
   const palette = knownCats.includes(cat) ? `bc-${cat}` : 'bc-default'
+  // Track whether the cover image failed to load. When it does we fall back
+  // to the category-coloured placeholder instead of leaving a broken-image
+  // icon in the UI. Without this, a renamed/missing cover silently shows the
+  // browser default broken-image — visually ugly and provides no clue to
+  // the author that they shipped a typo'd path.
+  const [coverFailed, setCoverFailed] = useState(false)
+  const showImage = post.cover && !coverFailed
   return (
     <div className="blog-cover">
-      {post.cover ? (
-        <img src={post.cover} alt={post.title} loading={eager ? 'eager' : 'lazy'} />
+      {showImage ? (
+        <img
+          src={post.cover}
+          alt={post.title}
+          loading={eager ? 'eager' : 'lazy'}
+          onError={() => {
+            console.warn('[BlogCover] cover image failed to load:', post.cover)
+            setCoverFailed(true)
+          }}
+        />
       ) : (
         <div className={`blog-cover-fallback ${palette}`}>
           <span className="cat-label">{post.category}</span>
@@ -1992,6 +2008,10 @@ function Footer() {
                 alt="Salvium"
                 className="h-14 w-14 block select-none"
                 draggable="false"
+                onError={(e) => {
+                  console.warn('[footer logo] failed to load:', ASSET.coinCircleWhite)
+                  e.currentTarget.style.display = 'none'
+                }}
               />
             </a>
             <p className="mt-6 text-white/65 max-w-sm">
