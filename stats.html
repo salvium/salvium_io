@@ -6,27 +6,24 @@ redirect_from:
 ---
 
 <main>
-    <!-- Hero Section -->
-    <section class="relative">
-        <!-- Hero Image -->
-        <div class="absolute inset-0">
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="page-hero__bg">
             <picture>
-                <source srcset="./images/newimages/Stats.webp" type="image/webp">
-                <img src="{{ site.baseurl }}/images/newimages/Stats.png" alt="Statistics Header"
-                    class="w-full h-full object-cover opacity-30">
+                <source srcset="{{ site.baseurl }}/images/newimages/Stats.webp" type="image/webp">
+                <img src="{{ site.baseurl }}/images/newimages/Stats.png" alt="">
             </picture>
-            <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-75"></div>
+            <div class="page-hero__overlay"></div>
         </div>
-        <div class="relative z-10 py-24 lg:py-32">
-            <div class="container mx-auto px-4 text-center">
-                <div class="max-w-4xl mx-auto">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-center">
-                        Network <span class="gradient-text">Statistics</span>
-                    </h1>
-                    <p class="text-xl text-gray-300 mb-8 text-center">
-                        Track Salvium's network performance, supply metrics, and market activity in real-time.
-                    </p>
-                </div>
+        <div class="container relative z-10">
+            <div class="page-hero__inner" data-aos="fade-up" data-aos-duration="900">
+                <span class="section-eyebrow">Live Data</span>
+                <h1 class="page-hero__title">
+                    Network <span class="gradient-text">Statistics</span>
+                </h1>
+                <p class="page-hero__lede">
+                    Track Salvium's network performance, supply metrics, and market activity in real-time.
+                </p>
             </div>
         </div>
     </section>
@@ -48,25 +45,21 @@ redirect_from:
     </section>
 </main>
 
-<!-- CTA Section -->
-<section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
-    <!-- Background Decoration -->
-    <div class="absolute inset-0">
-        <img src="{{ site.baseurl }}/images/pools-1024.webp" alt=""
-            class="absolute w-full h-full object-cover opacity-20">
-        <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+<!-- CTA -->
+<section class="page-cta">
+    <div class="page-cta__bg">
+        <img src="{{ site.baseurl }}/images/pools-1024.webp" alt="">
+        <div class="page-cta__overlay"></div>
     </div>
-
-    <div class="container mx-auto px-4 text-center relative z-10">
-        <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+    <div class="container relative z-10 text-center">
+        <span class="section-eyebrow" data-aos="fade-up">Get Started</span>
+        <h2 class="page-cta__title" data-aos="fade-up" data-aos-delay="100">
             Ready to Take the <span class="gradient-text">Pill</span>?
         </h2>
-        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        <p class="page-cta__lede" data-aos="fade-up" data-aos-delay="200">
             Start your journey with Salvium today and be part of the next generation of Private DeFi.
         </p>
-        <a href="{% link download.html %}"
-            class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block"
-            data-aos="fade-up" data-aos-delay="200">
+        <a href="{% link download.html %}" class="btn-primary page-cta__btn" data-aos="fade-up" data-aos-delay="300">
             Get Started Now
         </a>
     </div>
