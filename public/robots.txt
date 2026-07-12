@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap discovery for crawlers. Production cutover overrides this in CI
+# via the SITE_URL env var; the file in /public is the preview default.
+Sitemap: https://salvium.io/sitemap-index.xml

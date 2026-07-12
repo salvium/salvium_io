@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+import { PAPERS_CONTENT } from '../data/pages.js';
+import { href } from '../lib/href';
+
+// Lite paper PDFs live in public/docs/ — make sure each href() goes through
+// the base-URL helper so preview deploys at /salvium-site/ resolve correctly.
+function resolveHref(p) {
+  return p.href.startsWith('/') ? href(p.href) : p.href;
+}
+---
+
+<Layout title="Papers" description="Whitepapers and litepapers documenting the Salvium Protocol.">
+  <PageHero
+    eyebrow="/ Papers"
+    title="Whitepapers &amp; lite papers"
+    intro="Deep dives into the architecture, privacy primitives, and economic model. Available in English plus eight translated litepapers."
+  />
+  <section class="relative pb-16">
+    <div class="max-w-6xl mx-auto px-5 lg:px-8">
+      <h2 class="font-mono text-[11px] uppercase tracking-[0.22em] text-[color:var(--color-teal)] mb-4">
+        White paper
+      </h2>
+      <div class="grid sm:grid-cols-2 gap-4 mb-12">
+        {PAPERS_CONTENT.whitePapers.map((p) => (
+          <a href={resolveHref(p)} target="_blank" rel="noopener noreferrer" class="glass p-6 hover:border-[color:var(--color-teal)]/40 transition-colors block">
+            <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-teal)]">
+              {p.lang}
+            </div>
+            <h3 class="mt-3 font-display text-lg font-semibold text-white">{p.title}</h3>
+            <p class="mt-2 text-sm text-white/65 leading-relaxed">{p.desc}</p>
+            <span class="mt-4 inline-flex items-center gap-2 text-sm text-[color:var(--color-teal)]">Read paper ↗</span>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="font-mono text-[11px] uppercase tracking-[0.22em] text-[color:var(--color-teal)] mb-4">
+        Lite papers (translated)
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {PAPERS_CONTENT.litePapers.map((p) => (
+          <a href={resolveHref(p)} target="_blank" rel="noopener noreferrer" class="glass p-5 hover:border-[color:var(--color-teal)]/40 transition-colors block">
+            <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-teal)]">
+              {p.lang}
+            </div>
+            <h3 class="mt-2 font-display text-base font-semibold text-white">{p.title}</h3>
+            <p class="mt-2 text-sm text-white/60 leading-relaxed">{p.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+</Layout>

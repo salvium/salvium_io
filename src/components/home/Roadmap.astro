@@ -1,0 +1,60 @@
+---
+import Reveal from '../Reveal.astro';
+import SectionEyebrow from '../SectionEyebrow.astro';
+import { ROADMAP } from '../../data/seed.js';
+
+// Status badge — small dot + label, coloured by phase status. Direct port
+// of siko-ctrl's StatusBadge component.
+function badgeFor(status: string) {
+  if (status === 'completed')   return { text: 'Completed',   text_class: 'text-[color:var(--color-teal)]', dot: 'bg-[color:var(--color-teal)]' };
+  if (status === 'in-progress') return { text: 'In progress', text_class: 'text-white',                     dot: 'bg-white' };
+  return                              { text: 'Upcoming',    text_class: 'text-[color:var(--color-text-lighter)]', dot: 'border border-[color:var(--color-text-lighter)]/60' };
+}
+---
+
+<section id="roadmap" class="section-chapter relative py-20 md:py-36">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <Reveal>
+      <div class="max-w-3xl">
+        <SectionEyebrow num="05" label="Roadmap" />
+        <h2 class="chapter-title mt-6">
+          Our journey to revolutionize private DeFi.
+        </h2>
+      </div>
+    </Reveal>
+
+    <div class="mt-12 relative">
+      <div class="grid lg:grid-cols-4 gap-5">
+        {ROADMAP.map((p, i) => {
+          const b = badgeFor(p.status);
+          return (
+            <Reveal delay={i * 110}>
+              <div class="relative">
+                <div class="s-card h-full">
+                  <div class="flex items-center justify-between gap-3">
+                    <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-[color:var(--color-text-lighter)]">
+                      {p.phase}
+                    </span>
+                    <span class:list={['inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.14em] font-medium font-display', b.text_class]}>
+                      <span class:list={['w-1.5 h-1.5 rounded-full', b.dot]}></span>
+                      {b.text}
+                    </span>
+                  </div>
+                  <h3 class="mt-4 text-xl font-display font-semibold text-white tracking-tight">{p.title}</h3>
+                  <ul class="mt-5 space-y-2 list-none p-0">
+                    {p.bullets.map((bullet) => (
+                      <li class="flex gap-2.5 text-sm text-white/70 leading-relaxed">
+                        <span class="mt-2 w-1 h-1 shrink-0 rounded-full bg-[color:var(--color-teal)]"></span>
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Reveal>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>

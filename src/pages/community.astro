@@ -1,0 +1,19 @@
+---
+// /community — standalone page that wraps the home-page Community section
+// in a dedicated route. Footer / nav links resolve here instead of jumping
+// to a home anchor; old Jekyll /community.html bookmarks land cleanly.
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Community from '../components/home/Community.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+---
+
+<Layout title="Community" description="Join the Salvium community on X, Telegram, Discord, GitHub, and Reddit.">
+  <PageHero
+    eyebrow="/ Community"
+    title="Join the network"
+    intro="Builders, miners, holders, and the curious — gather where the conversation actually happens."
+  />
+  <Community />
+  <FinalCTA />
+</Layout>

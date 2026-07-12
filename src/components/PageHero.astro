@@ -1,0 +1,27 @@
+---
+// Reusable page hero shared by every secondary page (about, faq, papers,
+// tools, exchanges, pools, donate). Keeps eyebrow + title + intro consistent
+// across the site so Phase 2 components don't each invent their own header.
+interface Props {
+  eyebrow: string;
+  title: string;
+  intro?: string;
+}
+const { eyebrow, title, intro } = Astro.props;
+---
+
+<section class="relative pt-24 md:pt-36 pb-12 md:pb-16">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="font-mono text-[11px] uppercase tracking-[0.32em] text-[color:var(--color-teal)]">
+      {eyebrow}
+    </div>
+    <h1 class="chapter-title mt-5">
+      {title}
+    </h1>
+    {intro && (
+      <p class="mt-6 text-white/70 max-w-3xl text-lg leading-relaxed">
+        {intro}
+      </p>
+    )}
+  </div>
+</section>

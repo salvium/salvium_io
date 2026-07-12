@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-07-12T14:39:29.112Z",
+  "products": {
+    "wallet": {
+      "version": "v1.1.3c",
+      "releasedAt": "2026-07-08T09:52:16Z",
+      "releaseUrl": "https://github.com/salvium/salvium-gui/releases/tag/v1.1.3c",
+      "platforms": {
+        "windows": {
+          "name": "salvium-gui-windows-x64.zip",
+          "url": "https://github.com/salvium/salvium-gui/releases/download/v1.1.3c/salvium-gui-windows-x64.zip",
+          "sha256": "3c224578090a8fc2608ab7626ee1c6fb70272c945fcc6ea12eee2ded3a4634db",
+          "size": 47083816
+        },
+        "macos": {
+          "name": "salvium-gui-unsigned.dmg",
+          "url": "https://github.com/salvium/salvium-gui/releases/download/v1.1.3c/salvium-gui-unsigned.dmg",
+          "sha256": "f5b65f29f4f7246b0d31424b460ca548df074d5e846d5839ac0decd0c16b76ca",
+          "size": 88965671
+        },
+        "linux": {
+          "name": "salvium-gui-linux-x64-static.zip",
+          "url": "https://github.com/salvium/salvium-gui/releases/download/v1.1.3c/salvium-gui-linux-x64-static.zip",
+          "sha256": "092c2d9a820c02ef897fea768e13e138b1f96c4aba98fa41a392c14c5bf9a5fe",
+          "size": 58924870
+        }
+      }
+    },
+    "cli": {
+      "version": "v1.1.3c",
+      "releasedAt": "2026-07-02T11:41:42Z",
+      "releaseUrl": "https://github.com/salvium/salvium/releases/tag/v1.1.3c",
+      "platforms": {
+        "windows": {
+          "name": "salvium-v1.1.3c-win64.zip",
+          "url": "https://github.com/salvium/salvium/releases/download/v1.1.3c/salvium-v1.1.3c-win64.zip",
+          "sha256": "861b492d8b0868a5b85c18c12785331c7f67709841ba95548b0a1209037910f2",
+          "size": 30923227
+        },
+        "macos": {
+          "name": "salvium-v1.1.3c-macos-aarch64.zip",
+          "url": "https://github.com/salvium/salvium/releases/download/v1.1.3c/salvium-v1.1.3c-macos-aarch64.zip",
+          "sha256": "1818b8dce98d4559c07b3ca57222dfafc472cefde9b5a15275e9f5f641c6bdf8",
+          "size": 25132647
+        },
+        "linux": {
+          "name": "salvium-v1.1.3c-ubuntu22.04-linux-x86_64.zip",
+          "url": "https://github.com/salvium/salvium/releases/download/v1.1.3c/salvium-v1.1.3c-ubuntu22.04-linux-x86_64.zip",
+          "sha256": "03aa7709728eed037c091a4c54d4e0f21dd149d465f73ee8a1caab72c62b585a",
+          "size": 31824724
+        }
+      }
+    }
+  }
+}

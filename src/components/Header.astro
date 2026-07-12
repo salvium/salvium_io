@@ -1,0 +1,479 @@
+---
+import Logo from './Logo.astro';
+import { href } from '../lib/href';
+
+// Sticky header with siko-ctrl's 4-group dropdown nav (Protocol /
+// Resources / Network / Community) + standalone Blog & Roadmap links +
+// a "Download Wallet" CTA on desktop. Mobile collapses to a hamburger
+// drawer with the same items grouped by accordion.
+//
+// Dropdown / drawer toggling is vanilla JS at the bottom of the file —
+// no React island, single observer, accessible focus.
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+interface NavItem {
+  label: string;
+  to?: string;       // internal route
+  href?: string;     // external URL
+}
+interface NavGroup {
+  label: string;
+  items: NavItem[];
+}
+
+const NAV_GROUPS: NavGroup[] = [
+  {
+    label: 'Protocol',
+    items: [
+      { label: 'About', to: '/about' },
+      { label: 'Privacy', href: 'https://docs.salvium.io/THE%20PROTOCOL/About%20Privacy/' },
+      { label: 'Staking & Yield', href: 'https://docs.salvium.io/THE%20PROTOCOL/Staking%20and%20Yield/' },
+      { label: 'CARROT', href: 'https://docs.salvium.io/THE%20PROJECT/carrot/' },
+      { label: 'SPARC', href: 'https://docs.salvium.io/THE%20PROJECT/sparc/' },
+    ],
+  },
+  {
+    label: 'Resources',
+    items: [
+      { label: 'Documentation', href: 'https://docs.salvium.io/' },
+      { label: 'Papers', to: '/papers' },
+      { label: 'FAQ', to: '/faq' },
+      { label: 'Knowledge Base', href: 'https://salvium.github.io/salvium_docs/' },
+    ],
+  },
+  {
+    label: 'Network',
+    items: [
+      { label: 'Block Explorer', href: 'https://explorer.salvium.io/' },
+      { label: 'Statistics', href: 'https://explorer.salvium.tools/' },
+      { label: 'Mining Pools', to: '/pools' },
+      { label: 'Exchanges', to: '/exchanges' },
+      { label: 'Tools', to: '/tools' },
+    ],
+  },
+  {
+    label: 'Community',
+    items: [
+      { label: 'Community Hub', to: '/community' },
+      { label: 'X (Twitter)', href: 'https://x.com/salvium_io' },
+      { label: 'Telegram', href: 'https://t.me/salviumcommunity' },
+      { label: 'Discord', href: 'https://discord.com/invite/P3rrAjkyYs' },
+      { label: 'GitHub', href: 'https://github.com/salvium' },
+    ],
+  },
+];
+
+function resolveItem(item: NavItem) {
+  if (item.to) return { url: href(item.to), external: false };
+  return { url: item.href!, external: true };
+}
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 inset-x-0 z-50 transition-[background,backdrop-filter,border-color] duration-300"
+>
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <a href={href('/')} class="flex items-center hover:opacity-90 transition-opacity" aria-label="Salvium home">
+      <Logo className="!h-[22px]" />
+    </a>
+
+    <!-- Desktop nav (lg+ only). Each group is a hover/focus dropdown. -->
+    <nav class="hidden lg:flex items-center gap-1" aria-label="Primary">
+      {NAV_GROUPS.map((g) => (
+        <div class="nav-group relative">
+          <button
+            type="button"
+            class="px-3.5 py-2 text-sm text-white/80 hover:text-white inline-flex items-center gap-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[color:var(--color-teal)]/50"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {g.label}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-chevron transition-transform"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-wrap absolute top-full left-0 pt-2 invisible opacity-0 transition-opacity duration-150" aria-hidden="true">
+            <div class="nav-dropdown rounded-2xl p-2 min-w-[220px] glow-border" role="menu">
+              {g.items.map((it) => {
+                const r = resolveItem(it);
+                return r.external ? (
+                  <a
+                    href={r.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    class="flex items-center justify-between gap-3 px-3 py-2 rounded-xl text-sm text-white/85 hover:bg-[color:var(--color-teal)]/10 hover:text-white"
+                  >
+                    <span>{it.label}</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-50"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                ) : (
+                  <a
+                    href={r.url}
+                    role="menuitem"
+                    class="flex items-center justify-between gap-3 px-3 py-2 rounded-xl text-sm text-white/85 hover:bg-[color:var(--color-teal)]/10 hover:text-white"
+                  >
+                    <span>{it.label}</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-40"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      ))}
+      <a href={href('/blog')} class="px-3.5 py-2 text-sm text-white/80 hover:text-white">Blog</a>
+      <a href={href('/roadmap')} class="px-3.5 py-2 text-sm text-white/80 hover:text-white">Roadmap</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a
+        href={href('/download')}
+        class="hidden lg:inline-flex btn-primary whitespace-nowrap no-underline !h-[22px] !text-[0.65rem] !py-0 !px-3 !gap-1.5"
+      >
+        <!-- Sized to match the logo height (h-[22px]). The ! prefixes raise
+             specificity above the global .btn-primary defaults. -->
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Wallet
+      </a>
+
+      <!-- Mobile menu button — visible <lg only -->
+      <button
+        type="button"
+        id="mobile-menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+        aria-label="Open menu"
+        class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-white/10 bg-white/[0.02] text-white hover:bg-white/[0.06] transition-colors"
+      >
+        <svg id="menu-icon-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg id="menu-icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="hidden">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile drawer — accordion-style with the same NAV_GROUPS plus Blog,
+       Roadmap, Download CTA. -->
+  <div id="mobile-drawer" class="lg:hidden" role="dialog" aria-modal="true" aria-label="Site menu">
+    <!-- Close button rendered inside the drawer (in addition to the
+         hamburger-toggle in the header) so users on tall mobile pages
+         have an obvious dismiss control without reaching back up to
+         the header bar. -->
+    <button type="button" id="mobile-drawer-close" class="drawer-close" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <nav class="drawer-nav" aria-label="Mobile primary">
+      <ul>
+        {NAV_GROUPS.map((g) => (
+          <li class="drawer-group">
+            <button type="button" class="drawer-group-toggle" aria-expanded="false">
+              <span>{g.label}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="drawer-chevron"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <ul class="drawer-group-items">
+              {g.items.map((it) => {
+                const r = resolveItem(it);
+                return r.external ? (
+                  <li><a class="drawer-link drawer-sublink" href={r.url} target="_blank" rel="noopener noreferrer">{it.label}</a></li>
+                ) : (
+                  <li><a class="drawer-link drawer-sublink" href={r.url}>{it.label}</a></li>
+                );
+              })}
+            </ul>
+          </li>
+        ))}
+        <li><a class="drawer-link" href={href('/blog')}>Blog</a></li>
+        <li><a class="drawer-link" href={href('/roadmap')}>Roadmap</a></li>
+      </ul>
+    </nav>
+    <div class="drawer-cta">
+      <a href={href('/download')} class="btn-primary w-full justify-center no-underline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Wallet
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Header surface — transparent by default (sits cleanly over the hero
+     backdrop), gains a glass-blurred dark fill once the user scrolls past
+     the first ~12px. Direct port of siko-ctrl's React Header behaviour:
+       - bg-black/40 with backdrop-blur-xl while scrolled
+       - thin teal/15 bottom border
+       - bg-transparent at the very top
+     The transition is on backdrop-filter + background only so the header
+     never animates its position (must stay pinned). */
+  #site-header {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 1px solid transparent;
+  }
+  #site-header[data-scrolled="true"] {
+    background: rgba(0, 0, 0, 0.40);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-bottom-color: rgba(0, 191, 165, 0.15);
+  }
+
+  /* Desktop dropdown — show on hover OR when the parent group has
+     data-open (set by the script for keyboard / tap users). */
+  .nav-group:hover .nav-dropdown-wrap,
+  .nav-group[data-open="true"] .nav-dropdown-wrap {
+    visibility: visible;
+    opacity: 1;
+  }
+  .nav-group:hover .nav-chevron,
+  .nav-group[data-open="true"] .nav-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown panel — solid teal-tinted dark surface (doesn't rely on
+     backdrop-filter because some sections set a transform that breaks
+     fixed-element backdrops, leaving the panel transparent over hero
+     text). Matches siko-ctrl's nav-dropdown class.  */
+  .nav-dropdown {
+    background: rgba(14, 14, 14, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 191, 165, 0.15);
+    box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Mobile drawer */
+  #mobile-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    padding-top: 4rem;
+    background:
+      radial-gradient(900px 600px at 10% -10%, rgba(0, 191, 165, 0.18), transparent 60%),
+      radial-gradient(700px 500px at 110% 110%, rgba(10, 235, 133, 0.10), transparent 55%),
+      rgba(13, 13, 13, 0.98);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 200ms ease, transform 200ms ease, visibility 0s linear 200ms;
+    pointer-events: none;
+  }
+  #mobile-drawer[data-open="true"] {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 200ms ease, transform 200ms ease, visibility 0s linear 0s;
+    pointer-events: auto;
+  }
+  #mobile-drawer .drawer-nav {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 1.25rem 1rem;
+  }
+  #mobile-drawer .drawer-nav > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  #mobile-drawer .drawer-link {
+    display: block;
+    /* Tap-target floor: iOS HIG + Material both want 44px minimum.
+       py-3 + 1rem font + line-height puts top-level rows at ~48px and
+       sub-links at ~44px, comfortably above the threshold. */
+    padding: 0.85rem 1rem;
+    min-height: 44px;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+  }
+  #mobile-drawer .drawer-link:hover { background: rgba(255, 255, 255, 0.04); color: #fff; }
+  #mobile-drawer .drawer-group-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    min-height: 44px;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+  #mobile-drawer .drawer-group-toggle:hover { background: rgba(255, 255, 255, 0.04); color: #fff; }
+  #mobile-drawer .drawer-chevron { transition: transform 150ms ease; opacity: 0.6; }
+  #mobile-drawer .drawer-group[data-open="true"] .drawer-chevron { transform: rotate(180deg); }
+  #mobile-drawer .drawer-group-items {
+    list-style: none;
+    padding: 0 0 0 0.75rem;
+    margin: 0 0 0.5rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+  #mobile-drawer .drawer-group[data-open="true"] .drawer-group-items { display: flex; }
+  #mobile-drawer .drawer-sublink {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    /* Sub-link rows still hit 44px via min-height inherited from the
+       parent .drawer-link rule above. */
+    padding: 0.7rem 0.85rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  #mobile-drawer .drawer-cta {
+    flex: 0 0 auto;
+    padding: 0 1rem 1.25rem;
+    padding-bottom: calc(1.25rem + env(safe-area-inset-bottom));
+  }
+
+  /* Close button in the top-right of the drawer. Sits inside the
+     header-reserved 4rem padding-top so it floats over the drawer
+     backdrop without overlapping any nav content. Larger tap target
+     (44px) than the header hamburger so it's easy to hit one-handed. */
+  #mobile-drawer .drawer-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.85);
+    transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+    z-index: 2;
+  }
+  #mobile-drawer .drawer-close:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+  #mobile-drawer .drawer-close:focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 2px;
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    // ── Header scroll state ────────────────────────────────────────────
+    // Sets data-scrolled="true" once the page has scrolled past 12px so
+    // CSS can swap from transparent → glass-blur. rAF-throttled because
+    // scroll fires constantly.
+    const header = document.getElementById('site-header');
+    if (header) {
+      let ticking = false;
+      function updateScrollState() {
+        header.dataset.scrolled = window.scrollY > 12 ? 'true' : 'false';
+        ticking = false;
+      }
+      updateScrollState();
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(updateScrollState);
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+
+    // ── Desktop dropdowns: keyboard + tap ──────────────────────────────
+    document.querySelectorAll('.nav-group').forEach((group) => {
+      const btn = group.querySelector('button');
+      if (!btn) return;
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isOpen = group.getAttribute('data-open') === 'true';
+        // Close any other open group first so only one is open at a time
+        document.querySelectorAll('.nav-group[data-open="true"]').forEach((g) => g.removeAttribute('data-open'));
+        if (!isOpen) {
+          group.setAttribute('data-open', 'true');
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group[data-open="true"]').forEach((g) => {
+          g.removeAttribute('data-open');
+          g.querySelector('button')?.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+
+    // ── Mobile drawer ──────────────────────────────────────────────────
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+    if (!toggle || !drawer) return;
+
+    function setOpen(open) {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      drawer.dataset.open = open ? 'true' : 'false';
+      iconOpen?.classList.toggle('hidden', open);
+      iconClose?.classList.toggle('hidden', !open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      // Mark the drawer inert when closed so its links/buttons aren't
+      // tab-reachable from the page underneath. inert is supported in
+      // every modern browser; older agents fall back to ignoring it
+      // (visibility:hidden in our CSS already removes them from the AT
+      // tree, so the only behaviour gained here is keyboard tab-out).
+      if (open) {
+        drawer.removeAttribute('inert');
+      } else {
+        drawer.setAttribute('inert', '');
+      }
+    }
+    // Initial state: drawer is closed, so make it inert from page load.
+    drawer.setAttribute('inert', '');
+    toggle.addEventListener('click', () => {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+    drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    // Explicit close button inside the drawer (in addition to closing
+    // when the user taps any link or the header hamburger).
+    document.getElementById('mobile-drawer-close')?.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+        document.querySelectorAll('.nav-group[data-open="true"]').forEach((g) => g.removeAttribute('data-open'));
+      }
+    });
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+
+    // Mobile drawer accordion groups
+    drawer.querySelectorAll('.drawer-group-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const li = btn.closest('.drawer-group');
+        if (!li) return;
+        const open = li.getAttribute('data-open') === 'true';
+        li.setAttribute('data-open', open ? 'false' : 'true');
+        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      });
+    });
+  })();
+</script>

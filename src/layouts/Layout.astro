@@ -1,0 +1,57 @@
+---
+// Base page layout: <head> + Header + slot + Footer. Every page renders
+// through this so the chrome stays consistent and changes here propagate.
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  article?: boolean;
+}
+
+const props = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead {...props} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Global reveal-on-scroll observer. Adds .in-view to any .reveal
+         element when it intersects the viewport, then disconnects per-
+         element so the animation only fires once. Single observer for the
+         whole page is much cheaper than one per element. -->
+    <script is:inline>
+      (function () {
+        const els = document.querySelectorAll('.reveal');
+        if (!els.length) return;
+        // If reduced motion is on, just mark everything visible without
+        // animating — matches the global.css media-query so users get the
+        // content immediately.
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          els.forEach((el) => el.classList.add('in-view'));
+          return;
+        }
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in-view');
+              io.unobserve(e.target);
+            }
+          }
+        }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+        els.forEach((el) => io.observe(el));
+      })();
+    </script>
+  </body>
+</html>

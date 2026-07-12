@@ -1,0 +1,15 @@
+---
+// /download surfaces the Products section as a standalone page so the nav
+// link resolves to a real route. The home page also embeds <Products /> —
+// it's the single source of truth for download UI so a future build-time
+// release fetcher (replacing the React PR's runtime API call) lands once
+// and updates both surfaces.
+import Layout from '../layouts/Layout.astro';
+import Products from '../components/home/Products.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+---
+
+<Layout title="Download" description="Download the official Salvium GUI Wallet and CLI for Windows, macOS, and Linux.">
+  <Products />
+  <FinalCTA />
+</Layout>

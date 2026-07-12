@@ -1,0 +1,50 @@
+---
+// Blog post cover image. Same idea as siko-ctrl's React BlogCover:
+//   - If the post's frontmatter has an `image` path, render that.
+//   - Otherwise, render a category-coloured gradient placeholder so the
+//     archive grid never has empty boxes — and so each category reads
+//     as a distinct visual rhythm even before users hover.
+//
+// onerror swaps to the fallback if the image path 404s (renamed asset,
+// typo, etc.) — silent broken-image icons were a finding in the
+// original audit.
+import { href } from '../lib/href';
+
+interface Props {
+  category: string;
+  title: string;
+  image?: string;
+  eager?: boolean;
+}
+const { category, title, image, eager = false } = Astro.props;
+
+const cat = (category || 'default').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+const known = ['compliance', 'engineering', 'release', 'whitepaper', 'security', 'update'];
+const palette = known.includes(cat) ? `bc-${cat}` : 'bc-default';
+
+// public/images/* paths come straight from the markdown frontmatter. Pass
+// through href() so the base prefix lands on preview deploys, AND encode
+// each path segment so filenames with spaces (Jekyll authors love them)
+// don't break on stricter hosts. encodeURI would over-encode the slashes;
+// splitting first preserves them.
+function safeHref(p: string): string {
+  if (p.startsWith('http')) return p;
+  const encoded = p.split('/').map((seg) => seg ? encodeURIComponent(seg) : seg).join('/');
+  return href(encoded);
+}
+const src = image ? safeHref(image) : null;
+---
+
+<div class={`blog-cover ${src ? '' : palette}`}>
+  {src ? (
+    <img
+      src={src}
+      alt={title}
+      loading={eager ? 'eager' : 'lazy'}
+      onerror={`this.style.display='none'; this.parentElement.classList.add('${palette}'); this.parentElement.querySelector('.fallback-label').style.display='flex';`}
+    />
+  ) : null}
+  <div class="blog-cover-fallback" style={src ? 'display:none' : ''}>
+    <span class="cat-label fallback-label">{category}</span>
+  </div>
+</div>

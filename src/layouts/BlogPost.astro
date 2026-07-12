@@ -1,0 +1,82 @@
+---
+// Layout for individual blog posts. Direct port of siko-ctrl's React post-
+// detail view (App.jsx ~1438-1466):
+//
+//   PageHero("/ Blog", post.title)
+//   ├─ Back to all posts ←
+//   ├─ pill[category] · date · read-time
+//   ├─ <p> excerpt (lead)
+//   ├─ <BlogCover eager />
+//   ├─ <hr />
+//   └─ <div class="prose-salvium"> markdown body
+//
+// max-w-3xl content column for comfortable line lengths. The .prose-salvium
+// rules in global.css drive all markdown typography (h1/h2/h3 weights,
+// inline code, code blocks, blockquotes, lists) so this layout stays thin.
+import Layout from './Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import BlogCover from '../components/BlogCover.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+import { href } from '../lib/href';
+
+interface Props {
+  title: string;
+  description?: string;
+  date: Date;
+  category: string;
+  image?: string;
+  readingMinutes: number;
+}
+
+const { title, description, date, category, image, readingMinutes } = Astro.props;
+---
+
+<Layout title={title} description={description} ogImage={image} article>
+  <PageHero eyebrow="/ Blog" title={title} />
+
+  <section class="relative pb-16">
+    <div class="max-w-3xl mx-auto px-5 lg:px-8">
+      <a
+        href={href('/blog')}
+        class="text-sm text-[color:var(--color-teal)] hover:text-white transition-colors inline-flex items-center gap-1 mb-6"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to all posts
+      </a>
+
+      <div class="flex flex-wrap items-center gap-3 text-xs text-[color:var(--color-text-lighter)]">
+        <span class="pill !text-[10px]">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          {category}
+        </span>
+        <span class="flex items-center gap-1.5 font-mono">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <FormattedDate date={date} />
+        </span>
+        <span class="flex items-center gap-1.5 font-mono">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          {readingMinutes} min read
+        </span>
+      </div>
+
+      {description && (
+        <p class="mt-6 text-lg text-white/70 leading-relaxed">
+          {description}
+        </p>
+      )}
+
+      <div class="mt-8">
+        <BlogCover category={category} title={title} image={image} eager />
+      </div>
+
+      <hr class="my-10 border-white/10" />
+
+      <div class="prose-salvium max-w-none">
+        <slot />
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+</Layout>

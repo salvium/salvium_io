@@ -1,0 +1,98 @@
+---
+import Logo from './Logo.astro';
+import { href } from '../lib/href';
+
+const today = new Date();
+
+// Footer columns. Keeping it minimal in Phase 1 — full sitemap-style footer
+// with all the section links can come in Phase 2 when we port more pages.
+const SOCIAL = [
+  { label: 'GitHub',   href: 'https://github.com/salvium' },
+  { label: 'Twitter',  href: 'https://x.com/salvium_io' },
+  { label: 'Telegram', href: 'https://t.me/salviumcommunity' },
+  { label: 'Discord',  href: 'https://discord.com/invite/P3rrAjkyYs' },
+  { label: 'Reddit',   href: 'https://www.reddit.com/user/Salvium_Project/' },
+];
+
+const NAV_GROUPS = [
+  {
+    heading: 'Project',
+    links: [
+      { label: 'About',     href: '/about' },
+      { label: 'Roadmap',   href: '/#roadmap' },
+      { label: 'Papers',    href: '/papers' },
+      { label: 'FAQ',       href: '/faq' },
+      { label: 'Brand',     href: 'https://github.com/salvium/brand-assets', external: true },
+    ],
+  },
+  {
+    heading: 'Use',
+    links: [
+      { label: 'Download',   href: '/download' },
+      { label: 'Pools',      href: '/pools' },
+      { label: 'Exchanges',  href: '/exchanges' },
+      { label: 'Tools',      href: '/tools' },
+    ],
+  },
+  {
+    heading: 'Connect',
+    links: [
+      { label: 'Blog',       href: '/blog' },
+      { label: 'Community',  href: '/#community' },
+      { label: 'Donate',     href: '/donate' },
+      { label: 'RSS',        href: '/rss.xml' },
+    ],
+  },
+];
+---
+
+<footer class="border-t border-[color:var(--color-border)] mt-24 pt-16 pb-10">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+      <div>
+        <a href={href('/')} class="inline-flex hover:opacity-90 transition-opacity" aria-label="Salvium home">
+          <Logo size="md" />
+        </a>
+        <p class="mt-4 text-sm text-[color:var(--color-text-muted)] leading-relaxed max-w-xs">
+          Layer 1 blockchain that balances privacy and regulations. Built for a sovereign,
+          programmable private economy.
+        </p>
+      </div>
+      {NAV_GROUPS.map((group) => (
+        <div>
+          <div class="font-mono text-[11px] uppercase tracking-[0.22em] text-[color:var(--color-teal)] mb-3">
+            {group.heading}
+          </div>
+          <ul class="space-y-2 text-sm">
+            {group.links.map((link) => (
+              <li>
+                <a
+                  href={href(link.href)}
+                  class="text-[color:var(--color-text-muted)] hover:text-white transition-colors"
+                  {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t border-[color:var(--color-border)]">
+      <p class="text-xs text-[color:var(--color-text-muted)]">
+        &copy; {today.getFullYear()} Salvium. Open-source under MIT.
+      </p>
+      <ul class="flex flex-wrap gap-4 text-xs">
+        {SOCIAL.map((s) => (
+          <li>
+            <a href={s.href} target="_blank" rel="noopener noreferrer" class="text-[color:var(--color-text-muted)] hover:text-white transition-colors">
+              {s.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,93 @@
+---
+import Reveal from '../Reveal.astro';
+import { STATS } from '../../data/seed.js';
+---
+
+<section class="section-chapter relative py-12 md:py-16">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <Reveal>
+      <div class="relative glass glow-border p-6 md:p-8 rounded-3xl">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-8 md:gap-x-4 lg:gap-x-6 divide-y md:divide-y-0 md:divide-x divide-white/5">
+          {STATS.map((s, i) => (
+            <div class:list={[
+              'text-center md:text-left',
+              i >= 2 ? 'pt-6 md:pt-0' : '',
+              'md:px-4 lg:px-5 first:md:pl-0 last:md:pr-0',
+            ]}>
+              <div class="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-text-lighter)] mb-2 font-mono">
+                {s.label}
+              </div>
+              <div class="flex items-baseline justify-center md:justify-start gap-1.5 flex-wrap">
+                <span
+                  class="countup text-xl md:text-2xl font-display font-semibold text-white leading-none"
+                  data-countup={s.value}
+                >
+                  {s.value}
+                </span>
+                {s.suffix && (
+                  <span class="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[color:var(--color-text-lighter)] leading-none">
+                    {s.suffix}
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Reveal>
+  </div>
+</section>
+
+<!-- CountUp animation. Each .countup span carries data-countup="value".
+     If the value parses as a number, animate from 0 to it; otherwise the
+     element is left untouched (e.g. "RandomX" stays "RandomX"). -->
+<script is:inline>
+  (function () {
+    const els = document.querySelectorAll('.countup');
+    if (!els.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    function parse(raw) {
+      // Accept "123", "184.4M", "21,600", "83.8265". Returns { num, format }
+      // where format() reproduces the original suffix/separator/decimals.
+      const cleaned = String(raw).replace(/,/g, '');
+      const m = /^(\d+(?:\.\d+)?)(.*)$/.exec(cleaned);
+      if (!m) return null;
+      const n = parseFloat(m[1]);
+      if (!Number.isFinite(n)) return null;
+      const suffix = m[2];
+      const decimals = (m[1].split('.')[1] || '').length;
+      const hasComma = String(raw).includes(',');
+      return {
+        target: n,
+        format: (v) => {
+          let s = decimals ? v.toFixed(decimals) : Math.round(v).toString();
+          if (hasComma) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+          return s + suffix;
+        },
+      };
+    }
+
+    function animate(el, parsed, duration) {
+      const start = performance.now();
+      const ease = (t) => 1 - Math.pow(1 - t, 3);
+      const step = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        el.textContent = parsed.format(parsed.target * ease(t));
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        const el = e.target;
+        const parsed = parse(el.dataset.countup);
+        if (parsed) animate(el, parsed, 1400);
+        io.unobserve(el);
+      }
+    }, { threshold: 0.4 });
+    els.forEach((el) => io.observe(el));
+  })();
+</script>

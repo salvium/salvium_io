@@ -1,0 +1,208 @@
+---
+// Blog archive — direct port of siko-ctrl's React Blog list page:
+// PageHero + sticky category sidebar + 2-column posts grid using s-card +
+// BlogCover. Search and category filtering are progressive enhancements:
+// the page renders with all posts as a static document; the small inline
+// script below swaps in the filter UI behaviour without shipping React.
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import BlogCover from '../../components/BlogCover.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import FinalCTA from '../../components/home/FinalCTA.astro';
+import { getResolvedPosts } from '../../lib/posts';
+
+const posts = await getResolvedPosts();
+
+// Sorted, deduped category list with counts. "All" is always first.
+const categoryCounts = posts.reduce<Record<string, number>>((acc, p) => {
+  acc[p.category] = (acc[p.category] || 0) + 1;
+  return acc;
+}, {});
+const categories = ['All', ...Object.keys(categoryCounts).sort()];
+---
+
+<Layout
+  title="Blog"
+  description="Releases, cryptography, compliance, and field notes from the Salvium team."
+>
+  <PageHero
+    eyebrow="/ Blog"
+    title="Salvium Journal"
+    intro="Releases, cryptography, compliance, and field notes from the Salvium team."
+  />
+
+  <section id="blog" class="relative pb-20">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+      <!-- Toolbar: search input. The script below filters the grid in
+           place; no full-text search backend, just substring match against
+           title/excerpt/category. -->
+      <div class="flex items-center gap-3 flex-wrap">
+        <div class="relative flex-1 min-w-[240px]">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input
+            id="blog-search"
+            type="text"
+            placeholder="Search posts by title, excerpt, or category…"
+            class="w-full bg-white/[0.03] border border-white/10 rounded-full pl-11 pr-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-[color:var(--color-teal)]/50 focus:bg-white/[0.05] transition-colors"
+          />
+        </div>
+      </div>
+
+      <div class="mt-10 grid lg:grid-cols-[220px_1fr] gap-10">
+        <!-- Sidebar: categories -->
+        <aside class="lg:sticky lg:top-24 self-start">
+          <div class="font-mono text-[11px] uppercase tracking-[0.28em] text-[color:var(--color-teal)] mb-4">
+            Categories
+          </div>
+          <div id="blog-categories" class="flex lg:flex-col flex-wrap gap-1.5">
+            {categories.map((c) => {
+              const count = c === 'All' ? posts.length : (categoryCounts[c] || 0);
+              const active = c === 'All';
+              return (
+                <button
+                  type="button"
+                  data-category={c}
+                  class:list={[
+                    'category-btn flex items-center justify-between gap-3 px-3.5 py-2 rounded-lg text-sm border transition-colors text-left',
+                    active
+                      ? 'border-[color:var(--color-teal)]/40 bg-[color:var(--color-teal)]/10 text-white'
+                      : 'border-white/10 bg-white/[0.02] text-white/70 hover:border-white/20 hover:text-white',
+                  ]}
+                  aria-pressed={active}
+                >
+                  <span>{c}</span>
+                  <span class:list={['count font-mono text-[10px]', active ? 'text-[color:var(--color-teal)]' : 'text-white/40']}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </aside>
+
+        <!-- Posts grid -->
+        <div>
+          <div class="flex items-center justify-between mb-4 text-xs text-white/55 font-mono">
+            <span id="blog-result-count">{posts.length} posts</span>
+          </div>
+
+          <div id="blog-empty" class="glass rounded-2xl p-10 text-center hidden">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-white/30">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <h3 class="mt-4 font-display text-lg font-semibold">No posts found</h3>
+            <p class="mt-2 text-sm text-white/60">Try a different search term or category.</p>
+            <button id="blog-reset" type="button" class="mt-5 btn-ghost text-sm py-2 px-4">
+              Reset filters
+            </button>
+          </div>
+
+          <div id="blog-grid" class="grid md:grid-cols-2 gap-4">
+            {posts.map((p) => (
+              <a
+                href={p.href}
+                data-category={p.category}
+                data-search={`${p.entry.data.title} ${p.entry.data.excerpt ?? ''} ${p.category}`.toLowerCase()}
+                class="post-card s-card h-full pb-16 text-left flex flex-col w-full no-underline text-inherit"
+              >
+                <BlogCover category={p.category} title={p.entry.data.title} image={p.entry.data.image} />
+                <div class="mt-5 flex items-center justify-between gap-3 text-[11px]">
+                  <span class="font-mono uppercase tracking-[0.18em] text-[color:var(--color-teal)]">
+                    {p.category}
+                  </span>
+                  <span class="flex items-center gap-1.5 font-mono text-white/45">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    <FormattedDate date={p.date} />
+                  </span>
+                </div>
+                <h3 class="mt-3 text-lg font-display font-semibold text-white leading-snug tracking-tight">
+                  {p.entry.data.title}
+                </h3>
+                {p.entry.data.excerpt && (
+                  <p class="mt-3 text-sm text-white/60 leading-relaxed line-clamp-4">
+                    {p.entry.data.excerpt}
+                  </p>
+                )}
+                <div class="mt-auto pt-5 text-[11px] text-white/45 flex items-center gap-1.5 font-mono">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  {p.readingMinutes} min read
+                </div>
+                <span class="s-card-arrow">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+</Layout>
+
+<!-- Client-side filter + search. Vanilla JS keeps the page weight near
+     zero (no React island for ~30 lines of DOM toggling). -->
+<script is:inline>
+  (function () {
+    const search = document.getElementById('blog-search');
+    const reset = document.getElementById('blog-reset');
+    const empty = document.getElementById('blog-empty');
+    const count = document.getElementById('blog-result-count');
+    const grid = document.getElementById('blog-grid');
+    const buttons = Array.from(document.querySelectorAll('.category-btn'));
+    if (!search || !grid) return;
+
+    const ACTIVE = 'border-[color:var(--color-teal)]/40 bg-[color:var(--color-teal)]/10 text-white';
+    const INACTIVE = 'border-white/10 bg-white/[0.02] text-white/70 hover:border-white/20 hover:text-white';
+
+    let activeCategory = 'All';
+
+    function setActiveCategory(cat) {
+      activeCategory = cat;
+      buttons.forEach((b) => {
+        const isActive = b.dataset.category === cat;
+        b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        // Toggle the colour classes by swapping every space-separated
+        // class atomically — keeps the markup simple at the cost of a
+        // little duplication.
+        ACTIVE.split(' ').forEach((c) => b.classList.toggle(c, isActive));
+        INACTIVE.split(' ').forEach((c) => b.classList.toggle(c, !isActive));
+        const counter = b.querySelector('.count');
+        if (counter) {
+          counter.classList.toggle('text-[color:var(--color-teal)]', isActive);
+          counter.classList.toggle('text-white/40', !isActive);
+        }
+      });
+      apply();
+    }
+
+    function apply() {
+      const q = search.value.trim().toLowerCase();
+      const cards = Array.from(grid.querySelectorAll('.post-card'));
+      let shown = 0;
+      cards.forEach((card) => {
+        const cat = card.dataset.category;
+        const haystack = card.dataset.search || '';
+        const catOk = activeCategory === 'All' || cat === activeCategory;
+        const qOk = !q || haystack.includes(q);
+        const visible = catOk && qOk;
+        card.style.display = visible ? '' : 'none';
+        if (visible) shown++;
+      });
+      if (count) {
+        const filterTag = activeCategory !== 'All' ? ' · ' + activeCategory : '';
+        const queryTag = q ? ' · "' + q + '"' : '';
+        count.textContent = shown + (shown === 1 ? ' post' : ' posts') + filterTag + queryTag;
+      }
+      if (empty) empty.classList.toggle('hidden', shown !== 0);
+      if (grid) grid.classList.toggle('hidden', shown === 0);
+    }
+
+    buttons.forEach((b) => b.addEventListener('click', () => setActiveCategory(b.dataset.category)));
+    search.addEventListener('input', apply);
+    if (reset) reset.addEventListener('click', () => { search.value = ''; setActiveCategory('All'); });
+  })();
+</script>

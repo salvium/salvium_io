@@ -1,0 +1,36 @@
+---
+// Branded 404 page. Astro builds this into dist/404.html which GitHub
+// Pages serves automatically when a path can't be resolved. Without this
+// file Pages serves its generic black-on-white 404 — off-brand and
+// jarring after the rest of the site.
+import Layout from '../layouts/Layout.astro';
+import { href } from '../lib/href';
+---
+
+<Layout
+  title="Page not found"
+  description="The page you’re looking for doesn’t exist or has moved."
+>
+  <section class="relative pt-32 pb-24 md:pt-40 md:pb-32">
+    <div class="max-w-3xl mx-auto px-5 lg:px-8 text-center">
+      <div class="font-mono text-[11px] uppercase tracking-[0.32em] text-[color:var(--color-teal)]">
+        / 404
+      </div>
+      <h1
+        class="mt-5 font-display font-semibold tracking-[-0.02em] leading-[1.02] text-white"
+        style="font-size: clamp(2.5rem, 7vw, 5rem);"
+      >
+        That page<br>doesn&rsquo;t exist.
+      </h1>
+      <p class="mt-6 text-white/70 text-lg leading-relaxed max-w-xl mx-auto">
+        It may have moved during the redesign, or the link is wrong. Try the
+        homepage, the blog archive, or the latest release.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <a href={href('/')} class="btn-primary">Back to home</a>
+        <a href={href('/blog')} class="btn-ghost">Read the blog</a>
+        <a href={href('/download')} class="btn-ghost">Download Salvium</a>
+      </div>
+    </div>
+  </section>
+</Layout>

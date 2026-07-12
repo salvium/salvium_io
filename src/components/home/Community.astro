@@ -1,0 +1,67 @@
+---
+// Community — closing pill above the FinalCTA. Direct port of
+// App.jsx:1948-1993: feature-card surface, big headline + intro, and a
+// row of btn-primary social buttons each with a leading icon-chip.
+import Reveal from '../Reveal.astro';
+
+const SOCIALS = [
+  {
+    name: 'X (Twitter)',
+    href: 'https://x.com/salvium_io',
+    icon: '<path d="M18 2h3l-7.5 8.6L22 22h-6.8l-5.3-6.9L4 22H1l8-9.2L1 2h6.9l4.8 6.3z"/>',
+  },
+  {
+    name: 'Telegram',
+    href: 'https://t.me/salviumcommunity',
+    icon: '<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>',
+  },
+  {
+    name: 'Discord',
+    href: 'https://discord.com/invite/P3rrAjkyYs',
+    icon: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  },
+  {
+    name: 'GitHub',
+    href: 'https://github.com/salvium',
+    icon: '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>',
+  },
+  {
+    name: 'Reddit',
+    href: 'https://www.reddit.com/user/Salvium_Project/',
+    icon: '<path d="M17 11a4 4 0 1 0-8 0 4 4 0 0 0 8 0z"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>',
+  },
+];
+---
+
+<section id="community" class="section-chapter relative py-20 md:py-36">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <Reveal>
+      <div class="feature-card px-5 sm:px-10 py-14 sm:py-20 md:py-28 text-center">
+        <div class="relative max-w-3xl mx-auto">
+          <div class="font-mono text-[11px] uppercase tracking-[0.32em] text-[color:var(--color-teal)]">
+            / Community
+          </div>
+          <h2 class="mt-5 font-display font-semibold tracking-[-0.02em] leading-[1.02] text-white"
+              style="font-size: clamp(2.25rem, 6vw, 4.75rem);">
+            Join the private<br>DeFi revolution.
+          </h2>
+          <p class="mt-5 text-white/70 max-w-xl mx-auto">
+            Be part of a movement reshaping money. Salvium&rsquo;s community is built by
+            cypherpunks, builders, and users who believe privacy is a right, not a feature.
+            Connect, contribute, and help shape what comes next.
+          </p>
+          <div class="mt-9 flex flex-wrap justify-center gap-3">
+            {SOCIALS.map((s) => (
+              <a href={s.href} target="_blank" rel="noopener noreferrer" class="btn-primary no-underline">
+                <span class="icon-chip">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={s.icon} />
+                </span>
+                {s.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Reveal>
+  </div>
+</section>
