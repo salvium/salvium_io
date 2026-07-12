@@ -3,166 +3,161 @@ layout: default
 title: Home
 ---
 
-<!-- Main Content -->
-<section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img src="{{ site.baseurl }}/images/wide-hero-1024.webp" alt="Hero Background"
-            class="w-full h-full object-cover opacity-40">
-        <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 via-[#1e1e1e]/50 to-[#1e1e1e]"></div>
+<!-- Hero -->
+<section class="page-hero">
+    <div class="page-hero__bg">
+        <img src="{{ site.baseurl }}/images/wide-hero-1024.webp" alt="">
+        <div class="page-hero__overlay"></div>
     </div>
-    <div class="relative z-10">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="hero-content text-left mobile-center aos-init aos-animate" data-aos="fade-right">
-                    <h1
-                        class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 mobile-smaller-text text-white !opacity-100 hero-text">
-                        The Future of <span class="gradient-text !opacity-100">Private DeFi</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-gray-100 mb-6 md:mb-8 !opacity-100 hero-text">
-                        Layer 1 blockchain that balances privacy and regulations.
-                    </p>
-                    <div class="hero-buttons mb-8 md:mb-12 flex flex-col md:flex-row gap-4">
-                        <a href="{% link about.html %}"
-                            class="btn-primary px-6 md:px-8 py-3 !text-white font-semibold inline-flex items-center justify-center mobile-full rounded-none">
-                            Get Started
-                        </a>
-                        <a href="https://salvium.github.io/salvium_docs/"
-                            class="px-6 md:px-8 py-3 border border-[#40E0D0] text-white hover:bg-[#40E0D0]/10 transition-colors font-semibold inline-flex items-center justify-center mobile-full rounded-none">
-                            Learn More
-                        </a>
-                    </div>
-                    <!-- Trust indicators -->
-                    <div class="trust-indicators flex flex-wrap items-center gap-4 xs:gap-6 sm:gap-8 mt-6 sm:mt-8">
-                        <div
-                            class="trust-indicator flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#40E0D0]/5 transition-colors">
-                            <img src="./images/lock-icon.svg" alt="Private" class="w-8 h-8 sm:w-9 sm:h-9">
-                            <span
-                                class="text-lg sm:text-xl font-medium whitespace-nowrap text-white opacity-100">Private</span>
-                        </div>
-                        <div
-                            class="trust-indicator flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#40E0D0]/5 transition-colors">
-                            <img src="./images/shield-icon.svg" alt="Compliant" class="w-8 h-8 sm:w-9 sm:h-9">
-                            <span
-                                class="text-lg sm:text-xl font-medium whitespace-nowrap text-white opacity-100">Compliant</span>
-                        </div>
-                        <div
-                            class="trust-indicator flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#40E0D0]/5 transition-colors">
-                            <div class="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center" style="color: #40E0D0;">
-                                <i class="fa-solid fa-network-wired text-2xl"></i>
-                            </div>
-                            <span
-                                class="text-lg sm:text-xl font-medium whitespace-nowrap text-white opacity-100">Programmable</span>
-                        </div>
-                    </div>
+    <div class="container relative z-10">
+        <div class="page-hero__inner" data-aos="fade-up" data-aos-duration="900">
+            <span class="section-eyebrow">Private &middot; Compliant &middot; Programmable</span>
+            <h1 class="page-hero__title">
+                The Future of <span class="gradient-text">Private DeFi</span>
+            </h1>
+            <p class="page-hero__lede">
+                Layer 1 blockchain that balances privacy and regulations.
+            </p>
+            <div class="page-hero__cta">
+                <a href="{% link about.html %}" class="btn-primary page-hero__btn">
+                    Get Started
+                </a>
+                <a href="https://salvium.github.io/salvium_docs/" class="page-hero__btn page-hero__btn--ghost">
+                    Learn More <span aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+            <div class="trust-strip" aria-label="Salvium properties">
+                <div class="trust-strip__item">
+                    <img src="{{ site.baseurl }}/images/lock-icon.svg" alt="" class="trust-strip__icon">
+                    <span class="trust-strip__label">Private</span>
+                </div>
+                <span class="trust-strip__sep" aria-hidden="true"></span>
+                <div class="trust-strip__item">
+                    <img src="{{ site.baseurl }}/images/shield-icon.svg" alt="" class="trust-strip__icon">
+                    <span class="trust-strip__label">Compliant</span>
+                </div>
+                <span class="trust-strip__sep" aria-hidden="true"></span>
+                <div class="trust-strip__item">
+                    <i class="fa-solid fa-network-wired trust-strip__icon-fa" aria-hidden="true"></i>
+                    <span class="trust-strip__label">Programmable</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Features Section -->
-<section class="py-20 relative">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-6 aos-init aos-animate" data-aos="fade-up">
-                Why Choose <span class="gradient-text">Salvium</span>
-            </h2>
-            <p class="text-lg text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto aos-init aos-animate" data-aos="fade-up"
-                data-aos-delay="100">
+<!-- MiCAR milestone banner -->
+<aside class="milestone-banner" data-aos="fade-up" data-aos-delay="100">
+    <div class="container milestone-banner__inner">
+        <div class="milestone-banner__icon" aria-hidden="true">
+            <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div class="milestone-banner__copy">
+            <span class="section-eyebrow milestone-banner__eyebrow">February 2026 &middot; Legal Opinion</span>
+            <p class="milestone-banner__headline">
+                Independent legal analysis confirms <strong>SAL is eligible for listing on MiCAR-authorised exchanges</strong>.
+            </p>
+        </div>
+        <a href="{% post_url 2026-02-23-micar-legal-opinion %}" class="milestone-banner__link">
+            Read the analysis <span aria-hidden="true">&rarr;</span>
+        </a>
+    </div>
+</aside>
+
+<!-- Why Choose Salvium -->
+<section class="page-section home-why">
+    <div class="container">
+        <div class="page-section__head" data-aos="fade-up">
+            <span class="section-eyebrow">Why Salvium</span>
+            <h2 class="page-section__title">Why Choose <span class="gradient-text">Salvium</span></h2>
+            <p class="page-section__lede">
                 Privacy, compliance, and smart contracts form the foundation of a truly sovereign financial future.
             </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Privacy Feature -->
-            <div class="ecosystem-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                <img src="./images/newimages/Page%20Headers/Litepaper%20Header.webp" alt="Privacy Feature"
-                    class="card-image opacity-100">
+            <article class="ecosystem-card page-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="page-card__media">
+                    <img src="{{ site.baseurl }}/images/newimages/Page%20Headers/Litepaper%20Header.webp" alt="">
+                </div>
                 <div class="card-content">
                     <span class="card-tag">Privacy</span>
                     <h3 class="card-title">Privacy by Design</h3>
                     <p class="card-description">Built on robust cryptographic foundations with zero-knowledge proofs
                         for uncompromising security and confidentiality.</p>
                 </div>
-            </div>
-
-            <!-- Compliance Feature -->
-            <div class="ecosystem-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                <img src="./images/newimages/Page%20Headers/Exchange%20Header.webp" alt="Compliance Feature"
-                    class="card-image opacity-100">
+            </article>
+            <article class="ecosystem-card page-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="page-card__media">
+                    <img src="{{ site.baseurl }}/images/newimages/Page%20Headers/Exchange%20Header.webp" alt="">
+                </div>
                 <div class="card-content">
                     <span class="card-tag">Compliance</span>
                     <h3 class="card-title">Regulatory Resilience</h3>
                     <p class="card-description">One of the few privacy-focused chains striving for MiCA
-                        compliance—designed to thrive where others cannot operate.</p>
+                        compliance&mdash;designed to thrive where others cannot operate.</p>
                 </div>
-            </div>
-
-            <!-- Programmable Feature -->
-            <div class="ecosystem-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                <img src="./images/newimages/Page%20Headers/Pools%20Header.webp" alt="Programmable Feature"
-                    class="card-image opacity-100">
+            </article>
+            <article class="ecosystem-card page-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="page-card__media">
+                    <img src="{{ site.baseurl }}/images/newimages/Page%20Headers/Pools%20Header.webp" alt="">
+                </div>
                 <div class="card-content">
                     <span class="card-tag">Programmable</span>
                     <h3 class="card-title">Privacy Meets Possibility</h3>
                     <p class="card-description">Developing private smart contract capabilities for DeFi,
-                        stablecoins, and more—all while preserving transaction confidentiality.</p>
+                        stablecoins, and more&mdash;all while preserving transaction confidentiality.</p>
                 </div>
-            </div>
+            </article>
         </div>
     </div>
 </section>
 
-<!-- Ecosystem Section -->
-<div class="mb-8">
-    <div class="container mx-auto px-4 relative">
-        <div class="text-center mb-8">
-            <h2 class="text-4xl font-bold mb-4 aos-init" data-aos="fade-up">
-                Salvium <span class="gradient-text">Ecosystem</span>
-            </h2>
-            <p class="text-lg text-gray-300 max-w-2xl mx-auto aos-init" data-aos="fade-up" data-aos-delay="100">
-                Discover the key components powering our privacy-preserving network
+<div class="page-divider" aria-hidden="true"></div>
+
+<!-- Salvium Ecosystem -->
+<section class="page-section home-ecosystem">
+    <div class="container">
+        <div class="page-section__head" data-aos="fade-up">
+            <span class="section-eyebrow">Ecosystem</span>
+            <h2 class="page-section__title">Salvium <span class="gradient-text">Ecosystem</span></h2>
+            <p class="page-section__lede">
+                Discover the key components powering our privacy-preserving network.
             </p>
         </div>
 
-        <div class="cards-grid mt-6 aos-init" data-aos="fade-up" data-aos-delay="100">
-            <!-- Governance Card -->
-            <div class="ecosystem-card">
-                <div class="relative w-full h-48 md:h-64 overflow-hidden">
-                    <img src="./images/newimages/ecosystem/governance.webp" alt="Governance"
-                        class="w-full h-full object-cover opacity-100">
+        <div class="cards-grid">
+            <article class="ecosystem-card page-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="page-card__media">
+                    <img src="{{ site.baseurl }}/images/newimages/ecosystem/governance.webp" alt="">
                 </div>
                 <div class="card-content">
                     <span class="card-tag">Governance</span>
-                    <h3 class="card-title">Decentralized & Community-Driven</h3>
+                    <h3 class="card-title">Decentralized &amp; Community-Driven</h3>
                     <p class="card-description">A fair and open ecosystem where miners, stakers, and developers
                         collectively shape the future of privacy-focused finance.</p>
                     <a href="{% link about.html %}" class="card-link">Learn More <i
                             class="fa-solid fa-chevron-down"></i></a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Staking Card -->
-            <div class="ecosystem-card">
-                <div class="relative w-full h-48 md:h-64 overflow-hidden">
-                    <img src="./images/newimages/ecosystem/yield.webp" alt="Staking & Yield"
-                        class="w-full h-full object-cover opacity-100">
+            <article class="ecosystem-card page-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="page-card__media">
+                    <img src="{{ site.baseurl }}/images/newimages/ecosystem/yield.webp" alt="">
                 </div>
                 <div class="card-content">
-                    <span class="card-tag">Staking & Yield</span>
+                    <span class="card-tag">Staking &amp; Yield</span>
                     <h3 class="card-title">Earn While Securing the Network</h3>
                     <p class="card-description">Stake SAL tokens to strengthen the ecosystem and receive 20% of
                         block rewards as incentive.</p>
                     <a href="{% link about.html %}" class="card-link">Learn More <i
                             class="fa-solid fa-chevron-down"></i></a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Future Card -->
-            <div class="ecosystem-card">
-                <div class="relative w-full h-48 md:h-64 overflow-hidden">
-                    <img src="./images/newimages/ecosystem/defi-future.webp" alt="Future"
-                        class="w-full h-full object-cover opacity-100">
+            <article class="ecosystem-card page-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="page-card__media">
+                    <img src="{{ site.baseurl }}/images/newimages/ecosystem/defi-future.webp" alt="">
                 </div>
                 <div class="card-content">
                     <span class="card-tag">Future</span>
@@ -172,13 +167,11 @@ title: Home
                     <a href="{% link about.html %}" class="card-link">Learn More <i
                             class="fa-solid fa-chevron-down"></i></a>
                 </div>
-            </div>
+            </article>
 
-            <!-- Additional Card -->
-            <div class="ecosystem-card">
-                <div class="relative w-full h-48 md:h-64 overflow-hidden">
-                    <img src="./images/newimages/ecosystem/compliance.webp" alt="Compliance"
-                        class="w-full h-full object-cover opacity-100">
+            <article class="ecosystem-card page-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="page-card__media">
+                    <img src="{{ site.baseurl }}/images/newimages/ecosystem/compliance.webp" alt="">
                 </div>
                 <div class="card-content">
                     <span class="card-tag">Compliance</span>
@@ -188,29 +181,75 @@ title: Home
                     <a href="{% link about.html %}" class="card-link">Learn More <i
                             class="fa-solid fa-chevron-down"></i></a>
                 </div>
-            </div>
+            </article>
         </div>
     </div>
-</div>
+</section>
 
-<!-- CTA Section -->
-<section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
-    <!-- Background Decoration -->
-    <div class="absolute inset-0">
-        <img src="./images/pools-1024.webp" alt="" class="absolute w-full h-full object-cover opacity-20">
-        <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+<div class="page-divider" aria-hidden="true"></div>
+
+<!-- Latest from the Blog -->
+<section class="page-section home-latest">
+    <div class="container">
+        <div class="page-section__head page-section__head--row" data-aos="fade-up">
+            <div>
+                <span class="section-eyebrow">Latest</span>
+                <h2 class="page-section__title">From the <span class="gradient-text">Blog</span></h2>
+                <p class="page-section__lede">Updates, deep-dives, and milestones from the Salvium team.</p>
+            </div>
+            <a href="{% link blog/index.html %}" class="home-latest__viewall">
+                All posts <span aria-hidden="true">&rarr;</span>
+            </a>
+        </div>
+
+        <div class="cards-grid">
+            {% for post in site.posts limit: 3 %}
+            <article class="ecosystem-card page-card home-post-card"
+                     data-aos="fade-up"
+                     data-aos-delay="{{ forloop.index | times: 100 }}">
+                <a href="{{ post.url | relative_url }}" class="home-post-card__media-link" aria-hidden="true" tabindex="-1">
+                    <div class="page-card__media">
+                        {% if post.image %}
+                        <img src="{{ post.image | relative_url }}" alt="">
+                        {% else %}
+                        <img src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" alt="">
+                        {% endif %}
+                    </div>
+                </a>
+                <div class="card-content">
+                    <div class="home-post-card__meta">
+                        {% if post.categories.size > 0 %}
+                        <span class="card-tag">{{ post.categories | first }}</span>
+                        {% endif %}
+                        <time datetime="{{ post.date | date_to_xmlschema }}" class="home-post-card__date">{{ post.date | date: "%b %d, %Y" }}</time>
+                    </div>
+                    <h3 class="card-title">
+                        <a href="{{ post.url | relative_url }}" class="home-post-card__title-link">{{ post.title }}</a>
+                    </h3>
+                    <p class="card-description">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                    <a href="{{ post.url | relative_url }}" class="card-link">Read post <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
     </div>
+</section>
 
-    <div class="container mx-auto px-4 text-center relative z-10">
-        <h2 class="text-4xl md:text-5xl font-bold mb-8 aos-init" data-aos="fade-up">
+<!-- CTA -->
+<section class="page-cta">
+    <div class="page-cta__bg">
+        <img src="{{ site.baseurl }}/images/pools-1024.webp" alt="">
+        <div class="page-cta__overlay"></div>
+    </div>
+    <div class="container relative z-10 text-center">
+        <span class="section-eyebrow" data-aos="fade-up">Get Started</span>
+        <h2 class="page-cta__title" data-aos="fade-up" data-aos-delay="100">
             Join the <span class="gradient-text">Private DeFi</span> Revolution
         </h2>
-        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto aos-init" data-aos="fade-up" data-aos-delay="100">
+        <p class="page-cta__lede" data-aos="fade-up" data-aos-delay="200">
             Experience the future of private finance with Salvium's innovative blockchain technology.
         </p>
-        <a href="{% link download.html %}"
-            class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block aos-init"
-            data-aos="fade-up" data-aos-delay="200">
+        <a href="{% link download.html %}" class="btn-primary page-cta__btn" data-aos="fade-up" data-aos-delay="300">
             Get Started Now
         </a>
     </div>
