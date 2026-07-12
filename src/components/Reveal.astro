@@ -1,0 +1,27 @@
+---
+// Wraps content in a fade-up-on-scroll container. Direct port of
+// siko-ctrl's React <Reveal> — once an IntersectionObserver fires on
+// any .reveal element, the .in-view class is added (which triggers the
+// fadeUp keyframe in global.css) and the observer disconnects so the
+// animation only plays once.
+//
+// All <Reveal> elements share a single observer registered by the inline
+// script below — much cheaper than per-element React effects, and the
+// script is small enough that we don't bother code-splitting.
+//
+// Respects prefers-reduced-motion via the global.css media-query that
+// disables animations.
+interface Props {
+  delay?: number;
+  class?: string;
+}
+const { delay = 0, class: className = '' } = Astro.props;
+const style = delay ? `transition-delay: ${delay}ms` : undefined;
+---
+
+<!-- The .reveal / .reveal.in-view rules live in global.css to avoid Astro's
+     per-component CSS scoping interfering with the .in-view class added at
+     runtime by Layout.astro's IntersectionObserver. -->
+<div class={`reveal ${className}`} style={style}>
+  <slot />
+</div>

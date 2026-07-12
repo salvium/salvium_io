@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+import { TOOLS_CONTENT } from '../data/pages.js';
+
+// TOOLS_CONTENT has multiple top-level groupings (trackers, mining, others...).
+// Render each group as its own section. Iterate over the object's entries
+// rather than hard-coding the key names so adding a new group only requires
+// editing the data file.
+const groups = Object.entries(TOOLS_CONTENT);
+const groupLabel = {
+  trackers: 'Price trackers',
+  mining: 'Mining tools',
+  community: 'Community utilities & tools',
+  others: 'Other tools',
+};
+---
+
+<Layout title="Tools" description="Trackers, mining utilities, and other tools for the Salvium ecosystem.">
+  <PageHero
+    eyebrow="/ Tools"
+    title="Tools &amp; trackers"
+    intro="Third-party utilities the community uses for price tracking, mining stats, and ecosystem research."
+  />
+  <section class="relative pb-16">
+    <div class="max-w-6xl mx-auto px-5 lg:px-8 space-y-12">
+      {groups.map(([key, items]) => (
+        <div>
+          <h2 class="font-mono text-[11px] uppercase tracking-[0.22em] text-[color:var(--color-teal)] mb-4">
+            {groupLabel[key] ?? key}
+          </h2>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {items.map((t) => (
+              <a href={t.href} target="_blank" rel="noopener noreferrer" class="glass p-5 hover:border-[color:var(--color-teal)]/40 transition-colors block">
+                <h3 class="font-display text-base font-semibold text-white">{t.name}</h3>
+                <p class="mt-2 text-sm text-white/65 leading-relaxed">{t.desc}</p>
+                <span class="mt-3 inline-flex items-center gap-2 text-sm text-[color:var(--color-teal)]">{t.cta} ↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <FinalCTA />
+</Layout>

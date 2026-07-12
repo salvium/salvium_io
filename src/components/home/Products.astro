@@ -1,0 +1,254 @@
+---
+// Products section — Salvium Wallet (GUI) and Salvium CLI cards. Reads
+// build-time release data from src/data/releases.json so download links
+// point at real binaries with SHA256 digests, no runtime API call.
+//
+// Direct visual match to siko-ctrl's React Products section: glass card,
+// gradient bottom panel, OS chips, post-fork upgrade banner, macOS xattr
+// hint. Where his version did runtime API lookups, ours uses the
+// build-time manifest written by scripts/fetch-releases.mjs.
+import releases from '../../data/releases.json';
+
+interface Platform {
+  name: string;
+  url: string;
+  sha256: string | null;
+  size: number;
+}
+interface Product {
+  version: string | null;
+  releasedAt: string | null;
+  releaseUrl: string;
+  platforms: { windows: Platform | null; macos: Platform | null; linux: Platform | null };
+}
+
+const wallet = (releases.products.wallet ?? null) as Product | null;
+const cli    = (releases.products.cli    ?? null) as Product | null;
+
+// OS labels for the chip row. Each is a tuple of [label, platform key].
+const OS_KEYS: Array<['Windows' | 'macOS' | 'Linux', 'windows' | 'macos' | 'linux']> = [
+  ['Windows', 'windows'],
+  ['macOS',   'macos'],
+  ['Linux',   'linux'],
+];
+---
+
+<section id="products" class="section-chapter relative py-20 md:py-36">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="font-mono text-[11px] uppercase tracking-[0.32em] text-[color:var(--color-teal)]">
+        / Products
+      </div>
+      <h2 class="chapter-title mt-5">
+        Salvium <span class="neon-text">Wallets</span>
+      </h2>
+      <p class="mt-5 text-white/70 leading-relaxed">
+        Self-custody your SAL. Choose between the official desktop wallet and
+        CLI built by the core team, or community-supported third-party wallets
+        for mobile and web — every option is non-custodial.
+      </p>
+    </div>
+
+    <!-- Post-fork upgrade banner -->
+    <div role="alert" aria-live="polite"
+         class="mt-10 max-w-4xl mx-auto rounded-2xl border border-yellow-500/30 bg-gradient-to-br from-yellow-100/[0.06] via-yellow-200/[0.03] to-transparent p-5 backdrop-blur">
+      <div class="flex items-start gap-3 text-yellow-100/90 text-left">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+             class="w-5 h-5 flex-shrink-0 mt-0.5 text-yellow-300" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10.29 3.86a2.25 2.25 0 013.42 0l7.42 9.11c1.24 1.52.13 3.78-1.71 3.78H4.58c-1.84 0-2.95-2.26-1.71-3.78l7.42-9.11zM12 8.25a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 9a.9.9 0 100-1.8.9.9 0 000 1.8z" clip-rule="evenodd"/>
+        </svg>
+        <div>
+          <p class="font-semibold text-yellow-200">
+            Upgrade required: legacy wallets and nodes no longer work.
+          </p>
+          <p class="mt-1.5 text-sm text-yellow-100/85 leading-relaxed">
+            The Salvium hard fork completed at block <strong>465,000</strong> on
+            <strong>13 April 2026</strong>. Legacy GUI wallets and any CLI build older
+            than <strong>v1.1.x</strong> can no longer sync with the network. Pick the
+            latest GUI Wallet or CLI below.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 grid md:grid-cols-2 gap-5">
+      <!-- 4 cards in a 2x2 grid: Salvium Wallet (GUI), Salvium CLI,
+           Stack Wallet (3rd-party mobile), Salvium Vault (3rd-party web).
+           First two are core-team builds with build-time release data; last
+           two are community wallets with hard-coded links. -->
+      <!-- Salvium Wallet (GUI) -->
+      <div class="product-card h-full">
+        <div class="px-8 pt-10 pb-6 text-center">
+          <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-text-lighter)] font-mono">
+            <span class="w-1.5 h-1.5 rounded-full bg-[color:var(--color-neon)] shadow-[0_0_8px_#0AEB85]"></span>
+            GUI Wallet {wallet?.version && (<span class="text-[color:var(--color-teal)]">· {wallet.version}</span>)}
+          </div>
+          <h3 class="mt-4 font-display text-2xl md:text-3xl font-semibold text-white">
+            Salvium Wallet
+          </h3>
+          <p class="mt-3 text-white/65 max-w-md mx-auto">
+            The official desktop wallet. Manage SAL, stake, and transact privately
+            on Windows, macOS, and Linux.
+          </p>
+          <div class="mt-6 flex flex-wrap justify-center gap-3">
+            <a class="btn-primary" href="https://docs.salvium.io/" target="_blank" rel="noopener noreferrer">
+              Read Docs
+            </a>
+            <a class="btn-ghost" href="https://github.com/salvium/salvium-gui" target="_blank" rel="noopener noreferrer">
+              Source
+            </a>
+          </div>
+          <div class="mt-5 flex flex-wrap justify-center gap-2">
+            {OS_KEYS.map(([label, key]) => {
+              const p = wallet?.platforms?.[key] ?? null;
+              const target = p?.url ?? wallet?.releaseUrl;
+              return (
+                <a class="os-chip" href={target} target="_blank" rel="noopener noreferrer" title={p?.sha256 ? `SHA256: ${p.sha256}` : 'View all assets'}>
+                  {label}
+                </a>
+              );
+            })}
+          </div>
+          {wallet?.platforms?.macos?.sha256 && (
+            <p class="mt-5 text-xs text-white/55 leading-relaxed max-w-md mx-auto">
+              <strong class="text-yellow-200/85 font-semibold">macOS:</strong> the build is unsigned. If macOS reports it as &ldquo;damaged&rdquo;, open Terminal and run:
+              <code class="block mt-2 px-3 py-2 bg-black/40 rounded text-[#40E0D0] text-[11px] break-all font-mono">xattr -cr /Applications/salvium-wallet-gui.app</code>
+            </p>
+          )}
+        </div>
+        <div class="product-visual">
+          <div class="relative z-10 flex flex-col items-center gap-3">
+            <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 backdrop-blur flex items-center justify-center text-white">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/><path d="M3 5v14"/><path d="M21 12V7H5a2 2 0 0 0 0 4h16v6"/></svg>
+            </div>
+            <div class="font-mono text-[11px] uppercase tracking-[0.22em] text-white/55">
+              Self-custodial · Open-source
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Salvium CLI -->
+      <div class="product-card h-full">
+        <div class="px-8 pt-10 pb-6 text-center">
+          <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-text-lighter)] font-mono">
+            <span class="w-1.5 h-1.5 rounded-full bg-[color:var(--color-neon)] shadow-[0_0_8px_#0AEB85]"></span>
+            CLI &amp; Node {cli?.version && (<span class="text-[color:var(--color-teal)]">· {cli.version}</span>)}
+          </div>
+          <h3 class="mt-4 font-display text-2xl md:text-3xl font-semibold text-white">
+            Salvium CLI
+          </h3>
+          <p class="mt-3 text-white/65 max-w-md mx-auto">
+            Run a full node, mine, or script transactions from the terminal.
+            The reference implementation for builders and power users.
+          </p>
+          <div class="mt-6 flex flex-wrap justify-center gap-3">
+            <a class="btn-primary" href="https://docs.salvium.io/" target="_blank" rel="noopener noreferrer">
+              Read Docs
+            </a>
+            <a class="btn-ghost" href="https://github.com/salvium/salvium" target="_blank" rel="noopener noreferrer">
+              Source
+            </a>
+          </div>
+          <div class="mt-5 flex flex-wrap justify-center gap-2">
+            {OS_KEYS.map(([label, key]) => {
+              const p = cli?.platforms?.[key] ?? null;
+              const target = p?.url ?? cli?.releaseUrl;
+              return (
+                <a class="os-chip" href={target} target="_blank" rel="noopener noreferrer" title={p?.sha256 ? `SHA256: ${p.sha256}` : 'View all assets'}>
+                  {label}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+        <div class="product-visual">
+          <div class="relative z-10 flex flex-col items-center gap-3">
+            <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 backdrop-blur flex items-center justify-center text-white">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+            </div>
+            <div class="font-mono text-[11px] uppercase tracking-[0.22em] text-white/55">
+              salvium-wallet-cli
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stack Wallet (third party · mobile) -->
+      <div class="product-card h-full">
+        <div class="px-8 pt-10 pb-6 text-center">
+          <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-text-lighter)] font-mono">
+            <span class="w-1.5 h-1.5 rounded-full bg-[color:var(--color-neon)] shadow-[0_0_8px_#0AEB85]"></span>
+            3rd Party · Mobile
+          </div>
+          <h3 class="mt-4 font-display text-2xl md:text-3xl font-semibold text-white">Stack Wallet</h3>
+          <p class="mt-3 text-white/65 max-w-md mx-auto">
+            An open-source, multi-coin mobile and desktop wallet by Cypher Stack
+            with native Salvium support.
+          </p>
+          <div class="mt-6 flex flex-wrap justify-center gap-3">
+            <a class="btn-primary no-underline" href="https://stackwallet.com/" target="_blank" rel="noopener noreferrer">
+              Read Docs
+            </a>
+            <a class="btn-ghost no-underline" href="https://github.com/cypherstack/stack_wallet" target="_blank" rel="noopener noreferrer">
+              Source
+            </a>
+          </div>
+          <div class="mt-5 flex flex-wrap justify-center gap-2">
+            <a class="os-chip" href="https://play.google.com/store/apps/details?id=com.cypherstack.stackwallet" target="_blank" rel="noopener noreferrer">Android</a>
+            <a class="os-chip" href="https://apps.apple.com/us/app/stack-wallet-by-cypher-stack/id1634811534" target="_blank" rel="noopener noreferrer">iOS</a>
+            <a class="os-chip" href="https://github.com/cypherstack/stack_wallet/releases/latest" target="_blank" rel="noopener noreferrer">Desktop</a>
+          </div>
+        </div>
+        <div class="product-visual">
+          <div class="relative z-10 flex flex-col items-center gap-3">
+            <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 backdrop-blur flex items-center justify-center text-white">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <div class="font-mono text-[11px] uppercase tracking-[0.22em] text-white/55">
+              Cypher Stack · Multi-coin
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Salvium Vault (third party · web) -->
+      <div class="product-card h-full">
+        <div class="px-8 pt-10 pb-6 text-center">
+          <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-text-lighter)] font-mono">
+            <span class="w-1.5 h-1.5 rounded-full bg-[color:var(--color-neon)] shadow-[0_0_8px_#0AEB85]"></span>
+            3rd Party · Web
+          </div>
+          <h3 class="mt-4 font-display text-2xl md:text-3xl font-semibold text-white">Salvium Vault</h3>
+          <p class="mt-3 text-white/65 max-w-md mx-auto">
+            A browser-based wallet for SAL. No installation — open it in any
+            modern browser and connect. Built and operated by a third party.
+          </p>
+          <div class="mt-6 flex flex-wrap justify-center gap-3">
+            <a class="btn-primary no-underline" href="https://vault.salvium.tools/" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Launch Vault
+            </a>
+          </div>
+          <p class="mt-5 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-text-lighter)] font-mono">
+            Hosted at vault.salvium.tools
+          </p>
+        </div>
+        <div class="product-visual">
+          <div class="relative z-10 flex flex-col items-center gap-3">
+            <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 backdrop-blur flex items-center justify-center text-white">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="font-mono text-[11px] uppercase tracking-[0.22em] text-white/55">
+              Web wallet · 3rd party
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-8 text-center text-xs font-mono text-white/40">
+      Hover any download chip to see its SHA-256.
+    </p>
+  </div>
+</section>

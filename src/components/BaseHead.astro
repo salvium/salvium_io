@@ -1,0 +1,85 @@
+---
+// Site <head> shared across every page. Importing global.css here ensures
+// every page in the site picks up the Tailwind v4 + design token bundle
+// without any per-page boilerplate. Asset URLs are routed through href()
+// so the configured base prefix lands on preview deploys.
+import '../styles/global.css';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { href } from '../lib/href';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /**
+   * Absolute or root-relative URL to the og:image. Optional — falls back
+   * to the site banner. Always emitted as an absolute URL because social
+   * cards (Twitter, Facebook, LinkedIn, Discord) won't follow relative
+   * paths and will fail-silent on relative URLs.
+   */
+  ogImage?: string;
+  /** Set to true for blog posts so search results show post-specific meta. */
+  article?: boolean;
+}
+
+const { title, description = SITE_DESCRIPTION, ogImage, article = false } = Astro.props;
+
+// Canonical URL: Astro.site is the site URL (production: https://salvium.io,
+// preview: https://zarcg.github.io/salvium-site).
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Page <title>: append the site name unless the page IS the site root.
+const fullTitle = title ? `${title} · ${SITE_TITLE}` : `${SITE_TITLE} · The Future of Private DeFi`;
+
+// Resolve og:image to an ABSOLUTE URL. Social-card crawlers (Twitter,
+// Facebook, LinkedIn, Discord, Slack) reject relative paths silently and
+// fall back to a generic preview, so this MUST be absolute. Pass through
+// new URL() against Astro.site so relative + root-relative inputs both
+// resolve correctly under preview AND production deploys.
+const ogImageUrl = ogImage
+  ? new URL(ogImage.startsWith('http') ? ogImage : href(ogImage), Astro.site).toString()
+  : new URL(href('/brand/banner.jpg'), Astro.site).toString();
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Favicons + manifest. href() prefixes the configured base so they
+     resolve on the preview at /salvium-site/ AND production at /. -->
+<link rel="icon" type="image/svg+xml" href={href('/favicon/favicon.svg')} />
+<link rel="icon" type="image/png" sizes="96x96" href={href('/favicon/favicon-96x96.png')} />
+<link rel="icon" type="image/png" sizes="32x32" href={href('/favicon/favicon-32x32.png')} />
+<link rel="icon" type="image/png" sizes="16x16" href={href('/favicon/favicon-16x16.png')} />
+<link rel="apple-touch-icon" sizes="180x180" href={href('/favicon/apple-touch-icon.png')} />
+<link rel="manifest" href={href('/manifest.json')} />
+<meta name="theme-color" content="#1e1e1e" />
+
+<!-- Fonts: Poppins (display), Roboto (body), Roboto Mono (accents). -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap"
+/>
+
+<!-- RSS + sitemap discovery. RSS link is built from Astro.site so it stays
+     correct across preview / prod. -->
+<link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL(href('/rss.xml'), Astro.site).toString()} />
+<link rel="sitemap" href={href('/sitemap-index.xml')} />
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content={article ? 'article' : 'website'} />
+<meta property="og:site_name" content={SITE_TITLE} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:image" content={ogImageUrl} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />

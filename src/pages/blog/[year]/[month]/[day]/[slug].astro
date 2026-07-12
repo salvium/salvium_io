@@ -1,0 +1,40 @@
+---
+// Dynamic route for individual blog posts at the Jekyll-style permalink
+// /blog/YYYY/MM/DD/<slug>/. The Jekyll site used permalink: pretty + the
+// :year/:month/:day/:title/ template, and those URLs are linked from Twitter,
+// AMAs, audit reports, and old blog posts. Preserving them avoids a global
+// link breakage on cutover.
+//
+// The path is a 4-segment dynamic route (one directory per segment); Astro's
+// getStaticPaths returns one route per post in _posts/.
+import { render } from 'astro:content';
+import BlogPost from '../../../../../layouts/BlogPost.astro';
+import { getResolvedPosts, type ResolvedPost } from '../../../../../lib/posts';
+
+export async function getStaticPaths() {
+  const resolved = await getResolvedPosts();
+  return resolved.map((post) => {
+    const yyyy = String(post.date.getUTCFullYear());
+    const mm = String(post.date.getUTCMonth() + 1).padStart(2, '0');
+    const dd = String(post.date.getUTCDate()).padStart(2, '0');
+    return {
+      params: { year: yyyy, month: mm, day: dd, slug: post.slug },
+      props: post,
+    };
+  });
+}
+
+const post = Astro.props as ResolvedPost;
+const { Content } = await render(post.entry);
+---
+
+<BlogPost
+  title={post.entry.data.title}
+  description={post.entry.data.excerpt}
+  date={post.date}
+  category={post.category}
+  image={post.entry.data.image}
+  readingMinutes={post.readingMinutes}
+>
+  <Content />
+</BlogPost>

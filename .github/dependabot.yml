@@ -1,0 +1,22 @@
+version: 2
+updates:
+  # Keep SHA-pinned actions current. Dependabot opens PRs whose target SHA
+  # we eyeball + merge.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+
+  # Keep npm dependencies current too, mostly for security patches. Group
+  # the noisy ones (types, dev-only) so we don't get a PR per minor.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      types:
+        patterns: ['@types/*']
+      astro-ecosystem:
+        patterns: ['astro', '@astrojs/*']

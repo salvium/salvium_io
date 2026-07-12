@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+import { EXCHANGES_CONTENT } from '../data/pages.js';
+---
+
+<Layout title="Exchanges" description="Trade SAL on these supported platforms.">
+  <PageHero
+    eyebrow="/ Exchanges"
+    title="Available Exchanges"
+    intro="Trade Salvium on these trusted platforms. Always do your own research before depositing funds on any exchange."
+  />
+  <section class="relative pb-16">
+    <div class="max-w-6xl mx-auto px-5 lg:px-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {EXCHANGES_CONTENT.map((ex) => (
+        <a href={ex.href} target="_blank" rel="noopener noreferrer" class="group glass p-6 hover:border-[color:var(--color-teal)]/40 transition-colors">
+          <div class="flex items-start justify-between">
+            <span class="w-10 h-10 rounded-lg bg-[color:var(--color-teal)]/10 border border-[color:var(--color-teal)]/30 flex items-center justify-center text-[color:var(--color-teal)]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7H3"/><path d="m17 3-4 4 4 4"/><path d="M3 17h18"/><path d="m7 13 4 4-4 4"/></svg>
+            </span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-teal)] px-2 py-1 rounded-full border border-[color:var(--color-teal)]/30">
+              {ex.pair}
+            </span>
+          </div>
+          <h3 class="mt-5 font-display text-xl font-semibold">{ex.name}</h3>
+          <p class="mt-2 text-sm text-white/65 leading-relaxed">{ex.desc}</p>
+          <span class="mt-4 inline-flex items-center gap-2 text-sm text-white group-hover:text-[color:var(--color-teal)] transition-colors">
+            Trade {ex.pair} ↗
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <FinalCTA />
+</Layout>

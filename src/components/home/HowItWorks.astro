@@ -1,0 +1,77 @@
+---
+// "How It Works" — six privacy primitives composed into a horizontal
+// flow on lg+ (with animated connector lines between each chip) and a
+// vertical timeline on smaller screens. Direct port of App.jsx:964-1036.
+import Reveal from '../Reveal.astro';
+import SectionEyebrow from '../SectionEyebrow.astro';
+import { PRIVACY_FLOW } from '../../data/seed.js';
+---
+
+<section id="how" class="section-chapter relative py-20 md:py-36">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <Reveal>
+      <div class="max-w-3xl">
+        <SectionEyebrow num="02" label="How It Works" />
+        <h2 class="chapter-title mt-6">
+          The Salvium<br>privacy stack.
+        </h2>
+        <p class="mt-4 text-white/70">
+          Six cryptographic primitives compose into a single end-to-end private,
+          compliance-ready transaction flow.
+        </p>
+      </div>
+    </Reveal>
+
+    <!-- Desktop: horizontal flow with animated connector lines between chips -->
+    <Reveal delay={120}>
+      <div class="mt-12 hidden lg:flex items-stretch gap-3">
+        {PRIVACY_FLOW.map((p, i) => (
+          <>
+            <div class="glass glow-border rounded-2xl p-4 flex-1 min-w-0">
+              <div class="flex items-center gap-2 text-[color:var(--color-teal)]">
+                <span class="font-mono text-[11px] text-[color:var(--color-teal)]">0{i + 1}</span>
+                <span class="text-xs uppercase tracking-[0.18em] text-[color:var(--color-text-lighter)]">layer</span>
+              </div>
+              <div class="mt-2 font-semibold text-white">{p.name}</div>
+              <div class="mt-1.5 text-sm text-white/65 leading-snug">{p.desc}</div>
+            </div>
+            {i < PRIVACY_FLOW.length - 1 && <div class="self-center w-10 connector"></div>}
+          </>
+        ))}
+      </div>
+    </Reveal>
+
+    <!-- Mobile / tablet: vertical numbered timeline -->
+    <div class="lg:hidden mt-10 grid gap-3">
+      {PRIVACY_FLOW.map((p, i) => (
+        <Reveal delay={i * 60}>
+          <div class="flex items-stretch gap-3">
+            <div class="flex flex-col items-center">
+              <div class="w-7 h-7 rounded-full bg-[color:var(--color-teal)]/20 border border-[color:var(--color-teal)]/40 text-[color:var(--color-neon)] font-mono text-xs flex items-center justify-center">
+                {i + 1}
+              </div>
+              {i < PRIVACY_FLOW.length - 1 && (
+                <div class="w-px flex-1 bg-gradient-to-b from-[color:var(--color-neon)]/60 to-transparent my-1"></div>
+              )}
+            </div>
+            <div class="glass rounded-2xl p-4 flex-1">
+              <div class="font-semibold text-white">{p.name}</div>
+              <div class="text-sm text-white/65 mt-1">{p.desc}</div>
+            </div>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+
+    <Reveal delay={200}>
+      <div class="mt-8 text-sm text-[color:var(--color-text-lighter)]">
+        Read the protocol details on the docs:
+        <a href="https://docs.salvium.io/THE%20PROTOCOL/About%20Privacy/" target="_blank" rel="noopener noreferrer" class="text-[color:var(--color-teal)] hover:text-white transition-colors">About Privacy</a>
+        ·
+        <a href="https://docs.salvium.io/THE%20PROJECT/carrot/" target="_blank" rel="noopener noreferrer" class="text-[color:var(--color-teal)] hover:text-white transition-colors">CARROT</a>
+        ·
+        <a href="https://docs.salvium.io/THE%20PROJECT/sparc/" target="_blank" rel="noopener noreferrer" class="text-[color:var(--color-teal)] hover:text-white transition-colors">SPARC</a>
+      </div>
+    </Reveal>
+  </div>
+</section>

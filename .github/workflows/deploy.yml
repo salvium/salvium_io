@@ -1,0 +1,124 @@
+name: Deploy site to GitHub Pages
+
+# Triggers:
+#   push to main           → deploy with the env vars in the build step below.
+#   workflow_dispatch      → manual run; inputs override the env values.
+#
+# Production cutover is a one-time edit of repository variables, not an
+# always-typed input:
+#   - Set vars.SITE_URL = "https://salvium.io"  (and vars.SITE_BASE = "")
+#     in repo Settings → Secrets and variables → Actions → Variables.
+#   - Push to main from then on deploys to production.
+# Until those vars are set, the workflow defaults to the preview values.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: 'SITE_URL (override; usually leave blank to use repo vars)'
+        required: false
+        default: ''
+      site_base:
+        description: 'SITE_BASE (override; usually leave blank to use repo vars)'
+        required: false
+        default: ''
+
+# Default permissions: read-only. Each job below requests only what it needs;
+# id-token: write is granted to the deploy job, NOT the build job, so npm
+# install doesn't have OIDC token-mint capability against production.
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      # Actions pinned to commit SHAs because the deploy job has
+      # id-token: write — a compromised tagged release could mint OIDC
+      # tokens against our production environment. Dependabot keeps these
+      # current via .github/dependabot.yml.
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4
+        with:
+          # Astro 5 requires Node >= 22.12. Pinning the major so security
+          # patches roll in automatically without surprise minor bumps.
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        env:
+          # Resolution order: workflow_dispatch input → repo variable → preview default.
+          # Set vars.SITE_URL = "https://salvium.io" + vars.SITE_BASE = "" to
+          # flip production deploys, no per-run inputs needed.
+          SITE_URL: ${{ inputs.site_url || vars.SITE_URL || 'https://zarcg.github.io' }}
+          SITE_BASE: ${{ inputs.site_base || vars.SITE_BASE || '/salvium-site' }}
+          # GH_TOKEN gives scripts/fetch-releases.mjs the authenticated
+          # 5000 req/hr quota instead of the 60/hr unauthenticated cap.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run build
+
+      - name: Validate build artifact
+        # Smoke-check the bundle before upload. Catches: empty build, broken
+        # blog index, missing sitemap entries, sitemap drift from posts,
+        # release manifest empty (would silently ship "open releases page"
+        # links instead of real download URLs).
+        run: |
+          set -euo pipefail
+          test -s dist/index.html
+          test -s dist/blog/index.html
+          test -s dist/sitemap-index.xml
+          test -s dist/rss.xml
+          test -s dist/CNAME
+          # Release manifest must contain real per-platform asset URLs, not
+          # the fallback releases-page URL. The fetch script falls back to
+          # the previous releases.json on transient failures; this assert
+          # ensures we never ship an empty manifest.
+          node -e '
+            const r = require("./src/data/releases.json");
+            const w = r.products?.wallet?.platforms ?? {};
+            const c = r.products?.cli?.platforms ?? {};
+            const any = (o) => Object.values(o).some((v) => v && v.url && v.url.includes("/releases/download/"));
+            if (!any(w) || !any(c)) {
+              console.error("releases.json contains no real download URLs"); process.exit(1);
+            }
+          '
+          posts=$(find src/content/blog -maxdepth 1 -name '*.md' -o -name '*.mdx' | wc -l)
+          stubs=$(find dist/blog -mindepth 5 -maxdepth 5 -name 'index.html' | wc -l)
+          sitemap_posts=$(grep -oE '<loc>[^<]+/blog/[0-9]+/[0-9]+/[0-9]+/[^/]+/</loc>' dist/sitemap-0.xml | wc -l)
+          echo "posts=$posts stubs=$stubs sitemap_posts=$sitemap_posts"
+          [ "$posts" -eq "$stubs" ]
+          [ "$posts" -eq "$sitemap_posts" ]
+          # Legacy redirects must be present so external backlinks survive.
+          test -s dist/about-salvium/index.html
+          test -s dist/salvium-knowledge-base/index.html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa  # v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e  # v4

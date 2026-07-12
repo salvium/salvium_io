@@ -1,0 +1,15 @@
+---
+// /roadmap — standalone route that surfaces the home-page Roadmap section.
+// Direct match for the live Jekyll /roadmap.html page.
+import Layout from '../layouts/Layout.astro';
+import Roadmap from '../components/home/Roadmap.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+---
+
+<Layout
+  title="Roadmap"
+  description="Salvium's phased delivery plan — launch, compliance, DeFi, and ecosystem growth."
+>
+  <Roadmap />
+  <FinalCTA />
+</Layout>

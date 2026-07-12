@@ -1,0 +1,31 @@
+---
+// Salvium wordmark — points at the brand SVG file in /public/. We use the
+// cropped variant (`salvium_wordmark_white.svg`) rather than the original
+// 1024×1024 file because the source has heavy transparent padding that
+// makes the visible logo render at ~20% of the requested height. The
+// cropped copy has viewBox set to the letterforms so <img height=28>
+// shows the wordmark at 28px tall.
+//
+// Inline <img> not inline SVG — one HTTP request, browser-cached, swap
+// the file in /public/ to redesign without touching markup.
+import { href } from '../lib/href';
+
+interface Props {
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  className?: string;
+}
+const { size = 'sm', className = '' } = Astro.props;
+const heightClass =
+  size === 'xl' ? 'h-12' :
+  size === 'lg' ? 'h-10' :
+  size === 'md' ? 'h-9'  :
+  size === 'sm' ? 'h-7'  :
+                  'h-6';
+---
+
+<img
+  src={href('/brand/wordmark_logo/white/svg/salvium_wordmark_white.svg')}
+  alt="Salvium"
+  class={`${heightClass} w-auto block select-none ${className}`}
+  draggable="false"
+/>

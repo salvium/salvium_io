@@ -1,0 +1,56 @@
+---
+// Endlessly-scrolling brand phrases — pure CSS, no JS. The list is doubled
+// so the keyframe wraps seamlessly when it translates -50%. Pauses on
+// hover, respects prefers-reduced-motion.
+const ITEMS = [
+  'Privacy by Design',
+  'MiCAR Eligible',
+  'Monero-based',
+  'Stealth Addresses',
+  'Ring Confidential Tx',
+  'CARROT Addressing',
+  'SPARC Spend Proofs',
+  'Refundable Transactions',
+  'Selective Transparency',
+  'Forward Secrecy',
+  'T-CLSAG Audited',
+  'Programmable Privacy',
+  'Private DeFi',
+  'Salvium One · Live',
+];
+const loop = [...ITEMS, ...ITEMS];
+---
+
+<section aria-hidden="true" class="relative py-6 border-y border-white/[0.06] overflow-hidden">
+  <div class="marquee-track flex gap-12 whitespace-nowrap will-change-transform">
+    {loop.map((t, i) => (
+      <span class="flex items-center gap-3 text-[13px] uppercase tracking-[0.22em] text-white/55 font-mono">
+        <span class="w-1.5 h-1.5 rounded-full bg-[color:var(--color-neon)] shadow-[0_0_8px_#0AEB85]"></span>
+        {t}
+      </span>
+    ))}
+  </div>
+</section>
+
+<style>
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  /* Animation duration controls how fast the track translates -50%
+     (i.e. through one full copy of the doubled list). Mobile viewports
+     are narrow, so a 28s duration left "ages" between new items entering
+     view. 16s feels closer to web/desktop perceived speed. */
+  .marquee-track {
+    animation: marquee-scroll 38s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+  @media (max-width: 768px) {
+    .marquee-track { animation-duration: 16s; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+</style>

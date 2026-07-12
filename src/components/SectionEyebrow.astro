@@ -1,0 +1,30 @@
+---
+// Big-numbered section eyebrow used at the top of every home section
+// (Why 01, How It Works 02, Ecosystem 03, Tokenomics 04, Roadmap 05,
+// Blog 06). Direct port of siko-ctrl's React SectionEyebrow:
+//
+//   [BIG GHOST 01]   ─── 01 / Section Label
+//
+// The number renders huge but at white/6% opacity so it reads as
+// architecture rather than chrome.
+interface Props {
+  num: string;
+  label: string;
+}
+const { num, label } = Astro.props;
+---
+
+<div class="flex items-end gap-5">
+  <span
+    class="font-display font-semibold leading-none text-white/[0.06] select-none"
+    style="font-size: clamp(3.5rem, 9vw, 7rem); letter-spacing: -0.04em;"
+  >
+    {num}
+  </span>
+  <span class="pb-3 flex items-center gap-3">
+    <span class="h-px w-10 bg-[color:var(--color-teal)]/70"></span>
+    <span class="font-mono text-[11px] uppercase tracking-[0.32em] text-[color:var(--color-teal)]">
+      {label}
+    </span>
+  </span>
+</div>

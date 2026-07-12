@@ -1,66 +1,24 @@
-# Jekyll
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-.jekyll-cache/
-.bundle/
+# build output
+dist/
+# generated types
+.astro/
 
-# Node.js
+# dependencies
 node_modules/
+
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.npm
-.eslintcache
-# Note: package-lock.json is typically committed for consistency
+pnpm-debug.log*
 
-# Build outputs
-dist/
-*.min.js
-*.min.css
-css/output.css
 
-# Ruby/Bundler
-vendor/
-*.gem
-*.gemfile.lock.backup
-# Note: Gemfile.lock is typically committed for Jekyll projects
-
-# Environment files
+# environment variables
 .env
-.env.local
-.env.*.local
+.env.production
 
-# OS files
+# macOS-specific files
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-desktop.ini
 
-# Editor/IDE files
-.vscode/
+# jetbrains setting folder
 .idea/
-*.swp
-*.swo
-*~
-.project
-.classpath
-.settings/
-*.sublime-project
-*.sublime-workspace
-
-# Logs
-*.log
-logs/
-
-# Temporary files
-*.tmp
-*.temp
-.cache/
-
-

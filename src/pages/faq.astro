@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+import { FAQ_CONTENT } from '../data/pages.js';
+---
+
+<Layout title="FAQ" description="Common questions about Salvium — privacy, mining, staking, compliance, and DeFi.">
+  <PageHero
+    eyebrow="/ FAQ"
+    title="Questions, answered."
+    intro="Plain-English answers to the questions we get most often. If yours isn't here, drop it in Discord."
+  />
+  <section class="relative pb-16">
+    <div class="max-w-4xl mx-auto px-5 lg:px-8 space-y-10">
+      {FAQ_CONTENT.map((cat) => (
+        <div>
+          <h2 class="font-mono text-[11px] uppercase tracking-[0.22em] text-[color:var(--color-teal)] mb-4">
+            {cat.category}
+          </h2>
+          <div class="space-y-3">
+            {cat.items.map((qa) => (
+              <details class="glass p-5 group">
+                <summary class="flex items-start justify-between gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                  <h3 class="font-display text-base md:text-lg font-semibold text-white leading-snug">
+                    {qa.q}
+                  </h3>
+                  <span class="text-[color:var(--color-teal)] mt-1 transition-transform group-open:rotate-45 text-2xl leading-none font-light">
+                    +
+                  </span>
+                </summary>
+                <p class="mt-4 text-white/65 leading-relaxed">
+                  {qa.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <FinalCTA />
+</Layout>

@@ -1,0 +1,38 @@
+---
+// /stats — placeholder page mirroring the Jekyll "Coming Soon" stub. Keeps
+// any old /stats links from 404'ing post-cutover. Replace with a live
+// dashboard (block height, supply, hash rate, staker count) when we wire
+// up a data feed.
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+---
+
+<Layout title="Stats" description="Live network statistics — block height, hash rate, supply, and staking metrics.">
+  <PageHero
+    eyebrow="/ Stats"
+    title="Network statistics"
+    intro="A live dashboard for block height, hash rate, supply, and staker counts is on the roadmap."
+  />
+  <section class="relative pb-16">
+    <div class="max-w-3xl mx-auto px-5 lg:px-8">
+      <div class="glass p-10 text-center">
+        <div class="font-mono text-[11px] uppercase tracking-[0.32em] text-[color:var(--color-teal)] mb-3">
+          / Coming Soon
+        </div>
+        <p class="text-white/70 leading-relaxed">
+          Until then, the explorer at
+          <a href="https://explorer.salvium.io" target="_blank" rel="noopener noreferrer" class="text-[color:var(--color-teal)] hover:text-white transition-colors">
+            explorer.salvium.io
+          </a>
+          provides live chain data. Mining-pool stats are aggregated at
+          <a href="https://miningpoolstats.stream/salvium" target="_blank" rel="noopener noreferrer" class="text-[color:var(--color-teal)] hover:text-white transition-colors">
+            miningpoolstats.stream/salvium
+          </a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+</Layout>

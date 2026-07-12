@@ -1,0 +1,41 @@
+---
+// FinalCTA — closing pill above the footer with a faint banner backdrop.
+// Direct port of siko-ctrl's FinalCTA. Uses the brand banner.jpg from
+// public/brand/ as a 15%-opacity backdrop, with a left-to-right gradient
+// over it so the headline reads cleanly.
+import Reveal from '../Reveal.astro';
+import { href } from '../../lib/href';
+
+const BANNER = href('/brand/banner.jpg');
+---
+
+<section class="relative py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <Reveal>
+      <div class="relative glass-strong rounded-2xl p-6 sm:p-10 md:p-16 overflow-hidden">
+        <div
+          class="absolute inset-0 bg-cover bg-center opacity-15"
+          style={`background-image: url('${BANNER}');`}
+          aria-hidden="true"
+        ></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#1e1e1e] via-[#1e1e1e]/90 to-[#1e1e1e]/40"></div>
+        <div class="relative max-w-2xl">
+          <h3 class="font-display text-3xl md:text-5xl font-semibold tracking-tight text-white">
+            Ready to take the <span class="neon-text">green pill</span>?
+          </h3>
+          <p class="mt-4 text-white/70 text-lg">
+            Start your journey with Salvium today and be part of the next
+            generation of Private DeFi.
+          </p>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a href={href('/#products')} class="btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Get Started Now
+            </a>
+            <a href={href('/about')} class="btn-ghost">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </Reveal>
+  </div>
+</section>
