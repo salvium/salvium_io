@@ -422,4 +422,10 @@ export const POOLS_CONTENT = [
     desc: 'Community-run Salvium mining pool with PPLNS payouts.',
     href: 'https://whiskymine.io/',
   },
+  {
+    name: 'VEIN Pool',
+    tags: ['PPLNS / Solo', '1% Fee'],
+    desc: 'EU mining pool (France) on its own Salvium node, with PPLNS and solo mining support and automatic payouts to Carrot addresses.',
+    href: 'https://veinpool.fr/coin/sal?lang=en',
+  },
 ]
